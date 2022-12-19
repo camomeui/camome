@@ -1,0 +1,8 @@
+*.min.js
+node_modules/
+.contentlayer/
+.next
+.turbo
+dist
+out
+static-app

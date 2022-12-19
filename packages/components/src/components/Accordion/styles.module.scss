@@ -1,0 +1,38 @@
+$padding: 1rem;
+
+.details {
+  border-bottom: 1px solid var(--cmm-color-gray-200);
+
+  &[open] {
+    .summary {
+      color: var(--cmm-color-primary-600);
+
+      svg {
+        rotate: -180deg;
+      }
+    }
+  }
+}
+
+.summary {
+  display: block;
+  cursor: pointer;
+  padding: $padding;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  user-select: none;
+
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.contents {
+  padding: 0 $padding $padding $padding;
+  font-weight: var(--cmm-font-weight-light);
+}

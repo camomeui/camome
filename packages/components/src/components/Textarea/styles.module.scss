@@ -1,0 +1,27 @@
+@use "../../styles/inputs";
+
+.Block {
+  @include inputs.base(Textarea);
+
+  width: var(--Textarea-width);
+  padding: 0.5rem;
+  resize: none;
+
+  &::placeholder {
+    font-weight: var(--cmm-font-weight-light);
+  }
+
+  &[aria-invalid] {
+    border-color: var(--cmm-color-danger-200);
+    color: var(--cmm-color-danger-600);
+    outline-color: var(--cmm-color-danger-200);
+
+    &::placeholder {
+      color: var(--cmm-color-danger-400);
+    }
+  }
+
+  &--fill {
+    --Textarea-width: 100%;
+  }
+}

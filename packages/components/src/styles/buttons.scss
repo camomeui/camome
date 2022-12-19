@@ -1,0 +1,95 @@
+@use "./variables";
+
+@mixin colorScheme($color) {
+  --bg-solid: var(--cmm-color-#{$color}-500);
+  --bg-solid-hover: var(--cmm-color-#{$color}-600);
+  --bg-subtle: var(--cmm-color-#{$color}-50);
+  --bg-subtle-hover: var(--cmm-color-#{$color}-100);
+  --bg-outline: transparent;
+  --bg-outline-hover: var(--cmm-color-#{$color}-100);
+  --bg-ghost: transparent;
+  --bg-ghost-hover: var(--cmm-color-#{$color}-100);
+
+  --color-solid: var(--cmm-color-white);
+  --color-subtle: var(--cmm-color-#{$color}-600);
+  --color-outline: var(--cmm-color-#{$color}-600);
+  --color-ghost: var(--cmm-color-#{$color}-600);
+
+  --border-outline: 1px solid var(--cmm-color-#{$color}-200);
+}
+
+%colorSchemeDefaults {
+  @include colorScheme("primary");
+}
+
+%variantDefaults {
+  background-color: var(--bg-solid);
+  color: var(--color-solid);
+}
+
+@mixin base() {
+  .Block {
+    @extend %colorSchemeDefaults;
+    @extend %variantDefaults;
+
+    font-weight: var(--cmm-font-weight-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    user-select: none;
+    transition: var(--cmm-transition-bg);
+
+    &:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background-color: var(--bg-solid-hover);
+    }
+  }
+
+  // Color Schemes
+
+  @each $color in variables.$colors {
+    .--#{$color} {
+      @include colorScheme(($color));
+    }
+  }
+
+  // Variants
+
+  .--solid {
+    @extend %variantDefaults;
+  }
+
+  .--subtle {
+    background-color: var(--bg-subtle);
+    color: var(--color-subtle);
+
+    &:hover:not(:disabled) {
+      background-color: var(--bg-subtle-hover);
+    }
+  }
+
+  .--outline {
+    background-color: var(--bg-outline);
+    color: var(--color-outline);
+    border: var(--border-outline);
+
+    &:hover:not(:disabled) {
+      background-color: var(--bg-outline-hover);
+    }
+  }
+
+  .--ghost {
+    padding: 0 0.5rem;
+    background-color: var(--bg-ghost);
+    color: var(--color-ghost);
+
+    &:hover:not(:disabled) {
+      background-color: var(--bg-ghost-hover);
+    }
+  }
+}

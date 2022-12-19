@@ -1,0 +1,4 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cssvar.files": ["apps/web/src/styles/tokens.css"]
+}

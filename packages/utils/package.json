@@ -1,0 +1,22 @@
+{
+  "name": "@camome/utils",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm --dts",
+    "dev": "pnpm build --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^6.3.0"
+  },
+  "exports": {
+    "import": "./dist/index.esm.js"
+  },
+  "types": "./dist/index.d.ts"
+}

@@ -1,0 +1,92 @@
+$default-text-margin: 0;
+$default-required-mark: "*";
+
+%blockBase {
+  display: grid;
+  row-gap: 0.25rem;
+}
+
+%horizontalBase {
+  align-items: center;
+  column-gap: 0.5rem;
+  width: fit-content;
+}
+
+.Block {
+  @extend %blockBase;
+
+  &:has([required]) .label-text {
+    &::after {
+      content: var(--FormControl-required-mark, $default-required-mark);
+      color: var(--cmm-color-danger-500);
+      margin-left: 0.25rem;
+    }
+  }
+
+  &:has(input[type="radio"]) {
+    --FormControl-text-margin: 0;
+  }
+}
+
+.label-text {
+  font-size: var(--cmm-font-size-sm);
+  margin: var(--FormControl-text-margin, $default-text-margin);
+  line-height: 1.2;
+}
+
+%description-text {
+  font-size: var(--cmm-font-size-xs);
+  margin: var(--FormControl-text-margin, $default-text-margin);
+}
+
+.helper-text {
+  @extend %description-text;
+
+  color: var(--FormControl-helper-text-color, var(--cmm-color-gray-600));
+}
+
+.error-text {
+  @extend %description-text;
+
+  color: var(--FormControl-error-text-color, var(--cmm-color-danger-600));
+}
+
+.--vertical {
+  @extend %blockBase;
+}
+
+.--horizontal {
+  @extend %blockBase;
+  @extend %horizontalBase;
+
+  grid-template-columns: auto 1fr;
+
+  .form-field {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .label-text,
+  .helper-text,
+  .error-text {
+    grid-column: 1;
+  }
+}
+
+.--horizontal-reverse {
+  @extend %blockBase;
+  @extend %horizontalBase;
+
+  grid-template-columns: auto 1fr;
+
+  .form-field {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .label-text,
+  .helper-text,
+  .error-text {
+    grid-column: 2;
+  }
+}

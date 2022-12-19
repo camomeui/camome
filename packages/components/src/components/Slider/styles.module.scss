@@ -1,0 +1,67 @@
+.Block {
+  @extend %size-defaults;
+
+  --thumb-color: var(--cmm-color-white);
+  --thumb-border-color: var(--cmm-color-primary-500);
+  --track-color: var(--cmm-color-gray-200);
+  --track-radius: var(--cmm-rounded-full);
+
+  width: 100%;
+  appearance: none;
+  height: var(--track-height);
+  border-radius: var(--track-radius);
+  background: var(--track-color);
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-within {
+    &::-webkit-slider-thumb {
+      outline: var(--cmm-outline);
+      outline-offset: var(--cmm-outline-offset);
+    }
+  }
+
+  // Selecting both `-webkit` and `-moz` causes weird behavior.
+  // Following ways are not working:
+  // - &::-webkit-slider-thumb, &::-moz-range-thumb {...
+  // - %thumb-base
+  @mixin thumb-base {
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    border-radius: var(--cmm-rounded-full);
+    background: var(--thumb-color);
+    border: 3px solid var(--thumb-border-color);
+    appearance: none;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-base;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-base;
+  }
+}
+
+%size-defaults {
+  --track-height: 0.4rem;
+  --thumb-size: 1rem;
+}
+
+.--sm {
+  --track-height: 0.25rem;
+  --thumb-size: 0.75rem;
+}
+
+.--md {
+  @extend %size-defaults;
+}
+
+.--lg {
+  --track-height: 0.6rem;
+  --thumb-size: 1.25rem;
+}

@@ -1,0 +1,66 @@
+$arrowSize: 0.3rem;
+$offset: 2.25rem;
+$bgColor: var(--cmm-color-gray-800);
+
+.target {
+  position: relative;
+  width: fit-content;
+
+  &:hover,
+  &:focus-within {
+    .content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  white-space: nowrap;
+  font-size: var(--cmm-font-size-xs);
+  font-weight: var(--cmm-font-weight-light);
+  line-height: 1;
+  background-color: $bgColor;
+  color: var(--cmm-color-white);
+  border-radius: var(--cmm-rounded-md);
+  transition: 0.2s ease-in;
+  transition-delay: 0.15s;
+  display: inline-block;
+  padding: 0.5rem;
+
+  &[data-placement="top"] {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -$offset;
+
+    &:before {
+      content: "";
+      position: absolute;
+      // `$arrowSize * 2 * -1` works on Chrome but not Safari
+      bottom: calc($arrowSize * 1.9 * -1);
+      left: 50%;
+      margin-left: -$arrowSize;
+      border: $arrowSize solid transparent;
+      border-top: $arrowSize solid $bgColor;
+    }
+  }
+
+  &[data-placement="bottom"] {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -$offset;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: calc($arrowSize * 1.9 * -1);
+      left: 50%;
+      margin-left: -$arrowSize;
+      border: $arrowSize solid transparent;
+      border-bottom: $arrowSize solid $bgColor;
+    }
+  }
+}

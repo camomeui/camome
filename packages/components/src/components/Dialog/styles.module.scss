@@ -1,0 +1,51 @@
+.Block {
+  position: relative;
+  z-index: 100;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.panel-wrapper {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+}
+
+.panel {
+  position: relative;
+  min-width: min(
+    calc(100vw - 2 * var(--Dialog-outer-padding, 1rem)),
+    var(--Dialog-min-width, 28rem)
+  );
+  max-width: var(--Dialog-max-width, 28rem);
+  margin: var(--Dialog-panel-margin, 0 1rem);
+  padding: var(--Dialog-panel-padding, 1.5rem);
+  background-color: var(--cmm-color-white);
+  border-radius: var(--cmm-rounded-xl);
+}
+
+.title {
+  font-weight: var(--cmm-font-weight-medium);
+  font-size: var(--cmm-font-size-lg);
+}
+
+.content {
+  margin: 0.5rem 0 1rem 0;
+  font-weight: var(--cmm-font-weight-light);
+  color: var(--cmm-color-gray-500);
+}
+
+.close {
+  --IconButton-size: 1.75rem;
+  --IconButton-icon-size: calc(var(--IconButton-size) * 0.75);
+
+  $offset: 0.75rem;
+
+  position: absolute;
+  inset: var(--DialogDelete-inset, $offset $offset auto auto);
+}

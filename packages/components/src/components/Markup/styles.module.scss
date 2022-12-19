@@ -1,0 +1,183 @@
+.Block {
+  :where(h1, h2, h3, h4):not(:where([class~="no-markup"] *)) {
+    margin-top: 2.25rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  :where(table, img, blockquote):not(:where([class~="no-markup"] *)) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :where(p):not(:where([class~="no-markup"] *)) {
+    margin-top: 1rem;
+  }
+
+  :where(ul, ol):not(:first-child):not(:where([class~="no-markup"] *)) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :where(ul, ol):not(:where([class~="no-markup"] *)) :where(ul, ol) {
+    // margin-top should be the same as the gap of list items.
+    margin: 0.5rem 0 0 0;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  :where(h1, h2):not(:where([class~="no-markup"] *)) {
+    font-weight: var(--cmm-font-weight-semibold);
+    font-size: var(--cmm-font-size-2xl);
+    border-bottom: 1px solid var(--cmm-color-gray-200);
+    padding-bottom: 0.3rem;
+  }
+
+  :where(h3):not(:where([class~="no-markup"] *)) {
+    font-weight: var(--cmm-font-weight-semibold);
+    font-size: var(--cmm-font-size-xl);
+  }
+
+  :where(h4):not(:where([class~="no-markup"] *)) {
+    font-weight: var(--cmm-font-weight-bold);
+    font-size: var(--cmm-font-size-lg);
+  }
+
+  :where(a):not(:where([class~="no-markup"] *)) {
+    color: var(--cmm-color-primary-600);
+    font-weight: var(--cmm-font-weight-medium);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  :where(code):not(:where([class~="no-markup"] *)) {
+    background-color: var(--cmm-color-code-bg);
+    padding: 0.1em 0.3em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--cmm-rounded-sm);
+    font-family: var(--cmm-font-family-code);
+    font-weight: var(--cmm-font-weight-normal);
+    font-size: 0.85em;
+    overflow: auto;
+  }
+
+  :where(pre) {
+    // Firefox doesn't support :has() yet, but OK as not so important.
+    &:has(code) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  :where(pre code):not(:where([class~="no-markup"] *)) {
+    border: none;
+    display: block;
+    background-color: var(--cmm-color-gray-50);
+    padding: 1rem 0;
+    border-radius: var(--cmm-rounded-lg);
+    border: 1px solid var(--cmm-color-gray-200);
+    border-top: none;
+    font-weight: var(--cmm-font-weight-normal);
+    font-size: 0.85em;
+    max-height: 28em;
+  }
+
+  :global(.remark-code-title) {
+    margin-top: 2rem;
+    border-top-left-radius: var(--cmm-rounded-lg);
+    border-top-right-radius: var(--cmm-rounded-lg);
+    background-color: var(--cmm-color-gray-100);
+    color: var(--cmm-color-gray-500);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: var(--cmm-font-size-sm);
+
+    & + * :where(pre):not(:where([class~="no-markup"] *)) {
+      margin-top: 0;
+
+      code {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+
+  :where(blockquote):not(:where([class~="no-markup"] *)) {
+    border-left: 0.2rem solid var(--cmm-color-gray-300);
+    padding-left: 1em;
+  }
+
+  :where(ul, ol):not(:where([class~="no-markup"] *)) {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :where(ul):not(:where([class~="no-markup"] *)) {
+    list-style: disc;
+  }
+
+  :where(ul[class~="contains-task-list"]):not(:where([class~="no-markup"] *)) {
+    list-style: none;
+  }
+
+  :where(ol):not(:where([class~="no-markup"] *)) {
+    list-style: decimal;
+  }
+
+  :where(p):not(:where([class~="no-markup"] *)) {
+    line-height: 1.75;
+    font-weight: var(--cmm-font-weight-light);
+  }
+
+  :where(table):not(:where([class~="no-markup"] *)) {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th {
+      text-align: start;
+      border-top: 1px solid var(--cmm-color-gray-200);
+      border-bottom: 1px solid var(--cmm-color-gray-200);
+      background-color: var(--cmm-color-gray-50);
+    }
+
+    th:first-child {
+      border-left: 1px solid var(--cmm-color-gray-200);
+      border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
+    }
+
+    th:last-child {
+      border-right: 1px solid var(--cmm-color-gray-200);
+      border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
+    }
+
+    td,
+    th {
+      padding: 0.75rem;
+    }
+
+    tr:not(:last-of-type) td {
+      border-bottom: 1px solid var(--cmm-color-gray-200);
+    }
+  }
+
+  :where(b, strong) {
+    font-weight: var(--cmm-font-weight-medium);
+  }
+
+  :global(.Message):not(:where([class~="no-markup"] *)) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    p {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

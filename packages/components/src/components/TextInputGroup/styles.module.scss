@@ -1,0 +1,31 @@
+.Block {
+  display: inline-flex;
+  position: relative;
+}
+
+%decorator {
+  position: absolute;
+  display: grid;
+  place-content: center;
+  top: 0;
+  bottom: 0;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.decorator--left {
+  @extend %decorator;
+
+  left: 0;
+  width: var(--TextInput-left-decor-width);
+}
+
+.decorator--right {
+  @extend %decorator;
+
+  right: 0;
+  width: var(--TextInput-right-decor-width);
+}

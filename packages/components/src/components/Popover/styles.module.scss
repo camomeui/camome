@@ -1,0 +1,56 @@
+$panelZ: 10;
+
+.wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.panel {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  margin-top: 1rem;
+  z-index: $panelZ;
+  animation: show 0.3s forwards;
+
+  &__arrow {
+    $size: 0.9rem;
+
+    position: absolute;
+    top: calc($size / -2);
+    left: 50%;
+    width: $size;
+    height: $size;
+    translate: -50%;
+    background-color: var(--cmm-color-white);
+    box-shadow: var(--cmm-shadow-lg);
+    border-top-left-radius: var(--cmm-rounded-sm);
+    rotate: 45deg;
+    clip-path: polygon(
+      -1rem -1rem,
+      -1rem calc(100% + 1rem),
+      calc(100% + 1rem) -1rem
+    );
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    background-color: var(--cmm-color-white);
+    box-shadow: var(--cmm-shadow-sm);
+    border-radius: var(--cmm-rounded-lg);
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(0.3rem);
+  }
+  to {
+    translate: 1;
+    transform: translateY(0);
+  }
+}

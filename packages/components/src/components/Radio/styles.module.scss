@@ -1,0 +1,85 @@
+.Block {
+  @extend %sizeDefaults;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+
+  // FIXME: don't use `:has()`
+  &:has(input[type="radio"]:disabled) {
+    cursor: not-allowed;
+    color: var(--cmm-color-gray-400);
+
+    label {
+      cursor: not-allowed;
+    }
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--cmm-rounded-full);
+    background-color: var(--cmm-color-primary-100);
+    // border: 1px solid var(--cmm-color-gray-200);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: calc(var(--size) * (calc(1 - var(--ring-width))));
+      height: calc(var(--size) * (calc(1 - var(--ring-width))));
+      border-radius: var(--cmm-rounded-full);
+      background-color: var(--cmm-color-primary-100);
+      scale: 0;
+    }
+
+    &:checked {
+      background-color: var(--cmm-color-primary-100);
+
+      &::before {
+        scale: 1;
+        background-color: var(--cmm-color-primary-600);
+      }
+    }
+
+    &:disabled {
+      background-color: var(--cmm-color-gray-100);
+      &:checked {
+        &::before {
+          background-color: var(--cmm-color-gray-400);
+        }
+      }
+      cursor: not-allowed;
+    }
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+%sizeDefaults {
+  --size: 1.25rem;
+  --font-size: var(--cmm-font-size-md);
+  --ring-width: 0.5;
+}
+
+.--sm {
+  --size: 1rem;
+  --font-size: var(--cmm-font-size-sm);
+  --ring-width: 0.6; // 0.5 is hard to see
+}
+
+.--md {
+  @extend %sizeDefaults;
+}
+
+.--lg {
+  --size: 1.5rem;
+  --font-size: var(--cmm-font-size-md);
+  --ring-width: 0.5;
+}

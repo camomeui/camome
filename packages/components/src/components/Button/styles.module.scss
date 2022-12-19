@@ -1,0 +1,58 @@
+@use "../../styles/variables";
+@use "../../styles/buttons";
+
+@include buttons.base;
+
+.Block {
+  @extend %sizeDefaults;
+
+  height: var(--height);
+  padding: 0 var(--pad-x);
+  font-size: var(--font-size);
+  border-radius: var(--Button-radius, var(--cmm-rounded-lg));
+}
+
+// Sizes
+
+%sizeDefaults {
+  --height: 2.5rem;
+  --font-size: var(--cmm-font-size-sm);
+  --pad-x: 1rem;
+}
+
+.--sm {
+  --height: 2rem;
+  --font-size: var(--cmm-font-size-sm);
+  --pad-x: 0.75rem;
+}
+
+.--md {
+  @extend %sizeDefaults;
+}
+
+.--lg {
+  --height: 3rem;
+  --font-size: var(--cmm-font-size-md);
+  --pad-x: 1.25rem;
+}
+
+// Icon
+
+%icon {
+  --icon-margin: 0.5rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.leftIcon {
+  @extend %icon;
+
+  margin-right: var(--icon-margin);
+}
+
+.rightIcon {
+  @extend %icon;
+
+  margin-left: var(--icon-margin);
+}

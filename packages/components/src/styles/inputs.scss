@@ -1,0 +1,51 @@
+@mixin sizes($blockName) {
+  --#{$blockName}-font-size: var(--cmm-font-size-md);
+  --#{$blockName}-height: 2.25rem;
+  --#{$blockName}-padding-x: 0.75rem;
+
+  height: var(--#{$blockName}-height);
+  width: var(--#{$blockName}-width);
+  padding: 0 var(--#{$blockName}-padding-x);
+  font-size: var(--#{$blockName}-font-size);
+
+  &--sm {
+    --#{$blockName}-font-size: var(--cmm-font-size-sm);
+    --#{$blockName}-height: 1.75rem;
+    --#{$blockName}-pad-x: 0.5rem;
+  }
+
+  &--md {
+    --#{$blockName}-font-size: var(--cmm-font-size-md);
+    --#{$blockName}-height: 2.25rem;
+    --#{$blockName}-padding-x: 0.75rem;
+  }
+
+  &--lg {
+    --#{$blockName}-font-size: var(--cmm-font-size-md);
+    --#{$blockName}-height: 2.75rem;
+    --#{$blockName}-pad-x: 1rem;
+  }
+}
+
+@mixin base($blockName) {
+  appearance: none;
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--#{$blockName}-radius, var(--cmm-rounded-lg));
+  background-color: var(--cmm-color-white);
+  transition: var(--cmm-transition-bg);
+  font-weight: var(--cmm-font-weight-light);
+
+  &:disabled {
+    background-color: var(--cmm-color-gray-100);
+    color: var(--cmm-color-gray-500);
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+
+  &::placeholder {
+    color: var(--cmm-color-gray-400);
+  }
+}

@@ -1,0 +1,40 @@
+@use "../../styles/variables";
+@use "../../styles/buttons";
+
+@include buttons.base;
+
+.Block {
+  @extend %sizeDefaults;
+
+  border-radius: var(--IconButton-radius, var(--cmm-rounded-lg));
+  width: var(--IconButton-size, var(--size));
+  height: var(--IconButton-size, var(--size));
+  margin: var(--IconButton-margin);
+  padding: 0;
+
+  svg {
+    width: var(--IconButton-icon-size, var(--icon-size));
+    height: var(--IconButton-icon-size, var(--icon-size));
+  }
+}
+
+// Sizes
+
+%sizeDefaults {
+  --size: 2.5rem;
+  --icon-size: 1.75rem;
+}
+
+.--sm {
+  --size: 2rem;
+  --icon-size: 1.25rem;
+}
+
+.--md {
+  @extend %sizeDefaults;
+}
+
+.--lg {
+  --size: 3.5rem;
+  --icon-size: 2.25rem;
+}

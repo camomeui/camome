@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:import/recommended"
+  ],
+  "overrides": [
+    {
+      "files": "**/*.{js,jsx,ts,tsx}",
+      "settings": {
+        "import/internal-regex": ["^((@|@camome)/|contentlayer/generated)"]
+      },
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "type",
+              "internal",
+              "parent",
+              "index",
+              "object",
+              "sibling"
+            ],
+            "alphabetize": {
+              "order": "asc"
+            },
+            "newlines-between": "always"
+          }
+        ]
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["packages/*/tsconfig.json", "apps/*/tsconfig.json"]
+      }
+    }
+  }
+}
