@@ -1,10 +1,15 @@
 {
   "name": "@camome/components",
   "version": "0.0.0",
-  "type": "module",
-  "license": "MIT",
-  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "description": "Head-only React components.",
+  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/camomeui/camome.git",
+    "type": "git",
+    "directory": "packages/components"
+  },
+  "type": "module",
   "scripts": {
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
