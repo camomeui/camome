@@ -20,7 +20,6 @@ import {
   TextInputGroup,
   Tooltip,
 } from "@camome/components";
-import useScrollLock from "@camome/components/src/hooks/useScrollLock";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
@@ -49,25 +48,13 @@ type Props = {
 
 export default function Header({ menuContent, classNames }: Props) {
   const dialogRef = React.useRef<HTMLDialogElement>(null!);
-  const { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } =
-    useScrollLock(dialogRef);
 
   const openMenu = () => {
-    disableBodyScroll();
     dialogRef.current?.showModal();
   };
   const closeMenu = () => {
     dialogRef.current?.close();
   };
-
-  React.useEffect(() => {
-    dialogRef.current.addEventListener("close", () => {
-      enableBodyScroll();
-    });
-    return () => {
-      clearAllBodyScrollLocks();
-    };
-  }, [clearAllBodyScrollLocks, enableBodyScroll]);
 
   return (
     <header className={clsx(styles.Block, classNames?.block)}>

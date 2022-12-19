@@ -4,6 +4,7 @@
   "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "license": "MIT",
   "private": false,
+  "type": "module",
   "repository": {
     "url": "https://github.com/camomeui/camome.git",
     "type": "git",
