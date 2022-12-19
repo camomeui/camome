@@ -24,6 +24,3 @@ export * from "./components/Kbd";
 export * from "./components/Slider";
 export * from "./components/Menu";
 export * from "./components/FormControl/useFormControlContext";
-
-export * from "./contexts/browserContext";
-export * from "./hooks/useIsBrowser";
