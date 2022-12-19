@@ -155,19 +155,15 @@ importers:
   packages/components:
     specifiers:
       '@camome/utils': workspace:*
-      '@headlessui/react': ^1.7.4
       '@heroicons/react': ^2.0.10
       '@types/body-scroll-lock': ^3.1.0
       '@vitejs/plugin-react': ^3.0.0
-      body-scroll-lock: 4.0.0-beta.0
       sass: ^1.55.0
       vite: ^4.0.0
       vite-plugin-dts: ^1.7.1
     dependencies:
       '@camome/utils': link:../utils
-      '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.10_react@18.2.0
-      body-scroll-lock: 4.0.0-beta.0
     devDependencies:
       '@types/body-scroll-lock': 3.1.0
       '@vitejs/plugin-react': 3.0.0_vite@4.0.0
@@ -3474,10 +3470,6 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
-
-  /body-scroll-lock/4.0.0-beta.0:
-    resolution: {integrity: sha512-a7tP5+0Mw3YlUJcGAKUqIBkYYGlYxk2fnCasq/FUph1hadxlTRjF+gAcZksxANnaMnALjxEddmSi/H3OR8ugcQ==}
-    dev: false
 
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}

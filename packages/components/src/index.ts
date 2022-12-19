@@ -17,14 +17,13 @@ export * from "./components/Textarea";
 export * from "./components/Tooltip";
 export * from "./components/Dialog";
 export * from "./components/Tab";
-export * from "./components/Popover";
 export * from "./components/Spinner";
 export * from "./components/Select";
 export * from "./components/BrowserOnly";
 export * from "./components/Kbd";
 export * from "./components/Slider";
 export * from "./components/Menu";
+export * from "./components/FormControl/useFormControlContext";
 
 export * from "./contexts/browserContext";
 export * from "./hooks/useIsBrowser";
-export * from "./components/FormControl/useFormControlContext";

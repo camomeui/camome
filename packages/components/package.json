@@ -1,19 +1,18 @@
 {
   "name": "@camome/components",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
+  "description": "Head-only React components.",
   "scripts": {
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
-    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
-    "build": "vite build"
+    "dev": "pnpm gen-scss-type -w"
   },
   "dependencies": {
     "@camome/utils": "workspace:*",
-    "@headlessui/react": "^1.7.4",
-    "@heroicons/react": "^2.0.10",
-    "body-scroll-lock": "4.0.0-beta.0"
+    "@heroicons/react": "^2.0.10"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^3.1.0",
