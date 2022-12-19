@@ -1,5 +1,6 @@
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
+import React from "react";
 
 import styles from "./styles.module.scss";
 

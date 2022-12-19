@@ -1,9 +1,10 @@
 {
   "name": "@camome/components",
-  "version": "0.0.0",
+  "version": "0.1.4",
   "description": "Head-only React components.",
   "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "license": "MIT",
+  "private": false,
   "repository": {
     "url": "https://github.com/camomeui/camome.git",
     "type": "git",
@@ -16,8 +17,9 @@
     "dev": "pnpm gen-scss-type -w"
   },
   "dependencies": {
-    "@camome/utils": "workspace:*",
-    "@heroicons/react": "^2.0.10"
+    "@camome/utils": "^0.1.0",
+    "@heroicons/react": "^2.0.10",
+    "clsx": "^1.2.1"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^3.1.0",
@@ -25,6 +27,9 @@
     "sass": "^1.55.0",
     "vite": "^4.0.0",
     "vite-plugin-dts": "^1.7.1"
+  },
+  "peerDependencies": {
+    "react": ">=18"
   },
   "module": "./src/index.ts",
   "types": "./src/index.ts",
