@@ -1,0 +1,32 @@
+%previewBase {
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview--horizontal {
+  @extend %previewBase;
+
+  flex-direction: row;
+}
+
+.preview--vertical {
+  @extend %previewBase;
+
+  flex-direction: column;
+}
+
+.pre--live {
+  margin-top: 0 !important;
+  margin-bottom: 2rem;
+}
+
+.code--live {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}

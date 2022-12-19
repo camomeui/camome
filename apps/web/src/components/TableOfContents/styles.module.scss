@@ -1,0 +1,62 @@
+@use "@/styles/variables";
+
+.Block {
+  --title-height: 1.5rem;
+  --title-row-gap: 0.5rem;
+
+  display: grid;
+  row-gap: var(--title-row-gap);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: var(--cmm-font-size-xs);
+  text-transform: uppercase;
+  color: var(--cmm-color-gray-500);
+  height: var(--title-height);
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--cmm-color-primary-500);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  color: var(--cmm-color-gray-700);
+  border-left: 2px solid var(--cmm-color-gray-200);
+  max-height: calc(
+    100dvh - variables.$headerHeight - var(--title-height) -
+      var(--title-row-gap) - 2rem
+  );
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  padding: 0.25rem 0;
+  padding-left: 1rem;
+  font-size: var(--cmm-font-size-sm);
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.indent {
+  padding-left: 2rem;
+}
+
+.active {
+  background-color: var(--cmm-color-primary-50);
+  color: var(--cmm-color-primary-600);
+  position: relative;
+  border-left: 2px solid var(--cmm-color-primary-500);
+  margin-left: -2px;
+}

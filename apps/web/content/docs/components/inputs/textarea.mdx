@@ -1,0 +1,35 @@
+---
+title: "Textarea"
+id: "textarea"
+description: "A Textarea lets the user to enter and edit multiline text."
+---
+
+## Usage
+
+```tsx live
+<FormControl labelText="Message" helperText="Tell your thoughts">
+  <Textarea rows={3} required placeholder="Type something..." />
+</FormControl>;
+```
+
+## States
+
+### Error
+
+```tsx live
+<FormControl
+  labelText="Message"
+  helperText="Tell you thoughts"
+  error="Something is wrong"
+>
+  <Textarea rows={3} required placeholder="Type something..." />
+</FormControl>;
+```
+
+### Disabled
+
+```tsx live
+<FormControl labelText="Message">
+  <Textarea rows={3} required disabled placeholder="You can't type..." />
+</FormControl>;
+```

@@ -1,0 +1,79 @@
+@use "@/styles/variables";
+
+.header {
+  background-color: var(--cmm-color-gray-900);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  z-index: 9999;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.inner {
+  @include variables.container();
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+}
+
+.logo {
+  display: inline-block;
+
+  & svg {
+    width: 11rem;
+    height: auto;
+    color: var(--cmm-color-white);
+
+    @include variables.mq("md") {
+      width: 8rem;
+    }
+  }
+}
+
+.devices {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: flex;
+  gap: 1rem;
+
+  @include variables.mq("md") {
+    display: none;
+  }
+}
+
+.deviceButton {
+  & svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--cmm-color-white);
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.close {
+  color: white !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+
+  &:hover {
+    background-color: var(--cmm-color-gray-700) !important;
+  }
+}
+
+.buy {
+  height: 2rem !important;
+}

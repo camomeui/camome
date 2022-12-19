@@ -1,0 +1,42 @@
+---
+title: "Checkbox"
+id: "checkbox"
+description: "Checkboxes allow the user to select one or more items from a set"
+---
+
+## Usage
+
+```tsx live
+<Checkbox labelText="Agree to our Privacy Policy" value="true" required />;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <Checkbox labelText="Agree to our Privacy Policy" value="true" size="sm" />
+  <Checkbox labelText="Agree to our Privacy Policy" value="true" size="md" />
+  <Checkbox labelText="Agree to our Privacy Policy" value="true" size="lg" />
+</>;
+```
+
+## States
+
+### Disabled
+
+```tsx live
+<>
+  <Checkbox labelText="Checked" value="true" checked disabled />
+  <Checkbox labelText="Not checked" value="true" disabled />
+</>;
+```
+
+## With helper text
+
+```tsx live
+<Checkbox
+  labelText="With helper text"
+  helperText="Descriptive text"
+  value="true"
+/>;
+```

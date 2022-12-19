@@ -1,0 +1,51 @@
+---
+title: "Message"
+id: "message"
+description: "A Message shows and highlights important information."
+---
+
+## Usage
+
+```tsx live direction="vertical"
+<>
+  <Message status="success" title="This is the title">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+  <Message status="info">
+    You can omit the title. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et.
+  </Message>
+  <Message
+    status="danger"
+    title="Pass any SVG to customize the icon"
+    icon={<EyeIcon />}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+</>;
+```
+
+## Variants
+
+```tsx live direction="vertical"
+<>
+  <Message status="success" title="Success" isAlert>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+  <Message status="info" title="Info" isAlert>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+  <Message status="warn" title="Warn" isAlert>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+  <Message status="danger" title="Danger" isAlert>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et.
+  </Message>
+</>;
+```

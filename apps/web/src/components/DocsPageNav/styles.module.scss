@@ -1,0 +1,64 @@
+@use "@/styles/variables";
+
+.Block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+
+  @include variables.mq("sm") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link {
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-lg);
+  padding: 1rem;
+  display: grid;
+  row-gap: 0.25rem;
+  transition: var(--cmm-transition-bg);
+
+  &__upper {
+    font-size: var(--cmm-font-size-sm);
+    color: var(--cmm-color-gray-500);
+
+    &.next {
+      text-align: end;
+    }
+  }
+
+  &__lower {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: var(--cmm-color-primary-600);
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &.next {
+      justify-content: flex-end;
+    }
+
+    &.prev {
+      justify-content: flex-start;
+    }
+  }
+
+  &:hover {
+    background-color: var(--cmm-color-gray-100);
+  }
+
+  @include variables.mq("sm") {
+    &.next {
+      grid-row: 1;
+    }
+
+    &.prev {
+      grid-row: 2;
+    }
+  }
+}

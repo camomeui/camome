@@ -1,0 +1,55 @@
+---
+title: "Select"
+id: "select"
+description: "A select let the user pick an item from a list of options."
+---
+
+## Usage
+
+```tsx live
+<FormControl labelText="Your position">
+  <Select>
+    <option value="developer">Developer</option>
+    <option value="designer">Designer</option>
+    <option value="marketer">Marketer</option>
+  </Select>
+</FormControl>;
+```
+
+## States
+
+### Error
+
+```tsx live
+<FormControl labelText="Your position" error="Something is wrong">
+  <Select>
+    <option value="developer">Developer</option>
+    <option value="designer">Designer</option>
+    <option value="marketer">Marketer</option>
+  </Select>
+</FormControl>;
+```
+
+### Disabled
+
+```tsx live
+<Select disabled>
+  <option value="developer">Developer</option>
+</Select>;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <Select size="sm">
+    <option value="developer">Developer</option>
+  </Select>
+  <Select size="md">
+    <option value="developer">Developer</option>
+  </Select>
+  <Select size="lg">
+    <option value="developer">Developer</option>
+  </Select>
+</>;
+```

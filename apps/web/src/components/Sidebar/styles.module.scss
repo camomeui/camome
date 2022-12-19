@@ -1,0 +1,14 @@
+@use "@/styles/variables";
+
+$rowGap: 0.25rem;
+
+.Block {
+  padding: 0.5rem;
+  padding-bottom: 3rem;
+  border-right: 1px solid var(--cmm-color-gray-200);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  position: sticky;
+  top: variables.$headerHeight;
+  height: calc(100vh - variables.$headerHeight);
+}

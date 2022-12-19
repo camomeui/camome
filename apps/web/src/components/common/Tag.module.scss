@@ -1,0 +1,24 @@
+@use "@/styles/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--cmm-rounded-full);
+  border: 1px solid var(--cmm-color-primary-100);
+  color: var(--cmm-color-primary-600);
+  width: fit-content;
+  padding: 0.1rem 0.6rem 0.1rem 0.25rem;
+  font-weight: var(--cmm-font-weight-medium);
+  font-size: var(--cmm-font-size-sm);
+
+  @include variables.mq("md") {
+    font-size: var(--cmm-font-size-xs);
+  }
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--cmm-rounded-full);
+}

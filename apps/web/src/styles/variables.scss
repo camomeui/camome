@@ -1,0 +1,30 @@
+$sm: 30rem;
+$md: 48rem;
+$lg: 62rem;
+$xl: 75rem;
+
+$breakpoints: (
+  "sm": $sm,
+  "md": $md,
+  "lg": $lg,
+  "xl": $xl,
+);
+
+$headerHeight: 3.5rem;
+
+@mixin mq($size) {
+  @media screen and (max-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin container($maxWidth: $xl, $padX: 1rem) {
+  width: 100%;
+  max-width: $maxWidth;
+  margin: 0 auto;
+
+  @include mq("xl") {
+    padding-right: $padX;
+    padding-left: $padX;
+  }
+}

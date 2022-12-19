@@ -1,0 +1,72 @@
+---
+title: "Avatar"
+id: "avatar"
+description: "An Avatar is a graphical representation of user."
+---
+
+## Overview
+
+```tsx live
+<>
+  <Avatar src="/avatars/0.jpg" alt="Alt Name" />
+  <Avatar variant="subtle" colorScheme="primary">
+    JD
+  </Avatar>
+  <Avatar variant="solid">EH</Avatar>
+  <Avatar colorScheme="success" />
+</>;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <Avatar src="/avatars/1.jpg" alt="Alt Name" size="sm" />
+  <Avatar src="/avatars/2.jpg" alt="Alt Name" size="md" />
+  <Avatar src="/avatars/3.jpg" alt="Alt Name" size="lg" />
+</>;
+```
+
+## Variants
+
+```tsx live
+<>
+  <Avatar variant="solid">EY</Avatar>
+  <Avatar variant="subtle">YK</Avatar>
+</>;
+```
+
+## Color schemes
+
+```tsx live
+<>
+  <Avatar colorScheme="primary" />
+  <Avatar colorScheme="secondary" />
+  <Avatar colorScheme="success" />
+  <Avatar colorScheme="info" />
+  <Avatar colorScheme="danger" />
+  <Avatar colorScheme="warn" />
+</>;
+```
+
+## With custom content
+
+```tsx live
+<Avatar>
+  <StarIcon />
+</Avatar>;
+```
+
+## As clickable item
+
+```tsx live
+<>
+  <Avatar src="/avatars/4.jpg" alt="Alt Name" component="a" href="#" />
+  <Avatar
+    src="/avatars/5.jpg"
+    alt="Alt Name"
+    component="button"
+    onClick={() => alert("You clicked successfully")}
+  />
+</>;
+```

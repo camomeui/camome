@@ -1,0 +1,128 @@
+---
+title: "Tag"
+id: "tag"
+description: "A Tag represents a attribute or state of the associated element."
+---
+
+## Usage
+
+```tsx live
+<Tag>Tag</Tag>;
+```
+
+## Variants
+
+### Primary
+
+```tsx live
+<>
+  <Tag colorScheme="primary" variant="solid">
+    Tag
+  </Tag>
+  <Tag colorScheme="primary" variant="subtle">
+    Tag
+  </Tag>
+  <Tag colorScheme="primary" variant="outline">
+    Tag
+  </Tag>
+  <Tag colorScheme="primary" variant="ghost">
+    Tag
+  </Tag>
+</>;
+```
+
+### Secondary
+
+```tsx live
+<>
+  <Tag colorScheme="secondary" variant="solid">
+    Tag
+  </Tag>
+  <Tag colorScheme="secondary" variant="subtle">
+    Tag
+  </Tag>
+  <Tag colorScheme="secondary" variant="outline">
+    Tag
+  </Tag>
+  <Tag colorScheme="secondary" variant="ghost">
+    Tag
+  </Tag>
+</>;
+```
+
+### Danger
+
+```tsx live
+<>
+  <Tag colorScheme="danger" variant="solid">
+    Tag
+  </Tag>
+  <Tag colorScheme="danger" variant="subtle">
+    Tag
+  </Tag>
+  <Tag colorScheme="danger" variant="outline">
+    Tag
+  </Tag>
+  <Tag colorScheme="danger" variant="ghost">
+    Tag
+  </Tag>
+</>;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <Tag size="sm">Tag</Tag>
+  <Tag size="md">Tag</Tag>
+  <Tag size="lg">Tag</Tag>
+</>;
+```
+
+## With decorators
+
+```tsx live
+<>
+  <Tag
+    component="a"
+    href="#"
+    size="sm"
+    startDecorator={<LinkIcon stroke-width="2.5" />}
+  >
+    Website
+  </Tag>
+  <Tag
+    size="md"
+    variant="solid"
+    startDecorator={<WifiIcon stroke-width="2.2" />}
+  >
+    Online
+  </Tag>
+  <Tag
+    size="md"
+    colorScheme="success"
+    endDecorator={
+      <IconButton variant="ghost" colorScheme="success">
+        <XMarkIcon stroke-width="2" />
+      </IconButton>
+    }
+    cssVariables={{
+      "--IconButton-size": "1.5rem",
+      "--IconButton-margin": "0 -0.5rem 0 0",
+      "--IconButton-radius": "var(--cmm-rounded-full)",
+    }}
+  >
+    Next.js
+  </Tag>
+  <Tag
+    size="md"
+    startDecorator={<Avatar size="sm" src="/avatars/1.jpg" alt="Alt" />}
+    cssVariables={{
+      "--Avatar-size": "1.5rem",
+      "--Avatar-margin": "0 0 0 -0.5rem",
+    }}
+  >
+    John Doe
+  </Tag>
+</>;
+```

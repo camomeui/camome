@@ -1,0 +1,123 @@
+:root {
+  --cmm-color-black: #000000;
+  --cmm-color-white: #ffffff;
+  --cmm-color-gray-50: #f7fafc;
+  --cmm-color-gray-100: #edf2f7;
+  --cmm-color-gray-200: #e2e8f0;
+  --cmm-color-gray-300: #cbd5e0;
+  --cmm-color-gray-400: #a0aec0;
+  --cmm-color-gray-500: #718096;
+  --cmm-color-gray-600: #4a5568;
+  --cmm-color-gray-700: #2d3748;
+  --cmm-color-gray-800: #1a202c;
+  --cmm-color-gray-900: #171923;
+  --cmm-color-primary-50: #eff6ff;
+  --cmm-color-primary-100: #dbeafe;
+  --cmm-color-primary-200: #bfdbfe;
+  --cmm-color-primary-300: #93c5fd;
+  --cmm-color-primary-400: #60a5fa;
+  --cmm-color-primary-500: #3b82f6;
+  --cmm-color-primary-600: #2563eb;
+  --cmm-color-primary-700: #1d4ed8;
+  --cmm-color-primary-800: #1e40af;
+  --cmm-color-primary-900: #1e3a8a;
+  --cmm-color-secondary-50: var(--cmm-color-gray-50);
+  --cmm-color-secondary-100: var(--cmm-color-gray-100);
+  --cmm-color-secondary-200: var(--cmm-color-gray-200);
+  --cmm-color-secondary-300: var(--cmm-color-gray-300);
+  --cmm-color-secondary-400: var(--cmm-color-gray-400);
+  --cmm-color-secondary-500: var(--cmm-color-gray-500);
+  --cmm-color-secondary-600: var(--cmm-color-gray-600);
+  --cmm-color-secondary-700: var(--cmm-color-gray-700);
+  --cmm-color-secondary-800: var(--cmm-color-gray-800);
+  --cmm-color-secondary-900: var(--cmm-color-gray-900);
+  --cmm-color-info-50: #f0f9ff;
+  --cmm-color-info-100: #e0f2fe;
+  --cmm-color-info-200: #bae6fd;
+  --cmm-color-info-300: #7dd3fc;
+  --cmm-color-info-400: #38bdf8;
+  --cmm-color-info-500: #0ea5e9;
+  --cmm-color-info-600: #0284c7;
+  --cmm-color-info-700: #0369a1;
+  --cmm-color-info-800: #075985;
+  --cmm-color-info-900: #0c4a6e;
+  --cmm-color-success-50: #f0fdf4;
+  --cmm-color-success-100: #dcfce7;
+  --cmm-color-success-200: #bbf7d0;
+  --cmm-color-success-300: #86efac;
+  --cmm-color-success-400: #4ade80;
+  --cmm-color-success-500: #22c55e;
+  --cmm-color-success-600: #16a34a;
+  --cmm-color-success-700: #15803d;
+  --cmm-color-success-800: #166534;
+  --cmm-color-success-900: #14532d;
+  --cmm-color-danger-50: #fff5f5;
+  --cmm-color-danger-100: #fed7d7;
+  --cmm-color-danger-200: #feb2b2;
+  --cmm-color-danger-300: #fc8181;
+  --cmm-color-danger-400: #f56565;
+  --cmm-color-danger-500: #e53e3e;
+  --cmm-color-danger-600: #c53030;
+  --cmm-color-danger-700: #b91c1c;
+  --cmm-color-danger-800: #991b1b;
+  --cmm-color-danger-900: #7f1d1d;
+  --cmm-color-warn-50: #fff7ed;
+  --cmm-color-warn-100: #ffedd5;
+  --cmm-color-warn-200: #fed7aa;
+  --cmm-color-warn-300: #fdba74;
+  --cmm-color-warn-400: #fb923c;
+  --cmm-color-warn-500: #f97316;
+  --cmm-color-warn-600: #ea580c;
+  --cmm-color-warn-700: #c2410c;
+  --cmm-color-warn-800: #9a3412;
+  --cmm-color-warn-900: #7c2d12;
+
+  --cmm-color-code-bg: var(--cmm-color-gray-50);
+
+  --cmm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --cmm-font-family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, monospace;
+
+  --cmm-font-size-xs: 0.75rem;
+  --cmm-font-size-sm: 0.875rem;
+  --cmm-font-size-md: 1rem;
+  --cmm-font-size-lg: 1.125rem;
+  --cmm-font-size-xl: 1.25rem;
+  --cmm-font-size-2xl: 1.5rem;
+  --cmm-font-size-3xl: 1.875rem;
+  --cmm-font-size-4xl: 2.25rem;
+  --cmm-font-size-5xl: 3rem;
+  --cmm-font-size-6xl: 3.75rem;
+  --cmm-font-size-7xl: 4.5rem;
+  --cmm-font-size-8xl: 6rem;
+  --cmm-font-size-9xl: 8rem;
+
+  --cmm-font-weight-light: 300;
+  --cmm-font-weight-normal: 400;
+  --cmm-font-weight-medium: 500;
+  --cmm-font-weight-semibold: 600;
+  --cmm-font-weight-bold: 700;
+  --cmm-font-weight-extrabold: 800;
+
+  --cmm-rounded-none: 0;
+  --cmm-rounded-xs: 0.125rem;
+  --cmm-rounded-sm: 0.25rem;
+  --cmm-rounded-md: 0.375rem;
+  --cmm-rounded-lg: 0.5rem;
+  --cmm-rounded-xl: 0.75rem;
+  --cmm-rounded-2xl: 1rem;
+  --cmm-rounded-3xl: 1.25rem;
+  --cmm-rounded-4xl: 1.5rem;
+  --cmm-rounded-full: 9999px;
+
+  --cmm-shadow-color: rgba(12, 12, 13, 0.1);
+  --cmm-shadow-sm: 2px 2px 6px var(--cmm-shadow-color);
+  --cmm-shadow-md: 2px 2px 10px var(--cmm-shadow-color);
+  --cmm-shadow-lg: 2px 2px 14px var(--cmm-shadow-color);
+
+  --cmm-transition-bg: background-color 0.3s;
+
+  --cmm-outline: 2px solid var(--cmm-color-primary-400);
+  --cmm-outline-offset: 2px;
+}

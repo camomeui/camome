@@ -1,0 +1,21 @@
+---
+title: "Integration with headless UI libraries"
+id: "headless-integration"
+---
+
+## Overview
+
+`@camome/components` is a package intended to be a thin wrapper over each HTML tag with little client-side
+JavaScript. **While it also provides styles for complex UI patterns such as [Tabs](/docs/components/data-display/tabs) and
+Popover, you are responsible for showing/hiding elements, binding event handlers, and ensuring accessibility.**
+
+As it requires a lot of work, **we recommend integration with headless UI libraries** that take care of everything except for styling.
+
+Here are some notable libraries:
+
+- [Headless UI](https://headlessui.com/)
+- [React Aria](https://react-spectrum.adobe.com/react-aria/)
+- [Radix Primitives](https://www.radix-ui.com/)
+- [Reach UI](https://reach.tech/)
+
+In each doc page of components that requires client-side JavaScript, we provide sample code to show how to integrate with [Headless UI](https://headlessui.com) for example. However, you are free to use another one and it should work, too!

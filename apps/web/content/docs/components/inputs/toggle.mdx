@@ -1,0 +1,62 @@
+---
+title: "Toggle"
+id: "toggle"
+description: "A toggle is a binary switch."
+---
+
+## Usage
+
+```tsx live direction="vertical"
+<>
+  <Toggle onLabel="ON" offLabel="OFF" labelText="Receive emails" />
+  <Toggle
+    onLabel="ON"
+    offLabel="OFF"
+    labelText="Receive emails"
+    direction="horizontal"
+  />
+</>;
+```
+
+## Variants
+
+### With icon
+
+```tsx live
+<Toggle
+  size="xl"
+  onLabel={<SunIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
+  offLabel={<MoonIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
+  style={{
+    "--background-off": "var(--cmm-color-gray-200)",
+    "--background-on": "var(--cmm-color-primary-500)",
+    "--label-color-off": "var(--cmm-color-primary-500)",
+    "--label-color-on": "var(--cmm-color-white)",
+    "--gap": "0.25rem",
+  }}
+/>;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <Toggle size="sm" onLabel="ON" offLabel="OFF" />
+  <Toggle size="md" onLabel="ON" offLabel="OFF" />
+  <Toggle size="lg" onLabel="ON" offLabel="OFF" />
+  <Toggle size="xl" onLabel="ON" offLabel="OFF" />
+</>;
+```
+
+## With helper text
+
+```tsx live
+<Toggle
+  size="md"
+  onLabel="ON"
+  offLabel="OFF"
+  labelText="Receive newsletters"
+  helperText="Don't miss them!"
+  error="Selling yourself is mandatory"
+/>;
+```

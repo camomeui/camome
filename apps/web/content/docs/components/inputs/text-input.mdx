@@ -1,0 +1,72 @@
+---
+title: "TextInput"
+id: "text-input"
+description: "A TextInput lets the user to enter and edit text."
+---
+
+## Usage
+
+```tsx live
+<FormControl labelText="Name">
+  <TextInput required placeholder="John Doe" />
+</FormControl>;
+```
+
+## States
+
+### Error
+
+```tsx live
+<FormControl
+  labelText="Name"
+  helperText="Tell us your identifier"
+  error="Something is wrong"
+>
+  <TextInput required placeholder="John Doe" />
+</FormControl>;
+```
+
+### Disabled
+
+```tsx live
+<TextInput disabled placeholder="You can't type..." />;
+```
+
+## Sizes
+
+```tsx live
+<>
+  <TextInput size="sm" placeholder="Small" />
+  <TextInput size="md" placeholder="Medium" />
+  <TextInput size="lg" placeholder="Large" />
+</>;
+```
+
+## InputGroup and decorators
+
+```tsx live
+<TextInputGroup
+  input={<TextInput type="search" size="md" placeholder="Search" />}
+  leftDecorator={
+    <MagnifyingGlassIcon
+      stroke-width="2.5"
+      style={{ color: "var(--cmm-color-gray-300)" }}
+    />
+  }
+  rightDecorator={
+    <div
+      style={{
+        display: "flex",
+        fontSize: "0.9rem",
+      }}
+    >
+      <Kbd>⌘ + K</Kbd>
+    </div>
+  }
+  cssVariables={{
+    "--TextInput-left-decor-width": "2.5rem",
+    "--TextInput-right-decor-width": "5.5rem",
+    "--TextInput-radius": "var(--cmm-rounded-full)",
+  }}
+/>;
+```

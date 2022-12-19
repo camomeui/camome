@@ -1,0 +1,162 @@
+@use "@/styles/variables";
+
+@mixin fadeIn($delay, $speed) {
+  animation: keyframe $speed forwards;
+  animation-delay: $delay;
+  opacity: 0;
+
+  @keyframes keyframe {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.container {
+  @include variables.container;
+
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-auto-flow: dense;
+  place-items: start center;
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+
+  @include variables.mq("md") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.texts {
+  grid-column: 1;
+  display: grid;
+  gap: 2rem;
+}
+
+.mainCopy {
+  font-size: var(--cmm-font-size-7xl);
+  font-weight: var(--cmm-font-weight-extrabold);
+  line-height: 1.2;
+
+  @include variables.mq("md") {
+    place-self: center;
+  }
+
+  @include variables.mq("md") {
+    font-size: var(--cmm-font-size-6xl);
+  }
+
+  & > *:nth-child(1) {
+    @include fadeIn(0.5s, 1s);
+  }
+
+  & > *:nth-child(2) {
+    @include fadeIn(1s, 1s);
+  }
+
+  & > *:nth-child(3) {
+    @include fadeIn(1.5s, 1s);
+  }
+}
+
+.subCopy {
+  color: var(--cmm-color-gray-600);
+  font-size: var(--cmm-font-size-xl);
+  font-weight: var(--cmm-font-weight-light);
+
+  @include variables.mq("md") {
+    max-width: 30rem;
+    place-self: center;
+  }
+
+  @include fadeIn(2s, 1s);
+}
+
+.newsletter {
+  grid-column: 1;
+  display: grid;
+  gap: 1rem;
+  border-top: 1px solid var(--cmm-color-gray-200);
+  padding-top: 2.5rem;
+  width: 100%;
+
+  & p {
+    color: var(--cmm-color-gray-600);
+    font-weight: var(--cmm-font-weight-light);
+  }
+
+  & form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    place-items: center stretch;
+
+    @include variables.mq("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.card {
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-xl);
+  overflow: hidden;
+  background-color: var(--cmm-color-white);
+  grid-column: 2;
+  grid-row: 1 / -1;
+  max-width: 34rem;
+
+  &__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__contents {
+    display: grid;
+    row-gap: 1rem;
+    padding: 2rem;
+
+    & h2 {
+      font-weight: var(--cmm-font-weight-bold);
+      font-size: var(--cmm-font-size-2xl);
+    }
+
+    & p {
+      color: var(--cmm-color-gray-600);
+      line-height: 1.9;
+    }
+
+    @include variables.mq("md") {
+      padding: 1.5rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @include variables.mq("sm") {
+      flex-direction: column;
+
+      a {
+        width: 100% !important;
+      }
+    }
+  }
+
+  @include variables.mq("md") {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}

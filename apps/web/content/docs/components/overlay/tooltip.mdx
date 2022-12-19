@@ -1,0 +1,22 @@
+---
+title: "Tooltip"
+id: "tooltip"
+description: "A Tooltip shows descriptive text next to a specific element."
+---
+
+## Usage
+
+```tsx live
+<>
+  <Tooltip label="You've got mail!" placement="top">
+    <IconButton>
+      <BellAlertIcon />
+    </IconButton>
+  </Tooltip>
+  <Tooltip label="Big brother is watching you" placement="bottom">
+    <IconButton variant="ghost" colorScheme="danger">
+      <EyeIcon />
+    </IconButton>
+  </Tooltip>
+</>;
+```

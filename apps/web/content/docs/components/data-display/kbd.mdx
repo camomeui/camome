@@ -1,0 +1,37 @@
+---
+title: "Kbd"
+id: "kbd"
+description: "A Kbd represents a keyboard button or shortcut"
+---
+
+## Usage
+
+```tsx live
+<span
+  style={{
+    display: "flex",
+    alignItems: "baseline",
+    gap: "0.3rem",
+    fontSize: "var(--cmm-font-size-xs)",
+  }}
+>
+  <Kbd>⌘</Kbd>+<Kbd>Shift</Kbd>+<Kbd>K</Kbd>
+</span>;
+```
+
+## Sizes
+
+Just set the `font-size` of the parent to change the size.
+
+```tsx live
+<span
+  style={{
+    display: "flex",
+    alignItems: "baseline",
+    gap: "0.3rem",
+    fontSize: "var(--cmm-font-size-md)",
+  }}
+>
+  <Kbd>Ctrl</Kbd>+<Kbd>Alt</Kbd>+<Kbd>Delete</Kbd>
+</span>;
+```

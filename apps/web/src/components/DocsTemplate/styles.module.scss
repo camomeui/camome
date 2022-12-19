@@ -1,0 +1,100 @@
+@use "@/styles/variables";
+
+.container {
+  // Disable container padding and add to .main for
+  // preserving the space for outline
+  @include variables.container(variables.$xl, 0);
+
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  justify-content: center;
+  column-gap: 1rem;
+
+  @include variables.mq("xl") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tocWrap {
+  @include variables.mq("xl") {
+    display: none;
+  }
+}
+
+.toc {
+  position: sticky;
+  top: calc(variables.$headerHeight + 1rem);
+  margin-right: 1rem;
+}
+
+.main {
+  overflow-x: auto;
+  position: relative;
+  padding: 2rem 1rem 4rem 2rem;
+
+  @include variables.mq("xl") {
+    padding: 1rem;
+  }
+}
+
+.header {
+  display: grid;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+
+  .title {
+    font-weight: var(--cmm-font-weight-bold);
+    font-size: var(--cmm-font-size-4xl);
+    line-height: 1;
+
+    @include variables.mq("lg") {
+      font-size: var(--cmm-font-size-4xl);
+    }
+  }
+
+  .description {
+    color: var(--cmm-color-gray-500);
+    font-weight: var(--cmm-font-weight-light);
+  }
+
+  .date {
+    display: grid;
+    row-gap: 0.25rem;
+
+    &__published {
+      display: block;
+      font-size: var(--cmm-font-size-md);
+    }
+
+    &__lastmod {
+      display: block;
+      font-size: var(--cmm-font-size-sm);
+    }
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &__name {
+      font-size: var(--cmm-font-size-md);
+      font-weight: var(--cmm-font-weight-medium);
+    }
+  }
+}
+
+.markup {
+  :where(h1, h2, h3, h4, h5, h6) {
+    scroll-margin-top: calc(variables.$headerHeight + 0.5rem) !important;
+  }
+}
+
+.aside {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
