@@ -1,0 +1,35 @@
+{
+  "name": "@camome/system",
+  "version": "0.1.1",
+  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "repository": {
+    "url": "https://github.com/camomeui/camome.git",
+    "type": "git",
+    "directory": "packages/system"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "pnpm build --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@camome/utils": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^6.3.0"
+  },
+  "bin": {
+    "generate-theme": "./dist/cli/index.esm.js"
+  },
+  "exports": {
+    "import": "./dist/index.esm.js"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}
