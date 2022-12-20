@@ -8,12 +8,7 @@ import { buildScopedClassName } from "@camome/utils";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      insertTypesEntry: true,
-    }),
-  ],
+  plugins: [react(), dts()],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),

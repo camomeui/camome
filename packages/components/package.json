@@ -1,6 +1,6 @@
 {
   "name": "@camome/components",
-  "version": "0.1.4",
+  "version": "0.1.10",
   "description": "Head-only React components.",
   "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "license": "MIT",
@@ -14,7 +14,8 @@
   "scripts": {
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
-    "dev": "pnpm gen-scss-type -w"
+    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
+    "build": "tsc && vite build"
   },
   "dependencies": {
     "@camome/utils": "^0.1.0",
@@ -25,13 +26,16 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@vitejs/plugin-react": "^3.0.0",
     "sass": "^1.55.0",
-    "vite": "^4.0.0",
+    "vite": "^4.0.2",
     "vite-plugin-dts": "^1.7.1"
   },
   "peerDependencies": {
     "react": ">=18"
   },
-  "module": "./src/index.ts",
-  "types": "./src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "sideEffects": false
 }

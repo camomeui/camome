@@ -19,7 +19,6 @@ export * from "./components/Dialog";
 export * from "./components/Tab";
 export * from "./components/Spinner";
 export * from "./components/Select";
-export * from "./components/BrowserOnly";
 export * from "./components/Kbd";
 export * from "./components/Slider";
 export * from "./components/Menu";
