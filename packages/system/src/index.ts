@@ -136,6 +136,11 @@ export const defaultTheme = {
       md: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "3.75rem",
     },
     weight: {
       thin: 100,
@@ -255,3 +260,5 @@ function getValue<T, K extends keyof T>(obj: T, key: K | string): T[K] {
   }
   return result;
 }
+
+export type { Theme };

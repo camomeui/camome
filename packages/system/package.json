@@ -23,9 +23,6 @@
     "postcss": "^8.4.20",
     "tsup": "^6.3.0"
   },
-  "bin": {
-    "generate-theme": "./dist/cli/index.esm.js"
-  },
   "exports": {
     "import": "./dist/index.esm.js"
   },
