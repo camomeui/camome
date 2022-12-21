@@ -1,6 +1,6 @@
 {
   "name": "@camome/system",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -20,6 +20,7 @@
     "@camome/utils": "^0.1.0"
   },
   "devDependencies": {
+    "postcss": "^8.4.20",
     "tsup": "^6.3.0"
   },
   "bin": {

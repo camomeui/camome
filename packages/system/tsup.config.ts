@@ -5,8 +5,13 @@ export default defineConfig({
   clean: true,
   format: ["esm"],
   dts: true,
+  minify: true,
+  sourcemap: true,
+  loader: {
+    ".css": "text",
+  },
   outExtension(ctx) {
     return { js: `.${ctx.format}.js` };
   },
-  onSuccess: "cp -a assets/. dist",
+  onSuccess: "node ./scripts/generate-css.js",
 });

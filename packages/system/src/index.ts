@@ -7,7 +7,7 @@ const OTHER_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
 }
 
-*:focus-visible: {
+*:focus-visible {
   outline: ${cssVar("outline.width")} solid ${cssVar("outline.color")};
 }
 
@@ -187,7 +187,25 @@ type GenerateCssOptions = {
   selector?: string;
 };
 
-export function generateCss(
+export async function generateCss(
+  theme: Theme,
+  options: GenerateCssOptions = {}
+): Promise<string> {
+  const normalizeCss = appendCss(
+    "",
+    (await import("./assets/normalize.css")).default,
+    "Normalize"
+  );
+  const rootCss = generateRootCss(theme, options);
+
+  return appendCss(
+    appendCss(normalizeCss, rootCss, "Theme"),
+    OTHER_STYLES,
+    "Base"
+  );
+}
+
+function generateRootCss(
   theme: Theme,
   options: GenerateCssOptions = {}
 ): string {
@@ -205,9 +223,12 @@ export function generateCss(
   }
 
   css += `  ${ROOT_STYLES}\n`;
-  css = `${selector} {\n${css}}\n\n`;
-  css += OTHER_STYLES;
+  css = `${selector} {\n${css}}\n`;
   return css;
+}
+
+function appendCss(target: string, css: string, comment?: string) {
+  return target + "\n" + `/* ${comment} */\n${css}`;
 }
 
 function generatePaths<T>(obj: T, prefix = ""): string[] {
