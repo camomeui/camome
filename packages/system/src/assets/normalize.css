@@ -17,6 +17,7 @@
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
 */
 
 html {
@@ -86,17 +87,6 @@ Add the correct font weight in Edge and Safari.
 b,
 strong {
   font-weight: bolder;
-}
-
-/*
-1. Correct the odd `em` font sizing in all browsers.
-*/
-
-code,
-kbd,
-samp,
-pre {
-  font-size: 1em; /* 2 */
 }
 
 /*
@@ -178,8 +168,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; /* 1 */
-  /* Disable as this is too specific */
-  /* background-color: transparent; 2 */
+  background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
 
@@ -350,4 +339,9 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+  display: none;
 }
