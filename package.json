@@ -6,7 +6,6 @@
     "run-ts": "node -r esbuild-register",
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "build:saazy": "pnpm build --scope=@camome/saazy",
     "build:web": "pnpm build --scope=@camome/web",
     "typecheck": "pnpm -F './apps/*' -r --parallel typecheck",
     "lint": "eslint packages/** apps/** --ext .ts,.tsx",

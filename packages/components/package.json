@@ -15,7 +15,8 @@
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
-    "build": "tsc && vite build"
+    "build": "vite build",
+    "typecheck": "pnpm gen-scss-type && tsc"
   },
   "dependencies": {
     "@camome/utils": "^0.1.0",
