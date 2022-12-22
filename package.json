@@ -11,7 +11,7 @@
     "lint": "eslint packages/** apps/** --ext .ts,.tsx",
     "lint:fix": "pnpm lint --fix",
     "format": "prettier -w .",
-    "ci:publish": "pnpm build --filter=\"./packages/*\" && pnpm publish -r --no-git-checks"
+    "ci:publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.5",
