@@ -52,8 +52,8 @@ export default function CodeBlock({
         }}
         customSetup={{
           dependencies: {
-            "@camome/components": "^0.1.10",
-            "@camome/system": "0.1.3",
+            "@camome/components": "^0.1.12",
+            "@camome/system": "^0.1.5",
             "@headlessui/react": "^1.7.4",
             "@floating-ui/react": "^0.14.0",
             "react-hook-form": "^7.40.0",
