@@ -3,11 +3,11 @@ import Image from "next/image";
 
 import A from "@/components/MdxComponents/A";
 import Pre from "@/components/MdxComponents/Pre";
-import { sharedComponents } from "@/components/MdxComponents/shared";
+import { Message } from "@camome/components/src";
 
 export const mdxComponents: MDXComponents = {
   a: A,
   pre: Pre,
   Image,
-  ...sharedComponents,
+  Message,
 } as const;
