@@ -26,3 +26,4 @@ next-env.d.ts
 *.log
 
 static-app
+.pnpm-store
