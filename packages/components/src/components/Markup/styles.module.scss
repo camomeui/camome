@@ -131,7 +131,7 @@
 
   :where(p):not(:where([class~="no-markup"] *)) {
     line-height: 1.75;
-    font-weight: var(--cmm-font-weight-light);
+    font-weight: var(--cmm-font-weight-normal);
   }
 
   :where(table):not(:where([class~="no-markup"] *)) {

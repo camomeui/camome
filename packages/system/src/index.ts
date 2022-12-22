@@ -5,6 +5,7 @@ const DEFAULT_PREFIX = "cmm" as const;
 const ROOT_STYLES = ``;
 const OTHER_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
+  -webkit-font-smoothing: antialiased;
 }
 
 *:focus-visible {

@@ -8,7 +8,7 @@
   padding-right: var(--TextInput-right-decor-width, var(--TextInput-padding-x));
 
   &::placeholder {
-    font-weight: var(--cmm-font-weight-light);
+    font-weight: var(--cmm-font-weight-normal);
     color: var(--cmm-color-gray-400);
   }
 

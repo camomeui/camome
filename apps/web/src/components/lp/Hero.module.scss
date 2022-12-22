@@ -71,7 +71,7 @@
 .subCopy {
   color: var(--cmm-color-gray-600);
   font-size: var(--cmm-font-size-xl);
-  font-weight: var(--cmm-font-weight-light);
+  font-weight: var(--cmm-font-weight-normal);
 
   @include variables.mq("md") {
     max-width: 30rem;
@@ -91,7 +91,7 @@
 
   & p {
     color: var(--cmm-color-gray-600);
-    font-weight: var(--cmm-font-weight-light);
+    font-weight: var(--cmm-font-weight-normal);
   }
 
   & form {

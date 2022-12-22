@@ -33,7 +33,7 @@
   border-radius: var(--#{$blockName}-radius, var(--cmm-rounded-lg));
   background-color: var(--cmm-color-white);
   transition: var(--cmm-transition-bg);
-  font-weight: var(--cmm-font-weight-light);
+  font-weight: var(--cmm-font-weight-normal);
 
   &:disabled {
     background-color: var(--cmm-color-gray-100);
