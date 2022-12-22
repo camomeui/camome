@@ -172,8 +172,8 @@ importers:
 
   packages/cli:
     specifiers:
-      '@camome/system': ^0.1.2
-      '@camome/utils': ^0.1.0
+      '@camome/system': workspace:*
+      '@camome/utils': workspace:*
       '@types/yargs': ^17.0.17
       tsup: ^6.3.0
       yargs: ^17.6.2
@@ -187,7 +187,7 @@ importers:
 
   packages/components:
     specifiers:
-      '@camome/utils': ^0.1.0
+      '@camome/utils': workspace:*
       '@heroicons/react': ^2.0.10
       '@types/body-scroll-lock': ^3.1.0
       '@vitejs/plugin-react': ^3.0.0
@@ -210,7 +210,7 @@ importers:
 
   packages/system:
     specifiers:
-      '@camome/utils': ^0.1.0
+      '@camome/utils': workspace:*
       postcss: ^8.4.20
       tsup: ^6.3.0
     dependencies:
