@@ -1,23 +1,17 @@
 .Block {
-  --title-color: var(--cmm-color-gray-800);
-  --bg-color: inherit;
-  --border-color: inherit;
-
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.5rem;
   padding: 1rem;
-  border: 1px solid var(--border-color);
   border-radius: var(--cmm-rounded-lg);
-  background-color: var(--bg-color);
 }
 
 $statuses: info, success, warn, danger;
 
 @each $color in $statuses {
   .--#{$color} {
-    --bg-color: var(--cmm-color-#{$color}-100);
-    --border-color: var(--cmm-color-#{$color}-200);
+    color: var(--cmm-color-#{$color}-800);
+    background-color: var(--cmm-color-#{$color}-100);
     --cmm-color-code-bg: var(--cmm-color-#{$color}-50);
   }
 }
@@ -28,7 +22,6 @@ $statuses: info, success, warn, danger;
   column-gap: 0.5rem;
   font-weight: var(--cmm-font-weight-medium);
   font-size: var(--cmm-font-size-md);
-  color: var(--title-color);
 
   // Maybe better to switch to :has() when Firefox supports it.
   & + .message {
@@ -46,6 +39,5 @@ $statuses: info, success, warn, danger;
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: var(--title-color);
   }
 }
