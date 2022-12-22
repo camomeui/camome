@@ -20,6 +20,7 @@
     "@camome/utils": "workspace:*"
   },
   "devDependencies": {
+    "cssnano": "^5.1.14",
     "postcss": "^8.4.20",
     "tsup": "^6.3.0"
   },
