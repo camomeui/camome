@@ -32,6 +32,6 @@ jobs:
         with:
           commit: "chore: update versions"
           title: "chore: update versions"
-          publish: pnpm build --filter="./packages/*" && pnpm ci:publish
+          publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
