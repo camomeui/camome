@@ -10,7 +10,8 @@
     "typecheck": "pnpm -F './apps/*' -r --parallel typecheck",
     "lint": "eslint packages/** apps/** --ext .ts,.tsx",
     "lint:fix": "pnpm lint --fix",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "ci:publish": "pnpm publish -r"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.5",
@@ -38,6 +39,7 @@
     "unist-util-visit": "^4.1.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "@svgr/webpack": "^6.5.1",
     "@types/mdx": "^2.0.3",
     "@types/node": "18.11.17",
