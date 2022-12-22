@@ -7,15 +7,21 @@ description: "A toggle is a binary switch."
 ## Usage
 
 ```tsx live direction="vertical"
-<>
-  <Toggle onLabel="ON" offLabel="OFF" labelText="Receive emails" />
-  <Toggle
-    onLabel="ON"
-    offLabel="OFF"
-    labelText="Receive emails"
-    direction="horizontal"
-  />
-</>;
+import { Toggle } from "@camome/components";
+
+export default function () {
+  return (
+    <>
+      <Toggle onLabel="ON" offLabel="OFF" labelText="Receive emails" />
+      <Toggle
+        onLabel="ON"
+        offLabel="OFF"
+        labelText="Receive emails"
+        direction="horizontal"
+      />
+    </>
+  );
+}
 ```
 
 ## Variants
@@ -23,40 +29,59 @@ description: "A toggle is a binary switch."
 ### With icon
 
 ```tsx live
-<Toggle
-  size="xl"
-  onLabel={<SunIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
-  offLabel={<MoonIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
-  style={{
-    "--background-off": "var(--cmm-color-gray-200)",
-    "--background-on": "var(--cmm-color-primary-500)",
-    "--label-color-off": "var(--cmm-color-primary-500)",
-    "--label-color-on": "var(--cmm-color-white)",
-    "--gap": "0.25rem",
-  }}
-/>;
+import { Toggle } from "@camome/components";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+
+export default function () {
+  return (
+    <Toggle
+      size="xl"
+      onLabel={<SunIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
+      offLabel={<MoonIcon width="1.2rem" height="1.2rem" stroke-width={2.5} />}
+      style={{
+        "--background-off": "var(--cmm-color-gray-200)",
+        "--background-on": "var(--cmm-color-primary-500)",
+        "--label-color-off": "var(--cmm-color-primary-500)",
+        "--label-color-on": "var(--cmm-color-white)",
+        "--gap": "0.25rem",
+      }}
+    />
+  );
+}
 ```
 
 ## Sizes
 
 ```tsx live
-<>
-  <Toggle size="sm" onLabel="ON" offLabel="OFF" />
-  <Toggle size="md" onLabel="ON" offLabel="OFF" />
-  <Toggle size="lg" onLabel="ON" offLabel="OFF" />
-  <Toggle size="xl" onLabel="ON" offLabel="OFF" />
-</>;
+import { Toggle } from "@camome/components";
+
+export default function () {
+  return (
+    <>
+      <Toggle size="sm" onLabel="ON" offLabel="OFF" />
+      <Toggle size="md" onLabel="ON" offLabel="OFF" />
+      <Toggle size="lg" onLabel="ON" offLabel="OFF" />
+      <Toggle size="xl" onLabel="ON" offLabel="OFF" />
+    </>
+  );
+}
 ```
 
 ## With helper text
 
 ```tsx live
-<Toggle
-  size="md"
-  onLabel="ON"
-  offLabel="OFF"
-  labelText="Receive newsletters"
-  helperText="Don't miss them!"
-  error="Selling yourself is mandatory"
-/>;
+import { Toggle } from "@camome/components";
+
+export default function () {
+  return (
+    <Toggle
+      size="md"
+      onLabel="ON"
+      offLabel="OFF"
+      labelText="Receive newsletters"
+      helperText="Don't miss them!"
+      error="Selling yourself is mandatory"
+    />
+  );
+}
 ```

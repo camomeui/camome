@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as HeroIconsOutline from "@heroicons/react/24/outline";
 
-import * as CamomeComponentsWithUtils from "@camome/components";
+import * as CamomeComponentsWithUtils from "@camome/components/src";
 
 const {
-  BrowserContextProvider,
-  useIsBrowser,
-  BrowserOnly,
-  BrowserContext,
   useFormControlContext,
   tabClassNames,
   menuClassNames,

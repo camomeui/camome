@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { Button } from "@camome/components";
+import { Button } from "@camome/components/src";
 
 type Props = {
   className?: string;

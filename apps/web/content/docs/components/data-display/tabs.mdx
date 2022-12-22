@@ -8,11 +8,11 @@ headOnly: true
 ## Usage with Headless UI
 
 ```tsx live
-// import { Tab as HeadlessTab } from "@headlessui/react";
-// import clsx from "clsx"
-// import { tabClassNames } from "@camome/components"
+import { Tab as HeadlessTab } from "@headlessui/react";
+import { tabClassNames } from "@camome/components";
+import clsx from "clsx";
 
-function TabExample() {
+export default function () {
   const items = [
     {
       id: 1,
@@ -58,7 +58,9 @@ function TabExample() {
 ## Style-only components
 
 ```tsx live
-function TabExample() {
+import { Tab } from "@camome/components";
+
+export default function () {
   const items = [
     {
       id: 1,

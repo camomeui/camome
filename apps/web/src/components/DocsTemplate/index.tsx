@@ -5,7 +5,7 @@ import DocsPageNav from "@/components/DocsPageNav";
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { LabeledLink, Toc } from "@/types";
-import { Markup, Tag } from "@camome/components";
+import { Markup, Tag } from "@camome/components/src";
 import { type Docs } from "contentlayer/generated";
 
 import styles from "./styles.module.scss";

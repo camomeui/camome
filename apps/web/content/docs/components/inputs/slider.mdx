@@ -7,9 +7,15 @@ description: "A slider enables the user to input continuous values."
 ## Overview
 
 ```tsx live
-<div style={{ width: "12rem" }}>
-  <Slider aria-label="volume" />
-</div>;
+import { Slider } from "@camome/components";
+
+export default function () {
+  return (
+    <div style={{ width: "12rem" }}>
+      <Slider aria-label="volume" />
+    </div>
+  );
+}
 ```
 
 <Message status="warn">
@@ -19,17 +25,23 @@ description: "A slider enables the user to input continuous values."
 
 ## Sizes
 
-```tsx live direction="vertical"
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "3rem",
-    width: "12rem",
-  }}
->
-  <Slider size="sm" />
-  <Slider size="md" />
-  <Slider size="lg" />
-</div>;
+```tsx live
+import { Slider } from "@camome/components";
+
+export default function () {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "3rem",
+        width: "12rem",
+      }}
+    >
+      <Slider size="sm" />
+      <Slider size="md" />
+      <Slider size="lg" />
+    </div>
+  );
+}
 ```

@@ -7,16 +7,23 @@ description: "A Tooltip shows descriptive text next to a specific element."
 ## Usage
 
 ```tsx live
-<>
-  <Tooltip label="You've got mail!" placement="top">
-    <IconButton>
-      <BellAlertIcon />
-    </IconButton>
-  </Tooltip>
-  <Tooltip label="Big brother is watching you" placement="bottom">
-    <IconButton variant="ghost" colorScheme="danger">
-      <EyeIcon />
-    </IconButton>
-  </Tooltip>
-</>;
+import { Tooltip, IconButton } from "@camome/components";
+import { BellAlertIcon, EyeIcon } from "@heroicons/react/24/outline";
+
+export default function () {
+  return (
+    <>
+      <Tooltip label="You've got mail!" placement="top">
+        <IconButton>
+          <BellAlertIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip label="Big brother is watching you" placement="bottom">
+        <IconButton variant="ghost" colorScheme="danger">
+          <EyeIcon />
+        </IconButton>
+      </Tooltip>
+    </>
+  );
+}
 ```

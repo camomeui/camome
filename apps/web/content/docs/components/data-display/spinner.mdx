@@ -7,10 +7,16 @@ description: "A Spinner indicates something is in a loading state."
 ## Usage
 
 ```tsx live
-<>
-  <Spinner size="sm" />
-  <Spinner />
-  <Spinner size="lg" />
-  <Spinner size="xl" />
-</>;
+import { Spinner } from "@camome/components";
+
+export default function () {
+  return (
+    <>
+      <Spinner size="sm" />
+      <Spinner />
+      <Spinner size="lg" />
+      <Spinner size="xl" />
+    </>
+  );
+}
 ```

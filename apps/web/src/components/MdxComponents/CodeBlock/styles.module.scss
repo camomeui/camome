@@ -30,3 +30,24 @@
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
 }
+
+%border {
+  border-radius: var(--cmm-rounded-lg) !important;
+  border: 1px solid var(--cmm-color-gray-200) !important;
+}
+
+// https://sandpack.codesandbox.io/docs/getting-started/custom-ui
+.sp-layout {
+  @extend %border;
+
+  display: flex !important;
+  flex-direction: column !important;
+  flex: none !important;
+}
+
+// Non-live mode
+.sp-code-editor {
+  @extend %border;
+
+  overflow: hidden;
+}

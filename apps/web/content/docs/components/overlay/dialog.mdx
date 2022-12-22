@@ -7,8 +7,12 @@ headOnly: true
 
 ## Usage
 
-```tsx live
-function Example() {
+```tsx live previewHeight="300"
+import React from "react";
+import { Dialog as HeadlessDialog } from "@headlessui/react";
+import { Button, Dialog, dialogClassNames } from "@camome/components";
+
+export default function () {
   const [open, setOpen] = React.useState(false);
   const { container, backdrop, panelWrapper, panel, title, content } =
     dialogClassNames;

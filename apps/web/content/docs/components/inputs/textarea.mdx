@@ -7,9 +7,15 @@ description: "A Textarea lets the user to enter and edit multiline text."
 ## Usage
 
 ```tsx live
-<FormControl labelText="Message" helperText="Tell your thoughts">
-  <Textarea rows={3} required placeholder="Type something..." />
-</FormControl>;
+import { FormControl, Textarea } from "@camome/components";
+
+export default function () {
+  return (
+    <FormControl labelText="Message" helperText="Tell your thoughts">
+      <Textarea rows={3} required placeholder="Type something..." />
+    </FormControl>
+  );
+}
 ```
 
 ## States
@@ -17,19 +23,31 @@ description: "A Textarea lets the user to enter and edit multiline text."
 ### Error
 
 ```tsx live
-<FormControl
-  labelText="Message"
-  helperText="Tell you thoughts"
-  error="Something is wrong"
->
-  <Textarea rows={3} required placeholder="Type something..." />
-</FormControl>;
+import { FormControl, Textarea } from "@camome/components";
+
+export default function () {
+  return (
+    <FormControl
+      labelText="Message"
+      helperText="Tell you thoughts"
+      error="Something is wrong"
+    >
+      <Textarea rows={3} required placeholder="Type something..." />
+    </FormControl>
+  );
+}
 ```
 
 ### Disabled
 
 ```tsx live
-<FormControl labelText="Message">
-  <Textarea rows={3} required disabled placeholder="You can't type..." />
-</FormControl>;
+import { FormControl, Textarea } from "@camome/components";
+
+export default function () {
+  return (
+    <FormControl labelText="Message">
+      <Textarea rows={3} required disabled placeholder="You can't type..." />
+    </FormControl>
+  );
+}
 ```

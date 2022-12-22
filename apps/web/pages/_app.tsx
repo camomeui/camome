@@ -4,12 +4,8 @@ import { NextPage } from "next/types";
 import type { AppProps } from "next/app";
 
 import DefaultSeo from "@/components/common/DefaultSeo";
-import { BrowserContextProvider } from "@camome/components";
 
-import "@/styles/globals.css";
-import "@/styles/normalize.css";
-import "@/styles/tokens.css";
-import "@/styles/prism.css";
+import "@/styles/camome.css";
 
 type GetLayout = (page: React.ReactElement) => React.ReactNode;
 type NextPageWithLayout = NextPage & {
@@ -29,9 +25,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "5eb6cf5006564d3ea3745a94d7764a80"}'
       />
-      <BrowserContextProvider>
-        {getLayout(<Component {...pageProps} />)}
-      </BrowserContextProvider>
+      {getLayout(<Component {...pageProps} />)}
     </>
   );
 }

@@ -7,122 +7,116 @@ description: "A Tag represents a attribute or state of the associated element."
 ## Usage
 
 ```tsx live
-<Tag>Tag</Tag>;
+import { Tag } from "@camome/components";
+
+export default function () {
+  return <Tag>Tag</Tag>;
+}
 ```
 
 ## Variants
 
-### Primary
-
 ```tsx live
-<>
-  <Tag colorScheme="primary" variant="solid">
-    Tag
-  </Tag>
-  <Tag colorScheme="primary" variant="subtle">
-    Tag
-  </Tag>
-  <Tag colorScheme="primary" variant="outline">
-    Tag
-  </Tag>
-  <Tag colorScheme="primary" variant="ghost">
-    Tag
-  </Tag>
-</>;
+import { Tag } from "@camome/components";
+
+export default function () {
+  return (
+    <>
+      <Tag variant="solid">Tag</Tag>
+      <Tag variant="subtle">Tag</Tag>
+      <Tag variant="outline">Tag</Tag>
+      <Tag variant="ghost">Tag</Tag>
+    </>
+  );
+}
 ```
 
-### Secondary
+## Color schemes
 
 ```tsx live
-<>
-  <Tag colorScheme="secondary" variant="solid">
-    Tag
-  </Tag>
-  <Tag colorScheme="secondary" variant="subtle">
-    Tag
-  </Tag>
-  <Tag colorScheme="secondary" variant="outline">
-    Tag
-  </Tag>
-  <Tag colorScheme="secondary" variant="ghost">
-    Tag
-  </Tag>
-</>;
-```
+import { Tag } from "@camome/components";
 
-### Danger
-
-```tsx live
-<>
-  <Tag colorScheme="danger" variant="solid">
-    Tag
-  </Tag>
-  <Tag colorScheme="danger" variant="subtle">
-    Tag
-  </Tag>
-  <Tag colorScheme="danger" variant="outline">
-    Tag
-  </Tag>
-  <Tag colorScheme="danger" variant="ghost">
-    Tag
-  </Tag>
-</>;
+export default function () {
+  return (
+    <>
+      <Tag colorScheme="primary">Tag</Tag>
+      <Tag colorScheme="secondary">Tag</Tag>
+      <Tag colorScheme="info">Tag</Tag>
+      <Tag colorScheme="success">Tag</Tag>
+      <Tag colorScheme="warn">Tag</Tag>
+      <Tag colorScheme="danger">Tag</Tag>
+    </>
+  );
+}
 ```
 
 ## Sizes
 
 ```tsx live
-<>
-  <Tag size="sm">Tag</Tag>
-  <Tag size="md">Tag</Tag>
-  <Tag size="lg">Tag</Tag>
-</>;
+import { Tag } from "@camome/components";
+
+export default function () {
+  return (
+    <>
+      <Tag size="sm">Tag</Tag>
+      <Tag size="md">Tag</Tag>
+      <Tag size="lg">Tag</Tag>
+    </>
+  );
+}
 ```
 
 ## With decorators
 
 ```tsx live
-<>
-  <Tag
-    component="a"
-    href="#"
-    size="sm"
-    startDecorator={<LinkIcon stroke-width="2.5" />}
-  >
-    Website
-  </Tag>
-  <Tag
-    size="md"
-    variant="solid"
-    startDecorator={<WifiIcon stroke-width="2.2" />}
-  >
-    Online
-  </Tag>
-  <Tag
-    size="md"
-    colorScheme="success"
-    endDecorator={
-      <IconButton variant="ghost" colorScheme="success">
-        <XMarkIcon stroke-width="2" />
-      </IconButton>
-    }
-    cssVariables={{
-      "--IconButton-size": "1.5rem",
-      "--IconButton-margin": "0 -0.5rem 0 0",
-      "--IconButton-radius": "var(--cmm-rounded-full)",
-    }}
-  >
-    Next.js
-  </Tag>
-  <Tag
-    size="md"
-    startDecorator={<Avatar size="sm" src="/avatars/1.jpg" alt="Alt" />}
-    cssVariables={{
-      "--Avatar-size": "1.5rem",
-      "--Avatar-margin": "0 0 0 -0.5rem",
-    }}
-  >
-    John Doe
-  </Tag>
-</>;
+import { Tag, Avatar, IconButton } from "@camome/components";
+import { LinkIcon, WifiIcon, XMarkIcon } from "@heroicons/react/24/outline";
+
+export default function () {
+  return (
+    <>
+      <Tag
+        component="a"
+        href="#"
+        size="sm"
+        startDecorator={<LinkIcon stroke-width="2.5" />}
+      >
+        Website
+      </Tag>
+      <Tag
+        size="md"
+        variant="solid"
+        startDecorator={<WifiIcon stroke-width="2.2" />}
+      >
+        Online
+      </Tag>
+      <Tag
+        size="md"
+        colorScheme="success"
+        endDecorator={
+          <IconButton variant="ghost" colorScheme="success">
+            <XMarkIcon stroke-width="2" />
+          </IconButton>
+        }
+        cssVariables={{
+          "--IconButton-size": "1.5rem",
+          "--IconButton-margin": "0 -0.5rem 0 0",
+          "--IconButton-radius": "var(--cmm-rounded-full)",
+        }}
+      >
+        Next.js
+      </Tag>
+      <Tag
+        size="md"
+        startDecorator={<Avatar size="sm" src="/avatars/1.jpg" alt="Alt" />}
+        cssVariables={{
+          "--Avatar-size": "1.5rem",
+          "--Avatar-margin": "0 0 0 -0.5rem",
+        }}
+      >
+        John Doe
+      </Tag>
+    </>
+  );
+}
 ```

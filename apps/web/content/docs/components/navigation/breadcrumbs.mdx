@@ -7,19 +7,25 @@ description: "A Breadcrumbs trail enables navigation to ascendant routes of the 
 ## Usage
 
 ```tsx live
-<Breadcrumbs
-  paths={[
-    {
-      href: "#home",
-      label: "Home",
-    },
-    {
-      href: "#category",
-      label: "Category",
-    },
-    {
-      label: "Product",
-    },
-  ]}
-/>;
+import { Breadcrumbs } from "@camome/components";
+
+export default function () {
+  return (
+    <Breadcrumbs
+      paths={[
+        {
+          href: "#home",
+          label: "Home",
+        },
+        {
+          href: "#category",
+          label: "Category",
+        },
+        {
+          label: "Product",
+        },
+      ]}
+    />
+  );
+}
 ```

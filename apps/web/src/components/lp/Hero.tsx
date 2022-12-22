@@ -8,7 +8,7 @@ import TypeScriptIcon from "@/assets/typescript.svg";
 import BuyButton from "@/components/common/BuyButton";
 import Tag, { TagProps } from "@/components/common/Tag";
 import HeroPng from "@/public/hero-image.png";
-import { Button, TextInput } from "@camome/components";
+import { Button, TextInput } from "@camome/components/src";
 
 import styles from "./Hero.module.scss";
 

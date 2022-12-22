@@ -1,8 +1,4 @@
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { Squares2X2Icon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
@@ -13,13 +9,7 @@ import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 import PopoverLinks from "@/components/PopoverLinks";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
-import {
-  IconButton,
-  Kbd,
-  TextInput,
-  TextInputGroup,
-  Tooltip,
-} from "@camome/components";
+import { IconButton, Tooltip } from "@camome/components/src";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
@@ -76,29 +66,6 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
-          <TextInputGroup
-            input={<TextInput type="search" placeholder="Search" />}
-            leftDecorator={
-              <MagnifyingGlassIcon
-                stroke-width="2.5"
-                style={{ color: "var(--cmm-color-gray-300)" }}
-              />
-            }
-            rightDecorator={
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "0.75rem",
-                }}
-              >
-                <Kbd>⌘ + K</Kbd>
-              </div>
-            }
-            cssVariables={{
-              "--TextInput-left-decor-width": "2.5rem",
-              "--TextInput-right-decor-width": "4rem",
-            }}
-          />
           <Tooltip label="GitHub" placement="bottom">
             <IconButton
               component={Link}

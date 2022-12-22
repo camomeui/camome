@@ -7,8 +7,19 @@ headOnly: true
 
 ## Usage with Headless UI
 
-```tsx live
-function Example() {
+```tsx live previewHeight="500"
+import React from "react";
+import { Menu as HeadlessMenu } from "@headlessui/react";
+import {
+  PencilSquareIcon,
+  Square2StackIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+import { useFloating, offset, flip } from "@floating-ui/react";
+import clsx from "clsx";
+import { Button, Menu, menuClassNames } from "@camome/components";
+
+export default function () {
   const category1 = [
     {
       label: "Edit",
@@ -30,7 +41,6 @@ function Example() {
     },
   ];
 
-  const { useFloating, offset, flip } = Floating;
   const { x, y, reference, floating, strategy } = useFloating({
     placement: "bottom",
     middleware: [offset(8), flip()],
@@ -85,29 +95,15 @@ function Example() {
 
 ## Style-only components
 
-```tsx live
-function Example() {
-  const category1 = [
-    {
-      label: "Edit",
-      icon: <PencilSquareIcon />,
-    },
-    {
-      label: "Duplicate",
-      icon: <Square2StackIcon />,
-    },
-  ];
+```tsx live previewHeight="220"
+import {
+  PencilSquareIcon,
+  Square2StackIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+import { Menu } from "@camome/components";
 
-  const category2 = [
-    {
-      label: "Delete",
-      icon: <TrashIcon />,
-      "--font-color": "var(--cmm-color-danger-600)",
-      "--icon-color": "var(--cmm-color-danger-600)",
-      "--bg-hover": "var(--cmm-color-danger-50)",
-    },
-  ];
-
+export default function () {
   return (
     <Menu>
       <Menu.Label>Editing</Menu.Label>
@@ -128,4 +124,25 @@ function Example() {
     </Menu>
   );
 }
+
+const category1 = [
+  {
+    label: "Edit",
+    icon: <PencilSquareIcon />,
+  },
+  {
+    label: "Duplicate",
+    icon: <Square2StackIcon />,
+  },
+];
+
+const category2 = [
+  {
+    label: "Delete",
+    icon: <TrashIcon />,
+    "--font-color": "var(--cmm-color-danger-600)",
+    "--icon-color": "var(--cmm-color-danger-600)",
+    "--bg-hover": "var(--cmm-color-danger-50)",
+  },
+];
 ```
