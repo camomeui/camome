@@ -1,4 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cssvar.files": ["apps/web/src/styles/tokens.css"]
+  "cssvar.files": ["apps/web/src/styles/camome.css"],
+  "editor.wordWrap": "wordWrapColumn"
 }
