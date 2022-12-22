@@ -17,8 +17,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@camome/system": "^0.1.2",
-    "@camome/utils": "^0.1.0",
+    "@camome/system": "workspace:*",
+    "@camome/utils": "workspace:*",
     "yargs": "^17.6.2"
   },
   "devDependencies": {

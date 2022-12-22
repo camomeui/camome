@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@camome/utils": "^0.1.0"
+    "@camome/utils": "workspace:*"
   },
   "devDependencies": {
     "postcss": "^8.4.20",

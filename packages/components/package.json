@@ -19,7 +19,7 @@
     "typecheck": "pnpm gen-scss-type && tsc"
   },
   "dependencies": {
-    "@camome/utils": "^0.1.0",
+    "@camome/utils": "workspace:*",
     "@heroicons/react": "^2.0.10",
     "clsx": "^1.2.1"
   },
