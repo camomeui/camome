@@ -1,5 +1,12 @@
 # @camome/components
 
+## 0.1.13
+
+### Patch Changes
+
+- Updated dependencies [d7bea21]
+  - @camome/utils@0.1.3
+
 ## 0.1.12
 
 ### Patch Changes

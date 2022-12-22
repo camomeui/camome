@@ -1,5 +1,13 @@
 # @camome/system
 
+## 0.1.6
+
+### Patch Changes
+
+- d7bea21: This is a test publish.
+- Updated dependencies [d7bea21]
+  - @camome/utils@0.1.3
+
 ## 0.1.5
 
 ### Patch Changes
