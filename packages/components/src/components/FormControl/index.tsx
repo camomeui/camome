@@ -31,7 +31,7 @@ export function FormControl({
   const helperTextId = `${id}--helper-text`;
   const errorTextId = `${id}--error-text`;
   const ctxValue = {
-    htmlFor: id,
+    id,
     labelId,
     helperTextId,
     errorTextId,
@@ -50,7 +50,7 @@ export function FormControl({
           {labelText}
         </label>
         {helperText && (
-          <span id={helperText} className={styles["helper-text"]}>
+          <span id={helperTextId} className={styles["helper-text"]}>
             {helperText}
           </span>
         )}

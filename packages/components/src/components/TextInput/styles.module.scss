@@ -12,7 +12,7 @@
     color: var(--cmm-color-gray-400);
   }
 
-  &[aria-invalid] {
+  &[aria-invalid="true"] {
     border-color: var(--cmm-color-danger-200);
     color: var(--cmm-color-danger-600);
     outline-color: var(--cmm-color-danger-200);

@@ -14,13 +14,12 @@ export type SelectProps = { size?: SelectSize; fill?: boolean } & Omit<
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   ({ size = "md", fill, className, ...props }, forwardedRef) => {
-    const { htmlFor, helperTextId, errorTextId, isError } =
-      useFormControlContext();
+    const { id, helperTextId, errorTextId, isError } = useFormControlContext();
     return (
       <select
-        id={htmlFor}
+        id={id}
         aria-describedby={[helperTextId || "", errorTextId || ""].join(" ")}
-        aria-disabled={isError ? true : undefined}
+        aria-invalid={isError}
         ref={forwardedRef}
         {...props}
         className={clsx(

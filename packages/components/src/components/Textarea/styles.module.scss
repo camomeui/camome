@@ -11,7 +11,7 @@
     font-weight: var(--cmm-font-weight-normal);
   }
 
-  &[aria-invalid] {
+  &[aria-invalid="true"] {
     border-color: var(--cmm-color-danger-200);
     color: var(--cmm-color-danger-600);
     outline-color: var(--cmm-color-danger-200);

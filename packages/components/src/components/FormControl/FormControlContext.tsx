@@ -2,14 +2,14 @@ import React from "react";
 
 export type FormControlContextValue = {
   labelId: string | undefined;
-  htmlFor: string | undefined;
+  id: string | undefined;
   helperTextId: string | undefined;
   errorTextId: string | undefined;
-  isError: boolean | string;
+  isError: boolean;
 };
 
 export const FormControlContext = React.createContext<FormControlContextValue>({
-  htmlFor: undefined,
+  id: undefined,
   labelId: undefined,
   helperTextId: undefined,
   errorTextId: undefined,

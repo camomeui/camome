@@ -41,14 +41,14 @@ export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
         error={error}
         direction={direction}
       >
-        {({ htmlFor }) => (
+        {({ id }) => (
           <span
             className={clsx(styles.Block, styles[`--${size}`], className)}
             style={style}
           >
             <input
               type="checkbox"
-              id={htmlFor}
+              id={id}
               {...props}
               ref={ref}
               className={styles.input}
