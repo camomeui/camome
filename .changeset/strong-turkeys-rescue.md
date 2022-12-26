@@ -1,5 +1,0 @@
----
-"@camome/components": patch
----
-
-Fixes
