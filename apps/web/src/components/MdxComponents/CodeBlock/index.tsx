@@ -38,6 +38,8 @@ export default function CodeBlock({
           classes: {
             "sp-layout": styles["sp-layout"],
           },
+          // https://github.com/codesandbox/sandpack/discussions/416
+          bundlerURL: "https://sandpack-bundler.pages.dev",
         }}
         files={{
           "/styles.css": {
@@ -56,6 +58,7 @@ export default function CodeBlock({
             "@camome/system": "^0.1.5",
             "@headlessui/react": "^1.7.4",
             "@floating-ui/react": "^0.14.0",
+            "@heroicons/react": "^2.0.10",
             "react-hook-form": "^7.40.0",
             clsx: "^1.2.1",
           },
