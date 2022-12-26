@@ -4,7 +4,7 @@ $bgColor: var(--cmm-color-gray-800);
 
 .target {
   position: relative;
-  width: fit-content;
+  display: inline-block;
 
   &:hover,
   &:focus-within {

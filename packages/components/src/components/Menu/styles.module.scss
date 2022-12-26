@@ -12,6 +12,7 @@
   --label-pad: 0.25rem 0.75rem;
   --min-width: 10rem;
 
+  display: inline-block;
   border: 1px solid var(--cmm-color-gray-100);
   border-radius: var(--radius);
   padding: var(--root-pad);

@@ -16,7 +16,9 @@
     "dev:vite": "vite build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
     "build": "vite build",
-    "typecheck": "pnpm gen-scss-type && tsc"
+    "typecheck": "pnpm gen-scss-type && tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@camome/utils": "workspace:*",
@@ -24,9 +26,19 @@
     "clsx": "^1.2.1"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-beta.15",
+    "@storybook/addon-interactions": "^7.0.0-beta.15",
+    "@storybook/addon-links": "^7.0.0-beta.15",
+    "@storybook/blocks": "^7.0.0-beta.15",
+    "@storybook/react": "^7.0.0-beta.15",
+    "@storybook/react-vite": "^7.0.0-beta.15",
+    "@storybook/testing-library": "^0.0.13",
     "@types/body-scroll-lock": "^3.1.0",
     "@vitejs/plugin-react": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.55.0",
+    "storybook": "^7.0.0-beta.15",
     "vite": "^4.0.2",
     "vite-plugin-dts": "^1.7.1"
   },

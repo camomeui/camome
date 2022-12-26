@@ -1,0 +1,486 @@
+/* Normalize */
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: currentColor; /* 2 */
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+*/
+
+html {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+  display: none;
+}
+
+/* Theme */
+:root {
+  --cmm-color-black: #000;
+  --cmm-color-white: #fff;
+  --cmm-color-gray-50: #f7fafc;
+  --cmm-color-gray-100: #edf2f7;
+  --cmm-color-gray-200: #e2e8f0;
+  --cmm-color-gray-300: #cbd5e0;
+  --cmm-color-gray-400: #a0aec0;
+  --cmm-color-gray-500: #718096;
+  --cmm-color-gray-600: #4a5568;
+  --cmm-color-gray-700: #2d3748;
+  --cmm-color-gray-800: #1a202c;
+  --cmm-color-gray-900: #171923;
+  --cmm-color-primary-50: #eff6ff;
+  --cmm-color-primary-100: #dbeafe;
+  --cmm-color-primary-200: #bfdbfe;
+  --cmm-color-primary-300: #93c5fd;
+  --cmm-color-primary-400: #60a5fa;
+  --cmm-color-primary-500: #3b82f6;
+  --cmm-color-primary-600: #2563eb;
+  --cmm-color-primary-700: #1d4ed8;
+  --cmm-color-primary-800: #1e40af;
+  --cmm-color-primary-900: #1e3a8a;
+  --cmm-color-secondary-50: var(--cmm-color-gray-50);
+  --cmm-color-secondary-100: var(--cmm-color-gray-100);
+  --cmm-color-secondary-200: var(--cmm-color-gray-200);
+  --cmm-color-secondary-300: var(--cmm-color-gray-300);
+  --cmm-color-secondary-400: var(--cmm-color-gray-400);
+  --cmm-color-secondary-500: var(--cmm-color-gray-500);
+  --cmm-color-secondary-600: var(--cmm-color-gray-600);
+  --cmm-color-secondary-700: var(--cmm-color-gray-700);
+  --cmm-color-secondary-800: var(--cmm-color-gray-800);
+  --cmm-color-secondary-900: var(--cmm-color-gray-900);
+  --cmm-color-info-50: #f0f9ff;
+  --cmm-color-info-100: #e0f2fe;
+  --cmm-color-info-200: #bae6fd;
+  --cmm-color-info-300: #7dd3fc;
+  --cmm-color-info-400: #38bdf8;
+  --cmm-color-info-500: #0ea5e9;
+  --cmm-color-info-600: #0284c7;
+  --cmm-color-info-700: #0369a1;
+  --cmm-color-info-800: #075985;
+  --cmm-color-info-900: #0c4a6e;
+  --cmm-color-success-50: #f0fdf4;
+  --cmm-color-success-100: #dcfce7;
+  --cmm-color-success-200: #bbf7d0;
+  --cmm-color-success-300: #86efac;
+  --cmm-color-success-400: #4ade80;
+  --cmm-color-success-500: #22c55e;
+  --cmm-color-success-600: #16a34a;
+  --cmm-color-success-700: #15803d;
+  --cmm-color-success-800: #166534;
+  --cmm-color-success-900: #14532d;
+  --cmm-color-warn-50: #fff7ed;
+  --cmm-color-warn-100: #ffedd5;
+  --cmm-color-warn-200: #fed7aa;
+  --cmm-color-warn-300: #fdba74;
+  --cmm-color-warn-400: #fb923c;
+  --cmm-color-warn-500: #f97316;
+  --cmm-color-warn-600: #ea580c;
+  --cmm-color-warn-700: #c2410c;
+  --cmm-color-warn-800: #9a3412;
+  --cmm-color-warn-900: #7c2d12;
+  --cmm-color-danger-50: #fff5f5;
+  --cmm-color-danger-100: #fed7d7;
+  --cmm-color-danger-200: #feb2b2;
+  --cmm-color-danger-300: #fc8181;
+  --cmm-color-danger-400: #f56565;
+  --cmm-color-danger-500: #e53e3e;
+  --cmm-color-danger-600: #c53030;
+  --cmm-color-danger-700: #b91c1c;
+  --cmm-color-danger-800: #991b1b;
+  --cmm-color-danger-900: #7f1d1d;
+  --cmm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --cmm-font-family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, monospace;
+  --cmm-font-size-xs: 0.75rem;
+  --cmm-font-size-sm: 0.875rem;
+  --cmm-font-size-md: 1rem;
+  --cmm-font-size-lg: 1.125rem;
+  --cmm-font-size-xl: 1.25rem;
+  --cmm-font-size-2xl: 1.5rem;
+  --cmm-font-size-3xl: 1.875rem;
+  --cmm-font-size-4xl: 2.25rem;
+  --cmm-font-size-5xl: 3rem;
+  --cmm-font-size-6xl: 3.75rem;
+  --cmm-font-weight-thin: 100;
+  --cmm-font-weight-extralight: 200;
+  --cmm-font-weight-light: 300;
+  --cmm-font-weight-normal: 400;
+  --cmm-font-weight-medium: 500;
+  --cmm-font-weight-semibold: 600;
+  --cmm-font-weight-bold: 700;
+  --cmm-font-weight-extrabold: 800;
+  --cmm-font-weight-black: 900;
+  --cmm-outline-color: var(--cmm-color-primary-400);
+  --cmm-outline-offset: 2px;
+  --cmm-outline-width: 2px;
+  --cmm-rounded-none: none;
+  --cmm-rounded-xs: 0.125rem;
+  --cmm-rounded-sm: 0.25rem;
+  --cmm-rounded-md: 0.375rem;
+  --cmm-rounded-lg: 0.5rem;
+  --cmm-rounded-xl: 0.75rem;
+  --cmm-rounded-full: 9999px;
+  --cmm-shadow-color: rgba(12, 12, 13, 0.1);
+  --cmm-shadow-xs: 2px 2px 2px var(--cmm-shadow-color);
+  --cmm-shadow-sm: 2px 2px 6px var(--cmm-shadow-color);
+  --cmm-shadow-md: 2px 2px 10px var(--cmm-shadow-color);
+  --cmm-shadow-lg: 2px 2px 14px var(--cmm-shadow-color);
+  --cmm-shadow-xl: 2px 2px 18px var(--cmm-shadow-color);
+  --cmm-transition-bg: background-color 0.3s;
+}
+
+/* Base */
+body {
+  font-family: var(--cmm-font-family-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
