@@ -11,7 +11,7 @@ type SliderBaseProps = {
   size?: SliderSize;
 };
 
-type SliderProps = SliderBaseProps & NativeProps;
+export type SliderProps = SliderBaseProps & NativeProps;
 
 export function Slider(props: SliderProps) {
   const { size = "md", className, ...nativeProps } = props;

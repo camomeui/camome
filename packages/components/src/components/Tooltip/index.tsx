@@ -10,15 +10,11 @@ export type TooltipProps = {
 // Maybe accept a render function and pass it a ID?
 export function Tooltip({ children, label, placement = "top" }: TooltipProps) {
   return (
-    <span className={styles.target}>
+    <div className={styles.target}>
       {children}
-      <span
-        role="tooltip"
-        className={styles.content}
-        data-placement={placement}
-      >
+      <div role="tooltip" className={styles.content} data-placement={placement}>
         {label}
-      </span>
-    </span>
+      </div>
+    </div>
   );
 }

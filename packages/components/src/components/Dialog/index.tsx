@@ -86,4 +86,5 @@ Dialog.Backdrop = DialogBackdrop;
 Dialog.PanelWrapper = DialogPanelWrapper;
 Dialog.Panel = DialogPanel;
 Dialog.Title = DialogTitle;
+Dialog.Content = DialogContent;
 Dialog.Close = DialogClose;

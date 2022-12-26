@@ -13,8 +13,9 @@ export type TextInputGroupProps = {
 };
 
 export type TextInputGroupCssVars = {
-  "--TextInput-left-decor-width": number | string;
-  "--TextInput-right-decor-width": number | string;
+  "--TextInput-left-decor-width"?: number | string;
+  "--TextInput-right-decor-width"?: number | string;
+  "--TextInput-radius"?: number | string;
 };
 
 export function TextInputGroup({

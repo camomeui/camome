@@ -12,7 +12,7 @@ export const tabClassNames = {
 };
 
 type TabApi = ReturnType<
-  typeof React.forwardRef<HTMLButtonElement, BaseProps>
+  typeof React.forwardRef<HTMLButtonElement, TabProps>
 > & {
   Group: typeof TabGroup;
   List: typeof TabList;

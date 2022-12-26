@@ -9,7 +9,7 @@ export type AccordionItem = {
   details: React.ReactNode;
 };
 
-type Props = {
+export type AccordionProps = {
   items: AccordionItem[];
   classNames?: {
     details?: string;
@@ -18,7 +18,7 @@ type Props = {
   };
 };
 
-export function Accordion({ items, classNames }: Props) {
+export function Accordion({ items, classNames }: AccordionProps) {
   return (
     <section>
       {items.map(({ summary, details }) => (
