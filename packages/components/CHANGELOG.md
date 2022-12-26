@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.14
+
+### Patch Changes
+
+- 8c8755b: Fixes
+
 ## 0.1.13
 
 ### Patch Changes
