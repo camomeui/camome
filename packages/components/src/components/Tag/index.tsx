@@ -53,8 +53,8 @@ const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
         className={clsx(
           styles.Block,
           size !== defaultSize && styles[`--${size}`],
-          variant !== defaultVariant && styles[`--${variant}`],
-          colorScheme !== defaultColorScheme && styles[`--${colorScheme}`]
+          styles[`Block--${variant}`],
+          styles[`Block--${colorScheme}`]
         )}
         ref={forwardedRef}
         style={mergeStyleAndCssVars(style, cssVariables)}

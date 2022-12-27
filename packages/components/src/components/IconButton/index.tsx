@@ -40,8 +40,8 @@ const _IconButton = React.forwardRef<
       className: clsx(
         className,
         styles.Block,
-        variant !== "solid" && styles[`--${variant}`],
-        colorScheme !== "primary" && styles[`--${colorScheme}`],
+        styles[`Block--${variant}`],
+        styles[`Block--${colorScheme}`],
         size !== "md" && styles[`--${size}`]
       ),
     };

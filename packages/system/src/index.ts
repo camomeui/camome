@@ -1,7 +1,9 @@
 import { format } from "prettier";
 
-import type { Theme } from "./types";
+import type { ColorScheme, Theme, VariantColors } from "./types";
 import type { Path, Replace } from "@camome/utils";
+
+import { layers } from "./types";
 
 const DEFAULT_PREFIX = "cmm" as const;
 const BASE_STYLES = `body {
@@ -25,9 +27,6 @@ const BASE_STYLES = `body {
   position: absolute;
 }` as const;
 
-export const layers = ["reset", "theme", "base"] as const;
-export type Layer = typeof layers[number];
-
 function cssVar<
   DotPath extends Path<Theme>,
   Name extends `--${Prefix}-${Replace<DotPath, ".", "-">}`,
@@ -36,8 +35,41 @@ function cssVar<
   WithVar extends boolean = true
 >(path: DotPath, options: { prefix?: Prefix; withVar?: WithVar } = {}): Ret {
   const { prefix = DEFAULT_PREFIX, withVar = true } = options;
-  const name = `--${prefix}-${path.replaceAll(".", "-")}` as Name;
+  const name = `--${prefix}-${toKebabCase(path.replaceAll(".", "-"))}` as Name;
   return (withVar ? `var(${name})` : name) as Ret;
+}
+
+function toKebabCase(str: string): string {
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/\s+/g, "-")
+    .toLowerCase();
+}
+
+function variantColors(colorScheme: ColorScheme): VariantColors {
+  return {
+    solid: {
+      bg: cssVar(`color.${colorScheme}.500`),
+      bgHover: cssVar(`color.${colorScheme}.600`),
+      font: cssVar(`color.white`),
+    },
+    subtle: {
+      bg: cssVar(`color.${colorScheme}.50`),
+      bgHover: cssVar(`color.${colorScheme}.100`),
+      font: cssVar(`color.${colorScheme}.600`),
+    },
+    outline: {
+      bg: "transparent",
+      bgHover: cssVar(`color.${colorScheme}.100`),
+      font: cssVar(`color.${colorScheme}.600`),
+      border: cssVar(`color.${colorScheme}.500`),
+    },
+    ghost: {
+      bg: "transparent",
+      bgHover: cssVar(`color.${colorScheme}.100`),
+      font: cssVar(`color.${colorScheme}.600`),
+    },
+  };
 }
 
 export const defaultTheme = {
@@ -67,6 +99,7 @@ export const defaultTheme = {
       700: "#1d4ed8",
       800: "#1e40af",
       900: "#1e3a8a",
+      ...variantColors("primary"),
     },
     secondary: {
       50: cssVar("color.gray.50"),
@@ -79,6 +112,7 @@ export const defaultTheme = {
       700: cssVar("color.gray.700"),
       800: cssVar("color.gray.800"),
       900: cssVar("color.gray.900"),
+      ...variantColors("secondary"),
     },
     info: {
       50: "#f0f9ff",
@@ -91,6 +125,7 @@ export const defaultTheme = {
       700: "#0369a1",
       800: "#075985",
       900: "#0c4a6e",
+      ...variantColors("info"),
     },
     success: {
       50: "#f0fdf4",
@@ -103,6 +138,7 @@ export const defaultTheme = {
       700: "#15803d",
       800: "#166534",
       900: "#14532d",
+      ...variantColors("success"),
     },
     warn: {
       50: "#fff7ed",
@@ -115,6 +151,7 @@ export const defaultTheme = {
       700: "#c2410c",
       800: "#9a3412",
       900: "#7c2d12",
+      ...variantColors("warn"),
     },
     danger: {
       50: "#fff5f5",
@@ -127,6 +164,7 @@ export const defaultTheme = {
       700: "#b91c1c",
       800: "#991b1b",
       900: "#7f1d1d",
+      ...variantColors("danger"),
     },
   },
   font: {
@@ -227,7 +265,7 @@ export async function generateCss(
 
 function layerOrder(prefix: string, names: string[] | readonly string[]) {
   const prefixedNames = names.map((name) => `${prefix}.${name}`);
-  const namesStr = prefixedNames.join(",");
+  const namesStr = prefixedNames.join(", ");
   return `@layer ${namesStr};`;
 }
 

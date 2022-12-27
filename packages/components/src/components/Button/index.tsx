@@ -46,9 +46,9 @@ const _Button = React.forwardRef<
       className: clsx(
         className,
         styles.Block,
-        variant !== "solid" && styles[`--${variant}`],
-        colorScheme !== "primary" && styles[`--${colorScheme}`],
-        size !== "md" && styles[`--${size}`]
+        styles[`Block--${variant}`],
+        styles[`Block--${colorScheme}`],
+        styles[`Block--${size}`]
       ),
     };
 
