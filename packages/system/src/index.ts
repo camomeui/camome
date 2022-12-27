@@ -1,3 +1,5 @@
+import { format } from "prettier";
+
 import type { Theme } from "./types";
 import type { Path, Replace } from "@camome/utils";
 
@@ -213,12 +215,14 @@ export async function generateCss(
     comment: "Base",
     enclosure: _layer("base"),
   });
-
-  return (
+  const css =
     layerOrder(prefix, layers) +
     "\n" +
-    [normalizeCss, themeCss, baseCss].join("\n")
-  );
+    [normalizeCss, themeCss, baseCss].join("\n");
+
+  return format(css, {
+    parser: "css",
+  });
 }
 
 function layerOrder(prefix: string, names: string[] | readonly string[]) {

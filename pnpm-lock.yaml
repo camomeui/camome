@@ -231,9 +231,11 @@ importers:
       '@camome/utils': workspace:*
       cssnano: ^5.1.14
       postcss: ^8.4.20
+      prettier: ^2.8.1
       tsup: ^6.3.0
     dependencies:
       '@camome/utils': link:../utils
+      prettier: 2.8.1
     devDependencies:
       cssnano: 5.1.14_postcss@8.4.20
       postcss: 8.4.20
@@ -12353,7 +12355,6 @@ packages:
     resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /pretty-format/27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}

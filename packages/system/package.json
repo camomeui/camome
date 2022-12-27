@@ -17,7 +17,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@camome/utils": "workspace:*"
+    "@camome/utils": "workspace:*",
+    "prettier": "^2.8.1"
   },
   "devDependencies": {
     "cssnano": "^5.1.14",
