@@ -1,6 +1,8 @@
 @layer cmm.reset,cmm.theme,cmm.base;
 /* Normalize */
 @layer cmm.reset {
+  /* Original: https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css */
+
   /*
   1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
   2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -374,6 +376,19 @@
     --cmm-color-primary-700: #1d4ed8;
     --cmm-color-primary-800: #1e40af;
     --cmm-color-primary-900: #1e3a8a;
+    --cmm-color-primary-solid-bg: var(--cmm-color-primary-500);
+    --cmm-color-primary-solid-bg-hover: var(--cmm-color-primary-600);
+    --cmm-color-primary-solid-font: var(--cmm-color-white);
+    --cmm-color-primary-subtle-bg: var(--cmm-color-primary-50);
+    --cmm-color-primary-subtle-bg-hover: var(--cmm-color-primary-100);
+    --cmm-color-primary-subtle-font: var(--cmm-color-primary-600);
+    --cmm-color-primary-outline-bg: transparent;
+    --cmm-color-primary-outline-bg-hover: var(--cmm-color-primary-100);
+    --cmm-color-primary-outline-font: var(--cmm-color-primary-600);
+    --cmm-color-primary-outline-border: var(--cmm-color-primary-500);
+    --cmm-color-primary-ghost-bg: transparent;
+    --cmm-color-primary-ghost-bg-hover: var(--cmm-color-primary-100);
+    --cmm-color-primary-ghost-font: var(--cmm-color-primary-600);
     --cmm-color-secondary-50: var(--cmm-color-gray-50);
     --cmm-color-secondary-100: var(--cmm-color-gray-100);
     --cmm-color-secondary-200: var(--cmm-color-gray-200);
@@ -384,6 +399,19 @@
     --cmm-color-secondary-700: var(--cmm-color-gray-700);
     --cmm-color-secondary-800: var(--cmm-color-gray-800);
     --cmm-color-secondary-900: var(--cmm-color-gray-900);
+    --cmm-color-secondary-solid-bg: var(--cmm-color-secondary-500);
+    --cmm-color-secondary-solid-bg-hover: var(--cmm-color-secondary-600);
+    --cmm-color-secondary-solid-font: var(--cmm-color-white);
+    --cmm-color-secondary-subtle-bg: var(--cmm-color-secondary-50);
+    --cmm-color-secondary-subtle-bg-hover: var(--cmm-color-secondary-100);
+    --cmm-color-secondary-subtle-font: var(--cmm-color-secondary-600);
+    --cmm-color-secondary-outline-bg: transparent;
+    --cmm-color-secondary-outline-bg-hover: var(--cmm-color-secondary-100);
+    --cmm-color-secondary-outline-font: var(--cmm-color-secondary-600);
+    --cmm-color-secondary-outline-border: var(--cmm-color-secondary-500);
+    --cmm-color-secondary-ghost-bg: transparent;
+    --cmm-color-secondary-ghost-bg-hover: var(--cmm-color-secondary-100);
+    --cmm-color-secondary-ghost-font: var(--cmm-color-secondary-600);
     --cmm-color-info-50: #f0f9ff;
     --cmm-color-info-100: #e0f2fe;
     --cmm-color-info-200: #bae6fd;
@@ -394,6 +422,19 @@
     --cmm-color-info-700: #0369a1;
     --cmm-color-info-800: #075985;
     --cmm-color-info-900: #0c4a6e;
+    --cmm-color-info-solid-bg: var(--cmm-color-info-500);
+    --cmm-color-info-solid-bg-hover: var(--cmm-color-info-600);
+    --cmm-color-info-solid-font: var(--cmm-color-white);
+    --cmm-color-info-subtle-bg: var(--cmm-color-info-50);
+    --cmm-color-info-subtle-bg-hover: var(--cmm-color-info-100);
+    --cmm-color-info-subtle-font: var(--cmm-color-info-600);
+    --cmm-color-info-outline-bg: transparent;
+    --cmm-color-info-outline-bg-hover: var(--cmm-color-info-100);
+    --cmm-color-info-outline-font: var(--cmm-color-info-600);
+    --cmm-color-info-outline-border: var(--cmm-color-info-500);
+    --cmm-color-info-ghost-bg: transparent;
+    --cmm-color-info-ghost-bg-hover: var(--cmm-color-info-100);
+    --cmm-color-info-ghost-font: var(--cmm-color-info-600);
     --cmm-color-success-50: #f0fdf4;
     --cmm-color-success-100: #dcfce7;
     --cmm-color-success-200: #bbf7d0;
@@ -404,6 +445,19 @@
     --cmm-color-success-700: #15803d;
     --cmm-color-success-800: #166534;
     --cmm-color-success-900: #14532d;
+    --cmm-color-success-solid-bg: var(--cmm-color-success-500);
+    --cmm-color-success-solid-bg-hover: var(--cmm-color-success-600);
+    --cmm-color-success-solid-font: var(--cmm-color-white);
+    --cmm-color-success-subtle-bg: var(--cmm-color-success-50);
+    --cmm-color-success-subtle-bg-hover: var(--cmm-color-success-100);
+    --cmm-color-success-subtle-font: var(--cmm-color-success-600);
+    --cmm-color-success-outline-bg: transparent;
+    --cmm-color-success-outline-bg-hover: var(--cmm-color-success-100);
+    --cmm-color-success-outline-font: var(--cmm-color-success-600);
+    --cmm-color-success-outline-border: var(--cmm-color-success-500);
+    --cmm-color-success-ghost-bg: transparent;
+    --cmm-color-success-ghost-bg-hover: var(--cmm-color-success-100);
+    --cmm-color-success-ghost-font: var(--cmm-color-success-600);
     --cmm-color-warn-50: #fff7ed;
     --cmm-color-warn-100: #ffedd5;
     --cmm-color-warn-200: #fed7aa;
@@ -414,6 +468,19 @@
     --cmm-color-warn-700: #c2410c;
     --cmm-color-warn-800: #9a3412;
     --cmm-color-warn-900: #7c2d12;
+    --cmm-color-warn-solid-bg: var(--cmm-color-warn-500);
+    --cmm-color-warn-solid-bg-hover: var(--cmm-color-warn-600);
+    --cmm-color-warn-solid-font: var(--cmm-color-white);
+    --cmm-color-warn-subtle-bg: var(--cmm-color-warn-50);
+    --cmm-color-warn-subtle-bg-hover: var(--cmm-color-warn-100);
+    --cmm-color-warn-subtle-font: var(--cmm-color-warn-600);
+    --cmm-color-warn-outline-bg: transparent;
+    --cmm-color-warn-outline-bg-hover: var(--cmm-color-warn-100);
+    --cmm-color-warn-outline-font: var(--cmm-color-warn-600);
+    --cmm-color-warn-outline-border: var(--cmm-color-warn-500);
+    --cmm-color-warn-ghost-bg: transparent;
+    --cmm-color-warn-ghost-bg-hover: var(--cmm-color-warn-100);
+    --cmm-color-warn-ghost-font: var(--cmm-color-warn-600);
     --cmm-color-danger-50: #fff5f5;
     --cmm-color-danger-100: #fed7d7;
     --cmm-color-danger-200: #feb2b2;
@@ -424,6 +491,19 @@
     --cmm-color-danger-700: #b91c1c;
     --cmm-color-danger-800: #991b1b;
     --cmm-color-danger-900: #7f1d1d;
+    --cmm-color-danger-solid-bg: var(--cmm-color-danger-500);
+    --cmm-color-danger-solid-bg-hover: var(--cmm-color-danger-600);
+    --cmm-color-danger-solid-font: var(--cmm-color-white);
+    --cmm-color-danger-subtle-bg: var(--cmm-color-danger-50);
+    --cmm-color-danger-subtle-bg-hover: var(--cmm-color-danger-100);
+    --cmm-color-danger-subtle-font: var(--cmm-color-danger-600);
+    --cmm-color-danger-outline-bg: transparent;
+    --cmm-color-danger-outline-bg-hover: var(--cmm-color-danger-100);
+    --cmm-color-danger-outline-font: var(--cmm-color-danger-600);
+    --cmm-color-danger-outline-border: var(--cmm-color-danger-500);
+    --cmm-color-danger-ghost-bg: transparent;
+    --cmm-color-danger-ghost-bg-hover: var(--cmm-color-danger-100);
+    --cmm-color-danger-ghost-font: var(--cmm-color-danger-600);
     --cmm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     --cmm-font-family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo,

@@ -1,19 +1,17 @@
 @use "../../styles/variables.scss";
 @use "../../styles/utils";
 
-@mixin colorScheme($color) {
-  --bg-color-solid: var(--cmm-color-#{$color}-500);
-  --bg-color-subtle: var(--cmm-color-#{$color}-50);
-
-  --font-color-solid: var(--cmm-color-white);
-  --font-color-subtle: var(--cmm-color-#{$color}-600);
+@mixin modifier($variant, $scheme) {
+  .Block--#{$variant}.Block--#{$scheme} {
+    background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg);
+    color: var(--cmm-color-#{$scheme}-#{$variant}-font);
+    border-color: var(--cmm-color-#{$scheme}-#{$variant}-border);
+  }
 }
 
 @include utils.layer {
   .Block {
     @extend %sizeDefaults;
-    @extend %variantDefaults;
-    @extend %colorSchemeDefaults;
 
     height: var(--Avatar-size, var(--size));
     width: var(--Avatar-size, var(--size));
@@ -44,6 +42,18 @@
     }
   }
 
+  // Modifiers
+  @each $variant in variables.$variants {
+    @each $scheme in variables.$colorSchemes {
+      @include modifier($variant, $scheme);
+    }
+  }
+
+  .Block--outline {
+    border-width: 1px;
+    border-style: solid;
+  }
+
   // Sizes
 
   %sizeDefaults {
@@ -63,33 +73,5 @@
   .--lg {
     --size: 4rem;
     --font-size: var(--cmm-font-size-2xl);
-  }
-
-  // Variants
-
-  %variantDefaults {
-    background-color: var(--bg-color-subtle);
-    color: var(--font-color-subtle);
-  }
-
-  .--solid {
-    background-color: var(--bg-color-solid);
-    color: var(--font-color-solid);
-  }
-
-  .--subtle {
-    @extend %variantDefaults;
-  }
-
-  // Color schemes
-
-  %colorSchemeDefaults {
-    @include colorScheme("primary");
-  }
-
-  @each $color in variables.$colors {
-    .--#{$color} {
-      @include colorScheme($color);
-    }
   }
 }

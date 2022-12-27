@@ -14,11 +14,9 @@ import { Box } from "../Box";
 
 import styles from "./styles.module.scss";
 
-type AvatarVariant = Extract<Variant, "solid" | "subtle">;
-
 export type AvatarProps = {
   size?: Size;
-  variant?: AvatarVariant;
+  variant?: Variant;
   colorScheme?: ColorScheme;
   src?: string;
   alt?: string;
@@ -56,8 +54,8 @@ const _Avatar = React.forwardRef<
       className={clsx(
         styles.Block,
         size !== defaultSize && styles[`--${size}`],
-        variant !== defaultVariant && styles[`--${variant}`],
-        colorScheme !== defaultColorScheme && styles[`--${colorScheme}`]
+        styles[`Block--${variant}`],
+        styles[`Block--${colorScheme}`]
       )}
       ref={forwardedRef}
       {...restProps}

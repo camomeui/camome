@@ -1,3 +1,18 @@
+export const layers = ["reset", "theme", "base"] as const;
+export const variants = ["solid", "subtle", "outline", "ghost"] as const;
+export const colorSchemes = [
+  "primary",
+  "secondary",
+  "info",
+  "success",
+  "warn",
+  "danger",
+] as const;
+
+export type Layer = typeof layers[number];
+export type Variant = typeof variants[number];
+export type ColorScheme = typeof colorSchemes[number];
+
 type Color = string;
 
 type ColorShade = {
@@ -13,16 +28,48 @@ type ColorShade = {
   "900": Color;
 };
 
+type VariantSolid = {
+  bg: Color;
+  bgHover: Color;
+  font: Color;
+};
+
+type VariantSubtle = {
+  bg: Color;
+  bgHover: Color;
+  font: Color;
+};
+
+type VariantOutline = {
+  bg: Color;
+  bgHover: Color;
+  font: Color;
+  border: Color;
+};
+
+type VariantGhost = {
+  bg: Color;
+  bgHover: Color;
+  font: Color;
+};
+
+export type VariantColors = {
+  solid: VariantSolid;
+  subtle: VariantSubtle;
+  outline: VariantOutline;
+  ghost: VariantGhost;
+};
+
 type ColorPalette = {
   black: Color;
   white: Color;
   gray: ColorShade;
-  primary: ColorShade;
-  secondary: ColorShade;
-  success: ColorShade;
-  info: ColorShade;
-  warn: ColorShade;
-  danger: ColorShade;
+  primary: ColorShade & VariantColors;
+  secondary: ColorShade & VariantColors;
+  success: ColorShade & VariantColors;
+  info: ColorShade & VariantColors;
+  warn: ColorShade & VariantColors;
+  danger: ColorShade & VariantColors;
 };
 
 type FontFamily = {
