@@ -309,6 +309,7 @@ function getValue<T, K extends keyof T>(obj: T, key: K | string): T[K] {
     return obj[key];
   }
   const keys = key.split(".");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let result: any = obj;
   for (const k of keys) {
     result = result[k];
