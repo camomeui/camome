@@ -1,27 +1,30 @@
 @use "../../styles/inputs";
+@use "../../styles/utils";
 
-.Block {
-  @include inputs.base(Textarea);
+@include utils.layer {
+  .Block {
+    @include inputs.base(Textarea);
 
-  width: var(--Textarea-width);
-  padding: 0.5rem;
-  resize: none;
-
-  &::placeholder {
-    font-weight: var(--cmm-font-weight-normal);
-  }
-
-  &[aria-invalid="true"] {
-    border-color: var(--cmm-color-danger-200);
-    color: var(--cmm-color-danger-600);
-    outline-color: var(--cmm-color-danger-200);
+    width: var(--Textarea-width);
+    padding: 0.5rem;
+    resize: none;
 
     &::placeholder {
-      color: var(--cmm-color-danger-400);
+      font-weight: var(--cmm-font-weight-normal);
     }
-  }
 
-  &--fill {
-    --Textarea-width: 100%;
+    &[aria-invalid="true"] {
+      border-color: var(--cmm-color-danger-200);
+      color: var(--cmm-color-danger-600);
+      outline-color: var(--cmm-color-danger-200);
+
+      &::placeholder {
+        color: var(--cmm-color-danger-400);
+      }
+    }
+
+    &--fill {
+      --Textarea-width: 100%;
+    }
   }
 }

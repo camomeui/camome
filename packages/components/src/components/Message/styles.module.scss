@@ -1,43 +1,47 @@
-.Block {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: var(--cmm-rounded-lg);
-}
+@use "../../styles/utils";
 
-$statuses: info, success, warn, danger;
-
-@each $color in $statuses {
-  .--#{$color} {
-    color: var(--cmm-color-#{$color}-800);
-    background-color: var(--cmm-color-#{$color}-100);
-    --cmm-color-code-bg: var(--cmm-color-#{$color}-50);
+@include utils.layer {
+  .Block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: var(--cmm-rounded-lg);
   }
-}
 
-.title {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-  font-weight: var(--cmm-font-weight-medium);
-  font-size: var(--cmm-font-size-md);
+  $statuses: info, success, warn, danger;
 
-  // Maybe better to switch to :has() when Firefox supports it.
-  & + .message {
-    grid-column: 1 / -1;
+  @each $color in $statuses {
+    .--#{$color} {
+      color: var(--cmm-color-#{$color}-800);
+      background-color: var(--cmm-color-#{$color}-100);
+      --cmm-color-code-bg: var(--cmm-color-#{$color}-50);
+    }
   }
-}
 
-.message {
-  line-height: 1.7;
-  font-weight: var(--cmm-font-weight-normal);
-  margin-top: -0.25rem;
-}
+  .title {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-weight: var(--cmm-font-weight-medium);
+    font-size: var(--cmm-font-size-md);
 
-.icon {
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    // Maybe better to switch to :has() when Firefox supports it.
+    & + .message {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .message {
+    line-height: 1.7;
+    font-weight: var(--cmm-font-weight-normal);
+    margin-top: -0.25rem;
+  }
+
+  .icon {
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }

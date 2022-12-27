@@ -1,12 +1,16 @@
-.Block {
-  font-family: var(--cmm-font-family-code);
-  font-weight: var(--cmm-font-weight-semibold);
-  color: var(--cmm-color-gray-600);
-  padding: 0 0.5em;
-  line-height: 1.5;
-  background-color: var(--cmm-color-gray-50);
-  border-radius: var(--cmm-rounded-sm);
-  border-width: 1px 1px 3px;
-  border-style: solid;
-  border-color: var(--cmm-color-gray-300);
+@use "../../styles/utils";
+
+@include utils.layer {
+  .Block {
+    font-family: var(--cmm-font-family-code);
+    font-weight: var(--cmm-font-weight-semibold);
+    color: var(--cmm-color-gray-600);
+    padding: 0 0.5em;
+    line-height: 1.5;
+    background-color: var(--cmm-color-gray-50);
+    border-radius: var(--cmm-rounded-sm);
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: var(--cmm-color-gray-300);
+  }
 }

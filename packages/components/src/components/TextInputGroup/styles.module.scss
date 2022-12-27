@@ -1,31 +1,35 @@
-.Block {
-  display: inline-flex;
-  position: relative;
-}
+@use "../../styles/utils";
 
-%decorator {
-  position: absolute;
-  display: grid;
-  place-content: center;
-  top: 0;
-  bottom: 0;
-
-  svg {
-    width: 1em;
-    height: 1em;
+@include utils.layer {
+  .Block {
+    display: inline-flex;
+    position: relative;
   }
-}
 
-.decorator--left {
-  @extend %decorator;
+  %decorator {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    top: 0;
+    bottom: 0;
 
-  left: 0;
-  width: var(--TextInput-left-decor-width);
-}
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
 
-.decorator--right {
-  @extend %decorator;
+  .decorator--left {
+    @extend %decorator;
 
-  right: 0;
-  width: var(--TextInput-right-decor-width);
+    left: 0;
+    width: var(--TextInput-left-decor-width);
+  }
+
+  .decorator--right {
+    @extend %decorator;
+
+    right: 0;
+    width: var(--TextInput-right-decor-width);
+  }
 }

@@ -40,9 +40,5 @@ export const Primary: Story = {
         <Kbd>⌘ + K</Kbd>
       </div>
     ),
-    cssVariables: {
-      "--TextInput-left-decor-width": "2.5rem",
-      "--TextInput-right-decor-width": "4.5rem",
-    },
   },
 };

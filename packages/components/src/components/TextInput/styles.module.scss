@@ -1,28 +1,34 @@
 @use "../../styles/inputs";
+@use "../../styles/utils";
 
-.Block {
-  @include inputs.base(TextInput);
-  @include inputs.sizes(TextInput);
+@include utils.layer {
+  .Block {
+    @include inputs.base(TextInput);
+    @include inputs.sizes(TextInput);
 
-  padding-left: var(--TextInput-left-decor-width, var(--TextInput-padding-x));
-  padding-right: var(--TextInput-right-decor-width, var(--TextInput-padding-x));
-
-  &::placeholder {
-    font-weight: var(--cmm-font-weight-normal);
-    color: var(--cmm-color-gray-400);
-  }
-
-  &[aria-invalid="true"] {
-    border-color: var(--cmm-color-danger-200);
-    color: var(--cmm-color-danger-600);
-    outline-color: var(--cmm-color-danger-200);
+    padding-left: var(--TextInput-left-decor-width, var(--TextInput-padding-x));
+    padding-right: var(
+      --TextInput-right-decor-width,
+      var(--TextInput-padding-x)
+    );
 
     &::placeholder {
-      color: var(--cmm-color-danger-400);
+      font-weight: var(--cmm-font-weight-normal);
+      color: var(--cmm-color-gray-400);
     }
-  }
 
-  &--fill {
-    --TextInput-width: 100%;
+    &[aria-invalid="true"] {
+      border-color: var(--cmm-color-danger-200);
+      color: var(--cmm-color-danger-600);
+      outline-color: var(--cmm-color-danger-200);
+
+      &::placeholder {
+        color: var(--cmm-color-danger-400);
+      }
+    }
+
+    &--fill {
+      --TextInput-width: 100%;
+    }
   }
 }

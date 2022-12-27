@@ -1,20 +1,23 @@
 @use "../../styles/inputs";
+@use "../../styles/utils";
 
-.Block {
-  @include inputs.base(Select);
-  @include inputs.sizes(Select);
+@include utils.layer {
+  .Block {
+    @include inputs.base(Select);
+    @include inputs.sizes(Select);
 
-  padding: 0 calc(var(--Select-padding-x) + 1.75rem) 0 var(--Select-padding-x);
-  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" ><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>');
-  background-position: right 0.75rem center;
-  background-repeat: no-repeat;
-  background-size: 1.2em 1.2em;
+    padding: 0 calc(var(--Select-padding-x) + 1.75rem) 0 var(--Select-padding-x);
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" ><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>');
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.2em 1.2em;
 
-  &:not(:disabled) {
-    cursor: pointer;
-  }
+    &:not(:disabled) {
+      cursor: pointer;
+    }
 
-  &--fill {
-    --Select-width: 100%;
+    &--fill {
+      --Select-width: 100%;
+    }
   }
 }
