@@ -2,8 +2,7 @@ import type { Theme } from "./types";
 import type { Path, Replace } from "@camome/utils";
 
 const DEFAULT_PREFIX = "cmm" as const;
-const ROOT_STYLES = ``;
-const OTHER_STYLES = `body {
+const BASE_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
   -webkit-font-smoothing: antialiased;
 }
@@ -22,8 +21,10 @@ const OTHER_STYLES = `body {
   overflow: hidden;
   white-space: nowrap;
   position: absolute;
-}
-`;
+}` as const;
+
+export const layers = ["reset", "theme", "base"] as const;
+export type Layer = typeof layers[number];
 
 function cssVar<
   DotPath extends Path<Theme>,
@@ -197,25 +198,44 @@ export async function generateCss(
   theme: Theme,
   options: GenerateCssOptions = {}
 ): Promise<string> {
-  const normalizeCss = appendCss(
-    "",
-    (await import("./assets/normalize.css")).default,
-    "Normalize"
-  );
-  const rootCss = generateRootCss(theme, options);
+  const { prefix = DEFAULT_PREFIX, selector = ":root" } = options;
+  const _layer = (name: string) => layer(prefix, name);
 
-  return appendCss(
-    appendCss(normalizeCss, rootCss, "Theme"),
-    OTHER_STYLES,
-    "Base"
+  const normalizeCss = modifyCss(
+    (await import("./assets/normalize.css")).default,
+    { comment: "Normalize", enclosure: _layer("reset") }
+  );
+  const themeCss = modifyCss(generateThemeCss(theme, { prefix, selector }), {
+    comment: "Theme",
+    enclosure: _layer("theme"),
+  });
+  const baseCss = modifyCss(BASE_STYLES, {
+    comment: "Base",
+    enclosure: _layer("base"),
+  });
+
+  return (
+    layerOrder(prefix, layers) +
+    "\n" +
+    [normalizeCss, themeCss, baseCss].join("\n")
   );
 }
 
-function generateRootCss(
+function layerOrder(prefix: string, names: string[] | readonly string[]) {
+  const prefixedNames = names.map((name) => `${prefix}.${name}`);
+  const namesStr = prefixedNames.join(",");
+  return `@layer ${namesStr};`;
+}
+
+function layer(prefix: string, name: string) {
+  return `@layer ${prefix}.${name}`;
+}
+
+function generateThemeCss(
   theme: Theme,
-  options: GenerateCssOptions = {}
+  options: Required<GenerateCssOptions>
 ): string {
-  const { prefix = DEFAULT_PREFIX, selector = ":root" } = options;
+  const { prefix, selector } = options;
   let css = "";
   const paths = generatePaths(theme);
   for (const path of paths) {
@@ -224,17 +244,47 @@ function generateRootCss(
       withVar: false,
     });
     const val = getValue(theme, path);
-    // 2 spaces
-    css += `  ${key}: ${val};\n`;
+    css += `${key}: ${val};\n`;
   }
 
-  css += `  ${ROOT_STYLES}\n`;
-  css = `${selector} {\n${css}}\n`;
+  css = enclose(css, selector);
   return css;
 }
 
-function appendCss(target: string, css: string, comment?: string) {
-  return target + "\n" + `/* ${comment} */\n${css}`;
+type AppendCssOptions = {
+  comment?: string;
+  enclosure?: string;
+};
+
+function modifyCss(css: string, options: AppendCssOptions = {}) {
+  const { comment, enclosure } = options;
+  let ret = css;
+  if (enclosure) {
+    ret = enclose(ret, enclosure);
+  }
+  if (comment) {
+    ret = prependComment(ret, comment);
+  }
+  return ret;
+}
+
+function enclose(target: string, value: string) {
+  const indented = indent(target);
+  return `${value} {\n${indented}\n}`;
+}
+
+function prependComment(target: string, value: string) {
+  return `/* ${value} */\n${target}`;
+}
+
+function indent(target: string, indent = "  ") {
+  const lines = target.split("\n");
+  let indentedCssString = "";
+  for (const line of lines) {
+    const indentedLine = `${indent}${line}`;
+    indentedCssString += `${indentedLine}\n`;
+  }
+  return indentedCssString;
 }
 
 function generatePaths<T>(obj: T, prefix = ""): string[] {

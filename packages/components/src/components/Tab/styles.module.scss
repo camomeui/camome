@@ -1,52 +1,54 @@
-@use "../../styles/variables.scss";
+@use "../../styles/utils";
 
-.group {
-  --border-b-width: 2px;
-  --border-b-passive-color: var(--cmm-color-gray-200);
-  --border-b-active-color: var(--cmm-color-primary-500);
+@include utils.layer {
+  .group {
+    --border-b-width: 2px;
+    --border-b-passive-color: var(--cmm-color-gray-200);
+    --border-b-active-color: var(--cmm-color-primary-500);
 
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.Block {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  white-space: nowrap;
-  padding: 0 1rem;
-  line-height: 2.5;
-  color: var(--cmm-color-gray-600);
-  border-top-left-radius: var(--cmm-rounded-md);
-  border-top-right-radius: var(--cmm-rounded-md);
-  border-bottom: solid var(--border-b-width) var(--border-b-passive-color);
-  margin-bottom: calc(var(--border-b-width) * -1);
-  transition: var(--cmm-transition-bg), color 0.3s, border 0.3s;
-
-  &:hover {
-    color: var(--cmm-color-primary-600);
-    background-color: var(--cmm-color-gray-100);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
-  &:focus-visible {
-    outline: var(--cmm-outline);
-    outline-offset: var(--cmm-outline-offset);
+  .Block {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 1rem;
+    line-height: 2.5;
+    color: var(--cmm-color-gray-600);
+    border-top-left-radius: var(--cmm-rounded-md);
+    border-top-right-radius: var(--cmm-rounded-md);
+    border-bottom: solid var(--border-b-width) var(--border-b-passive-color);
+    margin-bottom: calc(var(--border-b-width) * -1);
+    transition: var(--cmm-transition-bg), color 0.3s, border 0.3s;
+
+    &:hover {
+      color: var(--cmm-color-primary-600);
+      background-color: var(--cmm-color-gray-100);
+    }
+
+    &:focus-visible {
+      outline: var(--cmm-outline);
+      outline-offset: var(--cmm-outline-offset);
+    }
+
+    &--active {
+      border-color: var(--cmm-color-primary-500);
+      color: var(--cmm-color-primary-600);
+    }
   }
 
-  &--active {
-    border-color: var(--cmm-color-primary-500);
-    color: var(--cmm-color-primary-600);
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: var(--border-b-width) solid var(--cmm-color-gray-200);
   }
-}
 
-.list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-bottom: var(--border-b-width) solid var(--cmm-color-gray-200);
-}
-
-.panel {
-  margin-top: 1rem;
+  .panel {
+    margin-top: 1rem;
+  }
 }

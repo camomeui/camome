@@ -1,40 +1,42 @@
-@use "../../styles/variables";
 @use "../../styles/buttons";
+@use "../../styles/utils";
 
-@include buttons.base;
+@include utils.layer {
+  @include buttons.base;
 
-.Block {
-  @extend %sizeDefaults;
+  .Block {
+    @extend %sizeDefaults;
 
-  border-radius: var(--IconButton-radius, var(--cmm-rounded-lg));
-  width: var(--IconButton-size, var(--size));
-  height: var(--IconButton-size, var(--size));
-  margin: var(--IconButton-margin);
-  padding: 0;
+    border-radius: var(--IconButton-radius, var(--cmm-rounded-lg));
+    width: var(--IconButton-size, var(--size));
+    height: var(--IconButton-size, var(--size));
+    margin: var(--IconButton-margin);
+    padding: 0;
 
-  svg {
-    width: var(--IconButton-icon-size, var(--icon-size));
-    height: var(--IconButton-icon-size, var(--icon-size));
+    svg {
+      width: var(--IconButton-icon-size, var(--icon-size));
+      height: var(--IconButton-icon-size, var(--icon-size));
+    }
   }
-}
 
-// Sizes
+  // Sizes
 
-%sizeDefaults {
-  --size: 2.5rem;
-  --icon-size: 1.75rem;
-}
+  %sizeDefaults {
+    --size: 2.5rem;
+    --icon-size: 1.75rem;
+  }
 
-.--sm {
-  --size: 2rem;
-  --icon-size: 1.25rem;
-}
+  .--sm {
+    --size: 2rem;
+    --icon-size: 1.25rem;
+  }
 
-.--md {
-  @extend %sizeDefaults;
-}
+  .--md {
+    @extend %sizeDefaults;
+  }
 
-.--lg {
-  --size: 3.5rem;
-  --icon-size: 2.25rem;
+  .--lg {
+    --size: 3.5rem;
+    --icon-size: 2.25rem;
+  }
 }

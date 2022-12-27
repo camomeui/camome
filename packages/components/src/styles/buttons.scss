@@ -1,4 +1,5 @@
 @use "./variables";
+@use "./utils";
 
 @mixin colorScheme($color) {
   --bg-solid: var(--cmm-color-#{$color}-500);
@@ -18,16 +19,16 @@
   --border-outline: 1px solid var(--cmm-color-#{$color}-200);
 }
 
-%colorSchemeDefaults {
-  @include colorScheme("primary");
-}
-
-%variantDefaults {
-  background-color: var(--bg-solid);
-  color: var(--color-solid);
-}
-
 @mixin base() {
+  %colorSchemeDefaults {
+    @include colorScheme("primary");
+  }
+
+  %variantDefaults {
+    background-color: var(--bg-solid);
+    color: var(--color-solid);
+  }
+
   .Block {
     @extend %colorSchemeDefaults;
     @extend %variantDefaults;

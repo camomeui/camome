@@ -1,76 +1,80 @@
-.Block {
-  @extend %sizeDefaults;
+@use "../../styles/utils";
 
-  &:has(input[type="checkbox"]:disabled) {
-    cursor: not-allowed;
-    color: var(--cmm-color-gray-400);
+@include utils.layer {
+  .Block {
+    @extend %sizeDefaults;
 
-    label {
+    &:has(input[type="checkbox"]:disabled) {
       cursor: not-allowed;
-    }
-  }
+      color: var(--cmm-color-gray-400);
 
-  input[type="checkbox"] {
-    appearance: none;
-    width: var(--size);
-    height: var(--size);
-    border-radius: var(--cmm-rounded-sm);
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-    background-color: var(--cmm-color-primary-100);
-
-    &::before {
-      content: "";
-      width: calc(var(--size) * 0.5);
-      height: calc(var(--size) * 0.5);
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-      transform: scale(0);
-      background-color: var(--cmm-color-primary-600);
+      label {
+        cursor: not-allowed;
+      }
     }
 
-    &:checked {
+    input[type="checkbox"] {
+      appearance: none;
+      width: var(--size);
+      height: var(--size);
+      border-radius: var(--cmm-rounded-sm);
+      display: grid;
+      place-content: center;
+      cursor: pointer;
       background-color: var(--cmm-color-primary-100);
 
       &::before {
-        transform: scale(1);
+        content: "";
+        width: calc(var(--size) * 0.5);
+        height: calc(var(--size) * 0.5);
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform: scale(0);
+        background-color: var(--cmm-color-primary-600);
       }
-    }
-
-    &:disabled {
-      background-color: var(--cmm-color-gray-100);
 
       &:checked {
+        background-color: var(--cmm-color-primary-100);
+
         &::before {
-          background-color: var(--cmm-color-primary-300);
+          transform: scale(1);
         }
       }
-      cursor: not-allowed;
+
+      &:disabled {
+        background-color: var(--cmm-color-gray-100);
+
+        &:checked {
+          &::before {
+            background-color: var(--cmm-color-primary-300);
+          }
+        }
+        cursor: not-allowed;
+      }
+    }
+
+    label {
+      user-select: none;
+      font-size: var(--font-size);
+      cursor: pointer;
     }
   }
 
-  label {
-    user-select: none;
-    font-size: var(--font-size);
-    cursor: pointer;
+  %sizeDefaults {
+    --size: 1.25rem;
+    --font-size: var(--cmm-font-size-sm);
   }
-}
 
-%sizeDefaults {
-  --size: 1.25rem;
-  --font-size: var(--cmm-font-size-sm);
-}
+  .--sm {
+    --size: 1rem;
+    --font-size: var(--cmm-font-size-sm);
+  }
 
-.--sm {
-  --size: 1rem;
-  --font-size: var(--cmm-font-size-sm);
-}
+  .--md {
+    @extend %sizeDefaults;
+  }
 
-.--md {
-  @extend %sizeDefaults;
-}
-
-.--lg {
-  --size: 1.5rem;
-  --font-size: var(--cmm-font-size-md);
+  .--lg {
+    --size: 1.5rem;
+    --font-size: var(--cmm-font-size-md);
+  }
 }

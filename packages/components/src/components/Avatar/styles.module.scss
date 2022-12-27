@@ -1,77 +1,5 @@
 @use "../../styles/variables.scss";
-
-.Block {
-  @extend %sizeDefaults;
-  @extend %variantDefaults;
-  @extend %colorSchemeDefaults;
-
-  height: var(--Avatar-size, var(--size));
-  width: var(--Avatar-size, var(--size));
-  margin: var(--Avatar-margin, 0);
-  font-size: var(--font-size);
-  background-color: var(--bg-color);
-  color: var(--font-color);
-
-  display: block;
-  border-radius: var(--cmm-rounded-full);
-  overflow: hidden;
-
-  * {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-content: center;
-  }
-
-  img {
-    object-fit: cover;
-    object-position: center;
-  }
-
-  svg {
-    width: 1.8em;
-    height: 1.8em;
-  }
-}
-
-// Sizes
-
-%sizeDefaults {
-  --size: 3rem;
-  --font-size: var(--cmm-font-size-lg);
-}
-
-.--sm {
-  --size: 2rem;
-  --font-size: var(--cmm-font-size-sm);
-}
-
-.--md {
-  @extend %sizeDefaults;
-}
-
-.--lg {
-  --size: 4rem;
-  --font-size: var(--cmm-font-size-2xl);
-}
-
-// Variants
-
-%variantDefaults {
-  background-color: var(--bg-color-subtle);
-  color: var(--font-color-subtle);
-}
-
-.--solid {
-  background-color: var(--bg-color-solid);
-  color: var(--font-color-solid);
-}
-
-.--subtle {
-  @extend %variantDefaults;
-}
-
-// Color schemes
+@use "../../styles/utils";
 
 @mixin colorScheme($color) {
   --bg-color-solid: var(--cmm-color-#{$color}-500);
@@ -81,12 +9,87 @@
   --font-color-subtle: var(--cmm-color-#{$color}-600);
 }
 
-%colorSchemeDefaults {
-  @include colorScheme("primary");
-}
+@include utils.layer {
+  .Block {
+    @extend %sizeDefaults;
+    @extend %variantDefaults;
+    @extend %colorSchemeDefaults;
 
-@each $color in variables.$colors {
-  .--#{$color} {
-    @include colorScheme($color);
+    height: var(--Avatar-size, var(--size));
+    width: var(--Avatar-size, var(--size));
+    margin: var(--Avatar-margin, 0);
+    font-size: var(--font-size);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+
+    display: block;
+    border-radius: var(--cmm-rounded-full);
+    overflow: hidden;
+
+    * {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-content: center;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    svg {
+      width: 1.8em;
+      height: 1.8em;
+    }
+  }
+
+  // Sizes
+
+  %sizeDefaults {
+    --size: 3rem;
+    --font-size: var(--cmm-font-size-lg);
+  }
+
+  .--sm {
+    --size: 2rem;
+    --font-size: var(--cmm-font-size-sm);
+  }
+
+  .--md {
+    @extend %sizeDefaults;
+  }
+
+  .--lg {
+    --size: 4rem;
+    --font-size: var(--cmm-font-size-2xl);
+  }
+
+  // Variants
+
+  %variantDefaults {
+    background-color: var(--bg-color-subtle);
+    color: var(--font-color-subtle);
+  }
+
+  .--solid {
+    background-color: var(--bg-color-solid);
+    color: var(--font-color-solid);
+  }
+
+  .--subtle {
+    @extend %variantDefaults;
+  }
+
+  // Color schemes
+
+  %colorSchemeDefaults {
+    @include colorScheme("primary");
+  }
+
+  @each $color in variables.$colors {
+    .--#{$color} {
+      @include colorScheme($color);
+    }
   }
 }

@@ -1,146 +1,150 @@
-%shape {
-  width: calc(var(--thumb-width) * 2 + calc(var(--pad-x) * 2) + var(--gap));
-  height: calc(var(--thumb-height) + var(--pad-y));
-  border-radius: var(--Toggle-radius);
-}
+@use "../../styles/utils";
 
-.Block {
-  @extend %shape;
-
-  box-sizing: content-box;
-  display: flex;
-  border: var(--border);
-  border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
-  position: relative;
-}
-
-.--sm {
-  --thumb-width: 0.8rem;
-  --thumb-height: 0.8rem;
-  --pad-x: 0.1rem;
-  --pad-y: 0.12rem;
-  --gap: 0.9rem;
-  --border: 1px solid var(--cmm-color-gray-300);
-  --label-pad-x: 0.4rem;
-  --label-font-size: calc(var(--cmm-font-size-xs) * 0.8);
-}
-
-.--md {
-  --thumb-width: 1rem;
-  --thumb-height: 1rem;
-  --pad-x: 0.18rem;
-  --pad-y: 0.25rem;
-  --gap: 0.75rem;
-  --border: 1px solid var(--cmm-color-gray-300);
-  --label-pad-x: 0.4rem;
-  --label-font-size: calc(var(--cmm-font-size-xs) * 0.9);
-}
-
-.--lg {
-  --thumb-width: 1.25rem;
-  --thumb-height: 1.25rem;
-  --pad-x: 0.18rem;
-  --pad-y: 0.25rem;
-  --gap: 0.75rem;
-  --border: 1px solid var(--cmm-color-gray-300);
-  --label-pad-x: 0.4rem;
-  --label-font-size: var(--cmm-font-size-xs);
-}
-
-.--xl {
-  --thumb-width: 1.5rem;
-  --thumb-height: 1.5rem;
-  --pad-x: 0.18rem;
-  --pad-y: 0.25rem;
-  --gap: 0.5rem;
-  --border: 1px solid var(--cmm-color-gray-300);
-  --label-pad-x: 0.4rem;
-  --label-font-size: var(--cmm-font-size-xs);
-}
-
-// Workaround until Firefox supports `:has()`
-.background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--Toggle-background-off, var(--cmm-color-gray-200));
-  border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
-  transition: var(--cmm-transition-bg);
-}
-
-%label {
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  translate: 0 -50%;
-  font-size: var(--label-font-size);
-  font-weight: var(--cmm-font-weight-normal);
-}
-
-.off {
-  @extend %label;
-
-  right: var(--label-pad-x);
-  color: var(--Toggle-label-color-off, var(--cmm-color-gray-500));
-}
-
-.on {
-  @extend %label;
-
-  left: var(--label-pad-x);
-  color: var(--Toggle-label-color-on, var(--cmm-color-white));
-  display: none;
-}
-
-.label {
-  @extend %shape;
-
-  position: absolute;
-}
-
-.input {
-  @extend %shape;
-
-  appearance: none;
-  position: absolute;
-  cursor: pointer;
-  z-index: 20;
-
-  // Thumb
-  & ~ .label::after {
-    position: absolute;
-    content: "";
-    width: var(--thumb-width);
-    height: var(--thumb-height);
-    top: 50%;
-    left: calc(var(--pad-x));
-    translate: 0 -50%;
-    background-color: white;
-    border: var(--border);
-    border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
-    transition: left 0.3s;
-    z-index: 10;
+@include utils.layer {
+  %shape {
+    width: calc(var(--thumb-width) * 2 + calc(var(--pad-x) * 2) + var(--gap));
+    height: calc(var(--thumb-height) + var(--pad-y));
+    border-radius: var(--Toggle-radius);
   }
 
-  &:checked {
-    ~ .label::after {
-      left: calc(100% - var(--thumb-width) - var(--pad-x));
+  .Block {
+    @extend %shape;
+
+    box-sizing: content-box;
+    display: flex;
+    border: var(--border);
+    border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
+    position: relative;
+  }
+
+  .--sm {
+    --thumb-width: 0.8rem;
+    --thumb-height: 0.8rem;
+    --pad-x: 0.1rem;
+    --pad-y: 0.12rem;
+    --gap: 0.9rem;
+    --border: 1px solid var(--cmm-color-gray-300);
+    --label-pad-x: 0.4rem;
+    --label-font-size: calc(var(--cmm-font-size-xs) * 0.8);
+  }
+
+  .--md {
+    --thumb-width: 1rem;
+    --thumb-height: 1rem;
+    --pad-x: 0.18rem;
+    --pad-y: 0.25rem;
+    --gap: 0.75rem;
+    --border: 1px solid var(--cmm-color-gray-300);
+    --label-pad-x: 0.4rem;
+    --label-font-size: calc(var(--cmm-font-size-xs) * 0.9);
+  }
+
+  .--lg {
+    --thumb-width: 1.25rem;
+    --thumb-height: 1.25rem;
+    --pad-x: 0.18rem;
+    --pad-y: 0.25rem;
+    --gap: 0.75rem;
+    --border: 1px solid var(--cmm-color-gray-300);
+    --label-pad-x: 0.4rem;
+    --label-font-size: var(--cmm-font-size-xs);
+  }
+
+  .--xl {
+    --thumb-width: 1.5rem;
+    --thumb-height: 1.5rem;
+    --pad-x: 0.18rem;
+    --pad-y: 0.25rem;
+    --gap: 0.5rem;
+    --border: 1px solid var(--cmm-color-gray-300);
+    --label-pad-x: 0.4rem;
+    --label-font-size: var(--cmm-font-size-xs);
+  }
+
+  // Workaround until Firefox supports `:has()`
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Toggle-background-off, var(--cmm-color-gray-200));
+    border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
+    transition: var(--cmm-transition-bg);
+  }
+
+  %label {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: var(--label-font-size);
+    font-weight: var(--cmm-font-weight-normal);
+  }
+
+  .off {
+    @extend %label;
+
+    right: var(--label-pad-x);
+    color: var(--Toggle-label-color-off, var(--cmm-color-gray-500));
+  }
+
+  .on {
+    @extend %label;
+
+    left: var(--label-pad-x);
+    color: var(--Toggle-label-color-on, var(--cmm-color-white));
+    display: none;
+  }
+
+  .label {
+    @extend %shape;
+
+    position: absolute;
+  }
+
+  .input {
+    @extend %shape;
+
+    appearance: none;
+    position: absolute;
+    cursor: pointer;
+    z-index: 20;
+
+    // Thumb
+    & ~ .label::after {
+      position: absolute;
+      content: "";
+      width: var(--thumb-width);
+      height: var(--thumb-height);
+      top: 50%;
+      left: calc(var(--pad-x));
+      translate: 0 -50%;
+      background-color: white;
+      border: var(--border);
+      border-radius: var(--Toggle-radius, var(--cmm-rounded-full));
+      transition: left 0.3s;
+      z-index: 10;
     }
 
-    ~ .background {
-      background-color: var(
-        --Toggle-background-on,
-        var(--cmm-color-primary-500)
-      );
-    }
+    &:checked {
+      ~ .label::after {
+        left: calc(100% - var(--thumb-width) - var(--pad-x));
+      }
 
-    ~ .off {
-      display: none;
-    }
+      ~ .background {
+        background-color: var(
+          --Toggle-background-on,
+          var(--cmm-color-primary-500)
+        );
+      }
 
-    ~ .on {
-      display: flex;
+      ~ .off {
+        display: none;
+      }
+
+      ~ .on {
+        display: flex;
+      }
     }
   }
 }

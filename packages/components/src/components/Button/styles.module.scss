@@ -1,58 +1,60 @@
-@use "../../styles/variables";
+@use "../../styles/utils";
 @use "../../styles/buttons";
 
-@include buttons.base;
+@include utils.layer {
+  @include buttons.base;
 
-.Block {
-  @extend %sizeDefaults;
+  .Block {
+    @extend %sizeDefaults;
 
-  height: var(--height);
-  padding: 0 var(--pad-x);
-  font-size: var(--font-size);
-  border-radius: var(--Button-radius, var(--cmm-rounded-lg));
-}
+    height: var(--height);
+    padding: 0 var(--pad-x);
+    font-size: var(--font-size);
+    border-radius: var(--Button-radius, var(--cmm-rounded-lg));
+  }
 
-// Sizes
+  // Sizes
 
-%sizeDefaults {
-  --height: 2.5rem;
-  --font-size: var(--cmm-font-size-sm);
-  --pad-x: 1rem;
-}
+  %sizeDefaults {
+    --height: 2.5rem;
+    --font-size: var(--cmm-font-size-sm);
+    --pad-x: 1rem;
+  }
 
-.--sm {
-  --height: 2rem;
-  --font-size: var(--cmm-font-size-sm);
-  --pad-x: 0.75rem;
-}
+  .--sm {
+    --height: 2rem;
+    --font-size: var(--cmm-font-size-sm);
+    --pad-x: 0.75rem;
+  }
 
-.--md {
-  @extend %sizeDefaults;
-}
+  .--md {
+    @extend %sizeDefaults;
+  }
 
-.--lg {
-  --height: 3rem;
-  --font-size: var(--cmm-font-size-md);
-  --pad-x: 1.25rem;
-}
+  .--lg {
+    --height: 3rem;
+    --font-size: var(--cmm-font-size-md);
+    --pad-x: 1.25rem;
+  }
 
-// Icon
+  // Icon
 
-%icon {
-  --icon-margin: 0.5rem;
+  %icon {
+    --icon-margin: 0.5rem;
 
-  display: flex;
-  align-items: center;
-}
+    display: flex;
+    align-items: center;
+  }
 
-.leftIcon {
-  @extend %icon;
+  .leftIcon {
+    @extend %icon;
 
-  margin-right: var(--icon-margin);
-}
+    margin-right: var(--icon-margin);
+  }
 
-.rightIcon {
-  @extend %icon;
+  .rightIcon {
+    @extend %icon;
 
-  margin-left: var(--icon-margin);
+    margin-left: var(--icon-margin);
+  }
 }
