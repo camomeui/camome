@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 
 import DefaultSeo from "@/components/common/DefaultSeo";
 
+import "@/styles/globals.css";
 import "@/styles/camome.css";
 
 type GetLayout = (page: React.ReactElement) => React.ReactNode;

@@ -57,7 +57,7 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.100`),
       font: cssVar(`color.${colorScheme}.600`),
-      border: cssVar(`color.${colorScheme}.500`),
+      border: cssVar(`color.${colorScheme}.200`),
     },
     ghost: {
       bg: "transparent",
