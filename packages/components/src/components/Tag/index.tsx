@@ -9,15 +9,9 @@ import {
   Size,
 } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
-import { mergeStyleAndCssVars } from "../../utils/mergeStyleAndCssVars";
 import { Box } from "../Box";
 
 import styles from "./styles.module.scss";
-
-type TagCssVariables = {
-  "--Tag-icon-size"?: number | string;
-  "--Tag-icon-margin"?: number | string;
-};
 
 export type TagProps = {
   size?: Size;
@@ -26,7 +20,6 @@ export type TagProps = {
   startDecorator?: React.ReactNode;
   endDecorator?: React.ReactNode;
   children?: React.ReactNode;
-  cssVariables?: TagCssVariables;
 } & BaseProps;
 
 const defaultSize = "md" as const;
@@ -42,9 +35,9 @@ const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
       colorScheme = defaultColorScheme,
       startDecorator,
       endDecorator,
-      cssVariables,
       children,
       style,
+      className,
       ...restProps
     } = props;
     return (
@@ -54,10 +47,11 @@ const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
           styles.Block,
           size !== defaultSize && styles[`--${size}`],
           styles[`Block--${variant}`],
-          styles[`Block--${colorScheme}`]
+          styles[`Block--${colorScheme}`],
+          className
         )}
         ref={forwardedRef}
-        style={mergeStyleAndCssVars(style, cssVariables)}
+        style={style}
         {...restProps}
       >
         {startDecorator && startDecorator}

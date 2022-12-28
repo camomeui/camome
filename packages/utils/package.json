@@ -11,7 +11,7 @@
     "directory": "packages/utils"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format=esm --dts",
+    "build": "tsup src/index.ts",
     "dev": "pnpm build --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit"
@@ -20,7 +20,8 @@
     "tsup": "^6.3.0"
   },
   "exports": {
-    "import": "./dist/index.esm.js"
+    "import": "./dist/index.esm.js",
+    "require": "./dist/index.cjs.js"
   },
   "types": "./dist/index.d.ts"
 }

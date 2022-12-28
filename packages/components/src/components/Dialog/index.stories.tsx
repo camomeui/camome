@@ -14,6 +14,7 @@ export const Primary: Story = {
       <Dialog.Backdrop />
       <Dialog.PanelWrapper>
         <Dialog.Panel>
+          <Dialog.Close />
           <Dialog.Title>This is a title</Dialog.Title>
           <Dialog.Content>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

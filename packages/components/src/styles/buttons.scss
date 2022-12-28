@@ -21,6 +21,7 @@
     justify-content: center;
     user-select: none;
     transition: var(--cmm-transition-bg);
+    outline-offset: 2px;
 
     &:disabled {
       opacity: 0.8;

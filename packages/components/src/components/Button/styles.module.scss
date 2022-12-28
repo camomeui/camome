@@ -1,29 +1,27 @@
 @use "../../styles/utils";
 @use "../../styles/buttons";
+@use "./variables" as locals;
 
 @include utils.layer {
   @include buttons.base;
 
   %sizeDefaults {
-    --height: 2.5rem;
-    --font-size: var(--cmm-font-size-sm);
-    --pad-x: 1rem;
+    height: 2.5rem;
+    font-size: var(--cmm-font-size-sm);
+    padding: 0 1rem;
   }
 
   .Block {
     @extend %sizeDefaults;
 
-    height: var(--height);
-    padding: 0 var(--pad-x);
-    font-size: var(--font-size);
     border-radius: var(--Button-radius, var(--cmm-rounded-lg));
 
     // Sizes
 
     &--sm {
-      --height: 2rem;
-      --font-size: var(--cmm-font-size-sm);
-      --pad-x: 0.75rem;
+      height: 2rem;
+      font-size: var(--cmm-font-size-sm);
+      padding: 0 0.75rem;
     }
 
     &--md {
@@ -31,30 +29,31 @@
     }
 
     &--lg {
-      --height: 3rem;
-      --font-size: var(--cmm-font-size-md);
-      --pad-x: 1.25rem;
+      height: 3rem;
+      font-size: var(--cmm-font-size-md);
+      padding: 0 1.25rem;
     }
   }
 
   // Icon
 
   %icon {
-    --icon-margin: 0.5rem;
-
     display: flex;
     align-items: center;
+    > svg {
+      @include utils.size(locals.$iconSize);
+    }
   }
 
   .leftIcon {
     @extend %icon;
 
-    margin-right: var(--icon-margin);
+    margin-right: locals.$iconMargin;
   }
 
   .rightIcon {
     @extend %icon;
 
-    margin-left: var(--icon-margin);
+    margin-left: locals.$iconMargin;
   }
 }

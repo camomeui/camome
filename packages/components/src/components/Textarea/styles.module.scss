@@ -3,7 +3,7 @@
 
 @include utils.layer {
   .Block {
-    @include inputs.base(Textarea);
+    @include inputs.base();
 
     width: var(--Textarea-width);
     padding: 0.5rem;

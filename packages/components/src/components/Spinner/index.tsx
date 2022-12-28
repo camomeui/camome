@@ -1,23 +1,32 @@
 import clsx from "clsx";
 import React from "react";
 
+import { BaseProps } from "../../types";
+
 import styles from "./styles.module.scss";
 
-type SpinnerSize = "sm" | "md" | "lg" | "xl";
+type SpinnerSize = "sm" | "md" | "lg";
 
 export type SpinnerProps = {
   size?: SpinnerSize;
-};
+} & BaseProps;
 
-export function Spinner({ size = "md" }: SpinnerProps) {
+export function Spinner({
+  size = "md",
+  className,
+  ...baseProps
+}: SpinnerProps) {
   return (
-    <div role="status">
-      <svg
-        className={clsx(styles.icon, size !== "md" && styles[`--${size}`])}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
+    <div
+      role="status"
+      className={clsx(
+        styles.Block,
+        size !== "md" && styles[`--${size}`],
+        className
+      )}
+      {...baseProps}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle
           cx="12"
           cy="12"

@@ -4,11 +4,14 @@ import { Button } from "../Button";
 
 import { Tooltip, TooltipProps } from ".";
 
+import styles from "./index.stories.module.scss";
+
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ padding: "2rem" }}>
+      <div style={{ display: "grid", placeContent: "center", height: "6rem" }}>
         <Story />
       </div>
     ),
@@ -17,18 +20,23 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 type Story = StoryObj<TooltipProps>;
 
-export const Top: Story = {
+export const Default: Story = {
   args: {
     label: "This is a tooltip",
-    children: <Button>Hover or focus me</Button>,
+    children: <Button size="sm">Hover or focus me</Button>,
     placement: "top",
   },
 };
 
-export const Bottom: Story = {
-  args: {
-    label: "This is a tooltip",
-    children: <Button>Hover or focus me</Button>,
-    placement: "bottom",
-  },
+export const Placement: Story = {
+  render: () => (
+    <div className={styles.placement__container}>
+      <Tooltip label="Top" placement="top">
+        <Button size="sm">Top</Button>
+      </Tooltip>
+      <Tooltip label="Bottom" placement="bottom">
+        <Button size="sm">Bottom</Button>
+      </Tooltip>
+    </div>
+  ),
 };

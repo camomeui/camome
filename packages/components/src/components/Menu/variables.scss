@@ -1,0 +1,6 @@
+$iconSize_name: --Menu-icon-size;
+$iconSize: var($iconSize_name, 1.25rem);
+$iconColor_name: --Menu-icon-color;
+$iconColor: var($iconColor_name, var(--cmm-color-primary-600));
+$bgHover_name: --Menu-bg-hover;
+$bgHover: var($bgHover_name, var(--cmm-color-gray-100));

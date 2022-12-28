@@ -18,9 +18,11 @@
     "build": "vite build",
     "typecheck": "pnpm gen-scss-type && tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "run-ts": "node -r esbuild-register"
   },
   "dependencies": {
+    "@camome/system": "workspace:*",
     "@camome/utils": "workspace:*",
     "@heroicons/react": "^2.0.10",
     "clsx": "^1.2.1"
@@ -29,9 +31,10 @@
     "@storybook/addon-essentials": "^7.0.0-beta.15",
     "@storybook/addon-interactions": "^7.0.0-beta.15",
     "@storybook/addon-links": "^7.0.0-beta.15",
-    "@storybook/blocks": "^7.0.0-beta.15",
+    "@storybook/blocks": "^7.0.0-alpha.8",
+    "@storybook/jest": "^0.0.10",
     "@storybook/react": "^7.0.0-beta.15",
-    "@storybook/react-vite": "^7.0.0-beta.15",
+    "@storybook/react-vite": "^7.0.0-alpha.25",
     "@storybook/testing-library": "^0.0.13",
     "@types/body-scroll-lock": "^3.1.0",
     "@vitejs/plugin-react": "^3.0.0",
@@ -40,7 +43,8 @@
     "sass": "^1.55.0",
     "storybook": "^7.0.0-beta.15",
     "vite": "^4.0.2",
-    "vite-plugin-dts": "^1.7.1"
+    "vite-plugin-dts": "^1.7.1",
+    "vite-tsconfig-paths": "^4.0.3"
   },
   "peerDependencies": {
     "react": ">=18"

@@ -1,4 +1,4 @@
-@layer cmm.reset,cmm.theme,cmm.base;
+@layer cmm.reset, cmm.theme, cmm.base;
 /* Normalize */
 @layer cmm.reset {
   /* Original: https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css */
@@ -385,7 +385,7 @@
     --cmm-color-primary-outline-bg: transparent;
     --cmm-color-primary-outline-bg-hover: var(--cmm-color-primary-100);
     --cmm-color-primary-outline-font: var(--cmm-color-primary-600);
-    --cmm-color-primary-outline-border: var(--cmm-color-primary-500);
+    --cmm-color-primary-outline-border: var(--cmm-color-primary-200);
     --cmm-color-primary-ghost-bg: transparent;
     --cmm-color-primary-ghost-bg-hover: var(--cmm-color-primary-100);
     --cmm-color-primary-ghost-font: var(--cmm-color-primary-600);
@@ -408,7 +408,7 @@
     --cmm-color-secondary-outline-bg: transparent;
     --cmm-color-secondary-outline-bg-hover: var(--cmm-color-secondary-100);
     --cmm-color-secondary-outline-font: var(--cmm-color-secondary-600);
-    --cmm-color-secondary-outline-border: var(--cmm-color-secondary-500);
+    --cmm-color-secondary-outline-border: var(--cmm-color-secondary-200);
     --cmm-color-secondary-ghost-bg: transparent;
     --cmm-color-secondary-ghost-bg-hover: var(--cmm-color-secondary-100);
     --cmm-color-secondary-ghost-font: var(--cmm-color-secondary-600);
@@ -431,7 +431,7 @@
     --cmm-color-info-outline-bg: transparent;
     --cmm-color-info-outline-bg-hover: var(--cmm-color-info-100);
     --cmm-color-info-outline-font: var(--cmm-color-info-600);
-    --cmm-color-info-outline-border: var(--cmm-color-info-500);
+    --cmm-color-info-outline-border: var(--cmm-color-info-200);
     --cmm-color-info-ghost-bg: transparent;
     --cmm-color-info-ghost-bg-hover: var(--cmm-color-info-100);
     --cmm-color-info-ghost-font: var(--cmm-color-info-600);
@@ -454,7 +454,7 @@
     --cmm-color-success-outline-bg: transparent;
     --cmm-color-success-outline-bg-hover: var(--cmm-color-success-100);
     --cmm-color-success-outline-font: var(--cmm-color-success-600);
-    --cmm-color-success-outline-border: var(--cmm-color-success-500);
+    --cmm-color-success-outline-border: var(--cmm-color-success-200);
     --cmm-color-success-ghost-bg: transparent;
     --cmm-color-success-ghost-bg-hover: var(--cmm-color-success-100);
     --cmm-color-success-ghost-font: var(--cmm-color-success-600);
@@ -477,7 +477,7 @@
     --cmm-color-warn-outline-bg: transparent;
     --cmm-color-warn-outline-bg-hover: var(--cmm-color-warn-100);
     --cmm-color-warn-outline-font: var(--cmm-color-warn-600);
-    --cmm-color-warn-outline-border: var(--cmm-color-warn-500);
+    --cmm-color-warn-outline-border: var(--cmm-color-warn-200);
     --cmm-color-warn-ghost-bg: transparent;
     --cmm-color-warn-ghost-bg-hover: var(--cmm-color-warn-100);
     --cmm-color-warn-ghost-font: var(--cmm-color-warn-600);
@@ -500,7 +500,7 @@
     --cmm-color-danger-outline-bg: transparent;
     --cmm-color-danger-outline-bg-hover: var(--cmm-color-danger-100);
     --cmm-color-danger-outline-font: var(--cmm-color-danger-600);
-    --cmm-color-danger-outline-border: var(--cmm-color-danger-500);
+    --cmm-color-danger-outline-border: var(--cmm-color-danger-200);
     --cmm-color-danger-ghost-bg: transparent;
     --cmm-color-danger-ghost-bg-hover: var(--cmm-color-danger-100);
     --cmm-color-danger-ghost-font: var(--cmm-color-danger-600);

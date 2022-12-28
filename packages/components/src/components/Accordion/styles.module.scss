@@ -1,15 +1,12 @@
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @include utils.layer {
-  $padding: 1rem;
-
   .details {
     border-bottom: 1px solid var(--cmm-color-gray-200);
 
     &[open] {
       .summary {
-        color: var(--cmm-color-primary-600);
-
         svg {
           rotate: -180deg;
         }
@@ -20,23 +17,29 @@
   .summary {
     display: block;
     cursor: pointer;
-    padding: $padding;
+    padding: locals.$pad;
     display: grid;
     grid-template-columns: 1fr auto;
     user-select: none;
+    transition: var(--cmm-transition-bg);
+    font-weight: var(--cmm-font-weight-medium);
 
-    svg {
-      width: 1.3rem;
-      height: 1.3rem;
+    &:hover {
+      background-color: var(--cmm-color-gray-100);
     }
 
     &::-webkit-details-marker {
       display: none;
     }
+
+    > svg {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
   }
 
   .contents {
-    padding: 0 $padding $padding $padding;
+    padding: 0 locals.$pad locals.$pad locals.$pad;
     font-weight: var(--cmm-font-weight-normal);
   }
 }

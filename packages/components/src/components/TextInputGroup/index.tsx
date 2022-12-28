@@ -15,9 +15,10 @@ export function TextInputGroup({
   leftDecorator,
   rightDecorator,
   style,
+  className,
 }: TextInputGroupProps & BaseProps) {
   return (
-    <div style={style}>
+    <div style={style} className={className}>
       <div className={styles.Block}>
         {leftDecorator && (
           <span className={styles[`decorator--left`]}>{leftDecorator}</span>

@@ -1,13 +1,11 @@
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @include utils.layer {
-  $arrowSize: 0.3rem;
-  $offset: 2.25rem;
-  $bgColor: var(--cmm-color-gray-800);
-
   .target {
     position: relative;
     display: inline-block;
+    width: fit-content;
 
     &:hover,
     &:focus-within {
@@ -26,7 +24,7 @@
     font-size: var(--cmm-font-size-xs);
     font-weight: var(--cmm-font-weight-normal);
     line-height: 1;
-    background-color: $bgColor;
+    background-color: locals.$bgColor;
     color: var(--cmm-color-white);
     border-radius: var(--cmm-rounded-md);
     transition: 0.2s ease-in;
@@ -37,33 +35,33 @@
     &[data-placement="top"] {
       left: 50%;
       transform: translateX(-50%);
-      top: -$offset;
+      top: calc(locals.$offset * -1);
 
       &:before {
         content: "";
         position: absolute;
-        // `$arrowSize * 2 * -1` works on Chrome but not Safari
-        bottom: calc($arrowSize * 1.9 * -1);
+        // `locals.$arrowSize * 2 * -1` works on Chrome but not Safari
+        bottom: calc(locals.$arrowSize * 1.9 * -1);
         left: 50%;
-        margin-left: -$arrowSize;
-        border: $arrowSize solid transparent;
-        border-top: $arrowSize solid $bgColor;
+        margin-left: calc(locals.$arrowSize * -1);
+        border: locals.$arrowSize solid transparent;
+        border-top: locals.$arrowSize solid locals.$bgColor;
       }
     }
 
     &[data-placement="bottom"] {
       left: 50%;
       transform: translateX(-50%);
-      bottom: -$offset;
+      bottom: calc(locals.$offset * -1);
 
       &:before {
         content: "";
         position: absolute;
-        top: calc($arrowSize * 1.9 * -1);
+        top: calc(locals.$arrowSize * 1.9 * -1);
         left: 50%;
-        margin-left: -$arrowSize;
-        border: $arrowSize solid transparent;
-        border-bottom: $arrowSize solid $bgColor;
+        margin-left: calc(locals.$arrowSize * -1);
+        border: locals.$arrowSize solid transparent;
+        border-bottom: locals.$arrowSize solid locals.$bgColor;
       }
     }
   }

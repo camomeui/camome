@@ -1,5 +1,6 @@
 @use "../../styles/buttons";
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @include utils.layer {
   @include buttons.base;
@@ -7,28 +8,27 @@
   .Block {
     @extend %sizeDefaults;
 
-    border-radius: var(--IconButton-radius, var(--cmm-rounded-lg));
-    width: var(--IconButton-size, var(--size));
-    height: var(--IconButton-size, var(--size));
-    margin: var(--IconButton-margin);
+    border-radius: var(--cmm-rounded-lg);
+    width: locals.$size;
+    height: locals.$size;
     padding: 0;
 
     svg {
-      width: var(--IconButton-icon-size, var(--icon-size));
-      height: var(--IconButton-icon-size, var(--icon-size));
+      width: locals.$iconSize;
+      height: locals.$iconSize;
     }
   }
 
   // Sizes
 
   %sizeDefaults {
-    --size: 2.5rem;
-    --icon-size: 1.75rem;
+    #{locals.$size_name}: 2.5rem;
+    #{locals.$iconSize_name}: 1.75rem;
   }
 
   .--sm {
-    --size: 2rem;
-    --icon-size: 1.25rem;
+    #{locals.$size_name}: 2rem;
+    #{locals.$iconSize_name}: 1.25rem;
   }
 
   .--md {
@@ -36,7 +36,7 @@
   }
 
   .--lg {
-    --size: 3.5rem;
-    --icon-size: 2.25rem;
+    #{locals.$size_name}: 3.5rem;
+    #{locals.$iconSize_name}: 2.25rem;
   }
 }

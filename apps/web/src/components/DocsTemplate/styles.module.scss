@@ -98,3 +98,10 @@
   align-items: flex-start;
   gap: 2rem;
 }
+
+@layer override {
+  .tag {
+    --Tag-icon-size: 1rem;
+    --Tag-icon-margin: 0 -0.25rem 0 0;
+  }
+}

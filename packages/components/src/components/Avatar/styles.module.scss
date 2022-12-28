@@ -1,11 +1,19 @@
 @use "../../styles/variables.scss";
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @mixin modifier($variant, $scheme) {
-  .Block--#{$variant}.Block--#{$scheme} {
+  $selector: ".Block--#{$variant}.Block--#{$scheme}";
+
+  #{$selector} {
     background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg);
     color: var(--cmm-color-#{$scheme}-#{$variant}-font);
     border-color: var(--cmm-color-#{$scheme}-#{$variant}-border);
+  }
+
+  // FIXME: Support image
+  :is(a, button)#{$selector}:hover {
+    background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg-hover);
   }
 }
 
@@ -13,16 +21,11 @@
   .Block {
     @extend %sizeDefaults;
 
-    height: var(--Avatar-size, var(--size));
-    width: var(--Avatar-size, var(--size));
-    margin: var(--Avatar-margin, 0);
-    font-size: var(--font-size);
-    background-color: var(--bg-color);
-    color: var(--font-color);
-
+    @include utils.size(locals.$size);
     display: block;
     border-radius: var(--cmm-rounded-full);
     overflow: hidden;
+    transition: var(--cmm-transition-bg);
 
     * {
       width: 100%;
@@ -57,13 +60,13 @@
   // Sizes
 
   %sizeDefaults {
-    --size: 3rem;
-    --font-size: var(--cmm-font-size-lg);
+    #{locals.$size_name}: 3rem;
+    font-size: var(--cmm-font-size-lg);
   }
 
   .--sm {
-    --size: 2rem;
-    --font-size: var(--cmm-font-size-sm);
+    #{locals.$size_name}: 2rem;
+    font-size: var(--cmm-font-size-sm);
   }
 
   .--md {
@@ -71,7 +74,7 @@
   }
 
   .--lg {
-    --size: 4rem;
-    --font-size: var(--cmm-font-size-2xl);
+    #{locals.$size_name}: 4rem;
+    font-size: var(--cmm-font-size-2xl);
   }
 }
