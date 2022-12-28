@@ -1,36 +1,30 @@
-@mixin sizes($blockName) {
-  --#{$blockName}-font-size: var(--cmm-font-size-md);
-  --#{$blockName}-height: 2.25rem;
-  --#{$blockName}-padding-x: 0.75rem;
-
-  height: var(--#{$blockName}-height);
-  width: var(--#{$blockName}-width);
-  padding: 0 var(--#{$blockName}-padding-x);
-  font-size: var(--#{$blockName}-font-size);
-
+@mixin sizes() {
   &--sm {
-    --#{$blockName}-font-size: var(--cmm-font-size-sm);
-    --#{$blockName}-height: 1.75rem;
-    --#{$blockName}-pad-x: 0.5rem;
+    font-size: var(--cmm-font-size-sm);
+    height: 1.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   &--md {
-    --#{$blockName}-font-size: var(--cmm-font-size-md);
-    --#{$blockName}-height: 2.25rem;
-    --#{$blockName}-padding-x: 0.75rem;
+    font-size: var(--cmm-font-size-md);
+    height: 2.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   &--lg {
-    --#{$blockName}-font-size: var(--cmm-font-size-md);
-    --#{$blockName}-height: 2.75rem;
-    --#{$blockName}-pad-x: 1rem;
+    font-size: var(--cmm-font-size-md);
+    height: 2.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-@mixin base($blockName) {
+@mixin base() {
   appearance: none;
   border: 1px solid var(--cmm-color-gray-200);
-  border-radius: var(--#{$blockName}-radius, var(--cmm-rounded-lg));
+  border-radius: var(--cmm-rounded-lg);
   background-color: var(--cmm-color-white);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);

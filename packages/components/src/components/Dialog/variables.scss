@@ -1,0 +1,8 @@
+$closeOffset_name: --Dialog-close-offset;
+$closeOffset: var($closeOffset_name, 0.75rem);
+$outerMargin_name: --Dialog-outer-margin;
+$outerMargin: var($outerMargin_name, 1rem);
+$minWidth_name: --Dialog-min-width;
+$minWidth: var($minWidth_name, 28rem);
+$maxWidth_name: --Dialog-max-width;
+$maxWidth: var($maxWidth_name, 28rem);

@@ -1,0 +1,23 @@
+.size {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.error {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@layer override {
+  .group :global(.TextInputGroup) {
+    --TextInput-left-decor-width: 2.5rem;
+    --TextInput-right-decor-width: 4.5rem;
+  }
+}

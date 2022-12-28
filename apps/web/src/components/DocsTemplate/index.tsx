@@ -32,10 +32,7 @@ export default function DocsTemplate({ doc, toc, prev, next }: Props) {
                   href="/docs/getting-started/headless-integration"
                   size="sm"
                   endDecorator={<FiInfo stroke-width="2.5" />}
-                  cssVariables={{
-                    "--Tag-icon-size": "1rem",
-                    "--Tag-icon-margin": "0 -0.25rem 0 0",
-                  }}
+                  className={styles.tag}
                 >
                   Head-only
                 </Tag>

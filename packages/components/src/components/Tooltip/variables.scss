@@ -1,0 +1,6 @@
+$arrowSize_name: --Tooltip-arrow-size;
+$arrowSize: var($arrowSize_name, 0.3rem);
+$offset_name: --Tooltip-offset;
+$offset: var($offset_name, 2.25rem);
+$bgColor_name: --Tooltip-bg-color;
+$bgColor: var($bgColor_name, var(--cmm-color-gray-800));

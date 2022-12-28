@@ -1,0 +1,25 @@
+.content {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.size {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    place-content: start;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.clickable {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

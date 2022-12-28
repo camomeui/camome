@@ -6,16 +6,17 @@ const meta: Meta<typeof Accordion> = {
   component: Accordion,
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: "32rem" }}>
+      <div style={{ maxWidth: "40rem" }}>
         <Story />
       </div>
     ),
   ],
+  tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<AccordionProps>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     items: [
       {

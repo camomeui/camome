@@ -1,0 +1,35 @@
+.size {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.variant {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.color-scheme {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    place-content: start;
+    place-items: start;
+    gap: 1rem;
+  }
+}
+
+.with-icon {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    place-content: start;
+    place-items: start;
+    gap: 1rem;
+  }
+}

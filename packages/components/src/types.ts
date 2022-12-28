@@ -15,3 +15,5 @@ export type Direction = "horizontal" | "vertical";
 export type Size = typeof sizes[number];
 export type ColorScheme = typeof colorSchemes[number];
 export type Variant = typeof variants[number];
+
+export type ComponentCssVariables = Record<string, string | null>;

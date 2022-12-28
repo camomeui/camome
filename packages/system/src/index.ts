@@ -3,6 +3,8 @@ import { format } from "prettier";
 import type { ColorScheme, Theme, VariantColors } from "./types";
 import type { Path, Replace } from "@camome/utils";
 
+import { toKebabCase } from "@camome/utils";
+
 import { layers } from "./types";
 
 const DEFAULT_PREFIX = "cmm" as const;
@@ -27,7 +29,7 @@ const BASE_STYLES = `body {
   position: absolute;
 }` as const;
 
-function cssVar<
+export function cssVar<
   DotPath extends Path<Theme>,
   Name extends `--${Prefix}-${Replace<DotPath, ".", "-">}`,
   Ret extends WithVar extends true ? `var(${Name})` : Name,
@@ -37,13 +39,6 @@ function cssVar<
   const { prefix = DEFAULT_PREFIX, withVar = true } = options;
   const name = `--${prefix}-${toKebabCase(path.replaceAll(".", "-"))}` as Name;
   return (withVar ? `var(${name})` : name) as Ret;
-}
-
-function toKebabCase(str: string): string {
-  return str
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/\s+/g, "-")
-    .toLowerCase();
 }
 
 function variantColors(colorScheme: ColorScheme): VariantColors {
@@ -62,7 +57,7 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.100`),
       font: cssVar(`color.${colorScheme}.600`),
-      border: cssVar(`color.${colorScheme}.500`),
+      border: cssVar(`color.${colorScheme}.200`),
     },
     ghost: {
       bg: "transparent",

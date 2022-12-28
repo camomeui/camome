@@ -1,16 +1,18 @@
 @use "../../styles/inputs";
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @include utils.layer {
-  .Block {
-    @include inputs.base(TextInput);
-    @include inputs.sizes(TextInput);
+  %sizeDefaults {
+    font-size: var(--cmm-font-size-md);
+    height: 2.25rem;
+    padding-left: var(locals.$leftDecorWidth_name, 0.75rem);
+    padding-right: var(locals.$rightDecorWidth_name, 0.75rem);
+  }
 
-    padding-left: var(--TextInput-left-decor-width, var(--TextInput-padding-x));
-    padding-right: var(
-      --TextInput-right-decor-width,
-      var(--TextInput-padding-x)
-    );
+  .Block {
+    @extend %sizeDefaults;
+    @include inputs.base();
 
     &::placeholder {
       font-weight: var(--cmm-font-weight-normal);
@@ -27,8 +29,26 @@
       }
     }
 
+    &--sm {
+      font-size: var(--cmm-font-size-sm);
+      height: 1.75rem;
+      padding-left: var(locals.$leftDecorWidth_name, 0.5rem);
+      padding-right: var(locals.$rightDecorWidth_name, 0.5rem);
+    }
+
+    &--md {
+      @extend %sizeDefaults;
+    }
+
+    &--lg {
+      font-size: var(--cmm-font-size-md);
+      height: 2.75rem;
+      padding-left: var(locals.$leftDecorWidth_name, 1rem);
+      padding-right: var(locals.$rightDecorWidth_name, 1rem);
+    }
+
     &--fill {
-      --TextInput-width: 100%;
+      width: 100%;
     }
   }
 }

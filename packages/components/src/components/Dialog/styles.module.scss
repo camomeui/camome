@@ -1,4 +1,5 @@
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @include utils.layer {
   .Block {
@@ -21,19 +22,16 @@
 
   .panel {
     position: relative;
-    min-width: min(
-      calc(100vw - 2 * var(--Dialog-outer-padding, 1rem)),
-      var(--Dialog-min-width, 28rem)
-    );
-    max-width: var(--Dialog-max-width, 28rem);
-    margin: var(--Dialog-panel-margin, 0 1rem);
-    padding: var(--Dialog-panel-padding, 1.5rem);
+    min-width: min(calc(100vw - 2 * locals.$outerMargin), locals.$minWidth);
+    max-width: locals.$maxWidth;
+    margin: 0 locals.$outerMargin;
+    padding: 1.5rem;
     background-color: var(--cmm-color-white);
     border-radius: var(--cmm-rounded-xl);
   }
 
   .title {
-    font-weight: var(--cmm-font-weight-medium);
+    font-weight: var(--cmm-font-weight-semibold);
     font-size: var(--cmm-font-size-lg);
   }
 
@@ -44,12 +42,11 @@
   }
 
   .close {
+    // FIXME: These overrides are not guaranteed.
     --IconButton-size: 1.75rem;
     --IconButton-icon-size: calc(var(--IconButton-size) * 0.75);
 
-    $offset: 0.75rem;
-
     position: absolute;
-    inset: var(--DialogDelete-inset, $offset $offset auto auto);
+    inset: locals.$closeOffset locals.$closeOffset auto auto;
   }
 }

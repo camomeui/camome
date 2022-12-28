@@ -1,5 +1,6 @@
 @use "../../styles/variables";
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 @mixin modifier($variant, $scheme) {
   .Block--#{$variant}.Block--#{$scheme} {
@@ -11,18 +12,13 @@
 
 @include utils.layer {
   %sizeDefaults {
-    --Tag-height: 2rem;
-    --Tag-font-size: var(--cmm-font-size-sm);
-    --Tag-pad-x: 0.75rem;
-    --decor-offset: 0.5rem;
+    padding: 0 0.75rem;
+    height: 2rem;
+    font-size: var(--cmm-font-size-sm);
   }
 
   .Block {
     @extend %sizeDefaults;
-
-    font-size: var(--Tag-font-size);
-    height: var(--Tag-height);
-    padding: 0 var(--Tag-pad-x);
 
     white-space: nowrap;
     border-radius: var(--cmm-rounded-full);
@@ -31,10 +27,9 @@
     display: inline-flex;
     align-items: center;
 
-    svg {
-      width: var(--Tag-icon-size, 1em);
-      height: var(--Tag-icon-size, 1em);
-      margin: var(--Tag-icon-margin, 0);
+    > svg {
+      @include utils.size(locals.$iconSize);
+      margin: locals.$iconMargin;
     }
   }
 
@@ -53,10 +48,9 @@
   // Sizes
 
   .--sm {
-    --Tag-height: 1.5rem;
-    --Tag-font-size: var(--cmm-font-size-xs);
-    --Tag-pad-x: 0.5rem;
-    --decor-offset: 0;
+    padding: 0 0.5rem;
+    height: 1.5rem;
+    font-size: var(--cmm-font-size-xs);
   }
 
   .--md {
@@ -64,9 +58,8 @@
   }
 
   .--lg {
-    --Tag-height: 2.5rem;
-    --Tag-font-size: var(--cmm-font-size-md);
-    --Tag-pad-x: 1rem;
-    --decor-offset: 0.25rem;
+    padding: 0 1rem;
+    height: 2.5rem;
+    font-size: var(--cmm-font-size-md);
   }
 }
