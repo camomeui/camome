@@ -2,9 +2,8 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FormControl } from "../FormControl";
-
-import { Toggle, ToggleProps } from ".";
+import { FormControl } from "@camome/components/FormControl";
+import { Toggle, ToggleProps } from "@camome/components/Toggle";
 
 import styles from "./index.stories.module.scss";
 

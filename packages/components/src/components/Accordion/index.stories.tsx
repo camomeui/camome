@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Accordion, AccordionProps } from ".";
+import { Accordion, AccordionProps } from "@camome/components/Accordion";
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion,

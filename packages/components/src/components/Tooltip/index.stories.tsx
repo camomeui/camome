@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "../Button";
-
-import { Tooltip, TooltipProps } from ".";
+import { Button } from "@camome/components/Button";
+import { Tooltip, TooltipProps } from "@camome/components/Tooltip";
 
 import styles from "./index.stories.module.scss";
 

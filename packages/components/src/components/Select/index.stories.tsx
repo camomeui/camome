@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FormControl } from "../FormControl";
+import { Select, SelectProps } from "@camome/components/Select";
 
-import { Select, SelectProps } from ".";
+import { FormControl } from "../FormControl";
 
 const meta: Meta<typeof Select> = {
   component: Select,

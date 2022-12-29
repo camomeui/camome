@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tab } from ".";
+import { Tab } from "@camome/components/Tab";
 
 const meta: Meta<typeof Tab> = {
   component: Tab,

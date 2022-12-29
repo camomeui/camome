@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FormControl } from "../FormControl";
-import { Radio } from "../Radio";
-
-import { RadioGroup, RadioGroupProps } from ".";
+import { FormControl } from "@camome/components/FormControl";
+import { Radio } from "@camome/components/Radio";
+import { RadioGroup, RadioGroupProps } from "@camome/components/RadioGroup";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,

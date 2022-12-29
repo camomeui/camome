@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Breadcrumbs, BreadcrumbsProps } from ".";
+import { Breadcrumbs, BreadcrumbsProps } from "@camome/components/Breadcrumbs";
 
 const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,

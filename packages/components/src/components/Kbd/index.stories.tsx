@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Kbd, KbdProps } from ".";
+import { Kbd, KbdProps } from "@camome/components/Kbd";
 
 const meta: Meta<typeof Kbd> = {
   component: Kbd,

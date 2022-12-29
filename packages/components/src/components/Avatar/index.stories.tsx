@@ -2,7 +2,7 @@ import { BoltIcon } from "@heroicons/react/24/outline";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Avatar, AvatarProps } from ".";
+import { Avatar, AvatarProps } from "@camome/components/Avatar";
 
 import styles from "./index.stories.module.scss";
 

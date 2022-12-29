@@ -9,7 +9,8 @@ import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 import PopoverLinks from "@/components/PopoverLinks";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
-import { IconButton, Tooltip } from "@camome/components/src";
+import { IconButton } from "@camome/components/IconButton";
+import { Tooltip } from "@camome/components/Tooltip";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";

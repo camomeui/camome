@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Radio, RadioProps } from ".";
+import { Radio, RadioProps } from "@camome/components/Radio";
 
 const meta: Meta<typeof Radio> = {
   component: Radio,

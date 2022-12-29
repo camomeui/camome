@@ -50,9 +50,20 @@
     "react": ">=18"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    "./*": {
+      "import": "./src/components/*/index.tsx"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/components/*/index.d.ts"
+      ]
+    }
+  },
   "sideEffects": false
 }

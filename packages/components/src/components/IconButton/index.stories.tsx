@@ -2,7 +2,8 @@ import { BellAlertIcon } from "@heroicons/react/24/outline";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { IconButton, IconButtonProps, Spinner } from "@camome/components";
+import { IconButton, IconButtonProps } from "@camome/components/IconButton";
+import { Spinner } from "@camome/components/Spinner";
 
 import styles from "./index.stories.module.scss";
 

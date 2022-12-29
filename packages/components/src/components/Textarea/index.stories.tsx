@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FormControl } from "../FormControl";
-
-import { Textarea, TextareaProps } from ".";
+import { FormControl } from "@camome/components/FormControl";
+import { Textarea, TextareaProps } from "@camome/components/Textarea";
 
 const meta: Meta<typeof Textarea> = {
   component: Textarea,

@@ -2,13 +2,10 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {
-  FormControl,
-  Kbd,
-  TextInput,
-  TextInputGroup,
-  TextInputProps,
-} from "@camome/components";
+import { FormControl } from "@camome/components/FormControl";
+import { Kbd } from "@camome/components/Kbd";
+import { TextInput, TextInputProps } from "@camome/components/TextInput";
+import { TextInputGroup } from "@camome/components/TextInputGroup";
 
 import styles from "./index.stories.module.scss";
 

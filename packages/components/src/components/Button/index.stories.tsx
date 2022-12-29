@@ -9,7 +9,8 @@ import {
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button, ButtonProps, Spinner } from "@camome/components";
+import { Button, ButtonProps } from "@camome/components/Button";
+import { Spinner } from "@camome/components/Spinner";
 
 import styles from "./index.stories.module.scss";
 

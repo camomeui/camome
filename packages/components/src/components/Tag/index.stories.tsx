@@ -2,10 +2,9 @@ import { LinkIcon, WifiIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Avatar } from "../Avatar";
-import { IconButton } from "../IconButton";
-
-import { Tag, TagProps } from ".";
+import { Avatar } from "@camome/components/Avatar";
+import { IconButton } from "@camome/components/IconButton";
+import { Tag, TagProps } from "@camome/components/Tag";
 
 import styles from "./index.stories.module.scss";
 

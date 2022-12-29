@@ -9,7 +9,7 @@ import { buildScopedClassName, hash } from "@camome/utils";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths({}), react(), dts()],
+  plugins: [tsconfigPaths(), react(), dts()],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),

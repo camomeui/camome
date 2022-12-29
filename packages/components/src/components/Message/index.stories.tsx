@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Message, MessageProps } from ".";
+import { Message, MessageProps } from "@camome/components/Message";
 
 const meta: Meta<typeof Message> = {
   component: Message,

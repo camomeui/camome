@@ -4,7 +4,7 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@camome/components": ["./src/index.ts"]
+      "@camome/components/*": ["src/components/*"]
     }
   },
   "include": ["src"],

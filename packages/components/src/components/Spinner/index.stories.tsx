@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Spinner, SpinnerProps } from ".";
+import { Spinner, SpinnerProps } from "@camome/components/Spinner";
 
 import styles from "./index.stories.module.scss";
 

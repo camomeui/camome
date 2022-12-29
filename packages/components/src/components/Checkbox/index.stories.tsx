@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox, CheckboxProps } from ".";
+import { Checkbox, CheckboxProps } from "@camome/components/Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,

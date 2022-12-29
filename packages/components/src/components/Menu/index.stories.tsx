@@ -6,7 +6,7 @@ import {
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Menu } from ".";
+import { Menu } from "@camome/components/Menu";
 
 const meta: Meta<typeof Menu> = {
   component: Menu,
