@@ -5,7 +5,8 @@
     "baseUrl": ".",
     "paths": {
       "@camome/components/*": ["src/components/*"]
-    }
+    },
+    "rootDirs": [".", ".scss-types"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
