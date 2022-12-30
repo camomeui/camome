@@ -24,16 +24,19 @@ export default function CodeBlock({
   className,
 }: CodeBlockProps) {
   const live = html && css;
+  const initRef = React.useRef(false);
+  const previewContainerRef = React.useRef<HTMLDivElement>(null!);
 
   React.useEffect(() => {
+    if (!live || !bundlePath || initRef.current) return;
+    initRef.current = true;
     (async () => {
-      if (!bundlePath) return;
       const { default: Bundle } = await import(
         `@/public/.stories/${bundlePath}/bundle`
       );
-      hydrateRoot(document.getElementById(bundlePath)!, <Bundle />);
+      hydrateRoot(previewContainerRef.current, <Bundle />);
     })();
-  }, [bundlePath]);
+  }, [bundlePath, live]);
 
   const codeBlock = (
     <Highlight
@@ -45,12 +48,7 @@ export default function CodeBlock({
       {({ tokens, getLineProps, getTokenProps, className: _class, style }) => {
         return (
           <pre
-            className={clsx(
-              _class,
-              styles["pre"],
-              live && styles["pre--live"],
-              className
-            )}
+            className={clsx(_class, live && styles["pre--live"], className)}
             style={style}
           >
             <code
@@ -90,7 +88,7 @@ export default function CodeBlock({
         `}</style>
         <div>
           <div
-            id={bundlePath}
+            ref={previewContainerRef}
             dangerouslySetInnerHTML={{ __html: html }}
             className={styles.preview}
           />
