@@ -7,6 +7,7 @@ import remarkDirective from "remark-directive";
 import remarkCodeTitles from "./remark/remarkCodeTitles.mjs";
 import remarkImgToJsx from "./remark/remarkImgToJsx.mjs";
 import remarkCodePreview from "./remark/remarkCodePreview.mjs";
+import linkIcon from "./hast/link-icon";
 
 /** @type {import('@mdx-js/mdx').CompileOptions} */
 const mdxOptions = {
@@ -25,10 +26,8 @@ const mdxOptions = {
       rehypeAutolinkHeadings,
       {
         behavior: "append",
-        properties: {
-          ["aria-hidden"]: false,
-          ["tab-index"]: false,
-          ["class"]: "hash-link",
+        content(node) {
+          return [linkIcon];
         },
       },
     ],

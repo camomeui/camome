@@ -45,6 +45,7 @@
     "@types/node": "18.7.14",
     "eslint": "8.23.0",
     "eslint-config-next": "13.0.0",
+    "hastscript": "^7.1.0",
     "next-transpile-modules": "^10.0.0",
     "postcss": "^8.4.20",
     "postcss-flexbugs-fixes": "^5.0.2",

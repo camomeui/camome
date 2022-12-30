@@ -125,6 +125,7 @@ importers:
       eslint: 8.23.0
       eslint-config-next: 13.0.0
       form-data: ^4.0.0
+      hastscript: ^7.1.0
       image-size: ^1.0.2
       mailgun.js: ^8.0.1
       next: 13.0.6
@@ -167,6 +168,7 @@ importers:
       '@types/node': 18.7.14
       eslint: 8.23.0
       eslint-config-next: 13.0.0_eslint@8.23.0
+      hastscript: 7.1.0
       next-transpile-modules: 10.0.0
       postcss: 8.4.20
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.20
@@ -191,6 +193,7 @@ importers:
     specifiers:
       '@camome/system': workspace:*
       '@camome/utils': workspace:*
+      '@floating-ui/react': ^0.14.0
       '@headlessui/react': ^1.7.4
       '@heroicons/react': ^2.0.10
       '@storybook/addon-essentials': ^7.0.0-beta.15
@@ -233,6 +236,7 @@ importers:
       lodash: 4.17.21
       prism-react-renderer: 1.3.5_react@18.2.0
     devDependencies:
+      '@floating-ui/react': 0.14.0_biqbaboplfbrettd7655fr4n2y
       '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-essentials': 7.0.0-beta.15_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-interactions': 7.0.0-beta.15_biqbaboplfbrettd7655fr4n2y
@@ -2648,13 +2652,11 @@ packages:
 
   /@floating-ui/core/1.0.4:
     resolution: {integrity: sha512-FPFLbg2b06MIw1dqk2SOEMAMX3xlrreGjcui5OTxfBDtaKTmh0kioOVjT8gcfl58juawL/yF+S+gnq8aUYQx/Q==}
-    dev: false
 
   /@floating-ui/dom/1.0.12:
     resolution: {integrity: sha512-HeG/wHoa2laUHlDX3xkzqlUqliAfa+zqV04LaKIwNCmCNaW2p0fQi4/Kd0LB4GdFoJ2UllLFq5gWnXAd67lg7w==}
     dependencies:
       '@floating-ui/core': 1.0.4
-    dev: false
 
   /@floating-ui/react-dom/1.0.1:
     resolution: {integrity: sha512-UW0t1Gi8ikbDRr8cQPVcqIDMBwUEENe5V4wlHWdrJ5egFnRQFBV9JirauTBFI6S8sM1qFUC1i+qa3g87E6CLTw==}
@@ -2664,6 +2666,17 @@ packages:
     dependencies:
       '@floating-ui/dom': 1.0.12
     dev: false
+
+  /@floating-ui/react-dom/1.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-UW0t1Gi8ikbDRr8cQPVcqIDMBwUEENe5V4wlHWdrJ5egFnRQFBV9JirauTBFI6S8sM1qFUC1i+qa3g87E6CLTw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.0.12
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: true
 
   /@floating-ui/react/0.14.0:
     resolution: {integrity: sha512-IGzsoBR6gVRSF+EWjkUNQr/wThi/ypSJN8y/QZCt2MzddYvvibH4Wcw2VMXcOgwCMmMqXZGk9sQSMSBoixzsPg==}
@@ -2677,6 +2690,21 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
     dev: false
+
+  /@floating-ui/react/0.14.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-IGzsoBR6gVRSF+EWjkUNQr/wThi/ypSJN8y/QZCt2MzddYvvibH4Wcw2VMXcOgwCMmMqXZGk9sQSMSBoixzsPg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/react-dom': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      aria-hidden: 1.2.2_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tabbable: 6.0.1
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: true
 
   /@fullhuman/postcss-purgecss/5.0.0_postcss@8.4.20:
     resolution: {integrity: sha512-onDS/b/2pMRzqSoj4qOs2tYFmOpaspjTAgvACIHMPiicu1ptajiBruTrjBzTKdxWdX0ldaBb7wj8nEaTLyFkJw==}
@@ -4970,7 +4998,6 @@ packages:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
       '@types/unist': 2.0.6
-    dev: false
 
   /@types/is-ci/3.0.0:
     resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
@@ -5561,6 +5588,20 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: false
+
+  /aria-hidden/1.2.2_react@18.2.0:
+    resolution: {integrity: sha512-6y/ogyDTk/7YAe91T3E2PR1ALVKyM2QbTio5HwM+N1Q6CMlCKhvClyIjkckBswa0f2xJhjsfzIGa1yVSe1UMVA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.9.0 || ^17.0.0 || ^18.0.0
+      react: ^16.9.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      react: 18.2.0
+      tslib: 2.4.1
+    dev: true
 
   /aria-query/4.2.2:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
@@ -6350,7 +6391,6 @@ packages:
 
   /comma-separated-tokens/2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
-    dev: false
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -9181,7 +9221,6 @@ packages:
     resolution: {integrity: sha512-AyjlI2pTAZEOeu7GeBPZhROx0RHBnydkQIXlhnFzDi0qfXTmGUWoCYZtomHbrdrheV4VFUlPcfJ6LMF5T6sQzg==}
     dependencies:
       '@types/hast': 2.3.4
-    dev: false
 
   /hast-util-to-estree/2.1.0:
     resolution: {integrity: sha512-Vwch1etMRmm89xGgz+voWXvVHba2iiMdGMKmaMfYt35rbVtFDq8JNwwAIvi8zHMkO6Gvqo9oTMwJTmzVRfXh4g==}
@@ -9238,7 +9277,6 @@ packages:
       hast-util-parse-selector: 3.1.0
       property-information: 6.2.0
       space-separated-tokens: 2.0.2
-    dev: false
 
   /header-case/2.0.4:
     resolution: {integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==}
@@ -12840,7 +12878,6 @@ packages:
 
   /property-information/6.2.0:
     resolution: {integrity: sha512-kma4U7AFCTwpqq5twzC1YVIDXSqg6qQK6JN0smOw8fgRy1OkMi0CYSzFmsy6dnqSenamAtj0CyXMUJ1Mf6oROg==}
-    dev: false
 
   /protobufjs/6.11.3:
     resolution: {integrity: sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg==}
@@ -13941,7 +13978,6 @@ packages:
 
   /space-separated-tokens/2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
-    dev: false
 
   /spawn-command/0.0.2-1:
     resolution: {integrity: sha512-n98l9E2RMSJ9ON1AKisHzz7V42VDiBQGY6PB1BwRglz99wpVsSuGzQ+jOi6lFXBGVTCrRpltvjm+/XA+tpeJrg==}
@@ -14260,7 +14296,6 @@ packages:
 
   /tabbable/6.0.1:
     resolution: {integrity: sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==}
-    dev: false
 
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
