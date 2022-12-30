@@ -7,7 +7,7 @@ import remarkDirective from "remark-directive";
 import remarkCodeTitles from "./remark/remarkCodeTitles.mjs";
 import remarkImgToJsx from "./remark/remarkImgToJsx.mjs";
 import remarkCodePreview from "./remark/remarkCodePreview.mjs";
-import linkIcon from "./hast/link-icon";
+import linkIcon from "./hast/link-icon.mjs";
 
 /** @type {import('@mdx-js/mdx').CompileOptions} */
 const mdxOptions = {
