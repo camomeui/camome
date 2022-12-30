@@ -23,6 +23,7 @@
     cursor: pointer;
     transition: var(--cmm-transition-bg);
     width: 100%;
+    color: locals.$fontColor;
 
     &:hover,
     &--active {

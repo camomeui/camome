@@ -33,6 +33,7 @@
     "prism-react-renderer": "^1.3.5"
   },
   "devDependencies": {
+    "@floating-ui/react": "^0.14.0",
     "@headlessui/react": "^1.7.4",
     "@storybook/addon-essentials": "^7.0.0-beta.15",
     "@storybook/addon-interactions": "^7.0.0-beta.15",
