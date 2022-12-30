@@ -17,7 +17,7 @@
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
     "build": "vite build",
     "typecheck": "pnpm gen-scss-type && tsc",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 3920",
     "build-storybook": "storybook build",
     "run-ts": "node -r esbuild-register"
   },
@@ -25,7 +25,11 @@
     "@camome/system": "workspace:*",
     "@camome/utils": "workspace:*",
     "@heroicons/react": "^2.0.10",
-    "clsx": "^1.2.1"
+    "clsx": "^1.2.1",
+    "esbuild-sass-plugin": "^2.4.4",
+    "lightningcss": "^1.17.1",
+    "lodash": "^4.17.21",
+    "prism-react-renderer": "^1.3.5"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.0-beta.15",
@@ -41,6 +45,7 @@
     "autoprefixer": "^10.4.13",
     "esbuild-css-modules-plugin": "^2.6.3",
     "esbuild-plugin-sass-modules": "^0.0.3",
+    "globby": "^13.1.2",
     "postcss": "^8.4.20",
     "postcss-modules": "^6.0.0",
     "react": "^18.2.0",
