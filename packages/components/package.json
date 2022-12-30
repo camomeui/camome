@@ -15,10 +15,11 @@
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
-    "build": "vite build",
+    "build": "vite build && pnpm build:static-stories",
+    "build:storybook": "storybook build",
+    "build:static-stories": "pnpm -F components run-ts ./scripts/build-static-stories.tsx",
     "typecheck": "pnpm gen-scss-type && tsc",
     "storybook": "storybook dev -p 3920",
-    "build-storybook": "storybook build",
     "run-ts": "node -r esbuild-register"
   },
   "dependencies": {
