@@ -2,27 +2,39 @@ import clsx from "clsx";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import github from "prism-react-renderer/themes/github";
 import React from "react";
-
-import { hash } from "@camome/utils";
+import { hydrateRoot } from "react-dom/client";
 
 import styles from "./styles.module.scss";
 
 export type CodeBlockProps = {
+  language: string;
   code: string;
   html?: string;
   css?: string;
-  language: string;
+  bundlePath?: string;
   className?: string;
 };
 
 export default function CodeBlock({
+  language,
   code,
   html,
   css,
-  language,
+  bundlePath,
   className,
 }: CodeBlockProps) {
   const live = html && css;
+
+  React.useEffect(() => {
+    (async () => {
+      if (!bundlePath) return;
+      const { default: Bundle } = await import(
+        `@/public/.stories/${bundlePath}/bundle`
+      );
+      hydrateRoot(document.getElementById(bundlePath)!, <Bundle />);
+    })();
+  }, [bundlePath]);
+
   const codeBlock = (
     <Highlight
       {...defaultProps}
@@ -30,10 +42,11 @@ export default function CodeBlock({
       code={code?.replace(/\n$/, "") ?? ""}
       language={language as Language}
     >
-      {({ tokens, getLineProps, getTokenProps, className, style }) => {
+      {({ tokens, getLineProps, getTokenProps, className: _class, style }) => {
         return (
           <pre
             className={clsx(
+              _class,
               styles["pre"],
               live && styles["pre--live"],
               className
@@ -77,6 +90,7 @@ export default function CodeBlock({
         `}</style>
         <div>
           <div
+            id={bundlePath}
             dangerouslySetInnerHTML={{ __html: html }}
             className={styles.preview}
           />

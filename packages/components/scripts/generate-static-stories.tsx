@@ -11,20 +11,28 @@ import { buildScopedClassName, hash } from "@camome/utils";
 import CssModulesPlugin from "./CssModulesPlugin";
 
 const COMPONENTS_DIR = path.join("src", "components");
+const STORIES_SRC_DIR = "_stories" as const;
+const STORIES_OUT_DIR = ".stories" as const;
 
 function extractStoryPath(filePath: string) {
-  return filePath.split(COMPONENTS_DIR + path.sep)[1].replace("/stories", "");
+  const ret = filePath
+    .split(COMPONENTS_DIR + path.sep)[1]
+    .replace(path.join(path.sep, STORIES_SRC_DIR), "");
+  return ret.startsWith(STORIES_SRC_DIR)
+    ? ret.replace(STORIES_SRC_DIR, "")
+    : ret;
 }
 
 async function bundleStory(storyFullPath: string) {
   const storyPath = extractStoryPath(storyFullPath);
-  const outdir = path.join(".stories", storyPath.replace(".tsx", ""));
+  const outdir = path.join(STORIES_OUT_DIR, storyPath.replace(".tsx", ""));
 
   const generatedCss: string[] = [];
   await build({
     entryPoints: [path.resolve(storyFullPath)],
     bundle: true,
     outdir,
+    entryNames: "[dir]/bundle",
     platform: "node",
     treeShaking: true,
     format: "esm",
@@ -55,7 +63,7 @@ async function bundleStory(storyFullPath: string) {
   const { default: Story } = await require(path.join(
     "..",
     outdir,
-    storyPath.split("/").at(-1)!.replace("tsx", "jsx")
+    "bundle.jsx"
   ));
   const storyCode = await fs.readFile(path.join(storyFullPath));
 
@@ -78,9 +86,15 @@ async function bundleStory(storyFullPath: string) {
 
 (async () => {
   const storyFullPaths = await globby([
-    COMPONENTS_DIR + "/**/stories/*.tsx",
+    COMPONENTS_DIR + `/**/${STORIES_SRC_DIR}/*.tsx`,
     "!**/index.stories.tsx",
   ]);
+
+  await fs.rm(STORIES_OUT_DIR, {
+    recursive: true,
+    force: true,
+  });
+
   await Promise.all(storyFullPaths.map(bundleStory));
 })().catch((e) => {
   console.error(e);

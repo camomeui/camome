@@ -31,7 +31,7 @@ export default defineConfig({
     modules: {
       generateScopedName(local, filename) {
         const dir = filename.split("/").at(-2);
-        if (dir === "stories" || filename.endsWith("stories.module.scss")) {
+        if (dir === "_stories" || filename.endsWith("stories.module.scss")) {
           const className = hash(filename + local);
           return className.match(/^[0-9]/) ? `_${className}` : className;
         }
