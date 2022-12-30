@@ -1,15 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
 import { Dialog } from "@camome/components/Dialog";
 
-const meta: Meta<typeof Dialog> = {
-  component: Dialog,
-};
-export default meta;
-type Story = StoryObj;
-
-export const Primary: Story = {
-  render: () => (
+export default function Default() {
+  return (
     <Dialog>
       <Dialog.Backdrop />
       <Dialog.PanelWrapper>
@@ -23,5 +15,5 @@ export const Primary: Story = {
         </Dialog.Panel>
       </Dialog.PanelWrapper>
     </Dialog>
-  ),
-};
+  );
+}

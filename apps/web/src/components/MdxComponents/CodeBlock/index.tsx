@@ -90,7 +90,7 @@ export default function CodeBlock({
           <div
             ref={previewContainerRef}
             dangerouslySetInnerHTML={{ __html: html }}
-            className={styles.preview}
+            className={clsx(styles.preview, "no-markup")}
           />
           {codeBlock}
         </div>
