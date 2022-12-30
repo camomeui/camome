@@ -24,7 +24,7 @@ export function RadioGroup({
         styles.Block,
         direction !== "vertical" && styles[`--${direction}`]
       )}
-      aria-labeledby={labelId}
+      aria-labelledby={labelId}
       {...props}
     >
       {children}
