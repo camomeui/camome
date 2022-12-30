@@ -1,5 +1,7 @@
 import { s } from "hastscript";
 
+// From @ant-design/icons
+// https://ant.design/components/icon
 export default s(
   "svg",
   {
