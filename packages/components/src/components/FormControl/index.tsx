@@ -12,6 +12,7 @@ export type FormControlProps = {
   helperText?: string;
   error?: boolean | string;
   direction?: "vertical" | "horizontal" | "horizontal-reverse";
+  id?: string;
   children:
     | React.ReactNode
     | ((props: FormControlContextValue) => React.ReactNode);
@@ -23,10 +24,12 @@ export function FormControl({
   helperText: helperText,
   error = false,
   direction = "vertical",
+  id: _id,
   children,
   className,
 }: FormControlProps) {
-  const id = React.useId();
+  const useIdValue = React.useId();
+  const id = _id || useIdValue;
   const labelId = `${id}--label`;
   const helperTextId = `${id}--helper-text`;
   const errorTextId = `${id}--error-text`;

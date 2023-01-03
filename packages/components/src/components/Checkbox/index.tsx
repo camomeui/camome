@@ -16,13 +16,14 @@ export type CheckboxProps = {
 } & Omit<JSX.IntrinsicElements["input"], "size">;
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ labelText, helperText, error, size = "md", ...inputProps }, ref) => {
+  ({ labelText, helperText, error, size = "md", id, ...inputProps }, ref) => {
     return (
       <FormControl
         direction="horizontal-reverse"
         labelText={labelText}
         helperText={helperText}
         error={error}
+        id={id}
         className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
       >
         <Input type="checkbox" {...inputProps} ref={ref} />

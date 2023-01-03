@@ -17,10 +17,11 @@ export type RadioProps = {
 } & NativeProps;
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({ labelText, size = "md", ...inputProps }, forwardedRef) => {
+  ({ labelText, size = "md", id, ...inputProps }, forwardedRef) => {
     return (
       <FormControl
         labelText={labelText}
+        id={id}
         className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
       >
         <Input type="radio" {...inputProps} ref={forwardedRef} />
