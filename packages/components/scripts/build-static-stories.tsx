@@ -28,6 +28,30 @@ async function bundleStory(storyFullPath: string) {
   const outdir = path.join(STORIES_OUT_DIR, storyPath.replace(".tsx", ""));
 
   const generatedCss: string[] = [];
+
+  const onBuild = async () => {
+    const modulePath = path.join("..", outdir, "bundle.jsx");
+    delete require.cache[require.resolve(modulePath)];
+    const { default: Story } = await require(modulePath);
+    const storyCode = await fs.readFile(path.join(storyFullPath));
+
+    const ssr = renderToString(<Story />);
+    const componentOutDir = path.resolve(__dirname, "..", outdir);
+
+    await fs.mkdir(componentOutDir, {
+      recursive: true,
+    });
+
+    await Promise.all([
+      fs.writeFile(path.resolve(componentOutDir, `index.html`), ssr),
+      fs.writeFile(
+        path.resolve(componentOutDir, `styles.css`),
+        generatedCss.join("\n")
+      ),
+      fs.writeFile(path.resolve(componentOutDir, `code.tsx`), storyCode),
+    ]);
+  };
+
   await build({
     entryPoints: [path.resolve(storyFullPath)],
     bundle: true,
@@ -38,50 +62,20 @@ async function bundleStory(storyFullPath: string) {
     format: "esm",
     external: ["react", "react-dom"],
     outExtension: { ".js": ".jsx" },
-    logLevel: "debug",
+    watch: {
+      onRebuild: onBuild,
+    },
     plugins: [
       CssModulesPlugin({
         v2: true,
         onGenerateCss(css) {
           generatedCss.push(css);
         },
-        // generateScopedName(local, filename) {
-        //   const dir = filename.split("/").at(-2);
-        //   if (
-        //     dir === "stories" ||
-        //     filename.endsWith("index.stories.module.scss")
-        //   ) {
-        //     const className = hash(filename + local);
-        //     return className.match(/^[0-9]/) ? `_${className}` : className;
-        //   }
-        //   return buildScopedClassName(local, filename);
-        // },
       }),
     ],
   });
 
-  const { default: Story } = await require(path.join(
-    "..",
-    outdir,
-    "bundle.jsx"
-  ));
-  const storyCode = await fs.readFile(path.join(storyFullPath));
-
-  const ssr = renderToString(<Story />);
-  const componentOutDir = path.resolve(__dirname, "..", outdir);
-
-  await fs.mkdir(componentOutDir, {
-    recursive: true,
-  });
-
-  await Promise.all([
-    fs.writeFile(path.resolve(componentOutDir, `index.html`), ssr),
-    fs.writeFile(
-      path.resolve(componentOutDir, `styles.css`),
-      generatedCss.join("\n")
-    ),
-    fs.writeFile(path.resolve(componentOutDir, `code.tsx`), storyCode),
-  ]);
+  await onBuild();
 }
 
 (async () => {

@@ -13,7 +13,7 @@
     height: locals.$size;
     padding: 0;
 
-    svg {
+    > svg {
       width: locals.$iconSize;
       height: locals.$iconSize;
     }

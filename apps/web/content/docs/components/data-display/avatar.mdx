@@ -6,109 +6,24 @@ description: "An Avatar is a graphical representation of user."
 
 ## Overview
 
-```tsx live
-import { Avatar } from "@camome/components";
+::preview{path=Avatar/Default}
 
-export default function () {
-  return (
-    <>
-      <Avatar src="https://i.imgur.com/isPfQ2E.jpg" alt="Alt Name" />
-      <Avatar variant="subtle" colorScheme="primary">
-        JD
-      </Avatar>
-      <Avatar variant="solid">EH</Avatar>
-      <Avatar colorScheme="success" />
-    </>
-  );
-}
-```
+## Size
 
-## Sizes
+::preview{path=Avatar/Size}
 
-```tsx live
-import { Avatar } from "@camome/components";
+## Variant
 
-export default function () {
-  return (
-    <>
-      <Avatar src="https://i.imgur.com/jlkZjTY.jpg" alt="Alt Name" size="sm" />
-      <Avatar src="https://i.imgur.com/kBqhGwJ.jpg" alt="Alt Name" size="md" />
-      <Avatar src="https://i.imgur.com/mw4NWXU.jpg" alt="Alt Name" size="lg" />
-    </>
-  );
-}
-```
-
-## Variants
-
-```tsx live
-import { Avatar } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Avatar variant="solid">EY</Avatar>
-      <Avatar variant="subtle">YK</Avatar>
-    </>
-  );
-}
-```
+::preview{path=Avatar/Variant}
 
 ## Color schemes
 
-```tsx live
-import { Avatar } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Avatar colorScheme="primary" />
-      <Avatar colorScheme="secondary" />
-      <Avatar colorScheme="success" />
-      <Avatar colorScheme="info" />
-      <Avatar colorScheme="danger" />
-      <Avatar colorScheme="warn" />
-    </>
-  );
-}
-```
+::preview{path=Avatar/ColorScheme}
 
 ## With custom content
 
-```tsx live
-import { Avatar } from "@camome/components";
-import { StarIcon } from "@heroicons/react/24/outline";
-
-export default function () {
-  return (
-    <Avatar>
-      <StarIcon />
-    </Avatar>
-  );
-}
-```
+::preview{path=Avatar/Content}
 
 ## As clickable item
 
-```tsx live
-import { Avatar } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Avatar
-        src="https://i.imgur.com/FEnPQp7.jpg"
-        alt="Alt Name"
-        component="a"
-        href="#"
-      />
-      <Avatar
-        src="https://i.imgur.com/QTo2MPU.jpg"
-        alt="Alt Name"
-        component="button"
-        onClick={() => alert("You clicked successfully")}
-      />
-    </>
-  );
-}
-```
+::preview{path=Avatar/Clickable}

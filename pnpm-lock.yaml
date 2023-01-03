@@ -121,6 +121,7 @@ importers:
       '@next/mdx': ^13.0.0
       '@types/node': 18.7.14
       camome: workspace:*
+      chokidar: ^3.5.3
       contentlayer: ^0.2.9
       eslint: 8.23.0
       eslint-config-next: 13.0.0
@@ -166,6 +167,7 @@ importers:
     devDependencies:
       '@fullhuman/postcss-purgecss': 5.0.0_postcss@8.4.20
       '@types/node': 18.7.14
+      chokidar: 3.5.3
       eslint: 8.23.0
       eslint-config-next: 13.0.0_eslint@8.23.0
       hastscript: 7.1.0
@@ -3683,7 +3685,7 @@ packages:
       '@storybook/csf-plugin': 7.0.0-beta.15
       '@storybook/csf-tools': 7.0.0-beta.15
       '@storybook/global': 5.0.0
-      '@storybook/mdx2-csf': 1.0.0-next.2
+      '@storybook/mdx2-csf': 1.0.0-next.3
       '@storybook/node-logger': 7.0.0-beta.15
       '@storybook/postinstall': 7.0.0-beta.15
       '@storybook/preview-api': 7.0.0-beta.15
@@ -4012,7 +4014,7 @@ packages:
       '@storybook/client-logger': 7.0.0-beta.15
       '@storybook/core-common': 7.0.0-beta.15
       '@storybook/csf-plugin': 7.0.0-beta.15
-      '@storybook/mdx2-csf': 1.0.0-next.2
+      '@storybook/mdx2-csf': 1.0.0-next.3
       '@storybook/node-logger': 7.0.0-beta.15
       '@storybook/preview': 7.0.0-beta.15
       '@storybook/preview-api': 7.0.0-beta.15
@@ -4410,8 +4412,8 @@ packages:
     resolution: {integrity: sha512-1h6ZY+bWsyx/84OlImaz3WSlOn7Nqrb7zkdln/TyjovpRNcaWxdogOM+kgBoVWRv3vFaWLLLKER3lFzyits1QQ==}
     dev: true
 
-  /@storybook/mdx2-csf/1.0.0-next.2:
-    resolution: {integrity: sha512-Mg6pYKhuuMrzF/DcCI5dEA36jx7156bBnCk9uFInthFrr1sLYlj+HfRMibFa/VdJx8L0Wsf/15cIu3xPWriinA==}
+  /@storybook/mdx2-csf/1.0.0-next.3:
+    resolution: {integrity: sha512-obodj5cDa943eAPNmawzwviiaheWLvI39/o36O+fwkW8jxxXgyEMgad0mLTiwKjlvitLVoHa4Znm5aIN6TW08A==}
     dev: true
 
   /@storybook/node-logger/7.0.0-beta.15:

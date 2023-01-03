@@ -6,73 +6,16 @@ description: "Checkboxes allow the user to select one or more items from a set"
 
 ## Usage
 
-```tsx live
-import { Checkbox } from "@camome/components";
-
-export default function () {
-  return (
-    <Checkbox labelText="Agree to our Privacy Policy" value="true" required />
-  );
-}
-```
+::preview{path=Checkbox/Default}
 
 ## Sizes
 
-```tsx live
-import { Checkbox } from "@camome/components";
+::preview{path=Checkbox/Size}
 
-export default function () {
-  return (
-    <>
-      <Checkbox
-        labelText="Agree to our Privacy Policy"
-        value="true"
-        size="sm"
-      />
-      <Checkbox
-        labelText="Agree to our Privacy Policy"
-        value="true"
-        size="md"
-      />
-      <Checkbox
-        labelText="Agree to our Privacy Policy"
-        value="true"
-        size="lg"
-      />
-    </>
-  );
-}
-```
+## Disabled
 
-## States
-
-### Disabled
-
-```tsx live
-import { Checkbox } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Checkbox labelText="Checked" value="true" checked disabled />
-      <Checkbox labelText="Not checked" value="true" disabled />
-    </>
-  );
-}
-```
+::preview{path=Checkbox/Disabled}
 
 ## With helper text
 
-```tsx live
-import { Checkbox } from "@camome/components";
-
-export default function () {
-  return (
-    <Checkbox
-      labelText="With helper text"
-      helperText="Descriptive text"
-      value="true"
-    />
-  );
-}
-```
+::preview{path=Checkbox/WithHelperText}
