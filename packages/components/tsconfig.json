@@ -1,14 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@camome/components/*": ["src/components/*"]
     },
-    "rootDirs": [".", ".scss-types"],
-    "outDir": "./dist",
-    "declaration": true
+    "rootDirs": [".", ".scss-types"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
