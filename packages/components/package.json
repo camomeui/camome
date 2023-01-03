@@ -15,8 +15,8 @@
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
-    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\" \"pnpm build:static-stories\"",
-    "build": "vite build",
+    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\" \"pnpm build:static-stories --watch\"",
+    "build": "vite build && pnpm build:static-stories",
     "build:storybook": "storybook build",
     "build:static-stories": "pnpm -F components run-ts ./scripts/build-static-stories.tsx",
     "typecheck": "pnpm gen-scss-type && tsc",
@@ -45,6 +45,7 @@
     "@storybook/react-vite": "^7.0.0-alpha.25",
     "@storybook/testing-library": "^0.0.13",
     "@types/body-scroll-lock": "^3.1.0",
+    "@types/yargs": "^17.0.17",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "esbuild-css-modules-plugin": "^2.6.3",
@@ -60,7 +61,8 @@
     "storybook": "^7.0.0-beta.15",
     "vite": "^4.0.2",
     "vite-plugin-dts": "^1.7.1",
-    "vite-tsconfig-paths": "^4.0.3"
+    "vite-tsconfig-paths": "^4.0.3",
+    "yargs": "^17.6.2"
   },
   "peerDependencies": {
     "react": ">=18"

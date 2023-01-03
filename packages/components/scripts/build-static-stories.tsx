@@ -5,10 +5,22 @@ import { build } from "esbuild";
 import { globby } from "globby";
 import React from "react";
 import { renderToString } from "react-dom/server";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
 import { buildScopedClassName, hash } from "@camome/utils";
 
 import CssModulesPlugin from "./CssModulesPlugin";
+
+const argv = yargs(hideBin(process.argv))
+  .options({
+    watch: {
+      type: "boolean",
+      alias: "w",
+      default: false,
+    },
+  })
+  .parseSync();
 
 const COMPONENTS_DIR = path.join("src", "components");
 const STORIES_SRC_DIR = "_stories" as const;
@@ -62,9 +74,11 @@ async function bundleStory(storyFullPath: string) {
     format: "esm",
     external: ["react", "react-dom"],
     outExtension: { ".js": ".jsx" },
-    watch: {
-      onRebuild: onBuild,
-    },
+    watch: argv.watch
+      ? {
+          onRebuild: onBuild,
+        }
+      : undefined,
     plugins: [
       CssModulesPlugin({
         v2: true,
