@@ -63,6 +63,9 @@ export type VariantColors = {
 type ColorPalette = {
   black: Color;
   white: Color;
+  code: {
+    bg: Color;
+  };
   gray: ColorShade;
   primary: ColorShade & VariantColors;
   secondary: ColorShade & VariantColors;

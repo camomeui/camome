@@ -71,6 +71,9 @@ export const defaultTheme = {
   color: {
     black: "#000",
     white: "#fff",
+    code: {
+      bg: cssVar("color.gray.100"),
+    },
     gray: {
       50: "#f7fafc",
       100: "#edf2f7",

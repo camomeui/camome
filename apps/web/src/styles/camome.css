@@ -356,6 +356,7 @@
   :root {
     --cmm-color-black: #000;
     --cmm-color-white: #fff;
+    --cmm-color-code-bg: var(--cmm-color-gray-100);
     --cmm-color-gray-50: #f7fafc;
     --cmm-color-gray-100: #edf2f7;
     --cmm-color-gray-200: #e2e8f0;

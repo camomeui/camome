@@ -4,98 +4,30 @@ id: "text-input"
 description: "A TextInput lets the user to enter and edit text."
 ---
 
-## Usage
+## Overview
 
-```tsx live
-import { FormControl, TextInput } from "@camome/components";
+::preview{path=TextInput/Default}
 
-export default function () {
-  return (
-    <FormControl labelText="Name">
-      <TextInput required placeholder="John Doe" />
-    </FormControl>
-  );
-}
-```
+## Required
 
-## States
+::preview{path=TextInput/Required}
 
-### Error
+## Fill
 
-```tsx live
-import { FormControl, TextInput } from "@camome/components";
+::preview{path=TextInput/Fill}
 
-export default function () {
-  return (
-    <FormControl
-      labelText="Name"
-      helperText="Tell us your identifier"
-      error="Something is wrong"
-    >
-      <TextInput required placeholder="John Doe" />
-    </FormControl>
-  );
-}
-```
+## Helper text
 
-### Disabled
+::preview{path=TextInput/HelperText}
 
-```tsx live
-import { TextInput } from "@camome/components";
+## Error
 
-export default function () {
-  return <TextInput disabled placeholder="You can't type..." />;
-}
-```
+::preview{path=TextInput/Error}
 
-## Sizes
+## Disabled
 
-```tsx live
-import { TextInput } from "@camome/components";
+::preview{path=TextInput/Disabled}
 
-export default function () {
-  return (
-    <>
-      <TextInput size="sm" placeholder="Small" />
-      <TextInput size="md" placeholder="Medium" />
-      <TextInput size="lg" placeholder="Large" />
-    </>
-  );
-}
-```
+## Group
 
-## InputGroup and decorators
-
-```tsx live
-import { TextInput, TextInputGroup, Kbd } from "@camome/components";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
-export default function () {
-  return (
-    <TextInputGroup
-      input={<TextInput type="search" size="md" placeholder="Search" />}
-      leftDecorator={
-        <MagnifyingGlassIcon
-          stroke-width="2.5"
-          style={{ color: "var(--cmm-color-gray-300)" }}
-        />
-      }
-      rightDecorator={
-        <div
-          style={{
-            display: "flex",
-            fontSize: "0.9rem",
-          }}
-        >
-          <Kbd>⌘ + K</Kbd>
-        </div>
-      }
-      cssVariables={{
-        "--TextInput-left-decor-width": "2.5rem",
-        "--TextInput-right-decor-width": "5.5rem",
-        "--TextInput-radius": "var(--cmm-rounded-full)",
-      }}
-    />
-  );
-}
-```
+::preview{path=TextInput/Group}

@@ -6,42 +6,13 @@ description: "A slider enables the user to input continuous values."
 
 ## Overview
 
-```tsx live
-import { Slider } from "@camome/components";
-
-export default function () {
-  return (
-    <div style={{ width: "12rem" }}>
-      <Slider aria-label="volume" />
-    </div>
-  );
-}
-```
+::preview{path=Slider/Default}
 
 <Message status="warn">
   Because this component is a bare `input[type="range"]` with some CSS styles,
   colorization of the current value is not supported currently.
 </Message>
 
-## Sizes
+## Size
 
-```tsx live
-import { Slider } from "@camome/components";
-
-export default function () {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "3rem",
-        width: "12rem",
-      }}
-    >
-      <Slider size="sm" />
-      <Slider size="md" />
-      <Slider size="lg" />
-    </div>
-  );
-}
-```
+::preview{path=Slider/Size}

@@ -18,7 +18,6 @@
   .Block {
     @extend %size-defaults;
 
-    width: 100%;
     appearance: none;
     height: locals.$trackHeight;
     border-radius: locals.$trackRadius;

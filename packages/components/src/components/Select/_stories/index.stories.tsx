@@ -5,6 +5,7 @@ import { Select } from "@camome/components/Select";
 import { FormControl } from "../../FormControl";
 
 const meta: Meta<typeof Select> = {
+  title: "components/Select",
   component: Select,
   decorators: [
     (Story) => (

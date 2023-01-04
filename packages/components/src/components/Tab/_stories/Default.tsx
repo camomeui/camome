@@ -1,12 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
 import { Tab } from "@camome/components/Tab";
-
-const meta: Meta<typeof Tab> = {
-  component: Tab,
-};
-export default meta;
-type Story = StoryObj;
 
 const items = [
   {
@@ -26,8 +18,8 @@ const items = [
   },
 ];
 
-export const Primary: Story = {
-  render: () => (
+export default function WithHeadlessUI() {
+  return (
     <Tab.Group>
       <Tab.List>
         {items.map((item) => (
@@ -38,5 +30,5 @@ export const Primary: Story = {
       </Tab.List>
       <Tab.Panel>{items[0].panel}</Tab.Panel>
     </Tab.Group>
-  ),
-};
+  );
+}

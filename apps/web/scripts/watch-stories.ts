@@ -1,4 +1,5 @@
 import fs from "fs";
+import { setTimeout } from "timers";
 
 import chokidar from "chokidar";
 import { globbySync } from "globby";

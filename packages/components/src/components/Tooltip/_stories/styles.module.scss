@@ -1,7 +1,14 @@
+.default {
+  &__container {
+    padding: 2rem;
+  }
+}
+
 .placement {
   &__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    padding: 2rem;
   }
 }

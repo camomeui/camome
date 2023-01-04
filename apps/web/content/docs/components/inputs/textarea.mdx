@@ -4,50 +4,26 @@ id: "textarea"
 description: "A Textarea lets the user to enter and edit multiline text."
 ---
 
-## Usage
+## Overview
 
-```tsx live
-import { FormControl, Textarea } from "@camome/components";
+::preview{path=Textarea/Default}
 
-export default function () {
-  return (
-    <FormControl labelText="Message" helperText="Tell your thoughts">
-      <Textarea rows={3} required placeholder="Type something..." />
-    </FormControl>
-  );
-}
-```
+## Required
 
-## States
+::preview{path=Textarea/Required}
 
-### Error
+## Fill
 
-```tsx live
-import { FormControl, Textarea } from "@camome/components";
+::preview{path=Textarea/Fill}
 
-export default function () {
-  return (
-    <FormControl
-      labelText="Message"
-      helperText="Tell you thoughts"
-      error="Something is wrong"
-    >
-      <Textarea rows={3} required placeholder="Type something..." />
-    </FormControl>
-  );
-}
-```
+## Helper text
 
-### Disabled
+::preview{path=Textarea/HelperText}
 
-```tsx live
-import { FormControl, Textarea } from "@camome/components";
+## Error
 
-export default function () {
-  return (
-    <FormControl labelText="Message">
-      <Textarea rows={3} required disabled placeholder="You can't type..." />
-    </FormControl>
-  );
-}
-```
+::preview{path=Textarea/Error}
+
+## Disabled
+
+::preview{path=Textarea/Disabled}

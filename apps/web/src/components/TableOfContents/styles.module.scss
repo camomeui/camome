@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   color: var(--cmm-color-gray-700);
-  border-left: 2px solid var(--cmm-color-gray-200);
+  // border-left: 2px solid var(--cmm-color-gray-200);
   max-height: calc(
     100dvh - variables.$headerHeight - var(--title-height) -
       var(--title-row-gap) - 2rem
@@ -41,6 +41,12 @@
   padding: 0.25rem 0;
   padding-left: 1rem;
   font-size: var(--cmm-font-size-sm);
+  border-left: 2px solid;
+  border-left-color: var(--cmm-color-gray-200);
+
+  &:hover {
+    background: var(--cmm-color-gray-50);
+  }
 
   a {
     &:hover {
@@ -57,6 +63,5 @@
   background-color: var(--cmm-color-primary-50);
   color: var(--cmm-color-primary-600);
   position: relative;
-  border-left: 2px solid var(--cmm-color-primary-500);
-  margin-left: -2px;
+  border-left-color: var(--cmm-color-primary-500);
 }
