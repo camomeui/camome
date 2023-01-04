@@ -1,7 +1,11 @@
 import clsx from "clsx";
 
+import {
+  FormControl,
+  type FormControlProps,
+} from "@camome/components/FormControl";
+
 import { Direction } from "../../types";
-import { useFormControlContext } from "../FormControl/useFormControlContext";
 
 import styles from "./styles.module.scss";
 
@@ -9,25 +13,28 @@ type NativeProps = JSX.IntrinsicElements["div"];
 
 export type RadioGroupProps = {
   direction?: Direction;
-} & NativeProps;
+} & FormControlProps &
+  NativeProps;
 
 export function RadioGroup({
   direction = "vertical",
   children,
   ...props
 }: RadioGroupProps) {
-  const { labelId } = useFormControlContext();
   return (
-    <div
-      role="radiogroup"
-      className={clsx(
-        styles.Block,
-        direction !== "vertical" && styles[`--${direction}`]
+    <FormControl {...props}>
+      {({ labelId }) => (
+        <div
+          role="radiogroup"
+          className={clsx(
+            styles.Block,
+            direction !== "vertical" && styles[`--${direction}`]
+          )}
+          aria-labelledby={labelId}
+        >
+          {children}
+        </div>
       )}
-      aria-labelledby={labelId}
-      {...props}
-    >
-      {children}
-    </div>
+    </FormControl>
   );
 }

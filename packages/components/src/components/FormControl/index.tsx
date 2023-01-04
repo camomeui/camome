@@ -21,7 +21,7 @@ export type FormControlProps = {
 
 export function FormControl({
   labelText,
-  helperText: helperText,
+  helperText,
   error = false,
   direction = "vertical",
   id: _id,
@@ -31,8 +31,9 @@ export function FormControl({
   const useIdValue = React.useId();
   const id = _id || useIdValue;
   const labelId = `${id}--label`;
-  const helperTextId = `${id}--helper-text`;
-  const errorTextId = `${id}--error-text`;
+  const helperTextId = helperText ? `${id}--helper-text` : undefined;
+  const errorTextId =
+    typeof error === "string" ? `${id}--error-text` : undefined;
   const ctxValue = {
     id,
     labelId,
