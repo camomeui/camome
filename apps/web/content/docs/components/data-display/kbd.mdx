@@ -6,44 +6,10 @@ description: "A Kbd represents a keyboard button or shortcut"
 
 ## Usage
 
-```tsx live
-import { Kbd } from "@camome/components";
+::preview{path=Kbd/Default}
 
-export default function () {
-  return (
-    <span
-      style={{
-        display: "flex",
-        alignItems: "baseline",
-        gap: "0.3rem",
-        fontSize: "var(--cmm-font-size-xs)",
-      }}
-    >
-      <Kbd>⌘</Kbd>+<Kbd>Shift</Kbd>+<Kbd>K</Kbd>
-    </span>
-  );
-}
-```
+## Size
 
-## Sizes
+::preview{path=Kbd/Size}
 
-Just set the `font-size` of the parent to change the size.
-
-```tsx live
-import { Kbd } from "@camome/components";
-
-export default function () {
-  return (
-    <span
-      style={{
-        display: "flex",
-        alignItems: "baseline",
-        gap: "0.3rem",
-        fontSize: "var(--cmm-font-size-md)",
-      }}
-    >
-      <Kbd>Ctrl</Kbd>+<Kbd>Alt</Kbd>+<Kbd>Delete</Kbd>
-    </span>
-  );
-}
-```
+Simply set the `font-size` property to change size.

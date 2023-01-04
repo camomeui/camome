@@ -1,13 +1,7 @@
 import { Accordion } from "@camome/components/Accordion";
 
-import styles from "./Default.module.scss";
-
 export default function Default() {
-  return (
-    <div className={styles.container}>
-      <Accordion items={data} />
-    </div>
-  );
+  return <Accordion items={data} />;
 }
 
 const data = [

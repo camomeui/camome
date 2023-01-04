@@ -4,76 +4,26 @@ id: "select"
 description: "A select let the user pick an item from a list of options."
 ---
 
-## Usage
+## Overview
 
-```tsx live
-import { FormControl, Select } from "@camome/components";
+::preview{path=Select/Default}
 
-export default function () {
-  return (
-    <FormControl labelText="Your position">
-      <Select>
-        <option value="developer">Developer</option>
-        <option value="designer">Designer</option>
-        <option value="marketer">Marketer</option>
-      </Select>
-    </FormControl>
-  );
-}
-```
+## Size
 
-## States
+::preview{path=Select/Size}
 
-### Error
+## Fill
 
-```tsx live
-import { FormControl, Select } from "@camome/components";
+::preview{path=Select/Fill}
 
-export default function () {
-  return (
-    <FormControl labelText="Your position" error="Something is wrong">
-      <Select>
-        <option value="developer">Developer</option>
-        <option value="designer">Designer</option>
-        <option value="marketer">Marketer</option>
-      </Select>
-    </FormControl>
-  );
-}
-```
+## Helper text
 
-### Disabled
+::preview{path=Select/HelperText}
 
-```tsx live
-import { Select } from "@camome/components";
+## Error
 
-export default function () {
-  return (
-    <Select disabled>
-      <option value="developer">Developer</option>
-    </Select>
-  );
-}
-```
+::preview{path=Select/Error}
 
-## Sizes
+## Disabled
 
-```tsx live
-import { Select } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Select size="sm">
-        <option value="developer">Developer</option>
-      </Select>
-      <Select size="md">
-        <option value="developer">Developer</option>
-      </Select>
-      <Select size="lg">
-        <option value="developer">Developer</option>
-      </Select>
-    </>
-  );
-}
-```
+::preview{path=Select/Disabled}

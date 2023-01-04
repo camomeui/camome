@@ -20,7 +20,7 @@ export type AccordionProps = {
 
 export function Accordion({ items, classNames }: AccordionProps) {
   return (
-    <section>
+    <section className={styles.Block}>
       {items.map(({ summary, details }) => (
         <details
           key={summary}

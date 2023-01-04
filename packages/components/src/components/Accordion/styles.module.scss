@@ -2,6 +2,10 @@
 @use "./variables" as locals;
 
 @include utils.layer {
+  .Block {
+    width: 100%;
+  }
+
   .details {
     border-bottom: 1px solid var(--cmm-color-gray-200);
 
