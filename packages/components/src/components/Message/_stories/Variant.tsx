@@ -1,8 +1,10 @@
 import { Message } from "@camome/components/Message";
 
+import styles from "./styles.module.scss";
+
 export default function Variant() {
   return (
-    <>
+    <div className={styles.variant__container}>
       <Message status="success" title="Success">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et.
@@ -19,6 +21,6 @@ export default function Variant() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et.
       </Message>
-    </>
+    </div>
   );
 }

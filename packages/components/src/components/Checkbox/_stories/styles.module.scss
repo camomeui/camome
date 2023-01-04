@@ -1,0 +1,15 @@
+.size {
+  &__container {
+    > :not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.disabled {
+  &__container {
+    > :not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+}

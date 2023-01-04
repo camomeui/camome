@@ -9,3 +9,4 @@ const meta: Meta<typeof Menu> = {
 export default meta;
 
 export { default as Default } from "./Default";
+export { default as WithHeadlessUI } from "./WithHeadlessUI";

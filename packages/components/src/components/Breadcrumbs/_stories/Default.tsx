@@ -14,6 +14,7 @@ const data = [
     label: "Category",
   },
   {
+    href: "#product",
     label: "Product",
   },
 ];

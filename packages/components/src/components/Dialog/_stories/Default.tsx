@@ -17,3 +17,10 @@ export default function Default() {
     </Dialog>
   );
 }
+
+Default.parameters = {
+  docs: {
+    inlineStories: false,
+    iframeHeight: 300,
+  },
+};

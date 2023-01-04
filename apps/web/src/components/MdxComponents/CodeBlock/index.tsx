@@ -87,11 +87,12 @@ export default function CodeBlock({
           ${css}
         `}</style>
         <div>
-          <div
-            ref={previewContainerRef}
-            dangerouslySetInnerHTML={{ __html: html }}
-            className={clsx(styles.preview, "no-markup")}
-          />
+          <div className={clsx(styles.preview, "no-markup")}>
+            <div
+              ref={previewContainerRef}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </div>
           {codeBlock}
         </div>
       </>

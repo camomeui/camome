@@ -1,8 +1,10 @@
 import { Checkbox } from "@camome/components/Checkbox";
 
+import styles from "./styles.module.scss";
+
 export default function Size() {
   return (
-    <>
+    <div className={styles.size__container}>
       <Checkbox
         labelText="Agree to our Privacy Policy"
         value="true"
@@ -21,6 +23,6 @@ export default function Size() {
         size="lg"
         id="size-lg"
       />
-    </>
+    </div>
   );
 }
