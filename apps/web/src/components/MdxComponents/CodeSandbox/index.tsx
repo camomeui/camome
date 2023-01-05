@@ -2,14 +2,16 @@ import clsx from "clsx";
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
 
-import CodeBlock from "@/components/MdxComponents/CodeBlock";
+import CodeTabs from "@/components/MdxComponents/CodeTabs";
 
 import styles from "./styles.module.scss";
 
 export type CodeSandboxProps = {
   language: string;
-  code: string;
+  react: string;
   html: string;
+  // For preventing hydration error.
+  htmlFormatted?: string;
   css: string;
   bundlePath?: string;
   layout?: "centered" | "padded";
@@ -17,9 +19,10 @@ export type CodeSandboxProps = {
 
 export default function CodeSandbox({
   language,
-  code,
+  react,
   html,
   css,
+  htmlFormatted = "",
   bundlePath,
   layout = "centered",
 }: CodeSandboxProps) {
@@ -55,10 +58,19 @@ export default function CodeSandbox({
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
-        <CodeBlock
-          code={code}
-          language={language}
-          classNames={{ pre: clsx(styles.pre), code: clsx(styles.code) }}
+        <CodeTabs
+          items={[
+            {
+              name: "React",
+              code: react,
+              language,
+            },
+            {
+              name: "HTML",
+              code: htmlFormatted,
+              language: "html",
+            },
+          ]}
         />
       </div>
     </>

@@ -3,6 +3,7 @@ import path from "path";
 
 import { build } from "esbuild";
 import { globby } from "globby";
+import { format } from "prettier";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import yargs from "yargs";
@@ -57,6 +58,13 @@ async function bundleStory(storyFullPath: string) {
 
     await Promise.all([
       fs.writeFile(path.resolve(componentOutDir, `index.html`), ssr),
+      fs.writeFile(
+        path.resolve(componentOutDir, `index.formatted.html`),
+        format(ssr, {
+          parser: "html",
+          htmlWhitespaceSensitivity: "ignore",
+        })
+      ),
       fs.writeFile(
         path.resolve(componentOutDir, `styles.css`),
         generatedCss.join("\n")

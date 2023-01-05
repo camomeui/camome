@@ -11,5 +11,5 @@ export const mdxComponents: MDXComponents = {
   pre: Pre,
   Image,
   Message,
-  CodeBlock: CodeSandbox,
+  CodeSandbox,
 } as const;

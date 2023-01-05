@@ -1,9 +1,9 @@
 .preview {
   padding: 2rem;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--cmm-color-gray-200);
-  border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
-  border-bottom: none;
+  border-radius: var(--cmm-rounded-lg);
 }
 
 .preview--padded {
@@ -18,11 +18,5 @@
 }
 
 .pre {
-  margin-top: 0 !important;
   margin-bottom: 2rem;
-}
-
-.code {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
 }

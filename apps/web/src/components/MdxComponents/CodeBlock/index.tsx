@@ -9,8 +9,8 @@ import { Tooltip } from "@camome/components/Tooltip";
 import styles from "./styles.module.scss";
 
 export type CodeBlockProps = {
-  language: string;
   code: string;
+  language?: string;
   classNames?: {
     pre?: string;
     code?: string;
@@ -22,7 +22,6 @@ export default function CodeBlock({
   code,
   classNames,
 }: CodeBlockProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null!);
   const codeRef = React.useRef<HTMLElement>(null!);
   const [shown, setShown] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
@@ -36,9 +35,9 @@ export default function CodeBlock({
     if (!copied) setShown(false);
   };
 
-  const onCopy = () => {
+  const onCopy = async () => {
     setCopied(true);
-    navigator.clipboard.writeText(containerRef.current?.textContent ?? "");
+    await navigator.clipboard.writeText(code);
     setTimeout(() => {
       setCopied(false);
       setShown(false);
@@ -61,7 +60,6 @@ export default function CodeBlock({
 
   return (
     <div
-      ref={containerRef}
       onMouseEnter={onEnter}
       onMouseLeave={onExit}
       className={styles.container}
@@ -73,7 +71,6 @@ export default function CodeBlock({
           style={{ translate: hasScrollbar ? "-0.6rem" : 0 }}
         >
           <button
-            aria-label="Copy code"
             type="button"
             className={styles["copy-button"]}
             onClick={onCopy}

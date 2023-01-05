@@ -23,6 +23,7 @@ $iconSize: 1.2rem;
   height: $size;
   border: 1px solid var(--cmm-color-gray-200);
   border-radius: var(--cmm-rounded-md);
+  background-color: var(--cmm-color-gray-50);
   display: grid;
   place-content: center;
   transition: var(--cmm-transition-bg);

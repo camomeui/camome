@@ -18,6 +18,10 @@ export default function remarkAdmonition() {
           previewPath
         );
         const html = fs.readFileSync(path.join(dir, "index.html"), "utf-8");
+        const htmlFormatted = fs.readFileSync(
+          path.join(dir, "index.formatted.html"),
+          "utf-8"
+        );
         const css = fs.readFileSync(path.join(dir, "styles.css"), "utf-8");
         const code = fs.readFileSync(path.join(dir, "code.tsx"), "utf-8");
         const bundle = fs.readFileSync(path.join(dir, "bundle.jsx"), "utf-8");
@@ -30,11 +34,16 @@ export default function remarkAdmonition() {
         fs.writeFileSync(`${process.cwd()}${bundleDir}/index.jsx`, bundle);
 
         node.type = "mdxJsxFlowElement";
-        node.name = "CodeBlock";
+        node.name = "CodeSandbox";
         node.attributes = [
+          { type: "mdxJsxAttribute", name: "react", value: code },
           { type: "mdxJsxAttribute", name: "html", value: html },
+          {
+            type: "mdxJsxAttribute",
+            name: "htmlFormatted",
+            value: htmlFormatted,
+          },
           { type: "mdxJsxAttribute", name: "css", value: css },
-          { type: "mdxJsxAttribute", name: "code", value: code },
           { type: "mdxJsxAttribute", name: "bundlePath", value: previewPath },
           {
             type: "mdxJsxAttribute",
