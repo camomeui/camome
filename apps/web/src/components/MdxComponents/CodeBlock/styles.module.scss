@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .code {
   border: none;
   display: block;
@@ -8,4 +12,33 @@
   font-weight: var(--cmm-font-weight-normal);
   font-size: 0.85em;
   max-height: 28em;
+}
+
+$margin: 0.75rem;
+$size: 2rem;
+$iconSize: 1.2rem;
+
+.copy-button {
+  width: $size;
+  height: $size;
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-md);
+  display: grid;
+  place-content: center;
+  transition: var(--cmm-transition-bg);
+
+  &:hover {
+    background: var(--cmm-color-gray-100);
+  }
+
+  > svg {
+    width: $iconSize;
+    height: $iconSize;
+  }
+}
+
+.tooltip-wrap {
+  position: absolute;
+  top: $margin;
+  right: $margin;
 }
