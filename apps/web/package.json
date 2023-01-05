@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --nameFormat none --exportType default --logLevel error",
+    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
     "watch-stories": "pnpm run-ts ./scripts/watch-stories.ts",
     "dev:next": "next dev --port 3910",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:next\"",

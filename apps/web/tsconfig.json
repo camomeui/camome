@@ -13,6 +13,7 @@
       "@/public/*": ["public/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
+    "rootDirs": [".", ".scss-types"],
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated"]
