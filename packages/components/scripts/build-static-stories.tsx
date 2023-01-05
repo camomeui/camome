@@ -47,7 +47,6 @@ async function bundleStory(storyFullPath: string) {
     const { default: Story } = await require(modulePath);
     const storyCode = await fs.readFile(path.join(storyFullPath));
     const layout = Story.parameters?.layout;
-    layout && console.log(layout);
 
     const ssr = renderToString(<Story />);
     const componentOutDir = path.resolve(__dirname, "..", outdir);

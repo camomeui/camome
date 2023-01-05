@@ -25,9 +25,9 @@ export default function remarkAdmonition() {
           fs.readFileSync(path.join(dir, "metadata.json"), "utf-8")
         );
 
-        const bundleDir = `${process.cwd()}/public/.stories/${previewPath}`;
-        fs.mkdirSync(bundleDir, { recursive: true });
-        fs.writeFileSync(`${bundleDir}/bundle.jsx`, bundle);
+        const bundleDir = `/public/stories/bundles/${previewPath}`;
+        fs.mkdirSync(process.cwd() + bundleDir, { recursive: true });
+        fs.writeFileSync(`${process.cwd()}${bundleDir}/index.jsx`, bundle);
 
         node.type = "mdxJsxFlowElement";
         node.name = "CodeBlock";

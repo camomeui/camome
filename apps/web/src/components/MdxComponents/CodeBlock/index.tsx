@@ -34,7 +34,7 @@ export default function CodeBlock({
     initRef.current = true;
     (async () => {
       const { default: Bundle } = await import(
-        `@/public/.stories/${bundlePath}/bundle`
+        `@/public/stories/bundles/${bundlePath}`
       );
       hydrateRoot(previewContainerRef.current, <Bundle />);
     })();

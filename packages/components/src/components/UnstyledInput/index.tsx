@@ -1,9 +1,8 @@
 import React from "react";
 
-import { joinLabelIds } from "src/utils/joinLabelIds";
-
 import { BaseProps, PolymorphicProps } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
+import { joinLabelIds } from "../../utils/joinLabelIds";
 import { Box } from "../Box";
 import { useFormFieldContext } from "../FormField/useFormFieldContext";
 
