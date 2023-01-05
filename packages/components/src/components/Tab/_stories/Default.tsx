@@ -18,7 +18,7 @@ const items = [
   },
 ];
 
-export default function WithHeadlessUI() {
+export default function Default() {
   return (
     <Tab.Group>
       <Tab.List>
@@ -32,3 +32,7 @@ export default function WithHeadlessUI() {
     </Tab.Group>
   );
 }
+
+Default.parameters = {
+  layout: "padded",
+};

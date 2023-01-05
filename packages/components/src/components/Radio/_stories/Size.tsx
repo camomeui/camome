@@ -3,7 +3,7 @@ import { RadioGroup } from "@camome/components/RadioGroup";
 
 export default function Size() {
   return (
-    <RadioGroup labelText="Sizes" aria-required id="_size">
+    <RadioGroup label="Sizes" aria-required id="_size">
       <Radio
         labelText="Small"
         name="sizes"

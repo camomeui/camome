@@ -1,18 +1,18 @@
-import { FormControl } from "@camome/components/FormControl";
+import { FormField } from "@camome/components/FormField";
 import { Select } from "@camome/components/Select";
 
-export default function Error() {
+export default function Description() {
   return (
-    <FormControl
-      labelText="Job title"
-      helperText="Supplementary text"
-      id="helper-text"
+    <FormField
+      label="Job title"
+      description="Description text"
+      id="_description"
     >
       <Select>
         <option value="developer">Developer</option>
         <option value="designer">Designer</option>
         <option value="marketer">Marketer</option>
       </Select>
-    </FormControl>
+    </FormField>
   );
 }

@@ -12,6 +12,7 @@ export type CodeBlockProps = {
   html?: string;
   css?: string;
   bundlePath?: string;
+  layout?: "centered" | "padded";
   className?: string;
 };
 
@@ -21,6 +22,7 @@ export default function CodeBlock({
   html,
   css,
   bundlePath,
+  layout = "centered",
   className,
 }: CodeBlockProps) {
   const live = html && css;
@@ -45,12 +47,9 @@ export default function CodeBlock({
       code={code?.replace(/\n$/, "") ?? ""}
       language={language as Language}
     >
-      {({ tokens, getLineProps, getTokenProps, className: _class, style }) => {
+      {({ tokens, getLineProps, getTokenProps, className: _class }) => {
         return (
-          <pre
-            className={clsx(_class, live && styles["pre--live"], className)}
-            style={style}
-          >
+          <pre className={clsx(_class, live && styles["pre--live"], className)}>
             <code
               className={clsx(
                 className,
@@ -87,7 +86,13 @@ export default function CodeBlock({
           ${css}
         `}</style>
         <div>
-          <div className={clsx(styles.preview, "no-markup")}>
+          <div
+            className={clsx(
+              styles.preview,
+              styles[`preview--${layout}`],
+              "no-markup"
+            )}
+          >
             <div
               ref={previewContainerRef}
               dangerouslySetInnerHTML={{ __html: html }}

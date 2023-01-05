@@ -6,8 +6,9 @@
   %sizeDefaults {
     font-size: var(--cmm-font-size-md);
     height: 2.25rem;
-    padding-left: var(locals.$leftDecorWidth_name, 0.75rem);
-    padding-right: var(locals.$rightDecorWidth_name, 0.75rem);
+    padding-left: locals.$leftDecorWidth;
+    padding-right: locals.$rightDecorWidth;
+    margin: locals.$margin;
   }
 
   .Block {

@@ -4,9 +4,9 @@ import { RadioGroup } from "@camome/components/RadioGroup";
 export default function Horizontal() {
   return (
     <RadioGroup
-      labelText="Gundam kids"
+      label="Gundam kids"
       aria-required
-      direction="horizontal"
+      orientation="horizontal"
       id="_horizontal"
     >
       <Radio

@@ -1,10 +1,9 @@
-import { FormControl } from "@camome/components/FormControl";
 import { TextInput } from "@camome/components/TextInput";
 
 export default function Fill() {
   return (
-    <FormControl labelText="Name" id="_fill">
-      <TextInput placeholder="John Doe" fill />
-    </FormControl>
+    <div style={{ minWidth: "30rem" }}>
+      <TextInput label="Name" placeholder="John Doe" fill id="_fill" />
+    </div>
   );
 }

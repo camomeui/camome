@@ -1,0 +1,11 @@
+@use "../../../styles/utils";
+@use "./variables" as locals;
+
+@include utils.layer {
+  .Block {
+    font-size: locals.$fontSize;
+    font-weight: locals.$fontWeight;
+    line-height: locals.$lineHeight;
+    margin: locals.$margin;
+  }
+}

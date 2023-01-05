@@ -6,8 +6,8 @@ export default function Default() {
   return (
     <Toggle
       size="lg"
-      onLabel={<SunIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
-      offLabel={<MoonIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
+      on={<SunIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
+      off={<MoonIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
     />
   );
 }

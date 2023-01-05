@@ -1,5 +1,5 @@
 import { Checkbox } from "@camome/components/Checkbox";
 
 export default function Default() {
-  return <Checkbox labelText="Agree to Privacy Policy" id="default" />;
+  return <Checkbox label="Agree to Privacy Policy" id="_default" />;
 }

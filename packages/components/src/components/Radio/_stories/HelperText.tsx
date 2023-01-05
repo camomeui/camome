@@ -4,8 +4,8 @@ import { RadioGroup } from "@camome/components/RadioGroup";
 export default function HelperText() {
   return (
     <RadioGroup
-      labelText="Gundam kids"
-      helperText="Choose your favorite"
+      label="Gundam kids"
+      description="Choose your favorite"
       error="This field is required"
       id="_helper"
     >

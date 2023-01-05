@@ -44,3 +44,7 @@ export default function WithHeadlessUI() {
     </HeadlessTab.Group>
   );
 }
+
+WithHeadlessUI.parameters = {
+  layout: "padded",
+};

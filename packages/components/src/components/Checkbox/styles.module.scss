@@ -1,73 +1,122 @@
 @use "../../styles/utils";
+@use "../FormField/FormFieldLabel/variables" as labelVars;
 @use "./variables" as locals;
+
+@mixin outline {
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+  outline-offset: 2px;
+}
 
 @include utils.layer {
   .Block {
     @extend %sizeDefaults;
+    #{labelVars.$fontWeight_name}: var(--cmm-font-weight-normal);
 
-    &:has(input[type="checkbox"]:disabled) {
-      cursor: not-allowed;
-      color: var(--cmm-color-gray-400);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.5em;
+    position: relative;
+    border-radius: var(--cmm-rounded-sm);
+    margin: locals.$margin;
 
-      label {
-        cursor: not-allowed;
+    // :focus-visible but look at the children.
+    @supports selector(:has(:focus-visible)) {
+      &:has(:focus-visible) {
+        @include outline;
       }
     }
 
-    input[type="checkbox"] {
-      appearance: none;
-      width: locals.$size;
-      height: locals.$size;
-      border-radius: var(--cmm-rounded-sm);
-      display: grid;
-      place-content: center;
-      cursor: pointer;
-      background-color: var(--cmm-color-primary-100);
-
-      &::before {
-        content: "";
-        width: calc(locals.$size * 0.5);
-        height: calc(locals.$size * 0.5);
-        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-        transform: scale(0);
-        background-color: var(--cmm-color-primary-600);
+    // Fallback to :focus-within until Firefox supports :has().
+    @supports not selector(:has(:focus-visible)) {
+      &:focus-within {
+        @include outline;
       }
+    }
+
+    > input[type="checkbox"] {
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
 
       &:checked {
-        background-color: var(--cmm-color-primary-100);
+        & + .mark {
+          background-color: var(--cmm-color-primary-100);
 
-        &::before {
-          transform: scale(1);
+          &::before {
+            transform: scale(1);
+          }
+        }
+      }
+
+      &:hover {
+        & + .mark {
+          background-color: var(--cmm-color-primary-200);
         }
       }
 
       &:disabled {
-        background-color: var(--cmm-color-gray-100);
+        cursor: not-allowed;
 
         &:checked {
-          &::before {
-            background-color: var(--cmm-color-primary-300);
+          ~ .mark::before {
+            background-color: var(--cmm-color-gray-400);
           }
         }
-        cursor: not-allowed;
+
+        ~ .mark {
+          background-color: var(--cmm-color-gray-100);
+          cursor: not-allowed;
+        }
+
+        ~ label {
+          color: var(--cmm-color-gray-400);
+        }
       }
     }
 
-    label {
-      user-select: none;
-      cursor: pointer;
+    :global(.FormFieldError) {
+      position: relative;
+      grid-column: 2;
+    }
+  }
+
+  .mark {
+    width: locals.$size;
+    height: locals.$size;
+    border-radius: var(--cmm-rounded-sm);
+    display: grid;
+    place-content: center;
+    background-color: var(--cmm-color-primary-100);
+    transition: var(--cmm-transition-bg);
+
+    &::before {
+      content: "";
+      width: calc(locals.$size * 0.5);
+      height: calc(locals.$size * 0.5);
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform: scale(0);
+      background-color: var(--cmm-color-primary-600);
     }
   }
 
   %sizeDefaults {
     #{locals.$size_name}: 1.25rem;
 
-    font-size: var(--cmm-font-size-sm);
+    > label {
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
+    }
   }
 
   .--sm {
     #{locals.$size_name}: 1rem;
-    font-size: var(--cmm-font-size-sm);
+
+    > label {
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-sm);
+    }
   }
 
   .--md {
@@ -76,6 +125,9 @@
 
   .--lg {
     #{locals.$size_name}: 1.5rem;
-    font-size: var(--cmm-font-size-md);
+
+    > label {
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
+    }
   }
 }

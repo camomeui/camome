@@ -1,10 +1,7 @@
-import { FormControl } from "@camome/components/FormControl";
 import { TextInput } from "@camome/components/TextInput";
 
 export default function Required() {
   return (
-    <FormControl labelText="Name" id="_required">
-      <TextInput placeholder="John Doe" />
-    </FormControl>
+    <TextInput label="Name" placeholder="John Doe" required id="_required" />
   );
 }

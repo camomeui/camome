@@ -1,0 +1,24 @@
+@use "../../styles/inputs";
+@use "../../styles/utils";
+@use "./FormFieldLabel/variables" as labelVars;
+@use "./FormFieldDescription/variables" as descVars;
+@use "./FormFieldError/variables" as errorVars;
+
+@include utils.layer {
+  .Block {
+    #{labelVars.$margin_name}: 0 0 0.5rem 0;
+    #{descVars.$margin_name}: -0.4rem 0 0.5rem 0;
+    #{errorVars.$margin_name}: 0.5rem 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+
+    &:has([required]) label {
+      &::after {
+        content: var(--FormField-required-mark, "*");
+        color: var(--cmm-color-danger-500);
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}

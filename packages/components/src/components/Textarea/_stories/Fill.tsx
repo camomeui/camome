@@ -1,10 +1,15 @@
-import { FormControl } from "@camome/components/FormControl";
 import { Textarea } from "@camome/components/Textarea";
 
 export default function Fill() {
   return (
-    <FormControl labelText="Name" id="_fill">
-      <Textarea rows={3} required placeholder="Type something..." fill />
-    </FormControl>
+    <div style={{ minWidth: "30rem" }}>
+      <Textarea
+        label="Name"
+        rows={3}
+        placeholder="Type something..."
+        fill
+        id="_fill"
+      />
+    </div>
   );
 }

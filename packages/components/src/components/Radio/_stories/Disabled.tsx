@@ -3,7 +3,7 @@ import { RadioGroup } from "@camome/components/RadioGroup";
 
 export default function Disabled() {
   return (
-    <RadioGroup labelText="Disabled" id="_disabled">
+    <RadioGroup label="Disabled" id="_disabled">
       <Radio
         labelText="Checked"
         value="true"

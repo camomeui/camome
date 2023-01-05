@@ -22,3 +22,7 @@ const data = [
       "Qui ex labore proident et voluptate ut aliquip. Labore sit eu deserunt tempor consequat.",
   },
 ];
+
+Default.parameters = {
+  layout: "padded",
+};

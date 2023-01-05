@@ -3,7 +3,7 @@ import { RadioGroup } from "@camome/components/RadioGroup";
 
 export default function Group() {
   return (
-    <RadioGroup labelText="Gundam kids" aria-required id="_group">
+    <RadioGroup label="Gundam kids" aria-required id="_group">
       <Radio
         labelText="Katz"
         name="gundam-kids-1"

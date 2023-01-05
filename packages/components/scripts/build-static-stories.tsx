@@ -46,6 +46,8 @@ async function bundleStory(storyFullPath: string) {
     delete require.cache[require.resolve(modulePath)];
     const { default: Story } = await require(modulePath);
     const storyCode = await fs.readFile(path.join(storyFullPath));
+    const layout = Story.parameters?.layout;
+    layout && console.log(layout);
 
     const ssr = renderToString(<Story />);
     const componentOutDir = path.resolve(__dirname, "..", outdir);
@@ -61,6 +63,10 @@ async function bundleStory(storyFullPath: string) {
         generatedCss.join("\n")
       ),
       fs.writeFile(path.resolve(componentOutDir, `code.tsx`), storyCode),
+      fs.writeFile(
+        path.resolve(componentOutDir, `metadata.json`),
+        JSON.stringify({ layout })
+      ),
     ]);
   };
 

@@ -4,6 +4,14 @@
   border: 1px solid var(--cmm-color-gray-200);
   border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
   border-bottom: none;
+}
+
+.preview--padded {
+  // dummy
+  padding: 2rem;
+}
+
+.preview--centered {
   display: flex;
   align-items: center;
   justify-content: center;

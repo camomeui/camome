@@ -1,10 +1,23 @@
-import { FormControl } from "@camome/components/FormControl";
+import { FormField } from "@camome/components/FormField";
 import { Toggle } from "@camome/components/Toggle";
 
 export default function Default() {
   return (
-    <FormControl labelText="Label" direction="horizontal-reverse">
-      <Toggle size="md" onLabel="ON" offLabel="OFF" required />
-    </FormControl>
+    <FormField
+      label="Label"
+      description="Description text"
+      error="This is an error"
+      custom
+    >
+      <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
+        >
+          <FormField.Label />
+          <FormField.Description />
+        </div>
+        <Toggle size="md" on="ON" off="OFF" />
+      </div>
+    </FormField>
   );
 }
