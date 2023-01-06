@@ -5,6 +5,7 @@ import React from "react";
 import { BiCheck, BiCopy } from "react-icons/bi";
 
 import { Tooltip } from "@camome/components/Tooltip";
+import { useIsomorphicEffect } from "@camome/components/hooks/useIsomorphicEffect";
 
 import styles from "./styles.module.scss";
 
@@ -44,7 +45,7 @@ export default function CodeBlock({
     }, 2000);
   };
 
-  React.useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     const rem = Number(
       window.getComputedStyle(document.body).fontSize.replace("px", "")
     );

@@ -72,6 +72,9 @@
     "src"
   ],
   "exports": {
+    "./hooks/*": {
+      "import": "./src/hooks/*.ts"
+    },
     "./*": {
       "import": "./src/components/*"
     }
@@ -80,6 +83,9 @@
     "*": {
       "*": [
         "./dist/components/*/index.d.ts"
+      ],
+      "hooks/*": [
+        "./dist/hooks/*.d.ts"
       ]
     }
   },
