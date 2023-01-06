@@ -1,6 +1,6 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cssvar.files": ["apps/web/src/styles/camome.css"],
+  "cssVariables.lookupFiles": ["apps/web/src/styles/camome.css"],
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn"
   }

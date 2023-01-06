@@ -3,6 +3,12 @@ export type OptionalField<T, K extends keyof T> = Pick<Partial<T>, K> &
   Omit<T, K>;
 export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
+export type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
+
 // https://twitter.com/diegohaz/status/1309644466219819008
 type PathImpl<T, K extends keyof T> = K extends string
   ? T[K] extends Record<string, any>
