@@ -21,8 +21,6 @@
     "@camome/components": "workspace:*",
     "@camome/system": "workspace:*",
     "@camome/utils": "workspace:*",
-    "@codesandbox/sandpack-react": "^1.18.3",
-    "@codesandbox/sandpack-themes": "^1.17.0",
     "@floating-ui/react": "^0.14.0",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.10",
@@ -43,7 +41,6 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/node": "18.7.14",
     "chokidar": "^3.5.3",
     "eslint": "8.23.0",
@@ -51,7 +48,6 @@
     "hastscript": "^7.1.0",
     "next-transpile-modules": "^10.0.0",
     "postcss": "^8.4.20",
-    "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.8.3"
   }
 }
