@@ -1,4 +1,4 @@
-export const layers = ["reset", "theme", "base"] as const;
+export const layers = ["reset", "theme", "base", "components"] as const;
 export const variants = ["solid", "subtle", "outline", "ghost"] as const;
 export const colorSchemes = [
   "primary",
@@ -63,6 +63,9 @@ export type VariantColors = {
 type ColorPalette = {
   black: Color;
   white: Color;
+  code: {
+    bg: Color;
+  };
   gray: ColorShade;
   primary: ColorShade & VariantColors;
   secondary: ColorShade & VariantColors;

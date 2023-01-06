@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 
-import { useFormControlContext } from "../FormControl/useFormControlContext";
+import { FormField, FormFieldProps } from "@camome/components/FormField";
+import { UnstyledInput } from "@camome/components/UnstyledInput";
 
 import styles from "./styles.module.scss";
 
@@ -9,17 +10,18 @@ export type SelectSize = "sm" | "md" | "lg";
 
 export type SelectProps = { size?: SelectSize; fill?: boolean } & Omit<
   JSX.IntrinsicElements["select"],
-  "size"
->;
+  "size" | "ref"
+> &
+  Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({ size = "md", fill, className, ...props }, forwardedRef) => {
-    const { id, helperTextId, errorTextId, isError } = useFormControlContext();
-    return (
-      <select
-        id={id}
-        aria-describedby={[helperTextId || "", errorTextId || ""].join(" ")}
-        aria-invalid={isError}
+  (
+    { label, description, error, size = "md", fill, id, className, ...props },
+    forwardedRef
+  ) => {
+    const select = (
+      <UnstyledInput
+        component="select"
         ref={forwardedRef}
         {...props}
         className={clsx(
@@ -29,6 +31,13 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           className
         )}
       />
+    );
+
+    if (!label) return select;
+    return (
+      <FormField description={description} error={error} label={label} id={id}>
+        {select}
+      </FormField>
     );
   }
 );

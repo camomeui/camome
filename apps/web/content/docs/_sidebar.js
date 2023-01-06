@@ -82,7 +82,7 @@ const sidebar = {
               id: "message",
             },
             {
-              id: "tabs",
+              id: "tab",
             },
             {
               id: "spinner",

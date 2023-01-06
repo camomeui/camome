@@ -9,7 +9,7 @@ import { buildScopedClassName, hash } from "@camome/utils";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths({}), react(), dts()],
+  plugins: [tsconfigPaths(), react(), dts()],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
@@ -30,7 +30,8 @@ export default defineConfig({
   css: {
     modules: {
       generateScopedName(local, filename) {
-        if (filename.endsWith("stories.module.scss")) {
+        const dir = filename.split("/").at(-2);
+        if (dir === "_stories" || filename.endsWith("stories.module.scss")) {
           const className = hash(filename + local);
           return className.match(/^[0-9]/) ? `_${className}` : className;
         }

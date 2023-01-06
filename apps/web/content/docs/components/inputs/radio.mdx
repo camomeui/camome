@@ -4,111 +4,26 @@ id: "radio"
 description: "Radio buttons allow the user to select one option from a set."
 ---
 
-## Usage
+## Overview
 
-```tsx live
-import { FormControl, RadioGroup, Radio } from "@camome/components";
+::preview{path=Radio/Default}
 
-export default function () {
-  return (
-    <FormControl labelText="Gundam kids">
-      <RadioGroup aria-required>
-        <Radio
-          labelText="Katz"
-          name="gundam-kids-1"
-          value="katz"
-          defaultChecked
-        />
-        <Radio labelText="Letz" name="gundam-kids-1" value="letz" />
-        <Radio labelText="Kikka" name="gundam-kids-1" value="kikka" />
-      </RadioGroup>
-    </FormControl>
-  );
-}
-```
+## Group
+
+::preview{path=Radio/Group}
 
 ## Sizes
 
-```tsx live
-import { FormControl, RadioGroup, Radio } from "@camome/components";
+::preview{path=Radio/Size}
 
-export default function () {
-  return (
-    <FormControl labelText="Gundam kids">
-      <RadioGroup aria-required>
-        <Radio
-          labelText="Katz"
-          name="gundam-kids-2"
-          value="katz"
-          size="sm"
-          defaultChecked
-        />
-        <Radio labelText="Letz" name="gundam-kids-2" value="letz" size="md" />
-        <Radio labelText="Kikka" name="gundam-kids-2" value="kikka" size="lg" />
-      </RadioGroup>
-    </FormControl>
-  );
-}
-```
+## Horizontal Group
 
-## Horizontal RadioGroup
+::preview{path=Radio/Horizontal}
 
-```tsx live
-import { FormControl, RadioGroup, Radio } from "@camome/components";
+## Disabled
 
-export default function () {
-  return (
-    <FormControl labelText="Gundam kids">
-      <RadioGroup aria-required direction="horizontal">
-        <Radio
-          labelText="Katz"
-          name="gundam-kids-3"
-          value="katz"
-          defaultChecked
-        />
-        <Radio labelText="Letz" name="gundam-kids-3" value="letz" />
-        <Radio labelText="Kikka" name="gundam-kids-3" value="kikka" />
-      </RadioGroup>
-    </FormControl>
-  );
-}
-```
-
-## States
-
-### Disabled
-
-```tsx live
-import { Radio } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Radio labelText="Checked" value="true" checked disabled />
-      <Radio labelText="Not checked" value="true" disabled />
-    </>
-  );
-}
-```
+::preview{path=Radio/Disabled}
 
 ## With helper text
 
-```tsx live previewHeight="240"
-import { FormControl, RadioGroup, Radio } from "@camome/components";
-
-export default function () {
-  return (
-    <FormControl
-      labelText="Gundam kids"
-      helperText="Choose your favorite"
-      error="This field is required"
-    >
-      <RadioGroup aria-required>
-        <Radio labelText="Katz" name="gundam-kids-4" value="katz" />
-        <Radio labelText="Letz" name="gundam-kids-4" value="letz" />
-        <Radio labelText="Kikka" name="gundam-kids-4" value="kikka" />
-      </RadioGroup>
-    </FormControl>
-  );
-}
-```
+::preview{path=Radio/HelperText}

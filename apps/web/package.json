@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --nameFormat none --exportType default --logLevel error",
+    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
+    "watch-stories": "pnpm run-ts ./scripts/watch-stories.ts",
     "dev:next": "next dev --port 3910",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:next\"",
     "build": "next build",
@@ -13,7 +14,8 @@
     "lint": "next lint",
     "lint:fix": "pnpm lint --fix",
     "typecheck": "tsc",
-    "generate-css": "npx camome generate-css --output ./src/styles/camome.css"
+    "generate-css": "npx camome generate-css --output ./src/styles/camome.css",
+    "run-ts": "node -r esbuild-register"
   },
   "dependencies": {
     "@camome/components": "workspace:*",
@@ -43,8 +45,10 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/node": "18.7.14",
+    "chokidar": "^3.5.3",
     "eslint": "8.23.0",
     "eslint-config-next": "13.0.0",
+    "hastscript": "^7.1.0",
     "next-transpile-modules": "^10.0.0",
     "postcss": "^8.4.20",
     "postcss-flexbugs-fixes": "^5.0.2",

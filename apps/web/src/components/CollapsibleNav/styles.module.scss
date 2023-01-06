@@ -90,9 +90,10 @@ details.collapsible {
   .sectionLabel {
     @extend %item;
 
-    color: var(--cmm-color-gray-500);
+    color: var(--cmm-color-gray-700);
     background-color: var(--cmm-color-gray-50);
     font-size: var(--cmm-font-size-xs);
+    font-weight: var(--cmm-font-weight-semibold);
     margin-bottom: $marginBottom;
     position: relative;
   }

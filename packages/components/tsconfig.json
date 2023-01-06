@@ -4,8 +4,10 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@camome/components": ["./src/index.ts"]
-    }
+      "@camome/components/*": ["src/components/*"]
+    },
+    "rootDirs": [".", ".scss-types"],
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,69 +1,105 @@
 @use "../../styles/utils";
+@use "../FormField/FormFieldLabel/variables" as labelVars;
 @use "./variables" as locals;
+
+@mixin outline {
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+  outline-offset: 2px;
+}
 
 @include utils.layer {
   .Block {
     @extend %sizeDefaults;
 
+    #{labelVars.$fontWeight_name}: var(--cmm-font-weight-normal);
+
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
     align-items: center;
     gap: 0.5em;
+    position: relative;
+    border-radius: var(--cmm-rounded-full);
+    margin: locals.$margin;
 
-    // FIXME: don't use `:has()`
-    &:has(input[type="radio"]:disabled) {
-      cursor: not-allowed;
-      color: var(--cmm-color-gray-400);
-
-      label {
-        cursor: not-allowed;
+    // :focus-visible but look at the children.
+    @supports selector(:has(:focus-visible)) {
+      &:has(:focus-visible) {
+        @include outline;
       }
     }
 
-    input[type="radio"] {
-      @include utils.size(locals.$size);
+    // Fallback to :focus-within until Firefox supports :has().
+    @supports not selector(:has(:focus-visible)) {
+      &:focus-within {
+        @include outline;
+      }
+    }
 
-      appearance: none;
-      border-radius: var(--cmm-rounded-full);
-      background-color: var(--cmm-color-primary-100);
-      // border: 1px solid var(--cmm-color-gray-200);
-      display: grid;
-      place-content: center;
+    > input[type="radio"] {
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
       cursor: pointer;
 
-      &::before {
-        content: "";
-        @include utils.size(
-          calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
-        );
-        border-radius: var(--cmm-rounded-full);
-        background-color: var(--cmm-color-primary-100);
-        scale: 0;
+      // Be careful, order matters!
+      &:checked {
+        & + .mark {
+          background-color: var(--cmm-color-primary-100);
+
+          &::before {
+            scale: 1;
+            background-color: var(--cmm-color-primary-600);
+          }
+        }
       }
 
-      &:checked {
-        background-color: var(--cmm-color-primary-100);
-
-        &::before {
-          scale: 1;
-          background-color: var(--cmm-color-primary-600);
+      &:hover {
+        & + .mark {
+          background-color: var(--cmm-color-primary-200);
         }
       }
 
       &:disabled {
-        background-color: var(--cmm-color-gray-100);
+        cursor: not-allowed;
+
         &:checked {
-          &::before {
+          ~ .mark::before {
             background-color: var(--cmm-color-gray-400);
           }
         }
-        cursor: not-allowed;
+
+        ~ .mark {
+          background-color: var(--cmm-color-gray-100);
+          cursor: not-allowed;
+        }
+
+        ~ label {
+          color: var(--cmm-color-gray-400);
+        }
       }
     }
+  }
 
-    label {
-      cursor: pointer;
+  .mark {
+    @include utils.size(locals.$size);
+
+    appearance: none;
+    border-radius: var(--cmm-rounded-full);
+    background-color: var(--cmm-color-primary-100);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: var(--cmm-transition-bg);
+
+    &::before {
+      content: "";
+      @include utils.size(
+        calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
+      );
+      border-radius: var(--cmm-rounded-full);
+      background-color: var(--cmm-color-primary-100);
+      scale: 0;
     }
   }
 
@@ -71,7 +107,7 @@
     #{locals.$size_name}: 1.25rem;
 
     > label {
-      font-size: var(--cmm-font-size-md);
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
     }
   }
 
@@ -79,7 +115,7 @@
     #{locals.$size_name}: 1rem;
 
     > label {
-      font-size: var(--cmm-font-size-sm);
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-sm);
     }
   }
 
@@ -91,7 +127,7 @@
     #{locals.$size_name}: 1.5rem;
 
     > label {
-      font-size: var(--cmm-font-size-md);
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
     }
   }
 }

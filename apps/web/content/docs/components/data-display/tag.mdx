@@ -4,121 +4,22 @@ id: "tag"
 description: "A Tag represents a attribute or state of the associated element."
 ---
 
-## Usage
+## Overview
 
-```tsx live
-import { Tag } from "@camome/components";
+::preview{path=Tag/Default}
 
-export default function () {
-  return <Tag>Tag</Tag>;
-}
-```
+## Variant
 
-## Variants
-
-```tsx live
-import { Tag } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Tag variant="solid">Tag</Tag>
-      <Tag variant="subtle">Tag</Tag>
-      <Tag variant="outline">Tag</Tag>
-      <Tag variant="ghost">Tag</Tag>
-    </>
-  );
-}
-```
+::preview{path=Tag/Variant}
 
 ## Color schemes
 
-```tsx live
-import { Tag } from "@camome/components";
+::preview{path=Tag/ColorScheme}
 
-export default function () {
-  return (
-    <>
-      <Tag colorScheme="primary">Tag</Tag>
-      <Tag colorScheme="secondary">Tag</Tag>
-      <Tag colorScheme="info">Tag</Tag>
-      <Tag colorScheme="success">Tag</Tag>
-      <Tag colorScheme="warn">Tag</Tag>
-      <Tag colorScheme="danger">Tag</Tag>
-    </>
-  );
-}
-```
+## Size
 
-## Sizes
-
-```tsx live
-import { Tag } from "@camome/components";
-
-export default function () {
-  return (
-    <>
-      <Tag size="sm">Tag</Tag>
-      <Tag size="md">Tag</Tag>
-      <Tag size="lg">Tag</Tag>
-    </>
-  );
-}
-```
+::preview{path=Tag/Size}
 
 ## With decorators
 
-```tsx live
-import { Tag, Avatar, IconButton } from "@camome/components";
-import { LinkIcon, WifiIcon, XMarkIcon } from "@heroicons/react/24/outline";
-
-export default function () {
-  return (
-    <>
-      <Tag
-        component="a"
-        href="#"
-        size="sm"
-        startDecorator={<LinkIcon stroke-width="2.5" />}
-      >
-        Website
-      </Tag>
-      <Tag
-        size="md"
-        variant="solid"
-        startDecorator={<WifiIcon stroke-width="2.2" />}
-      >
-        Online
-      </Tag>
-      <Tag
-        size="md"
-        colorScheme="success"
-        endDecorator={
-          <IconButton variant="ghost" colorScheme="success">
-            <XMarkIcon stroke-width="2" />
-          </IconButton>
-        }
-        cssVariables={{
-          "--IconButton-size": "1.5rem",
-          "--IconButton-margin": "0 -0.5rem 0 0",
-          "--IconButton-radius": "var(--cmm-rounded-full)",
-        }}
-      >
-        Next.js
-      </Tag>
-      <Tag
-        size="md"
-        startDecorator={
-          <Avatar size="sm" src="https://i.imgur.com/isPfQ2E.jpg" alt="Alt" />
-        }
-        cssVariables={{
-          "--Avatar-size": "1.5rem",
-          "--Avatar-margin": "0 0 0 -0.5rem",
-        }}
-      >
-        John Doe
-      </Tag>
-    </>
-  );
-}
-```
+::preview{path=Tag/Decorators}

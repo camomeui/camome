@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 vite.config.ts.timestamp-*
+storybook-static
+.stories
+.scss-types

@@ -1,32 +1,39 @@
 import clsx from "clsx";
 import React from "react";
 
-import { FormControl } from "../FormControl";
-import { Input } from "../Input";
+import { FormField, FormFieldProps } from "../FormField";
+import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
 export type CheckboxSize = "sm" | "md" | "lg";
 
+type NativeProps = Omit<JSX.IntrinsicElements["input"], "size">;
+
 export type CheckboxProps = {
-  labelText: string;
-  helperText?: string;
-  error?: string | boolean;
   size?: CheckboxSize;
-} & Omit<JSX.IntrinsicElements["input"], "size">;
+} & NativeProps &
+  Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ labelText, helperText, error, size = "md", ...inputProps }, ref) => {
+  ({ label, description, error, size = "md", id, ...inputProps }, ref) => {
     return (
-      <FormControl
-        direction="horizontal-reverse"
-        labelText={labelText}
-        helperText={helperText}
+      <FormField
+        label={label}
+        description={description}
         error={error}
-        className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
+        id={id}
+        custom
       >
-        <Input type="checkbox" {...inputProps} ref={ref} />
-      </FormControl>
+        <div
+          className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
+        >
+          <UnstyledInput type="checkbox" {...inputProps} ref={ref} />
+          <div className={styles.mark} />
+          <FormField.Label />
+          <FormField.Error />
+        </div>
+      </FormField>
     );
   }
 );

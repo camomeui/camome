@@ -1,118 +1,117 @@
-import {
-  SandpackCodeEditor,
-  SandpackCodeViewer,
-  SandpackLayout,
-  SandpackPreview,
-  SandpackProvider,
-} from "@codesandbox/sandpack-react";
-import { githubLight } from "@codesandbox/sandpack-themes";
+import clsx from "clsx";
+import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import github from "prism-react-renderer/themes/github";
 import React from "react";
+import { BiCheck, BiCopy } from "react-icons/bi";
+
+import { Tooltip } from "@camome/components/Tooltip";
+import { useIsomorphicEffect } from "@camome/components/hooks/useIsomorphicEffect";
 
 import styles from "./styles.module.scss";
 
 export type CodeBlockProps = {
-  children: string;
-  live?: boolean;
-  direction?: "horizontal" | "vertical";
-  previewHeight?: number;
-  editorHeight?: number;
+  code: string;
+  language?: string;
+  classNames?: {
+    pre?: string;
+    code?: string;
+  };
 };
 
 export default function CodeBlock({
-  children,
-  live,
-  direction = "horizontal",
-  previewHeight = 160,
-  editorHeight = 300,
+  language,
+  code,
+  classNames,
 }: CodeBlockProps) {
-  const code = children.replace(/\n$/, "");
+  const codeRef = React.useRef<HTMLElement>(null!);
+  const [shown, setShown] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
+  const [hasScrollbar, setHasScrollbar] = React.useState(false);
 
-  if (live) {
-    return (
-      <SandpackProvider
-        theme={{
-          ...githubLight,
-        }}
-        template="react-ts"
-        options={{
-          classes: {
-            "sp-layout": styles["sp-layout"],
-          },
-          // https://github.com/codesandbox/sandpack/discussions/416
-          bundlerURL: "https://sandpack-bundler.pages.dev",
-        }}
-        files={{
-          "/styles.css": {
-            code: StylesCss(direction === "horizontal" ? "row" : "column"),
-            hidden: true,
-          },
-          "/App.tsx": { code: Container, hidden: true },
-          "/Preview.tsx": {
-            code,
-            active: true,
-          },
-        }}
-        customSetup={{
-          dependencies: {
-            "@camome/components": "^0.1.12",
-            "@camome/system": "^0.1.5",
-            "@headlessui/react": "^1.7.4",
-            "@floating-ui/react": "^0.14.0",
-            "@heroicons/react": "^2.0.10",
-            "react-hook-form": "^7.40.0",
-            clsx: "^1.2.1",
-          },
-        }}
-      >
-        <SandpackLayout>
-          <SandpackPreview style={{ height: previewHeight, flex: "unset" }} />
-          <SandpackCodeEditor style={{ height: editorHeight }} />
-        </SandpackLayout>
-      </SandpackProvider>
+  const onEnter = () => {
+    setShown(true);
+  };
+
+  const onExit = () => {
+    if (!copied) setShown(false);
+  };
+
+  const onCopy = async () => {
+    setCopied(true);
+    await navigator.clipboard.writeText(code);
+    setTimeout(() => {
+      setCopied(false);
+      setShown(false);
+    }, 2000);
+  };
+
+  useIsomorphicEffect(() => {
+    const rem = Number(
+      window.getComputedStyle(document.body).fontSize.replace("px", "")
     );
-  }
+    const codeHeight = codeRef.current.getBoundingClientRect().height;
+    const childrenHeight = Array.from(codeRef.current.children).reduce(
+      (acc, elm) => acc + elm.getBoundingClientRect().height,
+      0
+    );
+    if (childrenHeight > codeHeight + rem * 2) {
+      setHasScrollbar(true);
+    }
+  }, []);
 
   return (
-    <SandpackProvider
-      options={{
-        classes: {
-          "sp-stack": styles["sp-code-editor"],
-        },
-      }}
+    <div
+      onMouseEnter={onEnter}
+      onMouseLeave={onExit}
+      className={styles.container}
     >
-      <SandpackCodeViewer code={code} />
-    </SandpackProvider>
+      {shown && (
+        <Tooltip
+          label={copied ? "Copied!" : "Copy"}
+          className={styles["tooltip-wrap"]}
+          style={{ translate: hasScrollbar ? "-0.6rem" : 0 }}
+        >
+          <button
+            type="button"
+            className={styles["copy-button"]}
+            onClick={onCopy}
+          >
+            {copied ? <BiCheck /> : <BiCopy />}
+          </button>
+        </Tooltip>
+      )}
+      <Highlight
+        {...defaultProps}
+        theme={github}
+        code={code?.replace(/\n$/, "") ?? ""}
+        language={language as Language}
+      >
+        {({ tokens, getLineProps, getTokenProps, className: _class }) => {
+          return (
+            <pre className={clsx(_class, classNames?.pre)}>
+              <code
+                className={clsx(styles["code"], "scrollbar", classNames?.code)}
+                ref={codeRef}
+              >
+                {tokens.map((line, i) => {
+                  const { ...lineProps } = getLineProps({ line, key: i });
+                  return (
+                    <div key={i} {...lineProps}>
+                      {line.map((token, key) => {
+                        const { ...tokenProps } = getTokenProps({
+                          token,
+                          key,
+                        });
+                        return <span key={key} {...tokenProps} />;
+                      })}
+                    </div>
+                  );
+                })}
+              </code>
+            </pre>
+          );
+        }}
+      </Highlight>
+    </div>
   );
 }
-
-const StylesCss = (flexDirection: string) => `
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
-#root {
-  padding: 1rem;
-  width: fit-content;
-  min-height: 100%;
-  display: flex;
-  flex-direction: ${flexDirection};
-  gap: 1rem;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-}
-`;
-
-const Container = `
-import "@camome/system/dist/style.min.css";          
-import "@camome/components/dist/style.css";
-import Preview from "./Preview.tsx";
-
-export default function App() {
-  return <Preview />
-}
-` as const;

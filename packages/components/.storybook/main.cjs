@@ -11,7 +11,7 @@ module.exports = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
-  staticDirs: ["./static"],
+  staticDirs: ["./public"],
 };

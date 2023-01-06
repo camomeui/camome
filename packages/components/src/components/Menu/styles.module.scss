@@ -23,6 +23,7 @@
     cursor: pointer;
     transition: var(--cmm-transition-bg);
     width: 100%;
+    color: locals.$fontColor;
 
     &:hover,
     &--active {
@@ -37,6 +38,7 @@
   }
 
   .label {
+    color: var(--cmm-color-gray-500);
     padding: 0.25rem 0.75rem;
     width: 100%;
   }

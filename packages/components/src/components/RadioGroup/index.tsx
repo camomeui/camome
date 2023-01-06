@@ -1,33 +1,53 @@
 import clsx from "clsx";
 
-import { Direction } from "../../types";
-import { useFormControlContext } from "../FormControl/useFormControlContext";
+import { FormField, type FormFieldProps } from "@camome/components/FormField";
+import { joinLabelIds } from "src/utils/joinLabelIds";
+
+import { Orientation } from "../../types";
 
 import styles from "./styles.module.scss";
 
 type NativeProps = JSX.IntrinsicElements["div"];
 
 export type RadioGroupProps = {
-  direction?: Direction;
-} & NativeProps;
+  orientation?: Orientation;
+} & FormFieldProps &
+  NativeProps;
 
 export function RadioGroup({
-  direction = "vertical",
+  orientation = "vertical",
+  id,
+  label,
+  description,
+  error,
   children,
   ...props
 }: RadioGroupProps) {
-  const { labelId } = useFormControlContext();
   return (
-    <div
-      role="radiogroup"
-      className={clsx(
-        styles.Block,
-        direction !== "vertical" && styles[`--${direction}`]
-      )}
-      aria-labeledby={labelId}
-      {...props}
+    <FormField
+      id={id}
+      label={label}
+      description={description}
+      error={error}
+      custom
     >
-      {children}
-    </div>
+      {({ labelId, descriptionId, errorId }) => (
+        <div
+          role="radiogroup"
+          aria-describedby={joinLabelIds(descriptionId, errorId)}
+          aria-labelledby={labelId}
+          className={clsx(
+            styles.Block,
+            orientation !== "vertical" && styles[`--${orientation}`]
+          )}
+          {...props}
+        >
+          <FormField.Label />
+          <FormField.Description />
+          <div className={styles.items}>{children}</div>
+          <FormField.Error />
+        </div>
+      )}
+    </FormField>
   );
 }

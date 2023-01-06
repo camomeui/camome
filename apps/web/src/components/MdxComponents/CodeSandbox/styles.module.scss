@@ -1,0 +1,22 @@
+.preview {
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-lg);
+}
+
+.preview--padded {
+  // dummy
+  padding: 2rem;
+}
+
+.preview--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pre {
+  margin-bottom: 2rem;
+}

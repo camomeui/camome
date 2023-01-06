@@ -1,11 +1,18 @@
 @use "../../styles/utils";
+@use "../Radio/variables" as radioVars;
+@use "./variables" as locals;
 
 @include utils.layer {
   .Block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .items {
     @extend %directionDefaults;
 
     display: flex;
-    gap: 0.75rem;
+    gap: locals.$itemGap;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
@@ -14,11 +21,11 @@
     flex-direction: column;
   }
 
-  .--horizontal {
+  .--horizontal .items {
     flex-direction: row;
   }
 
-  .--vertical {
+  .--vertical .items {
     @extend %directionDefaults;
   }
 }

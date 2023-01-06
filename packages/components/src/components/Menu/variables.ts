@@ -5,6 +5,7 @@ import { ComponentCssVariables } from "../../types";
 const variables = {
   iconSize: "1.25rem",
   iconColor: cssVar("color.primary.600"),
+  fontColor: cssVar("color.black"),
   bgHover: cssVar("color.gray.100"),
 } as const satisfies ComponentCssVariables;
 

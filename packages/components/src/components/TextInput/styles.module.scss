@@ -6,8 +6,9 @@
   %sizeDefaults {
     font-size: var(--cmm-font-size-md);
     height: 2.25rem;
-    padding-left: var(locals.$leftDecorWidth_name, 0.75rem);
-    padding-right: var(locals.$rightDecorWidth_name, 0.75rem);
+    padding-left: locals.$leftDecorWidth;
+    padding-right: locals.$rightDecorWidth;
+    margin: locals.$margin;
   }
 
   .Block {
@@ -17,16 +18,6 @@
     &::placeholder {
       font-weight: var(--cmm-font-weight-normal);
       color: var(--cmm-color-gray-400);
-    }
-
-    &[aria-invalid="true"] {
-      border-color: var(--cmm-color-danger-200);
-      color: var(--cmm-color-danger-600);
-      outline-color: var(--cmm-color-danger-200);
-
-      &::placeholder {
-        color: var(--cmm-color-danger-400);
-      }
     }
 
     &--sm {

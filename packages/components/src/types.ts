@@ -11,7 +11,7 @@ export type PolymorphicProps = {
   component?: any;
 };
 
-export type Direction = "horizontal" | "vertical";
+export type Orientation = "horizontal" | "vertical";
 export type Size = typeof sizes[number];
 export type ColorScheme = typeof colorSchemes[number];
 export type Variant = typeof variants[number];

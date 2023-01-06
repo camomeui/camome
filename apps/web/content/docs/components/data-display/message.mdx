@@ -6,59 +6,14 @@ description: "A Message shows and highlights important information."
 
 ## Usage
 
-```tsx live direction="vertical" previewHeight="400"
-import { Message } from "@camome/components";
-import { EyeIcon } from "@heroicons/react/24/outline";
-
-export default function () {
-  return (
-    <>
-      <Message status="success" title="This is the title">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-      <Message status="info">
-        You can omit the title. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
-      </Message>
-      <Message
-        status="danger"
-        title="Pass any SVG to customize the icon"
-        icon={<EyeIcon />}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-    </>
-  );
-}
-```
+::preview{path=Message/Default}
 
 ## Variants
 
-```tsx live direction="vertical" previewHeight="400"
-import { Message } from "@camome/components";
+::preview{path=Message/Variant}
 
-export default function () {
-  return (
-    <>
-      <Message status="success" title="Success" isAlert>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-      <Message status="info" title="Info" isAlert>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-      <Message status="warn" title="Warn" isAlert>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-      <Message status="danger" title="Danger" isAlert>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et.
-      </Message>
-    </>
-  );
-}
-```
+## Alert
+
+::preview{path=Message/Alert}
+
+`isAlert` adds [`role="alert"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) attribute.

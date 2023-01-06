@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 
-import { FormControl } from "../FormControl";
-import { Input } from "../Input";
+import { FormField } from "../FormField";
+import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
@@ -17,14 +17,17 @@ export type RadioProps = {
 } & NativeProps;
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({ labelText, size = "md", ...inputProps }, forwardedRef) => {
+  ({ labelText, size = "md", id, ...inputProps }, forwardedRef) => {
     return (
-      <FormControl
-        labelText={labelText}
-        className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
-      >
-        <Input type="radio" {...inputProps} ref={forwardedRef} />
-      </FormControl>
+      <FormField label={labelText} id={id} custom>
+        <div
+          className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
+        >
+          <UnstyledInput type="radio" {...inputProps} ref={forwardedRef} />
+          <span className={styles.mark} />
+          <FormField.Label />
+        </div>
+      </FormField>
     );
   }
 );

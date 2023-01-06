@@ -1,4 +1,4 @@
-@layer cmm.reset, cmm.theme, cmm.base;
+@layer cmm.reset, cmm.theme, cmm.base, cmm.components;
 /* Normalize */
 @layer cmm.reset {
   /* Original: https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css */

@@ -1,0 +1,11 @@
+.default {
+  --Menu-icon-color: var(--cmm-color-danger-600);
+  --Menu-font-color: var(--cmm-color-danger-600);
+  --Menu-bg-hover: var(--cmm-color-danger-50);
+}
+
+.with-headless-ui {
+  --Menu-icon-color: var(--cmm-color-danger-600);
+  --Menu-font-color: var(--cmm-color-danger-600);
+  --Menu-bg-hover: var(--cmm-color-danger-50);
+}

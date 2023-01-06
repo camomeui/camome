@@ -20,12 +20,13 @@
 @include utils.layer {
   .Block {
     @extend %sizeDefaults;
-
     @include utils.size(locals.$size);
+
     display: block;
     border-radius: var(--cmm-rounded-full);
     overflow: hidden;
     transition: var(--cmm-transition-bg);
+    margin: locals.$margin;
 
     * {
       width: 100%;

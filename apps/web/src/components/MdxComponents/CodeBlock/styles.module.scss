@@ -1,53 +1,45 @@
-%previewBase {
-  padding: 2rem;
-  margin-top: 2rem;
+.container {
+  position: relative;
+}
+
+.code {
+  border: none;
+  display: block;
+  background-color: var(--cmm-color-gray-50);
+  padding: 1rem;
+  border-radius: var(--cmm-rounded-lg);
   border: 1px solid var(--cmm-color-gray-200);
-  border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
+  font-weight: var(--cmm-font-weight-normal);
+  font-size: 0.85em;
+  max-height: 28em;
 }
 
-.preview--horizontal {
-  @extend %previewBase;
+$margin: 0.75rem;
+$size: 2rem;
+$iconSize: 1.2rem;
 
-  flex-direction: row;
+.copy-button {
+  width: $size;
+  height: $size;
+  border: 1px solid var(--cmm-color-gray-200);
+  border-radius: var(--cmm-rounded-md);
+  background-color: var(--cmm-color-gray-50);
+  display: grid;
+  place-content: center;
+  transition: var(--cmm-transition-bg);
+
+  &:hover {
+    background: var(--cmm-color-gray-100);
+  }
+
+  > svg {
+    width: $iconSize;
+    height: $iconSize;
+  }
 }
 
-.preview--vertical {
-  @extend %previewBase;
-
-  flex-direction: column;
-}
-
-.pre--live {
-  margin-top: 0 !important;
-  margin-bottom: 2rem;
-}
-
-.code--live {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-
-%border {
-  border-radius: var(--cmm-rounded-lg) !important;
-  border: 1px solid var(--cmm-color-gray-200) !important;
-}
-
-// https://sandpack.codesandbox.io/docs/getting-started/custom-ui
-.sp-layout {
-  @extend %border;
-
-  display: flex !important;
-  flex-direction: column !important;
-  flex: none !important;
-}
-
-// Non-live mode
-.sp-code-editor {
-  @extend %border;
-
-  overflow: hidden;
+.tooltip-wrap {
+  position: absolute;
+  top: $margin;
+  right: $margin;
 }

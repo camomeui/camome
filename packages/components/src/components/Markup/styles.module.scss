@@ -48,15 +48,6 @@
       font-size: var(--cmm-font-size-lg);
     }
 
-    :where(a):not(:where([class~="no-markup"] *)) {
-      color: var(--cmm-color-primary-600);
-      font-weight: var(--cmm-font-weight-medium);
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
     :where(code):not(:where([class~="no-markup"] *)) {
       background-color: var(--cmm-color-code-bg);
       padding: 0.1em 0.3em;
@@ -68,25 +59,21 @@
       overflow: auto;
     }
 
+    :where(a):not(:where([class~="no-markup"] *)) {
+      color: var(--cmm-color-primary-600);
+      font-weight: var(--cmm-font-weight-medium);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     :where(pre) {
       // Firefox doesn't support :has() yet, but OK as not so important.
       &:has(code) {
         margin-top: 2rem;
         margin-bottom: 2rem;
       }
-    }
-
-    :where(pre code):not(:where([class~="no-markup"] *)) {
-      border: none;
-      display: block;
-      background-color: var(--cmm-color-gray-50);
-      padding: 1rem 0;
-      border-radius: var(--cmm-rounded-lg);
-      border: 1px solid var(--cmm-color-gray-200);
-      border-top: none;
-      font-weight: var(--cmm-font-weight-normal);
-      font-size: 0.85em;
-      max-height: 28em;
     }
 
     :global(.remark-code-title) {
@@ -172,9 +159,14 @@
     }
 
     :where(b, strong) {
-      font-weight: var(--cmm-font-weight-medium);
+      font-weight: var(--cmm-font-weight-bold);
+
+      a {
+        font-weight: inherit;
+      }
     }
 
+    // FIXME: Mustn't depends on class name.
     :global(.Message):not(:where([class~="no-markup"] *)) {
       margin-top: 2rem;
       margin-bottom: 2rem;
