@@ -63,7 +63,7 @@ export default function Hero() {
             required
             placeholder="address@example.com"
           />
-          <Button style={{ backgroundColor: "var(--cmm-color-gray-500)" }}>
+          <Button style={{ backgroundColor: "var(--cmm-color-gray-5)" }}>
             Subscribe
           </Button>
         </form>

@@ -16,7 +16,7 @@
     &:has([required]) label {
       &::after {
         content: var(--FormField-required-mark, "*");
-        color: var(--cmm-color-danger-500);
+        color: var(--cmm-color-danger-5);
         margin-left: 0.25rem;
       }
     }

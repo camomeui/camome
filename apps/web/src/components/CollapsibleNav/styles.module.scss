@@ -1,6 +1,6 @@
 @use "@/styles/variables";
 
-$borderLeftColor: var(--cmm-color-gray-200);
+$borderLeftColor: var(--cmm-color-gray-2);
 $borderLeftWidth: 2px;
 $marginBottom: 0.5rem;
 
@@ -25,7 +25,7 @@ details.collapsible {
     user-select: none;
     transition: color 0.3s, background-color 0.3s;
     border-radius: var(--cmm-rounded-sm);
-    background-color: var(--cmm-color-gray-50);
+    background-color: var(--cmm-color-gray-0);
     position: relative;
     padding: 0 0.5rem;
     transition: var(--cmm-transition-bg);
@@ -39,20 +39,20 @@ details.collapsible {
     .categoryIcon {
       width: 1.25rem;
       height: 1.25rem;
-      color: var(--cmm-color-primary-500);
+      color: var(--cmm-color-primary-5);
       stroke-width: 2;
     }
 
     .chevronIcon {
       width: 1.25rem;
       height: 1.25rem;
-      color: var(--cmm-color-gray-500);
+      color: var(--cmm-color-gray-5);
       translate: 0.25rem;
       transition: color 0.3s, background-color 0.3s;
     }
 
     &:hover {
-      background-color: var(--cmm-color-primary-50);
+      background-color: var(--cmm-color-primary-0);
     }
   }
 
@@ -90,8 +90,8 @@ details.collapsible {
   .sectionLabel {
     @extend %item;
 
-    color: var(--cmm-color-gray-700);
-    background-color: var(--cmm-color-gray-50);
+    color: var(--cmm-color-gray-7);
+    background-color: var(--cmm-color-gray-0);
     font-size: var(--cmm-font-size-xs);
     font-weight: var(--cmm-font-weight-semibold);
     margin-bottom: $marginBottom;
@@ -102,7 +102,7 @@ details.collapsible {
 .link {
   @extend %item;
 
-  color: var(--cmm-color-gray-600);
+  color: var(--cmm-color-gray-6);
   font-size: var(--cmm-font-size-sm);
   font-weight: var(--cmm-font-weight-medium);
   transition: color 0.3s, background-color 0.3s;
@@ -110,12 +110,12 @@ details.collapsible {
   outline-offset: 0;
 
   &:hover {
-    background-color: var(--cmm-color-primary-50);
+    background-color: var(--cmm-color-primary-0);
   }
 
   &[aria-current="page"] {
-    color: var(--cmm-color-primary-600);
-    background-color: var(--cmm-color-primary-50);
-    border-color: var(--cmm-color-primary-500);
+    color: var(--cmm-color-primary-6);
+    background-color: var(--cmm-color-primary-0);
+    border-color: var(--cmm-color-primary-5);
   }
 }

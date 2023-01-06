@@ -23,15 +23,15 @@
 
 @mixin base() {
   appearance: none;
-  border: 1px solid var(--cmm-color-gray-200);
+  border: 1px solid var(--cmm-color-gray-2);
   border-radius: var(--cmm-rounded-lg);
   background-color: var(--cmm-color-white);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);
 
   &:disabled {
-    background-color: var(--cmm-color-gray-100);
-    color: var(--cmm-color-gray-500);
+    background-color: var(--cmm-color-gray-1);
+    color: var(--cmm-color-gray-5);
     cursor: not-allowed;
   }
 
@@ -40,16 +40,16 @@
   }
 
   &::placeholder {
-    color: var(--cmm-color-gray-400);
+    color: var(--cmm-color-gray-4);
   }
 
   &[aria-invalid="true"] {
-    border-color: var(--cmm-color-danger-200);
-    color: var(--cmm-color-danger-600);
-    outline-color: var(--cmm-color-danger-200);
+    border-color: var(--cmm-color-danger-2);
+    color: var(--cmm-color-danger-6);
+    outline-color: var(--cmm-color-danger-2);
 
     &::placeholder {
-      color: var(--cmm-color-danger-400);
+      color: var(--cmm-color-danger-4);
     }
   }
 }

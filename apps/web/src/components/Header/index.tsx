@@ -53,7 +53,7 @@ export default function Header({ menuContent, classNames }: Props) {
         <div className={styles.left}>
           <IconButton
             variant="ghost"
-            colorScheme="secondary"
+            colorScheme="neutral"
             className={styles.menuButton}
             aria-label="Toggle menu"
             onClick={openMenu}
@@ -72,7 +72,7 @@ export default function Header({ menuContent, classNames }: Props) {
               component={Link}
               href="https://github.com/sabigara/camome"
               variant="outline"
-              colorScheme="secondary"
+              colorScheme="neutral"
               size="sm"
               aria-label="GitHub repository"
             >
@@ -85,7 +85,7 @@ export default function Header({ menuContent, classNames }: Props) {
         <div className={styles.menu__header}>
           <IconButton
             variant="ghost"
-            colorScheme="secondary"
+            colorScheme="neutral"
             onClick={closeMenu}
             data-dialog-trigger-for={DIALOG_ID}
             aria-label="Close menu"

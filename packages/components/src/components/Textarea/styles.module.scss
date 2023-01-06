@@ -14,12 +14,12 @@
     }
 
     &[aria-invalid="true"] {
-      border-color: var(--cmm-color-danger-200);
-      color: var(--cmm-color-danger-600);
-      outline-color: var(--cmm-color-danger-200);
+      border-color: var(--cmm-color-danger-2);
+      color: var(--cmm-color-danger-6);
+      outline-color: var(--cmm-color-danger-2);
 
       &::placeholder {
-        color: var(--cmm-color-danger-400);
+        color: var(--cmm-color-danger-4);
       }
     }
 

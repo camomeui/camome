@@ -34,7 +34,7 @@
     :where(h1, h2):not(:where([class~="no-markup"] *)) {
       font-weight: var(--cmm-font-weight-semibold);
       font-size: var(--cmm-font-size-2xl);
-      border-bottom: 1px solid var(--cmm-color-gray-200);
+      border-bottom: 1px solid var(--cmm-color-gray-2);
       padding-bottom: 0.3rem;
     }
 
@@ -60,7 +60,7 @@
     }
 
     :where(a):not(:where([class~="no-markup"] *)) {
-      color: var(--cmm-color-primary-600);
+      color: var(--cmm-color-primary-6);
       font-weight: var(--cmm-font-weight-medium);
 
       &:hover {
@@ -80,8 +80,8 @@
       margin-top: 2rem;
       border-top-left-radius: var(--cmm-rounded-lg);
       border-top-right-radius: var(--cmm-rounded-lg);
-      background-color: var(--cmm-color-gray-100);
-      color: var(--cmm-color-gray-500);
+      background-color: var(--cmm-color-gray-1);
+      color: var(--cmm-color-gray-5);
       padding: 0.5rem 1rem 0.5rem 1rem;
       font-size: var(--cmm-font-size-sm);
 
@@ -96,7 +96,7 @@
     }
 
     :where(blockquote):not(:where([class~="no-markup"] *)) {
-      border-left: 0.2rem solid var(--cmm-color-gray-300);
+      border-left: 0.2rem solid var(--cmm-color-gray-3);
       padding-left: 1em;
     }
 
@@ -133,18 +133,18 @@
 
       th {
         text-align: start;
-        border-top: 1px solid var(--cmm-color-gray-200);
-        border-bottom: 1px solid var(--cmm-color-gray-200);
-        background-color: var(--cmm-color-gray-50);
+        border-top: 1px solid var(--cmm-color-gray-2);
+        border-bottom: 1px solid var(--cmm-color-gray-2);
+        background-color: var(--cmm-color-gray-0);
       }
 
       th:first-child {
-        border-left: 1px solid var(--cmm-color-gray-200);
+        border-left: 1px solid var(--cmm-color-gray-2);
         border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
       }
 
       th:last-child {
-        border-right: 1px solid var(--cmm-color-gray-200);
+        border-right: 1px solid var(--cmm-color-gray-2);
         border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
       }
 
@@ -154,7 +154,7 @@
       }
 
       tr:not(:last-of-type) td {
-        border-bottom: 1px solid var(--cmm-color-gray-200);
+        border-bottom: 1px solid var(--cmm-color-gray-2);
       }
     }
 

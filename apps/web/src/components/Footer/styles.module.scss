@@ -4,8 +4,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--cmm-color-gray-200);
-  background-color: var(--cmm-color-gray-50);
+  border-top: 1px solid var(--cmm-color-gray-2);
+  background-color: var(--cmm-color-gray-0);
 }
 
 .inner {
@@ -35,13 +35,13 @@
     & svg {
       width: 11rem;
       height: auto;
-      color: var(--cmm-color-primary-500);
+      color: var(--cmm-color-primary-5);
     }
   }
 
   &__text {
     font-size: var(--cmm-font-size-xs);
-    color: var(--cmm-color-gray-500);
+    color: var(--cmm-color-gray-5);
     padding-left: 0.4rem;
   }
 }
@@ -69,7 +69,7 @@
     }
 
     & a {
-      color: var(--cmm-color-gray-600);
+      color: var(--cmm-color-gray-6);
       font-weight: var(--cmm-font-weight-normal);
 
       &:hover {

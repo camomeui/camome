@@ -15,7 +15,7 @@
 
     box-sizing: content-box;
     display: flex;
-    border: 1px solid var(--cmm-color-gray-300);
+    border: 1px solid var(--cmm-color-gray-3);
     border-radius: locals.$radius;
     position: relative;
   }
@@ -109,7 +109,7 @@
       left: locals.$padX;
       translate: 0 -50%;
       background-color: white;
-      border: 1px solid var(--cmm-color-gray-300);
+      border: 1px solid var(--cmm-color-gray-3);
       border-radius: locals.$radius;
       transition: left 0.3s;
       z-index: 10;

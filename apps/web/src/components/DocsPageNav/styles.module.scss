@@ -12,7 +12,7 @@
 }
 
 .link {
-  border: 1px solid var(--cmm-color-gray-200);
+  border: 1px solid var(--cmm-color-gray-2);
   border-radius: var(--cmm-rounded-lg);
   padding: 1rem;
   display: grid;
@@ -21,7 +21,7 @@
 
   &__upper {
     font-size: var(--cmm-font-size-sm);
-    color: var(--cmm-color-gray-500);
+    color: var(--cmm-color-gray-5);
 
     &.next {
       text-align: end;
@@ -32,7 +32,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    color: var(--cmm-color-primary-600);
+    color: var(--cmm-color-primary-6);
     font-weight: var(--cmm-font-weight-medium);
 
     svg {
@@ -50,7 +50,7 @@
   }
 
   &:hover {
-    background-color: var(--cmm-color-gray-100);
+    background-color: var(--cmm-color-gray-1);
   }
 
   @include variables.mq("sm") {

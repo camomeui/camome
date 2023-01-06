@@ -44,7 +44,7 @@
 
       &:checked {
         & + .mark {
-          background-color: var(--cmm-color-primary-100);
+          background-color: var(--cmm-color-primary-1);
 
           &::before {
             transform: scale(1);
@@ -54,7 +54,7 @@
 
       &:hover {
         & + .mark {
-          background-color: var(--cmm-color-primary-200);
+          background-color: var(--cmm-color-primary-2);
         }
       }
 
@@ -63,17 +63,17 @@
 
         &:checked {
           ~ .mark::before {
-            background-color: var(--cmm-color-gray-400);
+            background-color: var(--cmm-color-gray-4);
           }
         }
 
         ~ .mark {
-          background-color: var(--cmm-color-gray-100);
+          background-color: var(--cmm-color-gray-1);
           cursor: not-allowed;
         }
 
         ~ label {
-          color: var(--cmm-color-gray-400);
+          color: var(--cmm-color-gray-4);
         }
       }
     }
@@ -90,7 +90,7 @@
     border-radius: var(--cmm-rounded-sm);
     display: grid;
     place-content: center;
-    background-color: var(--cmm-color-primary-100);
+    background-color: var(--cmm-color-primary-1);
     transition: var(--cmm-transition-bg);
 
     &::before {
@@ -99,7 +99,7 @@
       height: calc(locals.$size * 0.5);
       clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
       transform: scale(0);
-      background-color: var(--cmm-color-primary-600);
+      background-color: var(--cmm-color-primary-6);
     }
   }
 

@@ -4,7 +4,7 @@
 @include utils.layer {
   .Block {
     display: inline-block;
-    border: 1px solid var(--cmm-color-gray-100);
+    border: 1px solid var(--cmm-color-gray-1);
     border-radius: var(--cmm-rounded-md);
     padding: 0.25rem;
     min-width: 10rem;
@@ -38,13 +38,13 @@
   }
 
   .label {
-    color: var(--cmm-color-gray-500);
+    color: var(--cmm-color-gray-5);
     padding: 0.25rem 0.75rem;
     width: 100%;
   }
 
   .divider {
-    border-top: 1px solid var(--cmm-color-gray-200);
+    border-top: 1px solid var(--cmm-color-gray-2);
     margin: 0.25rem 0;
   }
 }

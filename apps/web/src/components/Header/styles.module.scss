@@ -1,7 +1,7 @@
 @use "@/styles/variables";
 
 .Block {
-  border-bottom: 1px solid var(--cmm-color-gray-200);
+  border-bottom: 1px solid var(--cmm-color-gray-2);
   height: variables.$headerHeight;
   z-index: 50;
   position: sticky;
@@ -33,7 +33,7 @@
 .logo {
   width: 9rem;
   height: auto;
-  color: var(--cmm-color-primary-600);
+  color: var(--cmm-color-primary-6);
 }
 
 .nav {
@@ -51,7 +51,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: var(--cmm-color-gray-800);
+    color: var(--cmm-color-gray-8);
     font-weight: var(--cmm-font-weight-medium);
     font-size: var(--cmm-font-size-sm);
     height: 2rem;
@@ -66,7 +66,7 @@
     }
 
     &:hover {
-      background-color: var(--cmm-color-gray-100);
+      background-color: var(--cmm-color-gray-1);
     }
   }
 }
@@ -110,7 +110,7 @@
     padding: 0 1rem;
     background-color: var(--cmm-color-white);
     z-index: 10;
-    border-bottom: 1px solid var(--cmm-color-gray-200);
+    border-bottom: 1px solid var(--cmm-color-gray-2);
   }
 
   &__content {

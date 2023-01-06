@@ -1,9 +1,9 @@
 @layer override {
   .container {
     :global(.Tab__list) {
-      border-bottom: 1px solid var(--cmm-color-gray-200);
-      background: var(--cmm-color-gray-200);
-      border: 1px solid var(--cmm-color-gray-200);
+      border-bottom: 1px solid var(--cmm-color-gray-2);
+      background: var(--cmm-color-gray-2);
+      border: 1px solid var(--cmm-color-gray-2);
       border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
       padding: 0.5rem 0.5rem 0 0.5rem;
       gap: 0.5rem;
@@ -13,7 +13,7 @@
       padding: 0 0.75rem;
       height: 2.25rem;
       font-weight: var(--cmm-font-weight-medium);
-      color: var(--cmm-color-gray-500);
+      color: var(--cmm-color-gray-5);
       border-bottom-width: 2px;
       margin-bottom: -1px;
       border-color: transparent;
@@ -21,8 +21,8 @@
       border-radius: var(--cmm-rounded-md) var(--cmm-rounded-md) 0 0;
 
       &:hover:not(:global(.Tab--active)) {
-        color: var(--cmm-color-gray-900);
-        background: var(--cmm-color-gray-100);
+        color: var(--cmm-color-gray-9);
+        background: var(--cmm-color-gray-1);
       }
 
       &:focus-visible {
@@ -32,9 +32,9 @@
     }
 
     :global(.Tab--active) {
-      color: var(--cmm-color-primary-600);
-      border-color: var(--cmm-color-primary-600);
-      background: var(--cmm-color-gray-50);
+      color: var(--cmm-color-primary-6);
+      border-color: var(--cmm-color-primary-6);
+      background: var(--cmm-color-gray-0);
     }
 
     :global(.Tab__panel) {

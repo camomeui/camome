@@ -1,7 +1,7 @@
 export const sizes = ["sm", "md", "lg"] as const;
 export const colorSchemes = [
   "primary",
-  "secondary",
+  "neutral",
   "info",
   "success",
   "warn",

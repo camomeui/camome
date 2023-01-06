@@ -14,21 +14,21 @@
   white-space: nowrap;
   font-size: var(--cmm-font-size-xs);
   text-transform: uppercase;
-  color: var(--cmm-color-gray-500);
+  color: var(--cmm-color-gray-5);
   height: var(--title-height);
 
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: var(--cmm-color-primary-500);
+    color: var(--cmm-color-primary-5);
   }
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  color: var(--cmm-color-gray-700);
-  // border-left: 2px solid var(--cmm-color-gray-200);
+  color: var(--cmm-color-gray-7);
+  // border-left: 2px solid var(--cmm-color-gray-2);
   max-height: calc(
     100dvh - variables.$headerHeight - var(--title-height) -
       var(--title-row-gap) - 2rem
@@ -42,10 +42,10 @@
   padding-left: 1rem;
   font-size: var(--cmm-font-size-sm);
   border-left: 2px solid;
-  border-left-color: var(--cmm-color-gray-200);
+  border-left-color: var(--cmm-color-gray-2);
 
   &:hover {
-    background: var(--cmm-color-gray-50);
+    background: var(--cmm-color-gray-0);
   }
 
   a {
@@ -60,8 +60,8 @@
 }
 
 .active {
-  background-color: var(--cmm-color-primary-50);
-  color: var(--cmm-color-primary-600);
+  background-color: var(--cmm-color-primary-0);
+  color: var(--cmm-color-primary-6);
   position: relative;
-  border-left-color: var(--cmm-color-primary-500);
+  border-left-color: var(--cmm-color-primary-5);
 }

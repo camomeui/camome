@@ -1,7 +1,7 @@
 $thumbSize_name: --Slider-thumb-size;
 $thumbSize: var($thumbSize_name);
 $thumbBorderColor_name: --Slider-thumb-border-color;
-$thumbBorderColor: var($thumbBorderColor_name, var(--cmm-color-primary-500));
+$thumbBorderColor: var($thumbBorderColor_name, var(--cmm-color-primary-5));
 $thumbColor_name: --Slider-thumb-color;
 $thumbColor: var($thumbColor_name, var(--cmm-color-white));
 $thumbRadius_name: --Slider-thumb-radius;
@@ -11,4 +11,4 @@ $trackHeight: var($trackHeight_name);
 $trackRadius_name: --Slider-track-radius;
 $trackRadius: var($trackRadius_name, var(--cmm-rounded-full));
 $trackColor_name: --Slider-track-color;
-$trackColor: var($trackColor_name, var(--cmm-color-primary-100));
+$trackColor: var($trackColor_name, var(--cmm-color-primary-1));

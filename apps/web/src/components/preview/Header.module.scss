@@ -1,7 +1,7 @@
 @use "@/styles/variables";
 
 .header {
-  background-color: var(--cmm-color-gray-900);
+  background-color: var(--cmm-color-gray-9);
   position: fixed;
   top: 0;
   width: 100%;
@@ -70,7 +70,7 @@
   height: 1.75rem !important;
 
   &:hover {
-    background-color: var(--cmm-color-gray-700) !important;
+    background-color: var(--cmm-color-gray-7) !important;
   }
 }
 

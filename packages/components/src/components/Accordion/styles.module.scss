@@ -7,7 +7,7 @@
   }
 
   .details {
-    border-bottom: 1px solid var(--cmm-color-gray-200);
+    border-bottom: 1px solid var(--cmm-color-gray-2);
 
     &[open] {
       .summary {
@@ -29,7 +29,7 @@
     font-weight: var(--cmm-font-weight-medium);
 
     &:hover {
-      background-color: var(--cmm-color-gray-100);
+      background-color: var(--cmm-color-gray-1);
     }
 
     &::-webkit-details-marker {

@@ -2,15 +2,15 @@
 
 .scrollbar {
   --scrollbar-width: 16px;
-  --scrollbar-thumb-color: var(--cmm-color-gray-300);
-  --scrollbar-thumb-color-hover: var(--cmm-color-gray-400);
+  --scrollbar-thumb-color: var(--cmm-color-gray-3);
+  --scrollbar-thumb-color-hover: var(--cmm-color-gray-4);
 
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
 .scrollbar--dark {
-  --scrollbar-thumb-color: var(--cmm-color-gray-500);
-  --scrollbar-thumb-color-hover: var(--cmm-color-gray-400);
+  --scrollbar-thumb-color: var(--cmm-color-gray-5);
+  --scrollbar-thumb-color-hover: var(--cmm-color-gray-4);
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -47,5 +47,5 @@
   opacity: 0;
   width: 0.9em;
   height: 0.9em;
-  color: var(--cmm-color-gray-500);
+  color: var(--cmm-color-gray-5);
 }

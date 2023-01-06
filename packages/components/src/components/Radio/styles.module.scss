@@ -45,18 +45,18 @@
       // Be careful, order matters!
       &:checked {
         & + .mark {
-          background-color: var(--cmm-color-primary-100);
+          background-color: var(--cmm-color-primary-1);
 
           &::before {
             scale: 1;
-            background-color: var(--cmm-color-primary-600);
+            background-color: var(--cmm-color-primary-6);
           }
         }
       }
 
       &:hover {
         & + .mark {
-          background-color: var(--cmm-color-primary-200);
+          background-color: var(--cmm-color-primary-2);
         }
       }
 
@@ -65,17 +65,17 @@
 
         &:checked {
           ~ .mark::before {
-            background-color: var(--cmm-color-gray-400);
+            background-color: var(--cmm-color-gray-4);
           }
         }
 
         ~ .mark {
-          background-color: var(--cmm-color-gray-100);
+          background-color: var(--cmm-color-gray-1);
           cursor: not-allowed;
         }
 
         ~ label {
-          color: var(--cmm-color-gray-400);
+          color: var(--cmm-color-gray-4);
         }
       }
     }
@@ -86,7 +86,7 @@
 
     appearance: none;
     border-radius: var(--cmm-rounded-full);
-    background-color: var(--cmm-color-primary-100);
+    background-color: var(--cmm-color-primary-1);
     display: grid;
     place-content: center;
     cursor: pointer;
@@ -98,7 +98,7 @@
         calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
       );
       border-radius: var(--cmm-rounded-full);
-      background-color: var(--cmm-color-primary-100);
+      background-color: var(--cmm-color-primary-1);
       scale: 0;
     }
   }

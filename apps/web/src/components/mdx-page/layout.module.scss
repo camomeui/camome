@@ -19,7 +19,7 @@
 
 .header {
   padding: 2rem 0;
-  border-bottom: 1px solid var(--cmm-color-gray-200);
+  border-bottom: 1px solid var(--cmm-color-gray-2);
 
   h1 {
     font-weight: var(--cmm-font-weight-extrabold);
@@ -73,7 +73,7 @@
   }
 
   a {
-    color: var(--cmm-color-primary-600);
+    color: var(--cmm-color-primary-6);
     font-weight: var(--cmm-font-weight-medium);
 
     &:hover {
@@ -82,7 +82,7 @@
   }
 
   code {
-    background-color: var(--cmm-color-gray-200);
+    background-color: var(--cmm-color-gray-2);
     padding: 0.2em 0.3em;
     border-radius: var(--cmm-rounded-md);
     font-family: var(--cmm-font-family-code);
@@ -102,7 +102,7 @@
   }
 
   blockquote {
-    border-left: 0.2rem solid var(--cmm-color-gray-300);
+    border-left: 0.2rem solid var(--cmm-color-gray-3);
     padding-left: 1em;
   }
 

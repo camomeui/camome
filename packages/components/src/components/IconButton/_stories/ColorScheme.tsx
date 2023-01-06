@@ -10,7 +10,7 @@ export default function ColorScheme() {
       <IconButton colorScheme="primary" aria-label="bell">
         <BellAlertIcon />
       </IconButton>
-      <IconButton colorScheme="secondary" aria-label="bell">
+      <IconButton colorScheme="neutral" aria-label="bell">
         <BellAlertIcon />
       </IconButton>
       <IconButton colorScheme="info" aria-label="bell">
