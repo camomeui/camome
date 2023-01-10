@@ -1,5 +1,11 @@
 import { Color } from "./primitive";
 
+export type KbdColors = {
+  bg: Color;
+  border: Color;
+  font: Color;
+};
+
 export type MenuColors = {
   bg: Color;
   bgHover: Color;
@@ -37,6 +43,7 @@ export type TooltipColors = {
 };
 
 export type ComponentColors = {
+  kbd: KbdColors;
   menu: MenuColors;
   tab: TabColors;
   tooltip: TooltipColors;

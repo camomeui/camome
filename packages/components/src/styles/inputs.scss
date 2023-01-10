@@ -49,10 +49,10 @@
   &[aria-invalid="true"] {
     border-color: var(--cmm-color-danger-outline-border);
     color: var(--cmm-color-danger-font);
-    outline-color: var(--cmm-color-danger-subtle);
+    outline-color: var(--cmm-outline-color-danger);
 
     &::placeholder {
-      color: var(--cmm-color-danger-subtle);
+      color: var(--cmm-color-danger-muted);
     }
   }
 }

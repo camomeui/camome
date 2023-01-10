@@ -53,6 +53,12 @@ const lightTheme = {
       base: cssVar("color.gray.2"),
       subtle: cssVar("color.gray.1"),
     },
+    /* Components */
+    kbd: {
+      bg: cssVar("color.surface.0"),
+      border: cssVar("color.surface.3"),
+      font: cssVar("color.font.muted"),
+    },
     menu: {
       bg: cssVar("color.surface.0"),
       bgHover: cssVar("color.surface.2"),
@@ -87,7 +93,10 @@ const lightTheme = {
     },
   },
   outline: {
-    color: cssVar("color.primary.4"),
+    color: {
+      primary: cssVar("color.primary.4"),
+      danger: cssVar("color.danger.4"),
+    },
   },
   shadow: {
     color: "rgba(12, 12, 13, 0.1)",

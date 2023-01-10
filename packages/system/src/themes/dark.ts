@@ -12,7 +12,7 @@ const darkTheme = {
     code: {
       bg: cssVar("color.surface.3"),
     },
-    link: cssVar("color.primary.6"),
+    link: cssVar("color.primary.5"),
     primary: {
       ...colorSchemeTokens("primary"),
       ...variantColors("primary"),
@@ -54,6 +54,12 @@ const darkTheme = {
       base: cssVar("color.gray.7"),
       subtle: cssVar("color.gray.8"),
     },
+    /* Components */
+    kbd: {
+      bg: cssVar("color.surface.2"),
+      border: cssVar("color.surface.3"),
+      font: cssVar("color.font.muted"),
+    },
     menu: {
       bg: cssVar("color.surface.1"),
       bgHover: cssVar("color.surface.2"),
@@ -65,13 +71,13 @@ const darkTheme = {
       bg: cssVar("color.surface.0"),
       listBg: cssVar("color.surface.0"),
       bgActive: cssVar("color.surface.0"),
-      bgHover: cssVar("color.neutral.subtle"),
+      bgHover: cssVar("color.neutral.soft.bgHover"),
       border: cssVar("color.border.base"),
       borderActive: cssVar("color.primary.emphasis"),
       borderHover: cssVar("color.primary.7"),
       font: cssVar("color.font.muted"),
       fontActive: cssVar("color.primary.emphasis"),
-      fontHover: cssVar("color.font.muted"),
+      fontHover: cssVar("color.font.base"),
     },
     tooltip: {
       bg: cssVar("color.neutral.6"),
@@ -88,7 +94,10 @@ const darkTheme = {
     },
   },
   outline: {
-    color: cssVar("color.primary.6"),
+    color: {
+      primary: cssVar("color.primary.6"),
+      danger: cssVar("color.danger.6"),
+    },
   },
   shadow: {
     color: "rgba(12, 12, 13, 0.1)",
@@ -97,12 +106,6 @@ const darkTheme = {
 
 function alpha(color: string, value: number): string {
   const ret = chroma(color).alpha(value).hex();
-  if (!ret) throw new Error(`Invalid color: ${color}`);
-  return ret;
-}
-
-function darken(color: string, value: number): string {
-  const ret = chroma(color).darken(value).hex();
   if (!ret) throw new Error(`Invalid color: ${color}`);
   return ret;
 }

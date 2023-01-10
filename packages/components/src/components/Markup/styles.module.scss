@@ -2,7 +2,7 @@
 
 @include utils.layer {
   .Block {
-    color: var(--cmm-color-font-base);
+    color: var(--cmm-color-font-muted);
 
     :where(h1, h2, h3, h4):not(:where([class~="no-markup"] *)) {
       margin-top: 2.25rem;
@@ -52,9 +52,9 @@
     }
 
     :where(code):not(:where([class~="no-markup"] *)) {
+      color: var(--cmm-color-font-base);
       background-color: var(--cmm-color-code-bg);
       padding: 0.1em 0.3em;
-      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: var(--cmm-rounded-sm);
       font-family: var(--cmm-font-family-code);
       font-weight: var(--cmm-font-weight-normal);
@@ -67,6 +67,10 @@
       font-weight: var(--cmm-font-weight-medium);
 
       &:hover {
+        text-decoration: underline;
+      }
+
+      code {
         text-decoration: underline;
       }
     }

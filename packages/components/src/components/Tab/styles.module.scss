@@ -17,7 +17,7 @@
     cursor: pointer;
     white-space: nowrap;
     padding: 0 1rem;
-    line-height: 2.25;
+    line-height: 2;
     color: var(--cmm-color-tab-font);
     border-top-left-radius: var(--cmm-rounded-md);
     border-top-right-radius: var(--cmm-rounded-md);
@@ -35,7 +35,7 @@
     }
 
     &:focus-visible {
-      outline: var(--cmm-outline);
+      outline: var(--cmm-outline-color-primary);
       outline-offset: var(--cmm-outline-offset);
     }
 

@@ -8,7 +8,7 @@ export const BASE_STYLES = `body {
 }
 
 *:focus-visible {
-  outline: ${cssVar("outline.width")} solid ${cssVar("outline.color")};
+  outline: ${cssVar("outline.width")} solid ${cssVar("outline.color.primary")};
 }
 
 .visually-hidden {

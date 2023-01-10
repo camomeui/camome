@@ -20,7 +20,10 @@ export type Shadow = {
 };
 
 export type Outline = {
-  color: Color;
+  color: {
+    primary: Color;
+    danger: Color;
+  };
   width: string;
   offset: string;
 };

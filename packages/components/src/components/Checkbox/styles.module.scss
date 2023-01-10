@@ -3,7 +3,7 @@
 @use "./variables" as locals;
 
 @mixin outline {
-  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
   outline-offset: 2px;
 }
 

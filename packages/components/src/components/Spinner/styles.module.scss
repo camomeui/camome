@@ -11,7 +11,7 @@
 
     > svg {
       @include utils.size(locals.$size);
-      color: var(--cmm-color-primary-subtle);
+      color: var(--cmm-color-primary-soft-bg);
       animation: spin 1.2s linear infinite;
     }
   }
