@@ -84,9 +84,9 @@ const darkTheme = {
       font: cssVar("color.font.base"),
     },
     switch: {
-      bgOff: cssVar("color.neutral.subtle"),
+      bgOff: cssVar("color.surface.2"),
       bgOn: cssVar("color.primary.6"),
-      bgThumb: cssVar("color.neutral.2"),
+      bgThumb: cssVar("color.neutral.0"),
       fontOff: cssVar("color.font.muted"),
       fontOn: cssVar("color.font.baseInvert"),
       border: cssVar("color.neutral.6"),

@@ -821,9 +821,9 @@
     --cmm-color-tab-font-hover: var(--cmm-color-font-base);
     --cmm-color-tooltip-bg: var(--cmm-color-neutral-6);
     --cmm-color-tooltip-font: var(--cmm-color-font-base);
-    --cmm-color-switch-bg-off: var(--cmm-color-neutral-subtle);
+    --cmm-color-switch-bg-off: var(--cmm-color-surface-2);
     --cmm-color-switch-bg-on: var(--cmm-color-primary-6);
-    --cmm-color-switch-bg-thumb: var(--cmm-color-neutral-2);
+    --cmm-color-switch-bg-thumb: var(--cmm-color-neutral-0);
     --cmm-color-switch-font-off: var(--cmm-color-font-muted);
     --cmm-color-switch-font-on: var(--cmm-color-font-base-invert);
     --cmm-color-switch-border: var(--cmm-color-neutral-6);
