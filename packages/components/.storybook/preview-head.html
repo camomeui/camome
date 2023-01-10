@@ -8,7 +8,7 @@
 
     if (themeString) {
       const theme = JSON.parse(themeString);
-      document.documentElement.dataset.colorScheme =
+      document.documentElement.dataset.theme =
         theme["current"] === "light" ? "light" : "dark";
     }
   }

@@ -4,7 +4,7 @@ export const BASE_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
   -webkit-font-smoothing: antialiased;
   color: ${cssVar("color.font.base")};
-  background: ${cssVar("color.surface.base")};
+  background: ${cssVar("color.surface.0")};
 }
 
 *:focus-visible {
@@ -25,7 +25,7 @@ export const BASE_STYLES = `body {
 
 export const commonTheme = {
   color: {
-    black: "#1b1f24",
+    black: "#141517",
     white: "#fff",
     gray: {
       0: "#f7fafc",

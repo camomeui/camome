@@ -1,6 +1,8 @@
 import clsx from "clsx";
+import { useTheme } from "next-themes";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import github from "prism-react-renderer/themes/github";
+import lightTheme from "prism-react-renderer/themes/github";
+import darkTheme from "prism-react-renderer/themes/vsDark";
 import React from "react";
 import { BiCheck, BiCopy } from "react-icons/bi";
 
@@ -27,6 +29,8 @@ export default function CodeBlock({
   const [shown, setShown] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [hasScrollbar, setHasScrollbar] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
+  const { theme } = useTheme();
 
   const onEnter = () => {
     setShown(true);
@@ -57,6 +61,7 @@ export default function CodeBlock({
     if (childrenHeight > codeHeight + rem * 2) {
       setHasScrollbar(true);
     }
+    setMounted(true);
   }, []);
 
   return (
@@ -82,15 +87,22 @@ export default function CodeBlock({
       )}
       <Highlight
         {...defaultProps}
-        theme={github}
+        theme={theme === "dark" ? darkTheme : lightTheme}
         code={code?.replace(/\n$/, "") ?? ""}
         language={language as Language}
+        // Force update
+        key={String(mounted)}
       >
         {({ tokens, getLineProps, getTokenProps, className: _class }) => {
           return (
             <pre className={clsx(_class, classNames?.pre)}>
               <code
-                className={clsx(styles["code"], "scrollbar", classNames?.code)}
+                className={clsx(
+                  styles["code"],
+                  "scrollbar",
+                  theme === "dark" && "dark",
+                  classNames?.code
+                )}
                 ref={codeRef}
               >
                 {tokens.map((line, i) => {

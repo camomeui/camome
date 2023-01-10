@@ -9,8 +9,9 @@ import { commonTheme } from "./common";
 const darkTheme = {
   color: {
     code: {
-      bg: cssVar("color.gray.1"),
+      bg: cssVar("color.surface.3"),
     },
+    link: cssVar("color.primary.6"),
     primary: {
       ...colorSchemeTokens("primary"),
       ...variantColors("primary"),
@@ -36,9 +37,11 @@ const darkTheme = {
       ...variantColors("danger"),
     },
     surface: {
-      base: cssVar("color.black"),
-      raised: cssVar("color.gray.9"),
-      sunken: cssVar("color.black"),
+      0: cssVar("color.black"),
+      1: cssVar("color.neutral.9"),
+      2: cssVar("color.neutral.8"),
+      3: cssVar("color.neutral.7"),
+      4: cssVar("color.neutral.6"),
     },
     font: {
       base: cssVar("color.white"),
@@ -51,16 +54,16 @@ const darkTheme = {
       subtle: cssVar("color.gray.8"),
     },
     menu: {
-      bg: cssVar("color.neutral.9"),
-      bgHover: cssVar("color.neutral.8"),
+      bg: cssVar("color.surface.1"),
+      bgHover: cssVar("color.surface.2"),
       fontLabel: cssVar("color.font.base"),
       fontIcon: cssVar("color.font.subtle"),
       fontGroup: cssVar("color.font.subtle"),
     },
     tab: {
-      bg: cssVar("color.surface.base"),
-      listBg: cssVar("color.surface.base"),
-      bgActive: cssVar("color.surface.base"),
+      bg: cssVar("color.surface.0"),
+      listBg: cssVar("color.surface.0"),
+      bgActive: cssVar("color.surface.0"),
       bgHover: cssVar("color.neutral.subtle"),
       border: cssVar("color.border.base"),
       borderActive: cssVar("color.primary.emphasis"),
@@ -114,7 +117,7 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
     },
     outline: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.8`),
+      bgHover: cssVar(`color.${colorScheme}.6`),
       font: cssVar(`color.${colorScheme}.2`),
       border: cssVar(`color.${colorScheme}.8`),
     },

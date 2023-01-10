@@ -8,9 +8,9 @@
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
-.scrollbar--dark {
-  --scrollbar-thumb-color: var(--cmm-color-gray-5);
-  --scrollbar-thumb-color-hover: var(--cmm-color-gray-4);
+[data-theme="dark"] .scrollbar {
+  --scrollbar-thumb-color: var(--cmm-color-gray-7);
+  --scrollbar-thumb-color-hover: var(--cmm-color-gray-6);
 }
 
 .scrollbar::-webkit-scrollbar {

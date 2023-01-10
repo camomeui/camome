@@ -25,12 +25,11 @@
   appearance: none;
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-rounded-lg);
-  background: var(--cmm-color-surface-raised);
+  background: var(--cmm-color-surface-2);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);
 
   &:disabled {
-    background-color: var(--cmm-color-surface-sunken);
     color: var(--cmm-color-font-muted);
     cursor: not-allowed;
 

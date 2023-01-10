@@ -11,6 +11,7 @@ const lightTheme = {
     code: {
       bg: cssVar("color.gray.1"),
     },
+    link: cssVar("color.primary.6"),
     primary: {
       ...colorSchemeTokens("primary"),
       ...variantColors("primary"),
@@ -36,9 +37,11 @@ const lightTheme = {
       ...variantColors("danger"),
     },
     surface: {
-      base: cssVar("color.white"),
-      raised: cssVar("color.white"),
-      sunken: cssVar("color.gray.0"),
+      0: cssVar("color.white"),
+      1: cssVar("color.neutral.0"),
+      2: cssVar("color.neutral.1"),
+      3: cssVar("color.neutral.2"),
+      4: cssVar("color.neutral.3"),
     },
     font: {
       base: cssVar("color.black"),
@@ -51,16 +54,16 @@ const lightTheme = {
       subtle: cssVar("color.gray.1"),
     },
     menu: {
-      bg: cssVar("color.white"),
-      bgHover: cssVar("color.neutral.1"),
+      bg: cssVar("color.surface.0"),
+      bgHover: cssVar("color.surface.2"),
       fontLabel: cssVar("color.font.base"),
       fontIcon: cssVar("color.font.subtle"),
       fontGroup: cssVar("color.font.subtle"),
     },
     tab: {
-      bg: cssVar("color.surface.base"),
-      listBg: cssVar("color.surface.base"),
-      bgActive: cssVar("color.surface.base"),
+      bg: cssVar("color.surface.0"),
+      listBg: cssVar("color.surface.0"),
+      bgActive: cssVar("color.surface.0"),
       bgHover: cssVar("color.neutral.subtle"),
       border: cssVar("color.border.base"),
       borderActive: cssVar("color.primary.emphasis"),
@@ -76,7 +79,7 @@ const lightTheme = {
     switch: {
       bgOff: cssVar("color.neutral.subtle"),
       bgOn: cssVar("color.primary.emphasis"),
-      bgThumb: cssVar("color.surface.base"),
+      bgThumb: cssVar("color.surface.0"),
       fontOff: cssVar("color.font.muted"),
       fontOn: cssVar("color.font.baseInvert"),
       border: cssVar("color.neutral.3"),

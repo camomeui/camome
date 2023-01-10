@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 import PopoverLinks from "@/components/PopoverLinks";
+import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
 import { IconButton } from "@camome/components/IconButton";
 import { Tooltip } from "@camome/components/Tooltip";
@@ -67,6 +68,7 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
+          <ThemeSwitch />
           <Tooltip label="GitHub" placement="bottom">
             <IconButton
               component={Link}

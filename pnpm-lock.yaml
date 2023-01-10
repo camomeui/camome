@@ -132,6 +132,7 @@ importers:
       next: 13.0.6
       next-contentlayer: ^0.2.9
       next-seo: ^5.5.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^10.0.0
       postcss: ^8.4.20
       postcss-preset-env: ^7.8.3
@@ -158,6 +159,7 @@ importers:
       next: 13.0.6
       next-contentlayer: 0.2.9_next@13.0.6
       next-seo: 5.15.0_next@13.0.6
+      next-themes: 0.2.1_next@13.0.6
       react-hook-form: 7.41.0
       react-icons: 4.7.1
       rehype-external-links: 2.0.1
@@ -13763,6 +13765,16 @@ packages:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
+    dependencies:
+      next: 13.0.6
+    dev: false
+
+  /next-themes/0.2.1_next@13.0.6:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
     dependencies:
       next: 13.0.6
     dev: false

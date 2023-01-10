@@ -36,6 +36,7 @@
     "next": "13.0.6",
     "next-contentlayer": "^0.2.9",
     "next-seo": "^5.5.0",
+    "next-themes": "^0.2.1",
     "react-hook-form": "^7.40.0",
     "react-icons": "^4.4.0",
     "rehype-external-links": "^2.0.1",

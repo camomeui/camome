@@ -73,9 +73,11 @@ export type FontColors = {
 };
 
 export type SurfaceColors = {
-  base: Color;
-  raised: Color;
-  sunken: Color;
+  "0": Color;
+  "1": Color;
+  "2": Color;
+  "3": Color;
+  "4": Color;
 };
 
 export type BorderColors = {
@@ -89,6 +91,7 @@ export type PrimitiveColors = {
   code: {
     bg: Color;
   };
+  link: Color;
   gray: ColorShade;
   surface: SurfaceColors;
   border: BorderColors;

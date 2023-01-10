@@ -1,12 +1,12 @@
 @use "@/styles/variables";
 
 .Block {
-  border-bottom: 1px solid var(--cmm-color-gray-2);
+  border-bottom: 1px solid var(--cmm-color-border-base);
   height: variables.$headerHeight;
   z-index: 50;
   position: sticky;
   top: 0;
-  background-color: var(--cmm-color-white);
+  background: var(--cmm-color-surface-0);
 }
 
 .inner {
@@ -28,6 +28,20 @@
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
+
+  @layer override {
+    :global(.IconButton) {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      [data-theme="dark"] & {
+        background: var(--cmm-color-surface-2);
+        &:hover {
+          background: var(--cmm-color-surface-3);
+        }
+      }
+    }
+  }
 }
 
 .logo {
@@ -51,7 +65,8 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: var(--cmm-color-gray-8);
+    color: var(--cmm-color-font-base);
+    background: var(--cmm-color-surface-0);
     font-weight: var(--cmm-font-weight-medium);
     font-size: var(--cmm-font-size-sm);
     height: 2rem;
@@ -66,7 +81,7 @@
     }
 
     &:hover {
-      background-color: var(--cmm-color-gray-1);
+      background-color: var(--cmm-color-surface-2);
     }
   }
 }
