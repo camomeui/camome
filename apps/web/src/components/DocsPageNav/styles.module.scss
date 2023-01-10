@@ -5,7 +5,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   width: 100%;
-  background: var(--cmm-color-surface-1);
 
   @include variables.mq("sm") {
     grid-template-columns: 1fr;
@@ -19,6 +18,7 @@
   display: grid;
   row-gap: 0.25rem;
   transition: var(--cmm-transition-bg);
+  background: var(--cmm-color-surface-1);
 
   &__upper {
     font-size: var(--cmm-font-size-sm);
