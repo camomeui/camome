@@ -8,7 +8,7 @@ export default function Disabled() {
       <Button variant="solid" disabled>
         Solid
       </Button>
-      <Button variant="subtle" disabled>
+      <Button variant="soft" disabled>
         Subtle
       </Button>
       <Button variant="outline" disabled>

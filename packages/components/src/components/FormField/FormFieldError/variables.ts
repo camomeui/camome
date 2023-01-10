@@ -4,7 +4,7 @@ import { ComponentCssVariables } from "../../../types";
 
 const variables = {
   fontSize: cssVar("font.size.sm"),
-  color: cssVar("color.danger.600"),
+  color: cssVar("color.danger.6"),
   lineHeight: "1.2",
   margin: null,
 } as const satisfies ComponentCssVariables;

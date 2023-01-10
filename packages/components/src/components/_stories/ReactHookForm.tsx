@@ -103,7 +103,7 @@ export default function WithReactHookForm() {
           })}
           error={errors.privacy?.message}
         />
-        <Button type="submit" variant="subtle">
+        <Button type="submit" variant="soft">
           Submit
         </Button>
       </form>

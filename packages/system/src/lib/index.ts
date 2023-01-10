@@ -6,9 +6,10 @@ import type { Path, Replace, DeepPartial } from "@camome/utils";
 import { toKebabCase } from "@camome/utils";
 
 import { DEFAULT_PREFIX, layers } from "../constants";
+import { darkTheme } from "../themes";
 import { BASE_STYLES } from "../themes/common";
 import lightTheme from "../themes/light";
-import { Theme } from "../types";
+import { Theme, Themes } from "../types";
 
 import {
   layer,
@@ -33,8 +34,15 @@ export function cssVar<
 
 type DefineThemeFn = (theme: Theme) => DeepPartial<Theme>;
 
-export function defineTheme(fn: DefineThemeFn): Theme {
-  return deepmerge(lightTheme, fn(lightTheme)) as Theme;
+export function defineTheme(
+  scheme: "light" | "dark",
+  config: DefineThemeFn | DeepPartial<Theme> = {}
+): Theme {
+  const defaultTheme = scheme === "light" ? lightTheme : darkTheme;
+  return deepmerge(
+    defaultTheme,
+    typeof config === "function" ? config(defaultTheme) : config
+  ) as Theme;
 }
 
 type GenerateCssOptions = {
@@ -43,7 +51,7 @@ type GenerateCssOptions = {
 };
 
 export async function generateCss(
-  theme: Theme,
+  themes: Themes,
   options: GenerateCssOptions = {}
 ): Promise<string> {
   const { prefix = DEFAULT_PREFIX, selector = ":root" } = options;
@@ -53,10 +61,29 @@ export async function generateCss(
     (await import("../assets/normalize.css")).default,
     { comment: "Normalize", enclosure: _layer("reset") }
   );
-  const themeCss = modifyCss(generateThemeCss(theme, { prefix, selector }), {
-    comment: "Theme",
-    enclosure: _layer("theme"),
-  });
+
+  const lightTheme = modifyCss(
+    generateThemeCss(themes.light, {
+      prefix,
+      selector: selector + '[data-color-scheme="light"]',
+    }),
+    {
+      comment: "Theme",
+      enclosure: _layer("theme"),
+    }
+  );
+
+  const darkTheme = modifyCss(
+    generateThemeCss(themes.dark, {
+      prefix,
+      selector: selector + '[data-color-scheme="dark"]',
+    }),
+    {
+      comment: "Theme",
+      enclosure: _layer("theme"),
+    }
+  );
+
   const baseCss = modifyCss(BASE_STYLES, {
     comment: "Base",
     enclosure: _layer("base"),
@@ -64,7 +91,7 @@ export async function generateCss(
   const css =
     layerOrder(prefix, layers) +
     "\n" +
-    [normalizeCss, themeCss, baseCss].join("\n");
+    [normalizeCss, lightTheme, darkTheme, baseCss].join("\n");
 
   return format(css, {
     parser: "css",

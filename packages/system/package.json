@@ -27,8 +27,18 @@
     "tsup": "^6.3.0"
   },
   "exports": {
-    "import": "./dist/index.esm.js",
-    "require": "./dist/index.cjs.js"
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    },
+    "./style.min.css": {
+      "import": "./dist/style.min.css",
+      "require": "./dist/style.min.css"
+    }
   },
   "types": "./dist/index.d.ts",
   "files": [

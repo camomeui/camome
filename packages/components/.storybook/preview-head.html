@@ -1,3 +1,22 @@
 <script>
   window.global = window;
 </script>
+
+<script type="text/javascript">
+  function updateTheme() {
+    const themeString = localStorage.getItem("sb-addon-themes-3");
+
+    if (themeString) {
+      const theme = JSON.parse(themeString);
+      document.documentElement.dataset.colorScheme =
+        theme["current"] === "light" ? "light" : "dark";
+    }
+  }
+
+  window.addEventListener("storage", (e) => {
+    updateTheme();
+  });
+
+  // Call it at start to init correctly
+  updateTheme();
+</script>

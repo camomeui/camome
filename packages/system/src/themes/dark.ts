@@ -6,7 +6,7 @@ import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
 
 import { commonTheme } from "./common";
 
-const lightTheme = {
+const darkTheme = {
   color: {
     code: {
       bg: cssVar("color.gray.1"),
@@ -36,23 +36,23 @@ const lightTheme = {
       ...variantColors("danger"),
     },
     surface: {
-      base: cssVar("color.white"),
-      raised: cssVar("color.white"),
-      sunken: cssVar("color.gray.0"),
+      base: cssVar("color.black"),
+      raised: cssVar("color.gray.9"),
+      sunken: cssVar("color.black"),
     },
     font: {
-      base: cssVar("color.black"),
-      muted: cssVar("color.gray.6"),
-      subtle: cssVar("color.gray.4"),
+      base: cssVar("color.white"),
+      muted: cssVar("color.gray.4"),
+      subtle: cssVar("color.gray.6"),
       baseInvert: cssVar("color.white"),
     },
     border: {
-      base: cssVar("color.gray.2"),
-      subtle: cssVar("color.gray.1"),
+      base: cssVar("color.gray.7"),
+      subtle: cssVar("color.gray.8"),
     },
     menu: {
-      bg: cssVar("color.white"),
-      bgHover: cssVar("color.neutral.1"),
+      bg: cssVar("color.neutral.9"),
+      bgHover: cssVar("color.neutral.8"),
       fontLabel: cssVar("color.font.base"),
       fontIcon: cssVar("color.font.subtle"),
       fontGroup: cssVar("color.font.subtle"),
@@ -64,27 +64,27 @@ const lightTheme = {
       bgHover: cssVar("color.neutral.subtle"),
       border: cssVar("color.border.base"),
       borderActive: cssVar("color.primary.emphasis"),
-      borderHover: cssVar("color.primary.3"),
+      borderHover: cssVar("color.primary.7"),
       font: cssVar("color.font.muted"),
-      fontActive: cssVar("color.primary.font"),
+      fontActive: cssVar("color.primary.emphasis"),
       fontHover: cssVar("color.font.muted"),
     },
     tooltip: {
-      bg: cssVar("color.gray.6"),
-      font: cssVar("color.white"),
+      bg: cssVar("color.neutral.6"),
+      font: cssVar("color.font.base"),
     },
     switch: {
       bgOff: cssVar("color.neutral.subtle"),
-      bgOn: cssVar("color.primary.emphasis"),
-      bgThumb: cssVar("color.surface.base"),
+      bgOn: cssVar("color.primary.6"),
+      bgThumb: cssVar("color.neutral.2"),
       fontOff: cssVar("color.font.muted"),
       fontOn: cssVar("color.font.baseInvert"),
-      border: cssVar("color.neutral.3"),
-      borderThumb: cssVar("color.neutral.3"),
+      border: cssVar("color.neutral.6"),
+      borderThumb: cssVar("color.neutral.2"),
     },
   },
   outline: {
-    color: cssVar("color.primary.4"),
+    color: cssVar("color.primary.6"),
   },
   shadow: {
     color: "rgba(12, 12, 13, 0.1)",
@@ -94,9 +94,9 @@ const lightTheme = {
 function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
     font: cssVar(`color.${colorScheme}.6`),
-    emphasis: cssVar(`color.${colorScheme}.6`),
-    muted: cssVar(`color.${colorScheme}.4`),
-    subtle: cssVar(`color.${colorScheme}.1`),
+    emphasis: cssVar(`color.${colorScheme}.5`),
+    muted: cssVar(`color.${colorScheme}.5`),
+    subtle: cssVar(`color.${colorScheme}.9`),
   };
 }
 
@@ -105,25 +105,25 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
     solid: {
       bg: cssVar(`color.${colorScheme}.6`),
       bgHover: cssVar(`color.${colorScheme}.7`),
-      font: cssVar(`color.white`),
+      font: cssVar(`color.font.baseInvert`),
     },
     soft: {
-      bg: cssVar(`color.${colorScheme}.0`),
-      bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      bg: cssVar(`color.${colorScheme}.9`),
+      bgHover: cssVar(`color.${colorScheme}.8`),
+      font: cssVar(`color.${colorScheme}.1`),
     },
     outline: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
-      border: cssVar(`color.${colorScheme}.2`),
+      bgHover: cssVar(`color.${colorScheme}.8`),
+      font: cssVar(`color.${colorScheme}.2`),
+      border: cssVar(`color.${colorScheme}.8`),
     },
     ghost: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      bgHover: cssVar(`color.${colorScheme}.8`),
+      font: cssVar(`color.${colorScheme}.2`),
     },
   };
 }
 
-export default deepmerge(commonTheme, lightTheme) satisfies Theme;
+export default deepmerge(commonTheme, darkTheme) satisfies Theme;

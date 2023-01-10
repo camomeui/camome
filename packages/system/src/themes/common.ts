@@ -3,6 +3,8 @@ import { cssVar } from "../lib";
 export const BASE_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
   -webkit-font-smoothing: antialiased;
+  color: ${cssVar("color.font.base")};
+  background: ${cssVar("color.surface.base")};
 }
 
 *:focus-visible {

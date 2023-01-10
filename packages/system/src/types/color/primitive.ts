@@ -21,10 +21,17 @@ export const colorSchemes = [
   "warn",
   "danger",
 ] as const;
-export const variants = ["solid", "subtle", "outline", "ghost"] as const;
+export const variants = ["solid", "soft", "outline", "ghost"] as const;
 
 export type ColorScheme = typeof colorSchemes[number];
 export type Variant = typeof variants[number];
+
+export type ColorSchemeTokens = {
+  font: Color;
+  emphasis: Color;
+  muted: Color;
+  subtle: Color;
+};
 
 type VariantSolid = {
   bg: Color;
@@ -53,29 +60,39 @@ type VariantGhost = {
 
 export type VariantColors = {
   solid: VariantSolid;
-  subtle: VariantSubtle;
+  soft: VariantSubtle;
   outline: VariantOutline;
   ghost: VariantGhost;
 };
 
-export type Surface = {
+export type FontColors = {
+  base: Color;
+  muted: Color;
+  subtle: Color;
+  baseInvert: Color;
+};
+
+export type SurfaceColors = {
   base: Color;
   raised: Color;
   sunken: Color;
 };
 
-export type ColorPalette = {
+export type BorderColors = {
+  base: Color;
+  subtle: Color;
+};
+
+export type PrimitiveColors = {
   black: Color;
   white: Color;
   code: {
     bg: Color;
   };
   gray: ColorShade;
-  primary: ColorShade & VariantColors;
-  neutral: ColorShade & VariantColors;
-  success: ColorShade & VariantColors;
-  info: ColorShade & VariantColors;
-  warn: ColorShade & VariantColors;
-  danger: ColorShade & VariantColors;
-  surface: Surface;
+  surface: SurfaceColors;
+  border: BorderColors;
+  font: FontColors;
+} & {
+  [Scheme in ColorScheme]: ColorShade & ColorSchemeTokens & VariantColors;
 };

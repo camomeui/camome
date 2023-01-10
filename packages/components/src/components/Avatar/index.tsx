@@ -24,7 +24,7 @@ export type AvatarProps = {
 } & BaseProps;
 
 const defaultSize = "md" as const;
-const defaultVariant = "subtle" as const;
+const defaultVariant = "soft" as const;
 const defaultColorScheme = "primary" as const;
 
 const _Avatar = React.forwardRef<

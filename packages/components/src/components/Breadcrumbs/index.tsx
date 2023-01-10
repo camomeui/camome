@@ -24,7 +24,7 @@ export function Breadcrumbs({
     <nav className={className}>
       <ol className={styles.list}>
         {paths.map((p, i) => (
-          <li key={p.href} className={styles.item}>
+          <li key={p.label} className={styles.item}>
             {p.href ? (
               renderLink({ href: p.href, children: p.label })
             ) : (

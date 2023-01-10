@@ -11,7 +11,7 @@ import styles from "./styles.module.scss";
 export default function Default() {
   return (
     <Menu>
-      <Menu.Label>Editing</Menu.Label>
+      <Menu.Group>Editing</Menu.Group>
       {data.category1.map((item) => (
         <Menu.Item key={item.label}>
           {item.icon}
@@ -19,7 +19,7 @@ export default function Default() {
         </Menu.Item>
       ))}
       <Menu.Divider />
-      <Menu.Label>Danger</Menu.Label>
+      <Menu.Group>Danger</Menu.Group>
       {data.category2.map(({ label, icon }) => (
         <Menu.Item key={label} className={styles.default}>
           {icon}

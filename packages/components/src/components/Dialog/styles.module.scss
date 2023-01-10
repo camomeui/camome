@@ -26,19 +26,20 @@
     max-width: locals.$maxWidth;
     margin: 0 locals.$outerMargin;
     padding: 1.5rem;
-    background-color: var(--cmm-color-white);
+    background-color: var(--cmm-color-surface-base);
     border-radius: var(--cmm-rounded-xl);
   }
 
   .title {
     font-weight: var(--cmm-font-weight-semibold);
     font-size: var(--cmm-font-size-lg);
+    color: var(--cmm-color-font-base);
   }
 
   .content {
     margin: 0.5rem 0 1rem 0;
     font-weight: var(--cmm-font-weight-normal);
-    color: var(--cmm-color-gray-5);
+    color: var(--cmm-color-font-muted);
   }
 
   .close {

@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 
-import { build } from "esbuild";
+import { build, type BuildResult } from "esbuild";
 import { globby } from "globby";
 import { format } from "prettier";
 import React from "react";
@@ -26,6 +26,7 @@ const argv = yargs(hideBin(process.argv))
 const COMPONENTS_DIR = path.join("src", "components");
 const STORIES_SRC_DIR = "_stories" as const;
 const STORIES_OUT_DIR = ".stories" as const;
+const processes: BuildResult[] = [];
 
 function extractStoryPath(filePath: string) {
   const ret = filePath
@@ -77,7 +78,7 @@ async function bundleStory(storyFullPath: string) {
     ]);
   };
 
-  await build({
+  const result = await build({
     entryPoints: [path.resolve(storyFullPath)],
     bundle: true,
     outdir,
@@ -102,6 +103,8 @@ async function bundleStory(storyFullPath: string) {
     ],
   });
 
+  processes.push(result);
+
   await onBuild();
 }
 
@@ -119,5 +122,6 @@ async function bundleStory(storyFullPath: string) {
   await Promise.all(storyFullPaths.map(bundleStory));
 })().catch((e) => {
   console.error(e);
+  processes.forEach((p) => void p.stop?.());
   process.exit(1);
 });

@@ -27,6 +27,7 @@
     "@mdx-js/loader": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
     "@next/mdx": "^13.0.0",
+    "@primer/css": "^20.8.0",
     "camome": "workspace:*",
     "contentlayer": "^0.2.9",
     "form-data": "^4.0.0",

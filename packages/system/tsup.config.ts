@@ -13,5 +13,5 @@ export default defineConfig({
   outExtension(ctx) {
     return { js: `.${ctx.format}.js` };
   },
-  onSuccess: "node ./scripts/generate-css.js",
+  onSuccess: "pnpm tsx ./scripts/generate-css.ts",
 });

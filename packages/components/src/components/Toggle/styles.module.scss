@@ -15,7 +15,7 @@
 
     box-sizing: content-box;
     display: flex;
-    border: 1px solid var(--cmm-color-gray-3);
+    border: 1px solid var(--cmm-color-switch-border);
     border-radius: locals.$radius;
     position: relative;
   }
@@ -55,7 +55,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: locals.$bgOff;
+    background: var(--cmm-color-switch-bg-off);
     border-radius: locals.$radius;
     transition: var(--cmm-transition-bg);
   }
@@ -74,14 +74,14 @@
     @extend %label;
 
     right: locals.$labelPadX;
-    color: locals.$labelColorOff;
+    color: var(--cmm-color-switch-font-off);
   }
 
   .on {
     @extend %label;
 
     left: locals.$labelPadX;
-    color: locals.$labelColorOn;
+    color: var(--cmm-color-switch-font-on);
     display: none;
   }
 
@@ -108,8 +108,8 @@
       top: 50%;
       left: locals.$padX;
       translate: 0 -50%;
-      background-color: white;
-      border: 1px solid var(--cmm-color-gray-3);
+      background-color: var(--cmm-color-switch-bg-thumb);
+      border: 1px solid var(--cmm-color-switch-border-thumb);
       border-radius: locals.$radius;
       transition: left 0.3s;
       z-index: 10;
@@ -121,7 +121,7 @@
       }
 
       ~ .background {
-        background-color: locals.$bgOn;
+        background: var(--cmm-color-switch-bg-on);
       }
 
       ~ .off {

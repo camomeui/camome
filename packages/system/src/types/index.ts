@@ -17,4 +17,9 @@ export type Theme = {
   transition: Transition;
 };
 
-export type ThemeCustomization = DeepPartial<Theme>;
+export type Themes = {
+  light: Theme;
+  dark: Theme;
+};
+
+export type ThemeCustomization = DeepPartial<Themes>;

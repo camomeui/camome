@@ -20,5 +20,11 @@
         margin-left: 0.25rem;
       }
     }
+
+    &:has(:where(:disabled)) {
+      label {
+        color: var(--cmm-color-font-subtle);
+      }
+    }
   }
 }

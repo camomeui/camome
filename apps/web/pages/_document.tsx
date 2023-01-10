@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html data-color-scheme="dark">
       <Head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="icon" href="/favicon.ico" sizes="any" />

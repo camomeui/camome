@@ -31,7 +31,7 @@ export default function WithIcon() {
 
       <Button
         leftIcon={<CloudArrowDownIcon strokeWidth="2.25" />}
-        variant="subtle"
+        variant="soft"
       >
         Download
       </Button>

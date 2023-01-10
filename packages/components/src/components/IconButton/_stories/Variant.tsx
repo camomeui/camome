@@ -10,7 +10,7 @@ export default function Variant() {
       <IconButton variant="solid" aria-label="bell">
         <BellAlertIcon />
       </IconButton>
-      <IconButton variant="subtle" aria-label="bell">
+      <IconButton variant="soft" aria-label="bell">
         <BellAlertIcon />
       </IconButton>
       <IconButton variant="outline" aria-label="bell">

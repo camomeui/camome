@@ -7,4 +7,4 @@ export const colorSchemes = [
   "warn",
   "danger",
 ] as const;
-export const variants = ["solid", "subtle", "outline", "ghost"] as const;
+export const variants = ["solid", "soft", "outline", "ghost"] as const;

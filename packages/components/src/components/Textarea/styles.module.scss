@@ -13,16 +13,6 @@
       font-weight: var(--cmm-font-weight-normal);
     }
 
-    &[aria-invalid="true"] {
-      border-color: var(--cmm-color-danger-2);
-      color: var(--cmm-color-danger-6);
-      outline-color: var(--cmm-color-danger-2);
-
-      &::placeholder {
-        color: var(--cmm-color-danger-4);
-      }
-    }
-
     &--fill {
       --Textarea-width: 100%;
     }
