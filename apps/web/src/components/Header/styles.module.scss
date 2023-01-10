@@ -28,20 +28,6 @@
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-
-  @layer override {
-    :global(.IconButton) {
-      width: 2.25rem;
-      height: 2.25rem;
-
-      [data-theme="dark"] & {
-        background: var(--cmm-color-surface-2);
-        &:hover {
-          background: var(--cmm-color-surface-3);
-        }
-      }
-    }
-  }
 }
 
 .logo {
@@ -125,7 +111,7 @@
     padding: 0 1rem;
     background-color: var(--cmm-color-white);
     z-index: 10;
-    border-bottom: 1px solid var(--cmm-color-gray-2);
+    border-bottom: 1px solid var(--cmm-color-border-base);
   }
 
   &__content {

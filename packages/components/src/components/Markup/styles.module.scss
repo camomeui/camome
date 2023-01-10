@@ -35,7 +35,7 @@
     }
 
     :where(h1, h2):not(:where([class~="no-markup"] *)) {
-      font-weight: var(--cmm-font-weight-semibold);
+      font-weight: var(--cmm-font-weight-bold);
       font-size: var(--cmm-font-size-2xl);
       border-bottom: 1px solid var(--cmm-color-border-base);
       padding-bottom: 0.3rem;

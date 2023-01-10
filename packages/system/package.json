@@ -22,6 +22,8 @@
     "prettier": "^2.8.1"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
+    "chroma-js": "^2.4.2",
     "cssnano": "^5.1.14",
     "postcss": "^8.4.20",
     "tsup": "^6.3.0"

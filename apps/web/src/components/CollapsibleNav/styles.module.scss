@@ -115,12 +115,7 @@ details.collapsible {
 
   &[aria-current="page"] {
     border-color: var(--cmm-color-primary-emphasis);
-    color: var(--cmm-color-primary-font);
-    background-color: var(--cmm-color-primary-1);
-
-    [data-theme="dark"] & {
-      color: var(--cmm-color-primary-1);
-      background-color: var(--cmm-color-primary-9);
-    }
+    color: var(--cmm-color-primary-soft-font);
+    background-color: var(--cmm-color-primary-soft-bg);
   }
 }

@@ -1,3 +1,4 @@
+import chroma from "chroma-js";
 import { deepmerge } from "deepmerge-ts";
 
 import { cssVar } from "../lib";
@@ -94,37 +95,51 @@ const darkTheme = {
   },
 } as const;
 
+function alpha(color: string, value: number): string {
+  const ret = chroma(color).alpha(value).hex();
+  if (!ret) throw new Error(`Invalid color: ${color}`);
+  return ret;
+}
+
+function darken(color: string, value: number): string {
+  const ret = chroma(color).darken(value).hex();
+  if (!ret) throw new Error(`Invalid color: ${color}`);
+  return ret;
+}
+
 function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
+  const palette = commonTheme.color[colorScheme];
   return {
-    font: cssVar(`color.${colorScheme}.6`),
-    emphasis: cssVar(`color.${colorScheme}.5`),
-    muted: cssVar(`color.${colorScheme}.5`),
-    subtle: cssVar(`color.${colorScheme}.9`),
+    font: palette[6],
+    emphasis: palette[5],
+    muted: alpha(palette[4], 0.75),
+    subtle: alpha(palette[4], 0.5),
   };
 }
 
 function variantColors(colorScheme: ColorScheme): VariantColors {
+  const palette = commonTheme.color[colorScheme];
   return {
     solid: {
-      bg: cssVar(`color.${colorScheme}.6`),
-      bgHover: cssVar(`color.${colorScheme}.7`),
+      bg: palette[6],
+      bgHover: palette[7],
       font: cssVar(`color.font.baseInvert`),
     },
     soft: {
-      bg: cssVar(`color.${colorScheme}.9`),
-      bgHover: cssVar(`color.${colorScheme}.8`),
-      font: cssVar(`color.${colorScheme}.1`),
+      bg: alpha(palette[6], 0.15),
+      bgHover: alpha(palette[6], 0.3),
+      font: palette[3],
     },
     outline: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.6`),
-      font: cssVar(`color.${colorScheme}.2`),
-      border: cssVar(`color.${colorScheme}.8`),
+      bgHover: alpha(palette[6], 0.3),
+      font: palette[2],
+      border: alpha(palette[6], 0.5),
     },
     ghost: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.8`),
-      font: cssVar(`color.${colorScheme}.2`),
+      bgHover: alpha(palette[6], 0.3),
+      font: palette[2],
     },
   };
 }

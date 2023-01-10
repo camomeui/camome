@@ -2,7 +2,7 @@ import { ComponentCssVariables } from "../../types";
 
 const variables = {
   size: null,
-  ringWidthRatio: "0.5",
+  ringWidthRatio: "0.45",
   margin: null,
 } as const satisfies ComponentCssVariables;
 

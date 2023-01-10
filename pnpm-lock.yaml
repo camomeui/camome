@@ -277,6 +277,8 @@ importers:
   packages/system:
     specifiers:
       '@camome/utils': workspace:*
+      '@types/chroma-js': ^2.1.4
+      chroma-js: ^2.4.2
       cssnano: ^5.1.14
       deepmerge-ts: ^4.2.2
       postcss: ^8.4.20
@@ -287,6 +289,8 @@ importers:
       deepmerge-ts: 4.2.2
       prettier: 2.8.1
     devDependencies:
+      '@types/chroma-js': 2.1.4
+      chroma-js: 2.4.2
       cssnano: 5.1.14_postcss@8.4.20
       postcss: 8.4.20
       tsup: 6.5.0_postcss@8.4.20
@@ -6168,6 +6172,10 @@ packages:
     resolution: {integrity: sha512-3owAC4iJub5WPqRhxd8INarF2bWeQq1yQHBgYhN0XLBJMpd5ED10RrJ3aKiAwlTyL5wK7RkBD4SZUQz2AAAMdA==}
     dev: true
 
+  /@types/chroma-js/2.1.4:
+    resolution: {integrity: sha512-l9hWzP7cp7yleJUI7P2acmpllTJNYf5uU6wh50JzSIZt3fFHe+w2FM6w9oZGBTYzjjm2qHdnQvI+fF/JF/E5jQ==}
+    dev: true
+
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
@@ -7951,6 +7959,10 @@ packages:
   /chownr/2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /chroma-js/2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
     dev: true
 
   /chrome-trace-event/1.0.3:

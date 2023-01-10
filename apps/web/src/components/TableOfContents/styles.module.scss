@@ -60,13 +60,8 @@
 }
 
 .active {
-  background-color: var(--cmm-color-primary-0) !important;
-  color: var(--cmm-color-primary-font);
+  background-color: var(--cmm-color-primary-soft-bg) !important;
+  color: var(--cmm-color-primary-soft-font);
   position: relative;
-  border-left-color: var(--cmm-color-primary-font);
-
-  [data-theme="dark"] & {
-    background-color: var(--cmm-color-primary-9) !important;
-    color: var(--cmm-color-primary-1);
-  }
+  border-left-color: var(--cmm-color-primary-soft-font);
 }
