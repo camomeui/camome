@@ -1,4 +1,4 @@
-import { toKebabCase, type Path } from "@camome/utils";
+import { toKebabCase, type Path, type DeepPartial } from "@camome/utils";
 
 import { DEFAULT_PREFIX, themedComponents } from "../constants";
 import { Theme } from "../types";
@@ -112,7 +112,7 @@ type GenerateCssOptions = {
 };
 
 export function generateThemeCss(
-  theme: Theme,
+  theme: DeepPartial<Theme>,
   options: Required<GenerateCssOptions>
 ): string {
   const { prefix, selector } = options;
@@ -129,4 +129,44 @@ export function generateThemeCss(
 
   css = enclose(css, selector);
   return css;
+}
+
+type Obj = Record<string, unknown>;
+type SplitThemesParams<T extends Obj> = {
+  light: T;
+  dark: T;
+};
+
+export function splitThemes<T extends Obj>({
+  light,
+  dark,
+}: SplitThemesParams<T>): SplitThemesParams<DeepPartial<T>> & {
+  common: DeepPartial<T>;
+} {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  const retLight: any = {};
+  const retDark: any = {};
+  const retCommon: any = {};
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+
+  for (const [key, lightVal] of Object.entries(light)) {
+    const darkVal = dark[key];
+    if (typeof lightVal === "object") {
+      const { common, dark, light } = splitThemes({
+        light: lightVal as T,
+        dark: darkVal as T,
+      });
+      retCommon[key] = common;
+      retLight[key] = light;
+      retDark[key] = dark;
+      continue;
+    }
+    if (lightVal === darkVal) {
+      retCommon[key] = lightVal;
+    } else {
+      retLight[key] = lightVal;
+      retDark[key] = darkVal;
+    }
+  }
+  return { light: retLight, dark: retDark, common: retCommon };
 }

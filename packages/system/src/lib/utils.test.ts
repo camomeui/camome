@@ -1,4 +1,4 @@
-import { cssVar } from "./utils";
+import { cssVar, splitThemes } from "./utils";
 
 test("color token", () => {
   expect(
@@ -40,4 +40,39 @@ test("lengthy", () => {
       withVar: false,
     })
   ).toBe("--cmm-color-neutral-solid-bg-hover");
+});
+
+test("split themes", () => {
+  const { common, dark, light } = splitThemes({
+    light: {
+      foo: "bar",
+      color: {
+        bg: "red",
+        font: "blue",
+      },
+    },
+    dark: {
+      foo: "bar",
+      color: {
+        bg: "red",
+        font: "orange",
+      },
+    },
+  });
+  expect(common).toMatchObject({
+    foo: "bar",
+    color: {
+      bg: "red",
+    },
+  });
+  expect(dark).toMatchObject({
+    color: {
+      font: "orange",
+    },
+  });
+  expect(light).toMatchObject({
+    color: {
+      font: "blue",
+    },
+  });
 });

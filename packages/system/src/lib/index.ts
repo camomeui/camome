@@ -9,7 +9,13 @@ import { BASE_STYLES } from "../themes/common";
 import lightTheme from "../themes/light";
 import { Theme, Themes } from "../types";
 
-import { layer, modifyCss, layerOrder, generateThemeCss } from "./utils";
+import {
+  layer,
+  modifyCss,
+  layerOrder,
+  generateThemeCss,
+  splitThemes,
+} from "./utils";
 
 type DefineThemeFn = (theme: Theme) => DeepPartial<Theme>;
 
@@ -41,8 +47,21 @@ export async function generateCss(
     { comment: "Normalize", enclosure: _layer("reset") }
   );
 
+  const { common, dark, light } = splitThemes(themes);
+
+  const commonTheme = modifyCss(
+    generateThemeCss(common, {
+      prefix,
+      selector: selector,
+    }),
+    {
+      comment: "Theme - common",
+      enclosure: _layer("theme"),
+    }
+  );
+
   const lightTheme = modifyCss(
-    generateThemeCss(themes.light, {
+    generateThemeCss(light, {
       prefix,
       selector: selector + '[data-theme="light"]',
     }),
@@ -53,7 +72,7 @@ export async function generateCss(
   );
 
   const darkTheme = modifyCss(
-    generateThemeCss(themes.dark, {
+    generateThemeCss(dark, {
       prefix,
       selector: selector + '[data-theme="dark"]',
     }),
@@ -70,7 +89,7 @@ export async function generateCss(
   const css =
     layerOrder(prefix, layers) +
     "\n" +
-    [normalizeCss, lightTheme, darkTheme, baseCss].join("\n");
+    [normalizeCss, commonTheme, lightTheme, darkTheme, baseCss].join("\n");
 
   return format(css, {
     parser: "css",
