@@ -1,16 +1,17 @@
 @use "../../styles/inputs";
 @use "../../styles/utils";
-@use "./variables" as locals;
+
+$iconWidth: 1.75rem;
 
 @include utils.layer {
   .Block {
     @include inputs.base();
     @include inputs.sizes();
 
-    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" ><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>');
+    background-image: var(--cmm-select-marker);
     background-position: right 0.75rem center;
     background-repeat: no-repeat;
-    background-size: 1.2em 1.2em;
+    background-size: 1em 1em;
 
     &:not(:disabled) {
       cursor: pointer;
@@ -24,21 +25,21 @@
       font-size: var(--cmm-font-size-sm);
       height: 1.75rem;
       padding-left: 0.5rem;
-      padding-right: calc(0.5rem + locals.$iconWidth);
+      padding-right: calc(0.5rem + $iconWidth);
     }
 
     &--md {
       font-size: var(--cmm-font-size-md);
       height: 2.25rem;
       padding-left: 0.75rem;
-      padding-right: calc(0.75rem + locals.$iconWidth);
+      padding-right: calc(0.75rem + $iconWidth);
     }
 
     &--lg {
       font-size: var(--cmm-font-size-md);
       height: 2.75rem;
       padding-left: 1rem;
-      padding-right: calc(1rem + locals.$iconWidth);
+      padding-right: calc(1rem + $iconWidth);
     }
   }
 }

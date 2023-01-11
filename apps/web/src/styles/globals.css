@@ -38,6 +38,12 @@
 }
 
 .hash-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
   margin-left: 0.3em;
   border-radius: var(--cmm-rounded-sm);
   opacity: 0;
@@ -55,5 +61,5 @@
 }
 
 .hash-link:focus {
-  opacity: 1 !important;
+  opacity: 1;
 }

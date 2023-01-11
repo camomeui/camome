@@ -1,6 +1,7 @@
 import { type DeepPartial } from "@camome/utils";
 
 import { ColorPalette } from "./color";
+import { ComponentTheme } from "./component";
 import { FontFamily, FontSize, FontWeight } from "./font";
 import { Rounded, Shadow, Outline, Transition } from "./misc";
 
@@ -15,7 +16,7 @@ export type Theme = {
   shadow: Shadow;
   outline: Outline;
   transition: Transition;
-};
+} & ComponentTheme;
 
 export type Themes = {
   light: Theme;

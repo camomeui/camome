@@ -1,6 +1,8 @@
 import chroma from "chroma-js";
 import { deepmerge } from "deepmerge-ts";
 
+import { encodeBase64 } from "@camome/utils";
+
 import { cssVar } from "../lib";
 import { Theme } from "../types";
 import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
@@ -54,44 +56,6 @@ const darkTheme = {
       base: cssVar("color.gray.7"),
       subtle: cssVar("color.gray.8"),
     },
-    /* Components */
-    kbd: {
-      bg: cssVar("color.surface.2"),
-      border: cssVar("color.surface.3"),
-      font: cssVar("color.font.muted"),
-    },
-    menu: {
-      bg: cssVar("color.surface.1"),
-      bgHover: cssVar("color.surface.2"),
-      fontLabel: cssVar("color.font.base"),
-      fontIcon: cssVar("color.font.subtle"),
-      fontGroup: cssVar("color.font.subtle"),
-    },
-    tab: {
-      bg: cssVar("color.surface.0"),
-      listBg: cssVar("color.surface.0"),
-      bgActive: cssVar("color.surface.0"),
-      bgHover: cssVar("color.neutral.soft.bgHover"),
-      border: cssVar("color.border.base"),
-      borderActive: cssVar("color.primary.emphasis"),
-      borderHover: cssVar("color.primary.7"),
-      font: cssVar("color.font.muted"),
-      fontActive: cssVar("color.primary.emphasis"),
-      fontHover: cssVar("color.font.base"),
-    },
-    tooltip: {
-      bg: cssVar("color.neutral.6"),
-      font: cssVar("color.font.base"),
-    },
-    switch: {
-      bgOff: cssVar("color.surface.2"),
-      bgOn: cssVar("color.primary.6"),
-      bgThumb: cssVar("color.neutral.0"),
-      fontOff: cssVar("color.font.muted"),
-      fontOn: cssVar("color.font.baseInvert"),
-      border: cssVar("color.neutral.6"),
-      borderThumb: cssVar("color.neutral.2"),
-    },
   },
   outline: {
     color: {
@@ -101,6 +65,53 @@ const darkTheme = {
   },
   shadow: {
     color: "rgba(12, 12, 13, 0.1)",
+  },
+  /* Components */
+  input: {
+    bg: cssVar("color.surface.2"),
+    border: cssVar("color.border.base"),
+  },
+  kbd: {
+    bg: cssVar("color.surface.2"),
+    border: cssVar("color.surface.3"),
+    font: cssVar("color.font.muted"),
+  },
+  menu: {
+    bg: cssVar("color.surface.1"),
+    bgHover: cssVar("color.surface.2"),
+    fontLabel: cssVar("color.font.base"),
+    fontIcon: cssVar("color.font.subtle"),
+    fontGroup: cssVar("color.font.subtle"),
+  },
+  tab: {
+    bg: cssVar("color.surface.0"),
+    listBg: cssVar("color.surface.0"),
+    bgActive: cssVar("color.surface.0"),
+    bgHover: cssVar("color.neutral.soft.bgHover"),
+    border: cssVar("color.border.base"),
+    borderActive: cssVar("color.primary.emphasis"),
+    borderHover: cssVar("color.primary.7"),
+    font: cssVar("color.font.muted"),
+    fontActive: cssVar("color.primary.emphasis"),
+    fontHover: cssVar("color.font.base"),
+  },
+  tooltip: {
+    bg: cssVar("color.neutral.6"),
+    font: cssVar("color.font.base"),
+  },
+  select: {
+    marker: `url('data:image/svg+xml;base64,${encodeBase64(
+      `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="${commonTheme.color.neutral[5]}"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" /></svg>`
+    )}')`,
+  },
+  switch: {
+    bgOff: cssVar("color.surface.2"),
+    bgOn: cssVar("color.primary.6"),
+    bgThumb: cssVar("color.neutral.0"),
+    fontOff: cssVar("color.font.muted"),
+    fontOn: cssVar("color.font.baseInvert"),
+    border: cssVar("color.neutral.6"),
+    borderThumb: cssVar("color.neutral.2"),
   },
 } as const;
 

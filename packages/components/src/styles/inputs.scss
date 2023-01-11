@@ -23,11 +23,13 @@
 
 @mixin base() {
   appearance: none;
-  border: 1px solid var(--cmm-color-border-base);
+  border: 1px solid var(--cmm-input-border);
   border-radius: var(--cmm-rounded-lg);
-  background: var(--cmm-color-surface-2);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);
+  // Don't use `background` to avoid collision of `background-image` of Select.
+  // TODO: Workaround without knowing the internal of a child.
+  background-color: var(--cmm-input-bg);
 
   &:disabled {
     color: var(--cmm-color-font-muted);

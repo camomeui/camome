@@ -1,12 +1,17 @@
-import { Color } from "./primitive";
+import { Color } from "./color/primitive";
 
-export type KbdColors = {
+export type Input = {
+  bg: Color;
+  border: Color;
+};
+
+export type Kbd = {
   bg: Color;
   border: Color;
   font: Color;
 };
 
-export type MenuColors = {
+export type Menu = {
   bg: Color;
   bgHover: Color;
   fontLabel: Color;
@@ -14,7 +19,7 @@ export type MenuColors = {
   fontGroup: Color;
 };
 
-export type TabColors = {
+export type Tab = {
   border: Color;
   borderActive: Color;
   borderHover: Color;
@@ -27,7 +32,11 @@ export type TabColors = {
   listBg: Color;
 };
 
-export type SwitchColors = {
+export type Select = {
+  marker: string;
+};
+
+export type Switch = {
   bgOff: Color;
   bgOn: Color;
   bgThumb: Color;
@@ -37,15 +46,17 @@ export type SwitchColors = {
   borderThumb: Color;
 };
 
-export type TooltipColors = {
+export type Tooltip = {
   bg: Color;
   font: Color;
 };
 
-export type ComponentColors = {
-  kbd: KbdColors;
-  menu: MenuColors;
-  tab: TabColors;
-  tooltip: TooltipColors;
-  switch: SwitchColors;
+export type ComponentTheme = {
+  input: Input;
+  kbd: Kbd;
+  menu: Menu;
+  tab: Tab;
+  tooltip: Tooltip;
+  select: Select;
+  switch: Switch;
 };

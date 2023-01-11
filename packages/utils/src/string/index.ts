@@ -4,3 +4,13 @@ export function toKebabCase(str: string): string {
     .replace(/\s+/g, "-")
     .toLowerCase();
 }
+
+// WARN: Node.js only
+export function encodeBase64(str: string): string {
+  return Buffer.from(str).toString("base64");
+}
+
+// WARN: Node.js only
+export function decodeBase64(str: string): string {
+  return Buffer.from(str, "base64").toString();
+}
