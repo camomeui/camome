@@ -26,6 +26,9 @@ const mdxOptions = {
       rehypeAutolinkHeadings,
       {
         behavior: "append",
+        properties: {
+          class: "hash-link",
+        },
         content(node) {
           return [linkIcon];
         },

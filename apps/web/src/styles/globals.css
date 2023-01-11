@@ -37,15 +37,23 @@
   background-color: transparent;
 }
 
-:where(h1, h2, h3, h4, h5, h6):hover .link-icon {
+.hash-link {
+  margin-left: 0.3em;
+  border-radius: var(--cmm-rounded-sm);
+  opacity: 0;
+}
+
+.hash-link svg {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  color: var(--cmm-color-neutral-5);
+}
+
+:where(h1, h2, h3, h4, h5, h6):hover .hash-link {
   opacity: 1;
 }
 
-.link-icon {
-  display: inline;
-  margin-left: 0.3em;
-  opacity: 0;
-  width: 0.9em;
-  height: 0.9em;
-  color: var(--cmm-color-gray-5);
+.hash-link:focus {
+  opacity: 1 !important;
 }

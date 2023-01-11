@@ -9,7 +9,6 @@ export default s(
     viewBox: "0 0 1024 1024",
     fill: "currentColor",
     stroke: "currentColor",
-    class: "link-icon",
     ariaHidden: true,
   },
   [
