@@ -42,4 +42,9 @@ $iconSize: 1.2rem;
   position: absolute;
   top: $margin;
   right: $margin;
+  opacity: 0;
+
+  &.shown {
+    opacity: 1;
+  }
 }

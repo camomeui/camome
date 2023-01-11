@@ -70,21 +70,21 @@ export default function CodeBlock({
       onMouseLeave={onExit}
       className={styles.container}
     >
-      {shown && (
-        <Tooltip
-          label={copied ? "Copied!" : "Copy"}
-          className={styles["tooltip-wrap"]}
-          style={{ translate: hasScrollbar ? "-0.6rem" : 0 }}
+      <Tooltip
+        label={copied ? "Copied!" : "Copy"}
+        className={clsx(styles["tooltip-wrap"], shown && styles.shown)}
+        style={{ translate: hasScrollbar ? "-0.6rem" : 0 }}
+      >
+        <button
+          type="button"
+          className={styles["copy-button"]}
+          onClick={onCopy}
+          onFocus={() => setShown(true)}
+          onBlur={() => setShown(false)}
         >
-          <button
-            type="button"
-            className={styles["copy-button"]}
-            onClick={onCopy}
-          >
-            {copied ? <BiCheck /> : <BiCopy />}
-          </button>
-        </Tooltip>
-      )}
+          {copied ? <BiCheck /> : <BiCopy />}
+        </button>
+      </Tooltip>
       <Highlight
         {...defaultProps}
         theme={theme === "dark" ? darkTheme : lightTheme}
