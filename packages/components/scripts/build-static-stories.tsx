@@ -95,7 +95,7 @@ async function bundleStory(storyFullPath: string) {
       : undefined,
     plugins: [
       CssModulesPlugin({
-        v2: true,
+        generateScopedName,
         onGenerateCss(css) {
           generatedCss.push(css);
         },
@@ -125,3 +125,11 @@ async function bundleStory(storyFullPath: string) {
   processes.forEach((p) => void p.stop?.());
   process.exit(1);
 });
+
+function generateScopedName(local, filename) {
+  const dir = filename.split("/").at(-2);
+  if (dir === "_stories" || filename.endsWith("index.stories.module.scss")) {
+    return "story-" + hash(filename + local);
+  }
+  return buildScopedClassName(local, filename);
+}

@@ -1,3 +1,5 @@
+// Original: https://github.com/indooorsman/esbuild-css-modules-plugin
+
 const plugin = require("./lib/plugin");
 const { pluginName } = require("./lib/utils");
 
@@ -8,15 +10,7 @@ const CssModulesPlugin = (options = {}) => {
   return {
     name: pluginName,
     setup: async (build) => {
-      const { bundle } = build.initialOptions;
-      const { v2 } = options;
-      const useV2 = v2 && bundle;
-
-      if (useV2) {
-        await plugin.setup(build, options);
-      } else {
-        throw new Error("Use V2");
-      }
+      await plugin.setup(build, options);
     },
   };
 };
