@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  clean: true,
+  clean: false,
   dts: true,
   format: ["esm", "cjs"],
   outExtension(ctx) {
