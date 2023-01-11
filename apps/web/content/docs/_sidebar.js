@@ -56,7 +56,7 @@ const sidebar = {
               id: "checkbox",
             },
             {
-              id: "toggle",
+              id: "switch",
             },
             {
               id: "radio",

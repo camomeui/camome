@@ -1,10 +1,10 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
-import { Toggle } from "@camome/components/Toggle";
+import { Switch } from "@camome/components/Switch";
 
 export default function Default() {
   return (
-    <Toggle
+    <Switch
       size="lg"
       on={<SunIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
       off={<MoonIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}

@@ -1,5 +1,5 @@
 import { FormField } from "@camome/components/FormField";
-import { Toggle } from "@camome/components/Toggle";
+import { Switch } from "@camome/components/Switch";
 
 export default function Default() {
   return (
@@ -16,7 +16,7 @@ export default function Default() {
           <FormField.Label />
           <FormField.Description />
         </div>
-        <Toggle size="md" on="ON" off="OFF" />
+        <Switch size="md" on="ON" off="OFF" />
       </div>
     </FormField>
   );
