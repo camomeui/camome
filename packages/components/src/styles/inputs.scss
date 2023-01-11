@@ -45,7 +45,7 @@
   }
 
   &::placeholder {
-    color: var(--cmm-color-font-muted);
+    color: var(--cmm-color-font-subtle);
   }
 
   &[aria-invalid="true"] {
@@ -54,6 +54,9 @@
     outline-color: var(--cmm-outline-color-danger);
 
     &::placeholder {
+      // Using `muted` while default color is `subtle`
+      // because light danger color may be hard to see.
+      // TODO: This decision is depending on the default theme.
       color: var(--cmm-color-danger-muted);
     }
   }

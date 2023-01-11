@@ -9,10 +9,6 @@
     padding: 0.5rem;
     resize: none;
 
-    &::placeholder {
-      font-weight: var(--cmm-font-weight-normal);
-    }
-
     &--fill {
       --cmm-Textarea-width: 100%;
     }

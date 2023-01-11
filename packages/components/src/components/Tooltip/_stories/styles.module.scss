@@ -7,8 +7,34 @@
 .placement {
   &__container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "pad0 top pad1"
+      "left pad2 right"
+      "pad3 bottom pad4";
+    place-items: center;
+    gap: 0.5rem;
     padding: 2rem;
+
+    :global(:where(.Tooltip__target, .Button)) {
+      width: 100%;
+    }
+  }
+
+  &__top {
+    grid-area: top;
+  }
+
+  &__right {
+    grid-area: right;
+  }
+
+  &__bottom {
+    grid-area: bottom;
+  }
+
+  &__left {
+    grid-area: left;
   }
 }

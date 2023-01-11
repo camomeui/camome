@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 export type TooltipProps = {
   children: React.ReactNode;
   label: React.ReactNode;
-  placement?: "top" | "bottom";
+  placement?: "top" | "right" | "bottom" | "left";
 } & BaseProps;
 
 // TODO: Should append `aria-labelledby` and `aria-describedby` to the children?

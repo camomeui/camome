@@ -15,11 +15,6 @@
     @extend %sizeDefaults;
     @include inputs.base();
 
-    &::placeholder {
-      font-weight: var(--cmm-font-weight-normal);
-      color: var(--cmm-color-gray-4);
-    }
-
     &--sm {
       font-size: var(--cmm-font-size-sm);
       height: 1.75rem;
