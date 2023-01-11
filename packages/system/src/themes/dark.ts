@@ -1,8 +1,6 @@
 import chroma from "chroma-js";
 import { deepmerge } from "deepmerge-ts";
 
-import { encodeBase64 } from "@camome/utils";
-
 import { cssVar } from "../lib";
 import { Theme } from "../types";
 import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";

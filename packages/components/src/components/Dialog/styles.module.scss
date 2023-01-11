@@ -43,9 +43,12 @@
   }
 
   .close {
-    // FIXME: These overrides are not guaranteed.
-    --IconButton-size: 1.75rem;
-    --IconButton-icon-size: calc(var(--IconButton-size) * 0.75);
+    // FIXME: Avoid !important.
+    // Import variables?
+    --cmm-IconButton-size: 1.75rem !important;
+    --cmm-IconButton-icon-size: calc(
+      var(--cmm-IconButton-size) * 0.75
+    ) !important;
 
     position: absolute;
     inset: locals.$closeOffset locals.$closeOffset auto auto;

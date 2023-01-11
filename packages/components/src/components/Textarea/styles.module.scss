@@ -5,7 +5,7 @@
   .Block {
     @include inputs.base();
 
-    width: var(--Textarea-width);
+    width: var(--cmm-Textarea-width);
     padding: 0.5rem;
     resize: none;
 
@@ -14,7 +14,7 @@
     }
 
     &--fill {
-      --Textarea-width: 100%;
+      --cmm-Textarea-width: 100%;
     }
   }
 }

@@ -7,8 +7,8 @@
 
   .with-close {
     :global(.IconButton) {
-      --IconButton-size: 1.5rem;
-      --IconButton-icon-size: 1em;
+      --cmm-IconButton-size: 1.5rem;
+      --cmm-IconButton-icon-size: 1em;
       margin: 0 -0.5rem 0 0;
       border-radius: var(--cmm-rounded-full);
     }
@@ -16,8 +16,8 @@
 
   .with-avatar {
     :global(.Avatar) {
-      --Avatar-size: 1.5rem;
-      --Avatar-margin: 0 0 0 -0.5rem;
+      --cmm-Avatar-size: 1.5rem;
+      --cmm-Avatar-margin: 0 0 0 -0.5rem;
     }
   }
 }
