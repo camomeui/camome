@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
 import { deepmerge } from "deepmerge-ts";
 
-import { cssVar } from "../lib";
+import { cssVar } from "../lib/utils";
 import { Theme } from "../types";
 import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
 
@@ -105,6 +105,10 @@ const darkTheme = {
     fontOn: cssVar("color.font.baseInvert"),
     border: cssVar("color.neutral.6"),
     borderThumb: cssVar("color.neutral.2"),
+  },
+  TextInput: {
+    bg: cssVar("color.black"),
+    bgHover: cssVar("color.black"),
   },
 } as const;
 

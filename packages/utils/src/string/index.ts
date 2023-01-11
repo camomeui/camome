@@ -1,7 +1,8 @@
 export function toKebabCase(str: string): string {
-  return str.replace(/([a-z])([A-Z]|[0-9])/g, (_, p1, p2) => {
-    return `${p1}-${p2.toLowerCase()}`;
-  });
+  return str
+    .replace(/([a-z])([A-Z]|[0-9])/g, "$1-$2")
+    .replace(/\s+/g, "-")
+    .toLowerCase();
 }
 
 // WARN: Node.js only

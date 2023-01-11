@@ -1,3 +1,9 @@
+import { toKebabCase, type Path } from "@camome/utils";
+
+import { DEFAULT_PREFIX, themedComponents } from "../constants";
+import { Theme } from "../types";
+import { ThemedComponent } from "../types/component";
+
 export type AppendCssOptions = {
   comment?: string;
   enclosure?: string;
@@ -73,6 +79,54 @@ export function layer(prefix: string, name: string) {
   return `@layer ${prefix}.${name}`;
 }
 
-export function toCssVar(str: string): string {
-  return str.replace(/([a-z])([A-Z]|[0-9])/g, "$1-$2").toLowerCase();
+// TODO: While I don't want this to be dependent on stuff from
+// outside (like Theme and themedComponents), making this generic
+// function ends up with the following ts error:
+// error TS7056: The inferred type of this node exceeds the maximum length the compiler will serialize. An explicit type annotation is needed.
+export function cssVar<
+  DotPath extends Path<Theme>,
+  Prefix extends string,
+  WithVar extends boolean = true
+>(
+  path: DotPath,
+  options: {
+    prefix?: Prefix;
+    withVar?: WithVar;
+  } = {}
+): string {
+  const { prefix = DEFAULT_PREFIX, withVar = true } = options;
+  const [firstToken, ...rest] = path.split(".");
+  let name: string;
+  if (themedComponents.includes(firstToken as ThemedComponent)) {
+    name = `${firstToken}-${toKebabCase(rest.join("-"))}`;
+  } else {
+    name = toKebabCase(path.replaceAll(".", "-"));
+  }
+  name = `--${prefix}-${name}`;
+  return withVar ? `var(${name})` : name;
+}
+
+type GenerateCssOptions = {
+  prefix?: string;
+  selector?: string;
+};
+
+export function generateThemeCss(
+  theme: Theme,
+  options: Required<GenerateCssOptions>
+): string {
+  const { prefix, selector } = options;
+  let css = "";
+  const paths = generatePaths(theme);
+  for (const path of paths) {
+    const key = cssVar(path as Path<Theme>, {
+      prefix,
+      withVar: false,
+    });
+    const val = getValue(theme, path);
+    css += `${key}: ${val};\n`;
+  }
+
+  css = enclose(css, selector);
+  return css;
 }

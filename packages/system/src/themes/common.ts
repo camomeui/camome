@@ -1,4 +1,4 @@
-import { cssVar } from "../lib";
+import { cssVar } from "../lib/utils";
 
 export const BASE_STYLES = `body {
   font-family: ${cssVar("font.family.base")};

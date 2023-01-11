@@ -1,4 +1,8 @@
+import { themedComponents } from "../constants";
+
 import { Color } from "./color/primitive";
+
+export type ThemedComponent = typeof themedComponents[number];
 
 export type Input = {
   bg: Color;
@@ -54,4 +58,10 @@ export type ComponentTheme = {
   Tab: Tab;
   Tooltip: Tooltip;
   Switch: Switch;
+};
+
+// Make sure `ComponentTheme` has all the component themes
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Test = {
+  [P in ThemedComponent]: ComponentTheme[P];
 };

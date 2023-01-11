@@ -81,6 +81,7 @@ export default function CodeBlock({
           onClick={onCopy}
           onFocus={() => setShown(true)}
           onBlur={() => setShown(false)}
+          aria-label="Copy code"
         >
           {copied ? <BiCheck /> : <BiCopy />}
         </button>

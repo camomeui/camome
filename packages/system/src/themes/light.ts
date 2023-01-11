@@ -1,6 +1,6 @@
 import { deepmerge } from "deepmerge-ts";
 
-import { cssVar } from "../lib";
+import { cssVar } from "../lib/utils";
 import { Theme } from "../types";
 import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
 
@@ -106,6 +106,10 @@ const lightTheme = {
     fontOn: cssVar("color.font.baseInvert"),
     border: cssVar("color.neutral.3"),
     borderThumb: cssVar("color.neutral.3"),
+  },
+  TextInput: {
+    bg: cssVar("color.black"),
+    bgHover: cssVar("color.black"),
   },
 } as const;
 

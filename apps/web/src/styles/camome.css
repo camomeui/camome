@@ -351,7 +351,7 @@
     display: none;
   }
 }
-/* Theme */
+/* Theme - light */
 @layer cmm.theme {
   :root[data-theme="light"] {
     --cmm-color-black: #141517;
@@ -612,9 +612,11 @@
     --cmm-Switch-font-on: var(--cmm-color-font-base-invert);
     --cmm-Switch-border: var(--cmm-color-neutral-3);
     --cmm-Switch-border-thumb: var(--cmm-color-neutral-3);
+    --cmm-text-input-bg: var(--cmm-color-black);
+    --cmm-text-input-bg-hover: var(--cmm-color-black);
   }
 }
-/* Theme */
+/* Theme - dark */
 @layer cmm.theme {
   :root[data-theme="dark"] {
     --cmm-color-black: #141517;
@@ -874,6 +876,8 @@
     --cmm-Switch-font-on: var(--cmm-color-font-base-invert);
     --cmm-Switch-border: var(--cmm-color-neutral-6);
     --cmm-Switch-border-thumb: var(--cmm-color-neutral-2);
+    --cmm-text-input-bg: var(--cmm-color-black);
+    --cmm-text-input-bg-hover: var(--cmm-color-black);
   }
 }
 /* Base */
