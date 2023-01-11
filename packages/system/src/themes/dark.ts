@@ -67,23 +67,23 @@ const darkTheme = {
     color: "rgba(12, 12, 13, 0.1)",
   },
   /* Components */
-  input: {
+  Input: {
     bg: cssVar("color.surface.2"),
     border: cssVar("color.border.base"),
   },
-  kbd: {
+  Kbd: {
     bg: cssVar("color.surface.2"),
     border: cssVar("color.surface.3"),
     font: cssVar("color.font.muted"),
   },
-  menu: {
+  Menu: {
     bg: cssVar("color.surface.1"),
     bgHover: cssVar("color.surface.2"),
     fontLabel: cssVar("color.font.base"),
     fontIcon: cssVar("color.font.subtle"),
     fontGroup: cssVar("color.font.subtle"),
   },
-  tab: {
+  Tab: {
     bg: cssVar("color.surface.0"),
     listBg: cssVar("color.surface.0"),
     bgActive: cssVar("color.surface.0"),
@@ -95,16 +95,11 @@ const darkTheme = {
     fontActive: cssVar("color.primary.emphasis"),
     fontHover: cssVar("color.font.base"),
   },
-  tooltip: {
+  Tooltip: {
     bg: cssVar("color.neutral.6"),
     font: cssVar("color.font.base"),
   },
-  select: {
-    marker: `url('data:image/svg+xml;base64,${encodeBase64(
-      `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="${commonTheme.color.neutral[5]}"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" /></svg>`
-    )}')`,
-  },
-  switch: {
+  Switch: {
     bgOff: cssVar("color.surface.2"),
     bgOn: cssVar("color.primary.6"),
     bgThumb: cssVar("color.neutral.0"),

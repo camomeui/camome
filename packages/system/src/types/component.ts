@@ -32,10 +32,6 @@ export type Tab = {
   listBg: Color;
 };
 
-export type Select = {
-  marker: string;
-};
-
 export type Switch = {
   bgOff: Color;
   bgOn: Color;
@@ -52,11 +48,10 @@ export type Tooltip = {
 };
 
 export type ComponentTheme = {
-  input: Input;
-  kbd: Kbd;
-  menu: Menu;
-  tab: Tab;
-  tooltip: Tooltip;
-  select: Select;
-  switch: Switch;
+  Input: Input;
+  Kbd: Kbd;
+  Menu: Menu;
+  Tab: Tab;
+  Tooltip: Tooltip;
+  Switch: Switch;
 };

@@ -24,9 +24,9 @@
     font-size: var(--cmm-font-size-xs);
     font-weight: var(--cmm-font-weight-normal);
     line-height: 1;
-    background: var(--cmm-tooltip-bg);
-    color: var(--cmm-tooltip-font);
-    border: 1px solid var(--cmm-tooltip-border);
+    background: var(--cmm-Tooltip-bg);
+    color: var(--cmm-Tooltip-font);
+    border: 1px solid var(--cmm-Tooltip-border);
     border-radius: var(--cmm-rounded-md);
     transition: 0.2s ease-in;
     transition-delay: 0.15s;
@@ -46,7 +46,7 @@
         left: 50%;
         margin-left: calc(locals.$arrowSize * -1);
         border: locals.$arrowSize solid transparent;
-        border-top: locals.$arrowSize solid var(--cmm-tooltip-bg);
+        border-top: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }
 
@@ -62,7 +62,7 @@
         left: 50%;
         margin-left: calc(locals.$arrowSize * -1);
         border: locals.$arrowSize solid transparent;
-        border-bottom: locals.$arrowSize solid var(--cmm-tooltip-bg);
+        border-bottom: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }
   }

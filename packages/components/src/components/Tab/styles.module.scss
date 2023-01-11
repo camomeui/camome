@@ -2,8 +2,8 @@
 
 @include utils.layer {
   $borderBWidth: 2px;
-  $borderBPassiveColor: var(--cmm-tab-border);
-  $borderBActiveColor: var(--cmm-tab-border-active);
+  $borderBPassiveColor: var(--cmm-Tab-border);
+  $borderBActiveColor: var(--cmm-Tab-border-active);
 
   .group {
     display: flex;
@@ -18,7 +18,7 @@
     white-space: nowrap;
     padding: 0 1rem;
     line-height: 2;
-    color: var(--cmm-tab-font);
+    color: var(--cmm-Tab-font);
     border-top-left-radius: var(--cmm-rounded-md);
     border-top-right-radius: var(--cmm-rounded-md);
     border-bottom: solid $borderBWidth $borderBPassiveColor;
@@ -26,11 +26,11 @@
     transition: var(--cmm-transition-bg), color 0.3s, border 0.3s;
 
     &:hover {
-      background: var(--cmm-tab-bg-hover);
+      background: var(--cmm-Tab-bg-hover);
 
       &:not(.--active) {
-        border-color: var(--cmm-tab-border-hover);
-        color: var(--cmm-tab-font-hover);
+        border-color: var(--cmm-Tab-border-hover);
+        color: var(--cmm-Tab-font-hover);
       }
     }
 
@@ -40,8 +40,8 @@
     }
 
     &--active {
-      border-color: var(--cmm-tab-border-active);
-      color: var(--cmm-tab-font-active);
+      border-color: var(--cmm-Tab-border-active);
+      color: var(--cmm-Tab-font-active);
     }
   }
 
@@ -50,7 +50,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: $borderBWidth solid $borderBPassiveColor;
-    background: var(--cmm-tab-list-bg);
+    background: var(--cmm-Tab-list-bg);
   }
 
   .panel {

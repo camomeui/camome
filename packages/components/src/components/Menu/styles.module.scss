@@ -9,7 +9,7 @@
     padding: 0.25rem;
     min-width: 10rem;
     box-shadow: var(--cmm-shadow-sm);
-    background: var(--cmm-menu-bg);
+    background: var(--cmm-Menu-bg);
     color: var(--cmm-color-font-base);
     font-size: var(--cmm-font-size-sm);
   }
@@ -23,22 +23,22 @@
     cursor: pointer;
     transition: var(--cmm-transition-bg);
     width: 100%;
-    color: var(--cmm-menu-font-label);
+    color: var(--cmm-Menu-font-label);
 
     &:hover,
     &--active {
-      background: var(--cmm-menu-bg-hover);
+      background: var(--cmm-Menu-bg-hover);
     }
 
     > svg {
       width: locals.$iconSize;
       height: locals.$iconSize;
-      color: var(--cmm-menu-font-icon);
+      color: var(--cmm-Menu-font-icon);
     }
   }
 
   .group {
-    color: var(--cmm-menu-font-group);
+    color: var(--cmm-Menu-font-group);
     padding: 0.25rem 0.75rem;
     width: 100%;
   }

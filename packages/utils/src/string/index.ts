@@ -1,8 +1,7 @@
 export function toKebabCase(str: string): string {
-  return str
-    .replace(/([a-z])([A-Z]|[0-9])/g, "$1-$2")
-    .replace(/\s+/g, "-")
-    .toLowerCase();
+  return str.replace(/([a-z])([A-Z]|[0-9])/g, (_, p1, p2) => {
+    return `${p1}-${p2.toLowerCase()}`;
+  });
 }
 
 // WARN: Node.js only
@@ -11,6 +10,6 @@ export function encodeBase64(str: string): string {
 }
 
 // WARN: Node.js only
-export function decodeBase64(str: string): string {
+export function toBase64(str: string): string {
   return Buffer.from(str, "base64").toString();
 }

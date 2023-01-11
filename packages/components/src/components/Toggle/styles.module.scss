@@ -15,7 +15,7 @@
 
     box-sizing: content-box;
     display: flex;
-    border: 1px solid var(--cmm-switch-border);
+    border: 1px solid var(--cmm-Switch-border);
     border-radius: locals.$radius;
     position: relative;
   }
@@ -55,7 +55,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--cmm-switch-bg-off);
+    background: var(--cmm-Switch-bg-off);
     border-radius: locals.$radius;
     transition: var(--cmm-transition-bg);
   }
@@ -74,14 +74,14 @@
     @extend %label;
 
     right: locals.$labelPadX;
-    color: var(--cmm-switch-font-off);
+    color: var(--cmm-Switch-font-off);
   }
 
   .on {
     @extend %label;
 
     left: locals.$labelPadX;
-    color: var(--cmm-switch-font-on);
+    color: var(--cmm-Switch-font-on);
     display: none;
   }
 
@@ -108,8 +108,8 @@
       top: 50%;
       left: locals.$padX;
       translate: 0 -50%;
-      background-color: var(--cmm-switch-bg-thumb);
-      border: 1px solid var(--cmm-switch-border-thumb);
+      background-color: var(--cmm-Switch-bg-thumb);
+      border: 1px solid var(--cmm-Switch-border-thumb);
       border-radius: locals.$radius;
       transition: left 0.3s;
       z-index: 10;
@@ -121,7 +121,7 @@
       }
 
       ~ .background {
-        background: var(--cmm-switch-bg-on);
+        background: var(--cmm-Switch-bg-on);
       }
 
       ~ .off {

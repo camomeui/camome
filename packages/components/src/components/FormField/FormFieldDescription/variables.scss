@@ -1,8 +1,8 @@
-$fontSize_name: --FormFieldDescription-font-size;
+$fontSize_name: --cmm-FormFieldDescription-font-size;
 $fontSize: var($fontSize_name, var(--cmm-font-size-sm));
-$color_name: --FormFieldDescription-color;
+$color_name: --cmm-FormFieldDescription-color;
 $color: var($color_name, var(--cmm-color-gray-5));
-$lineHeight_name: --FormFieldDescription-line-height;
+$lineHeight_name: --cmm-FormFieldDescription-line-height;
 $lineHeight: var($lineHeight_name, 1.2);
-$margin_name: --FormFieldDescription-margin;
+$margin_name: --cmm-FormFieldDescription-margin;
 $margin: var($margin_name);

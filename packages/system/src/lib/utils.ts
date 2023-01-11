@@ -72,3 +72,7 @@ export function layerOrder(
 export function layer(prefix: string, name: string) {
   return `@layer ${prefix}.${name}`;
 }
+
+export function toCssVar(str: string): string {
+  return str.replace(/([a-z])([A-Z]|[0-9])/g, "$1-$2").toLowerCase();
+}

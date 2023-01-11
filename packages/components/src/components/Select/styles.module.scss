@@ -1,5 +1,6 @@
 @use "../../styles/inputs";
 @use "../../styles/utils";
+@use "./variables" as locals;
 
 $iconWidth: 1.75rem;
 
@@ -8,7 +9,7 @@ $iconWidth: 1.75rem;
     @include inputs.base();
     @include inputs.sizes();
 
-    background-image: var(--cmm-select-marker);
+    background-image: locals.$marker;
     background-position: right 0.75rem center;
     background-repeat: no-repeat;
     background-size: 1em 1em;
