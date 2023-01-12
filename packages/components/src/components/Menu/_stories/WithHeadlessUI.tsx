@@ -6,7 +6,6 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import React from "react";
 
 import { Button } from "@camome/components/Button";
 import { Menu, menuClassNames } from "@camome/components/Menu";
@@ -35,7 +34,7 @@ export default function WithHeadlessUI() {
           width: "max-content",
         }}
       >
-        <Menu.Label>Editing</Menu.Label>
+        <Menu.Group>Editing</Menu.Group>
         {data.category1.map(({ label, icon, ...style }) => (
           <HeadlessMenu.Item
             key={label}
@@ -48,7 +47,7 @@ export default function WithHeadlessUI() {
           </HeadlessMenu.Item>
         ))}
         <Menu.Divider />
-        <Menu.Label>Danger</Menu.Label>
+        <Menu.Group>Danger</Menu.Group>
         {data.category2.map(({ label, icon }) => (
           <HeadlessMenu.Item
             key={label}

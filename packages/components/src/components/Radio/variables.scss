@@ -1,6 +1,6 @@
-$size_name: --Radio-size;
+$size_name: --cmm-Radio-size;
 $size: var($size_name);
-$ringWidthRatio_name: --Radio-ring-width-ratio;
-$ringWidthRatio: var($ringWidthRatio_name, 0.5);
-$margin_name: --Radio-margin;
+$ringWidthRatio_name: --cmm-Radio-ring-width-ratio;
+$ringWidthRatio: var($ringWidthRatio_name, 0.45);
+$margin_name: --cmm-Radio-margin;
 $margin: var($margin_name);

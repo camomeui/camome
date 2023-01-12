@@ -23,4 +23,5 @@ Default.parameters = {
     inlineStories: false,
     iframeHeight: 300,
   },
+  layout: "padded",
 };

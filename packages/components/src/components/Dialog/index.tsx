@@ -63,7 +63,7 @@ const _DialogClose = React.forwardRef<HTMLButtonElement, BaseProps>(
         aria-label="Close"
         className={clsx(styles.close, className)}
         variant="ghost"
-        colorScheme="secondary"
+        colorScheme="neutral"
         ref={forwardedRef}
         {...props}
       >

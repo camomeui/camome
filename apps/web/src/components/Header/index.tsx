@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 import PopoverLinks from "@/components/PopoverLinks";
+import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
 import { IconButton } from "@camome/components/IconButton";
 import { Tooltip } from "@camome/components/Tooltip";
@@ -53,7 +54,7 @@ export default function Header({ menuContent, classNames }: Props) {
         <div className={styles.left}>
           <IconButton
             variant="ghost"
-            colorScheme="secondary"
+            colorScheme="neutral"
             className={styles.menuButton}
             aria-label="Toggle menu"
             onClick={openMenu}
@@ -67,12 +68,13 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
+          <ThemeSwitch />
           <Tooltip label="GitHub" placement="bottom">
             <IconButton
               component={Link}
               href="https://github.com/sabigara/camome"
               variant="outline"
-              colorScheme="secondary"
+              colorScheme="neutral"
               size="sm"
               aria-label="GitHub repository"
             >
@@ -85,7 +87,7 @@ export default function Header({ menuContent, classNames }: Props) {
         <div className={styles.menu__header}>
           <IconButton
             variant="ghost"
-            colorScheme="secondary"
+            colorScheme="neutral"
             onClick={closeMenu}
             data-dialog-trigger-for={DIALOG_ID}
             aria-label="Close menu"

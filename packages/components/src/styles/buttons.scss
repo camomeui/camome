@@ -21,10 +21,9 @@
     justify-content: center;
     user-select: none;
     transition: var(--cmm-transition-bg);
-    outline-offset: 2px;
 
     &:disabled {
-      opacity: 0.8;
+      opacity: 0.6;
       cursor: not-allowed;
     }
   }

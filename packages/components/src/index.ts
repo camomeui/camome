@@ -12,7 +12,7 @@ export * from "./components/FormField";
 export * from "./components/TextInput";
 export * from "./components/TextInputGroup";
 export * from "./components/Tag";
-export * from "./components/Toggle";
+export * from "./components/Switch";
 export * from "./components/Textarea";
 export * from "./components/Tooltip";
 export * from "./components/Dialog";

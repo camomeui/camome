@@ -30,12 +30,12 @@
   font-size: var(--cmm-font-size-sm);
 
   &:hover {
-    background-color: var(--cmm-color-gray-100);
+    background-color: var(--cmm-color-gray-1);
   }
 
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: var(--cmm-color-primary-500);
+    color: var(--cmm-color-primary-5);
   }
 }

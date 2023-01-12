@@ -27,7 +27,7 @@ yargs(hideBin(process.argv))
       // TODO: validate config with zod or something.
       const config = (await import(path.join(process.cwd(), options.config)))
         .default;
-      const css = await generateCss(config.theme);
+      const css = await generateCss(config.themes);
       const outputPath = path.join(process.cwd(), options.output);
       await fs.writeFile(outputPath, css);
       console.log(`CSS file exported to:\n${outputPath}`);

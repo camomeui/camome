@@ -63,7 +63,7 @@ export default function Hero() {
             required
             placeholder="address@example.com"
           />
-          <Button style={{ backgroundColor: "var(--cmm-color-gray-500)" }}>
+          <Button style={{ backgroundColor: "var(--cmm-color-gray-5)" }}>
             Subscribe
           </Button>
         </form>
@@ -83,7 +83,7 @@ export default function Hero() {
           </p>
           <div className={styles.card__buttons}>
             <BuyButton />
-            <Button component={Link} variant="subtle" href="/saazy">
+            <Button component={Link} variant="soft" href="/saazy">
               Live preview
             </Button>
           </div>

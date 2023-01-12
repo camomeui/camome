@@ -1,10 +1,10 @@
 import type { Meta } from "@storybook/react";
 
-import { Toggle } from "@camome/components/Toggle";
+import { Switch } from "@camome/components/Switch";
 
-const meta: Meta<typeof Toggle> = {
+const meta: Meta<typeof Switch> = {
   title: "components/Toggle",
-  component: Toggle,
+  component: Switch,
   tags: ["autodocs"],
 };
 export default meta;

@@ -7,13 +7,13 @@ export const menuClassNames = {
   menu: styles.Block,
   item: styles.item,
   itemActive: styles["item--active"],
-  label: styles.label,
+  group: styles.group,
   divider: styles.divider,
 };
 
 type MenuApi = React.FC<BaseProps> & {
   Item: typeof MenuItem;
-  Label: typeof MenuLabel;
+  Group: typeof MenuGroup;
   Divider: typeof MenuDivider;
 };
 
@@ -37,8 +37,8 @@ const MenuItem = ({ active, className, ...props }: MenuItemProps) => {
   );
 };
 
-const MenuLabel = ({ className, ...props }: BaseProps) => {
-  return <div className={clsx(styles.label, className)} {...props} />;
+const MenuGroup = ({ className, ...props }: BaseProps) => {
+  return <div className={clsx(styles.group, className)} {...props} />;
 };
 
 const MenuDivider = ({ className, ...props }: BaseProps) => {
@@ -50,5 +50,5 @@ export const Menu = (({ className, ...props }: BaseProps) => {
 }) as MenuApi;
 
 Menu.Item = MenuItem;
-Menu.Label = MenuLabel;
+Menu.Group = MenuGroup;
 Menu.Divider = MenuDivider;

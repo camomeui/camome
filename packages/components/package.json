@@ -36,6 +36,7 @@
   "devDependencies": {
     "@floating-ui/react": "^0.14.0",
     "@headlessui/react": "^1.7.4",
+    "@storybook/addon-docs": "^6.5.15",
     "@storybook/addon-essentials": "^7.0.0-beta.15",
     "@storybook/addon-interactions": "^7.0.0-beta.15",
     "@storybook/addon-links": "^7.0.0-beta.15",
@@ -44,6 +45,7 @@
     "@storybook/react": "^7.0.0-beta.15",
     "@storybook/react-vite": "^7.0.0-alpha.25",
     "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.15",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/yargs": "^17.0.17",
     "@vitejs/plugin-react": "^3.0.0",
@@ -59,6 +61,7 @@
     "resolve": "^1.22.1",
     "sass": "^1.55.0",
     "storybook": "^7.0.0-beta.15",
+    "storybook-dark-mode": "^2.0.5",
     "vite": "^4.0.2",
     "vite-plugin-dts": "^1.7.1",
     "vite-tsconfig-paths": "^4.0.3",

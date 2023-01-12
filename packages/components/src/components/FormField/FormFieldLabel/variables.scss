@@ -1,8 +1,8 @@
-$fontSize_name: --FormFieldLabel-font-size;
+$fontSize_name: --cmm-FormFieldLabel-font-size;
 $fontSize: var($fontSize_name, var(--cmm-font-size-sm));
-$fontWeight_name: --FormFieldLabel-font-weight;
+$fontWeight_name: --cmm-FormFieldLabel-font-weight;
 $fontWeight: var($fontWeight_name, var(--cmm-font-weight-medium));
-$lineHeight_name: --FormFieldLabel-line-height;
+$lineHeight_name: --cmm-FormFieldLabel-line-height;
 $lineHeight: var($lineHeight_name, 1.2);
-$margin_name: --FormFieldLabel-margin;
+$margin_name: --cmm-FormFieldLabel-margin;
 $margin: var($margin_name);

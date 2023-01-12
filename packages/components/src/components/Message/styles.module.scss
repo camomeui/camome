@@ -14,8 +14,8 @@
 
   @each $color in $statuses {
     .--#{$color} {
-      color: var(--cmm-color-#{$color}-800);
-      background-color: var(--cmm-color-#{$color}-100);
+      color: var(--cmm-color-#{$color}-soft-font);
+      background: var(--cmm-color-#{$color}-soft-bg);
     }
   }
 

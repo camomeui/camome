@@ -2,15 +2,15 @@
 
 .scrollbar {
   --scrollbar-width: 16px;
-  --scrollbar-thumb-color: var(--cmm-color-gray-300);
-  --scrollbar-thumb-color-hover: var(--cmm-color-gray-400);
+  --scrollbar-thumb-color: var(--cmm-color-gray-3);
+  --scrollbar-thumb-color-hover: var(--cmm-color-gray-4);
 
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
-.scrollbar--dark {
-  --scrollbar-thumb-color: var(--cmm-color-gray-500);
-  --scrollbar-thumb-color-hover: var(--cmm-color-gray-400);
+[data-theme="dark"] .scrollbar {
+  --scrollbar-thumb-color: var(--cmm-color-gray-7);
+  --scrollbar-thumb-color-hover: var(--cmm-color-gray-6);
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -37,15 +37,29 @@
   background-color: transparent;
 }
 
-:where(h1, h2, h3, h4, h5, h6):hover .link-icon {
+.hash-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  border-radius: var(--cmm-rounded-sm);
+  opacity: 0;
+}
+
+.hash-link svg {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  color: var(--cmm-color-neutral-5);
+}
+
+:where(h1, h2, h3, h4, h5, h6):hover .hash-link {
   opacity: 1;
 }
 
-.link-icon {
-  display: inline;
-  margin-left: 0.3em;
-  opacity: 0;
-  width: 0.9em;
-  height: 0.9em;
-  color: var(--cmm-color-gray-500);
+.hash-link:focus {
+  opacity: 1;
 }

@@ -3,7 +3,7 @@
 @include utils.layer {
   .separator {
     margin-inline: 0.25rem;
-    color: var(--cmm-color-gray-400);
+    color: var(--cmm-color-font-subtle);
     width: 1.25rem;
     height: 1.25rem;
   }
@@ -18,11 +18,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    color: var(--cmm-color-gray-500);
     font-size: var(--cmm-font-size-sm);
+    color: var(--cmm-color-font-subtle);
 
     a {
-      color: var(--cmm-color-black);
+      color: var(--cmm-color-font-muted);
 
       &:hover {
         text-decoration: underline;

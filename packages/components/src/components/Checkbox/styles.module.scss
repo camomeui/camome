@@ -3,7 +3,7 @@
 @use "./variables" as locals;
 
 @mixin outline {
-  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
   outline-offset: 2px;
 }
 
@@ -44,7 +44,7 @@
 
       &:checked {
         & + .mark {
-          background-color: var(--cmm-color-primary-100);
+          background: var(--cmm-color-primary-soft-bg);
 
           &::before {
             transform: scale(1);
@@ -52,28 +52,23 @@
         }
       }
 
-      &:hover {
+      &:hover:not(:disabled) {
         & + .mark {
-          background-color: var(--cmm-color-primary-200);
+          background: var(--cmm-color-primary-soft-bg-hover);
         }
       }
 
       &:disabled {
         cursor: not-allowed;
 
-        &:checked {
-          ~ .mark::before {
-            background-color: var(--cmm-color-gray-400);
-          }
-        }
-
         ~ .mark {
-          background-color: var(--cmm-color-gray-100);
+          opacity: 0.6;
           cursor: not-allowed;
         }
 
         ~ label {
-          color: var(--cmm-color-gray-400);
+          opacity: 0.6;
+          cursor: not-allowed;
         }
       }
     }
@@ -90,7 +85,7 @@
     border-radius: var(--cmm-rounded-sm);
     display: grid;
     place-content: center;
-    background-color: var(--cmm-color-primary-100);
+    background: var(--cmm-color-primary-soft-bg);
     transition: var(--cmm-transition-bg);
 
     &::before {
@@ -99,7 +94,7 @@
       height: calc(locals.$size * 0.5);
       clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
       transform: scale(0);
-      background-color: var(--cmm-color-primary-600);
+      background: var(--cmm-color-primary-soft-font);
     }
   }
 

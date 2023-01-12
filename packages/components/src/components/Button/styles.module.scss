@@ -14,7 +14,7 @@
   .Block {
     @extend %sizeDefaults;
 
-    border-radius: var(--Button-radius, var(--cmm-rounded-lg));
+    border-radius: var(--cmm-Button-radius, var(--cmm-rounded-lg));
 
     // Sizes
 

@@ -45,7 +45,7 @@ export default function PreviewHeader({
           <BuyButton className={styles.buy} />
           <IconButton
             variant="ghost"
-            colorScheme="secondary"
+            colorScheme="neutral"
             onClick={onClickClose}
             className={styles.close}
             aria-label="Close menu"

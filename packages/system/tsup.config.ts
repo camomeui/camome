@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["./src/index.ts", "./src/cli/index.ts"],
-  clean: true,
+  clean: false,
   format: ["esm", "cjs"],
   dts: true,
   minify: true,
@@ -13,5 +13,5 @@ export default defineConfig({
   outExtension(ctx) {
     return { js: `.${ctx.format}.js` };
   },
-  onSuccess: "node ./scripts/generate-css.js",
+  onSuccess: "pnpm tsx ./scripts/generate-css.ts",
 });

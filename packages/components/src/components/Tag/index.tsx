@@ -23,7 +23,7 @@ export type TagProps = {
 } & BaseProps;
 
 const defaultSize = "md" as const;
-const defaultVariant = "subtle" as const;
+const defaultVariant = "soft" as const;
 const defaultColorScheme = "primary" as const;
 
 const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(

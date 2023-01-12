@@ -5,26 +5,12 @@
   .Block {
     @include inputs.base();
 
-    width: var(--Textarea-width);
+    width: var(--cmm-Textarea-width);
     padding: 0.5rem;
     resize: none;
 
-    &::placeholder {
-      font-weight: var(--cmm-font-weight-normal);
-    }
-
-    &[aria-invalid="true"] {
-      border-color: var(--cmm-color-danger-200);
-      color: var(--cmm-color-danger-600);
-      outline-color: var(--cmm-color-danger-200);
-
-      &::placeholder {
-        color: var(--cmm-color-danger-400);
-      }
-    }
-
     &--fill {
-      --Textarea-width: 100%;
+      --cmm-Textarea-width: 100%;
     }
   }
 }

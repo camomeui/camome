@@ -20,3 +20,9 @@
   width: $size;
   height: $size;
 }
+
+@mixin mq($size) {
+  @media screen and (max-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}

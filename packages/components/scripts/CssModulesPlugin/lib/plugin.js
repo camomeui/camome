@@ -53,8 +53,9 @@ const buildCssModulesJs = async ({ fullPath, options, build }) => {
   let cssModulesJSON = {};
   const result = await postcss([
     postcssModules({
-      // localsConvention: options.localsConvention,
-      generateScopedName,
+      localsConvention: options.localsConvention,
+      generateScopedName: options.generateScopedName,
+      ...options.cssModulesOption,
       getJSON(cssSourceFile, json) {
         cssModulesJSON = { ...json };
         return cssModulesJSON;
@@ -443,15 +444,6 @@ const setup = async (build, options) => {
     onEnd(build, options, result);
   });
 };
-
-// TODO: Must be passed as an option
-function generateScopedName(local, filename) {
-  const dir = filename.split("/").at(-2);
-  if (dir === "_stories" || filename.endsWith("index.stories.module.scss")) {
-    return "story-" + hash(filename + local);
-  }
-  return buildScopedClassName(local, filename);
-}
 
 module.exports = {
   setup,

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import { NextPage } from "next/types";
 
@@ -26,7 +27,9 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "5eb6cf5006564d3ea3745a94d7764a80"}'
       />
-      {getLayout(<Component {...pageProps} />)}
+      <ThemeProvider attribute="data-theme">
+        {getLayout(<Component {...pageProps} />)}
+      </ThemeProvider>
     </>
   );
 }

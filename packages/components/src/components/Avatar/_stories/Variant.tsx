@@ -6,7 +6,7 @@ export default function Variant() {
   return (
     <div className={styles.container}>
       <Avatar variant="solid" />
-      <Avatar variant="subtle" />
+      <Avatar variant="soft" />
       <Avatar variant="outline" />
       <Avatar variant="ghost" />
     </div>

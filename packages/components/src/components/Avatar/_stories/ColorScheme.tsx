@@ -6,7 +6,7 @@ export default function ColorScheme() {
   return (
     <div className={styles.container}>
       <Avatar colorScheme="primary" />
-      <Avatar colorScheme="secondary" />
+      <Avatar colorScheme="neutral" />
       <Avatar colorScheme="info" />
       <Avatar colorScheme="success" />
       <Avatar colorScheme="warn" />

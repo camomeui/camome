@@ -26,25 +26,29 @@
     max-width: locals.$maxWidth;
     margin: 0 locals.$outerMargin;
     padding: 1.5rem;
-    background-color: var(--cmm-color-white);
+    background-color: var(--cmm-color-surface-0);
     border-radius: var(--cmm-rounded-xl);
   }
 
   .title {
     font-weight: var(--cmm-font-weight-semibold);
     font-size: var(--cmm-font-size-lg);
+    color: var(--cmm-color-font-base);
   }
 
   .content {
     margin: 0.5rem 0 1rem 0;
     font-weight: var(--cmm-font-weight-normal);
-    color: var(--cmm-color-gray-500);
+    color: var(--cmm-color-font-muted);
   }
 
   .close {
-    // FIXME: These overrides are not guaranteed.
-    --IconButton-size: 1.75rem;
-    --IconButton-icon-size: calc(var(--IconButton-size) * 0.75);
+    // FIXME: Avoid !important.
+    // Import variables?
+    --cmm-IconButton-size: 1.75rem !important;
+    --cmm-IconButton-icon-size: calc(
+      var(--cmm-IconButton-size) * 0.75
+    ) !important;
 
     position: absolute;
     inset: locals.$closeOffset locals.$closeOffset auto auto;

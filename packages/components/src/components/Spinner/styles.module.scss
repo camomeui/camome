@@ -11,13 +11,13 @@
 
     > svg {
       @include utils.size(locals.$size);
-      color: var(--cmm-color-primary-200);
+      color: var(--cmm-color-primary-soft-bg);
       animation: spin 1.2s linear infinite;
     }
   }
 
   .accent {
-    color: var(--cmm-color-primary-600);
+    color: var(--cmm-color-primary-emphasis);
   }
 
   .--sm {

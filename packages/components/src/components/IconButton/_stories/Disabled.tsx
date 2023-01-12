@@ -10,7 +10,7 @@ export default function Disabled() {
       <IconButton variant="solid" aria-label="bell" disabled>
         <BellAlertIcon />
       </IconButton>
-      <IconButton variant="subtle" aria-label="bell" disabled>
+      <IconButton variant="soft" aria-label="bell" disabled>
         <BellAlertIcon />
       </IconButton>
       <IconButton variant="outline" aria-label="bell" disabled>

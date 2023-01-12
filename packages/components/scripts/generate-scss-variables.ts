@@ -22,7 +22,7 @@ import { toKebabCase } from "@camome/utils";
 
     let scss = "";
     for (const [variable, defaultValue] of Object.entries(variables)) {
-      const cssVarName = `--${componentName}-${toKebabCase(variable)}`;
+      const cssVarName = `--cmm-${componentName}-${toKebabCase(variable)}`;
       const sassVarName = `${variable}_name`;
       scss += `$${sassVarName}: ${cssVarName};\n`;
       scss += `$${variable}: var($${sassVarName}${

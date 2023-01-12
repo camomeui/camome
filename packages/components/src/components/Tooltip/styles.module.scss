@@ -6,6 +6,7 @@
     position: relative;
     display: inline-block;
     width: fit-content;
+    height: fit-content;
 
     &:hover,
     &:focus-within {
@@ -24,44 +25,68 @@
     font-size: var(--cmm-font-size-xs);
     font-weight: var(--cmm-font-weight-normal);
     line-height: 1;
-    background-color: locals.$bgColor;
-    color: var(--cmm-color-white);
+    background: var(--cmm-Tooltip-bg);
+    color: var(--cmm-Tooltip-font);
+    border: 1px solid var(--cmm-Tooltip-border);
     border-radius: var(--cmm-rounded-md);
     transition: 0.2s ease-in;
     transition-delay: 0.15s;
     display: inline-block;
     padding: 0.5rem;
 
+    &::before {
+      content: "";
+      position: absolute;
+      border: locals.$arrowSize solid transparent;
+    }
+
     &[data-placement="top"] {
       left: 50%;
-      transform: translateX(-50%);
-      top: calc(locals.$offset * -1);
+      translate: -50% calc((locals.$offset + locals.$arrowSize) * -1);
+      bottom: 100%;
 
       &:before {
-        content: "";
-        position: absolute;
         // `locals.$arrowSize * 2 * -1` works on Chrome but not Safari
         bottom: calc(locals.$arrowSize * 1.9 * -1);
         left: 50%;
-        margin-left: calc(locals.$arrowSize * -1);
-        border: locals.$arrowSize solid transparent;
-        border-top: locals.$arrowSize solid locals.$bgColor;
+        translate: calc(locals.$arrowSize * -1);
+        border-top: locals.$arrowSize solid var(--cmm-Tooltip-bg);
+      }
+    }
+
+    &[data-placement="right"] {
+      translate: calc(locals.$offset + locals.$arrowSize) -50%;
+      top: 50%;
+      left: 100%;
+
+      &:before {
+        // `locals.$arrowSize * 2 * -1` works on Chrome but not Safari
+        left: calc(locals.$arrowSize * 1.9 * -1);
+        border-right: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }
 
     &[data-placement="bottom"] {
       left: 50%;
-      transform: translateX(-50%);
-      bottom: calc(locals.$offset * -1);
+      translate: -50% calc(locals.$offset + locals.$arrowSize);
+      top: 100%;
 
       &:before {
-        content: "";
-        position: absolute;
         top: calc(locals.$arrowSize * 1.9 * -1);
         left: 50%;
-        margin-left: calc(locals.$arrowSize * -1);
-        border: locals.$arrowSize solid transparent;
-        border-bottom: locals.$arrowSize solid locals.$bgColor;
+        translate: calc(locals.$arrowSize * -1);
+        border-bottom: locals.$arrowSize solid var(--cmm-Tooltip-bg);
+      }
+    }
+
+    &[data-placement="left"] {
+      translate: calc((locals.$offset + locals.$arrowSize) * -1) -50%;
+      top: 50%;
+      right: 100%;
+
+      &:before {
+        right: calc(locals.$arrowSize * 1.9 * -1);
+        border-left: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }
   }

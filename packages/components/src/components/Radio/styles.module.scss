@@ -3,7 +3,7 @@
 @use "./variables" as locals;
 
 @mixin outline {
-  outline: var(--cmm-outline-width) solid var(--cmm-outline-color);
+  outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
   outline-offset: 2px;
 }
 
@@ -45,37 +45,32 @@
       // Be careful, order matters!
       &:checked {
         & + .mark {
-          background-color: var(--cmm-color-primary-100);
+          background-color: var(--cmm-color-primary-soft-bg);
 
           &::before {
             scale: 1;
-            background-color: var(--cmm-color-primary-600);
+            background-color: var(--cmm-color-primary-soft-font);
           }
         }
       }
 
-      &:hover {
+      &:hover:not(:disabled) {
         & + .mark {
-          background-color: var(--cmm-color-primary-200);
+          background-color: var(--cmm-color-primary-soft-bg-hover);
         }
       }
 
       &:disabled {
         cursor: not-allowed;
 
-        &:checked {
-          ~ .mark::before {
-            background-color: var(--cmm-color-gray-400);
-          }
-        }
-
         ~ .mark {
-          background-color: var(--cmm-color-gray-100);
           cursor: not-allowed;
+          opacity: 0.6;
         }
 
         ~ label {
-          color: var(--cmm-color-gray-400);
+          cursor: not-allowed;
+          opacity: 0.6;
         }
       }
     }
@@ -86,7 +81,7 @@
 
     appearance: none;
     border-radius: var(--cmm-rounded-full);
-    background-color: var(--cmm-color-primary-100);
+    background: var(--cmm-color-primary-soft-bg);
     display: grid;
     place-content: center;
     cursor: pointer;
@@ -98,7 +93,7 @@
         calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
       );
       border-radius: var(--cmm-rounded-full);
-      background-color: var(--cmm-color-primary-100);
+      background-color: var(--cmm-color-primary-1);
       scale: 0;
     }
   }

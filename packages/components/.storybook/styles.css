@@ -1,1 +1,6 @@
 @layer cmm, override;
+
+:root,
+.docs-story {
+  background: var(--cmm-color-surface-0);
+}

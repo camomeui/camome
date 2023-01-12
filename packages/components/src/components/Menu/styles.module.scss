@@ -4,13 +4,13 @@
 @include utils.layer {
   .Block {
     display: inline-block;
-    border: 1px solid var(--cmm-color-gray-100);
+    border: 1px solid var(--cmm-color-border-base);
     border-radius: var(--cmm-rounded-md);
     padding: 0.25rem;
     min-width: 10rem;
     box-shadow: var(--cmm-shadow-sm);
-    background-color: var(--cmm-color-white);
-    color: var(--cmm-color-black);
+    background: var(--cmm-Menu-bg);
+    color: var(--cmm-color-font-base);
     font-size: var(--cmm-font-size-sm);
   }
 
@@ -23,28 +23,28 @@
     cursor: pointer;
     transition: var(--cmm-transition-bg);
     width: 100%;
-    color: locals.$fontColor;
+    color: var(--cmm-Menu-font-label);
 
     &:hover,
     &--active {
-      background-color: locals.$bgHover;
+      background: var(--cmm-Menu-bg-hover);
     }
 
     > svg {
       width: locals.$iconSize;
       height: locals.$iconSize;
-      color: locals.$iconColor;
+      color: var(--cmm-Menu-font-icon);
     }
   }
 
-  .label {
-    color: var(--cmm-color-gray-500);
+  .group {
+    color: var(--cmm-Menu-font-group);
     padding: 0.25rem 0.75rem;
     width: 100%;
   }
 
   .divider {
-    border-top: 1px solid var(--cmm-color-gray-200);
+    border-top: 1px solid var(--cmm-color-border-base);
     margin: 0.25rem 0;
   }
 }

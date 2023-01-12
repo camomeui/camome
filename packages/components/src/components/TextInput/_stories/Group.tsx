@@ -13,7 +13,7 @@ export default function Group() {
       leftDecorator={
         <MagnifyingGlassIcon
           strokeWidth="2.5"
-          style={{ color: "var(--cmm-color-gray-300)" }}
+          style={{ color: "var(--cmm-color-gray-3)" }}
         />
       }
       rightDecorator={

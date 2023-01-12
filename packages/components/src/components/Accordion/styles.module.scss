@@ -7,7 +7,7 @@
   }
 
   .details {
-    border-bottom: 1px solid var(--cmm-color-gray-200);
+    border-bottom: 1px solid var(--cmm-color-border-base);
 
     &[open] {
       .summary {
@@ -29,7 +29,7 @@
     font-weight: var(--cmm-font-weight-medium);
 
     &:hover {
-      background-color: var(--cmm-color-gray-100);
+      background-color: var(--cmm-color-surface-2);
     }
 
     &::-webkit-details-marker {
@@ -45,5 +45,6 @@
   .contents {
     padding: 0 locals.$pad locals.$pad locals.$pad;
     font-weight: var(--cmm-font-weight-normal);
+    color: var(--cmm-color-font-muted);
   }
 }

@@ -2,8 +2,9 @@
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--cmm-color-gray-200);
+  border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-rounded-lg);
+  background: var(--cmm-color-surface-0);
 }
 
 .preview--padded {

@@ -5,10 +5,10 @@
 .code {
   border: none;
   display: block;
-  background-color: var(--cmm-color-gray-50);
+  background-color: var(--cmm-color-surface-1);
   padding: 1rem;
   border-radius: var(--cmm-rounded-lg);
-  border: 1px solid var(--cmm-color-gray-200);
+  border: 1px solid var(--cmm-color-border-base);
   font-weight: var(--cmm-font-weight-normal);
   font-size: 0.85em;
   max-height: 28em;
@@ -21,15 +21,15 @@ $iconSize: 1.2rem;
 .copy-button {
   width: $size;
   height: $size;
-  border: 1px solid var(--cmm-color-gray-200);
+  border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-rounded-md);
-  background-color: var(--cmm-color-gray-50);
+  background-color: var(--cmm-color-surface-1);
   display: grid;
   place-content: center;
   transition: var(--cmm-transition-bg);
 
   &:hover {
-    background: var(--cmm-color-gray-100);
+    background: var(--cmm-color-surface-2);
   }
 
   > svg {
@@ -42,4 +42,9 @@ $iconSize: 1.2rem;
   position: absolute;
   top: $margin;
   right: $margin;
+  opacity: 0;
+
+  &.shown {
+    opacity: 1;
+  }
 }

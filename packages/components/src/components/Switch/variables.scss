@@ -1,0 +1,16 @@
+$radius_name: --cmm-Switch-radius;
+$radius: var($radius_name, var(--cmm-rounded-full));
+$thumbWidth_name: --cmm-Switch-thumb-width;
+$thumbWidth: var($thumbWidth_name);
+$thumbHeight_name: --cmm-Switch-thumb-height;
+$thumbHeight: var($thumbHeight_name);
+$padX_name: --cmm-Switch-pad-x;
+$padX: var($padX_name);
+$padY_name: --cmm-Switch-pad-y;
+$padY: var($padY_name);
+$labelFontSize_name: --cmm-Switch-label-font-size;
+$labelFontSize: var($labelFontSize_name);
+$labelPadX_name: --cmm-Switch-label-pad-x;
+$labelPadX: var($labelPadX_name);
+$gap_name: --cmm-Switch-gap;
+$gap: var($gap_name);

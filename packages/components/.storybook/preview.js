@@ -1,5 +1,9 @@
+import React from "react";
+import { DocsContainer } from "@storybook/addon-docs";
+import { useDarkMode } from "storybook-dark-mode";
+
+import "@camome/system/style.css";
 import "./styles.css";
-import "./camome.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
