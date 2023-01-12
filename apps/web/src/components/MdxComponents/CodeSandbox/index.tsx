@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-import { hydrateRoot } from "react-dom/client";
 
 import CodeTabs from "@/components/MdxComponents/CodeTabs";
 

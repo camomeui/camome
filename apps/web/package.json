@@ -4,18 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
+    "run-ts": "node -r esbuild-register",
     "watch-stories": "pnpm run-ts ./scripts/watch-stories.ts",
     "dev:next": "next dev --port 3910",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:next\"",
-    "build": "next build",
+    "build": "pnpm gen-doc-data && next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "pnpm lint --fix",
     "typecheck": "tsc",
-    "generate-css": "npx camome generate-css --output ./src/styles/camome.css",
-    "run-ts": "node -r esbuild-register"
+    "gen-css": "npx camome generate-css --output ./src/styles/camome.css",
+    "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
+    "gen-doc-data": "pnpm run-ts ./scripts/gen-doc-data.tsx"
   },
   "dependencies": {
     "@camome/components": "workspace:*",

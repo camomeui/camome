@@ -26,9 +26,6 @@ function getComponentData(name: string): DocsComponentMeta[] {
     {
       savePropValueAsString: true,
       propFilter: (prop) => {
-        if (prop.name === "fill") {
-          console.log(prop);
-        }
         if (prop.declarations !== undefined && prop.declarations.length > 0) {
           const hasPropAdditionalDescription = prop.declarations.find(
             (declaration) => {
@@ -106,7 +103,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   }
 
   let componentMeta: DocsComponentMeta[] | null = null;
-  if (doc.slug.startsWith("components")) {
+  if (doc.slug.match(/components\/.+/)) {
     componentMeta = doc.components
       ? doc.components.flatMap(getComponentData)
       : getComponentData(doc.title);

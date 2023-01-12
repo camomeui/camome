@@ -1,5 +1,4 @@
 import type { OptionalField } from "@camome/utils";
-import type { Props } from "react-docgen-typescript";
 
 export type Toc = {
   value: string;
