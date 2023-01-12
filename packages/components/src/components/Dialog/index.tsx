@@ -17,15 +17,6 @@ export const dialogClassNames = {
   close: styles.close,
 };
 
-type DialogApi = React.FC<BaseProps> & {
-  Backdrop: typeof DialogBackdrop;
-  PanelWrapper: typeof DialogPanelWrapper;
-  Panel: typeof DialogPanel;
-  Title: typeof DialogTitle;
-  Content: typeof DialogContent;
-  Close: typeof DialogClose;
-};
-
 type BaseProps = {
   children?: React.ReactNode;
   className?: string;
@@ -78,9 +69,9 @@ const DialogClose = createPolymorphicComponent<"button", BaseProps>(
   _DialogClose
 );
 
-export const Dialog = (({ className, ...props }: BaseProps) => {
+export const Dialog = ({ className, ...props }: BaseProps) => {
   return <div className={clsx(styles.Block, className)} {...props} />;
-}) as DialogApi;
+};
 
 Dialog.Backdrop = DialogBackdrop;
 Dialog.PanelWrapper = DialogPanelWrapper;

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
 import { FormField, type FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
@@ -13,7 +13,7 @@ export type TextareaProps = {
 } & TextareaNativeProps &
   Pick<FormFieldProps, "description" | "error" | "label">;
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ description, error, label, id, fill, ...props }, forwardedRef) => {
     const textarea = (
       <UnstyledInput

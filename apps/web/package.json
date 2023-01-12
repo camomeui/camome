@@ -43,12 +43,18 @@
   },
   "devDependencies": {
     "@types/node": "18.7.14",
+    "@types/yargs": "^17.0.17",
     "chokidar": "^3.5.3",
     "eslint": "8.23.0",
     "eslint-config-next": "13.0.0",
     "hastscript": "^7.1.0",
     "next-transpile-modules": "^10.0.0",
     "postcss": "^8.4.20",
-    "postcss-preset-env": "^7.8.3"
+    "postcss-modules": "^6.0.0",
+    "postcss-preset-env": "^7.8.3",
+    "react-docgen": "6.0.0-alpha.4",
+    "react-docgen-typescript": "^2.2.2",
+    "sass": "^1.55.0",
+    "yargs": "^17.6.2"
   }
 }

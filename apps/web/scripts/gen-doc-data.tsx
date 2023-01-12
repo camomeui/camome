@@ -23,9 +23,15 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const COMPONENTS_DIR = path.join("src", "components");
+const COMPONENTS_DIR = path.join(
+  "node_modules",
+  "@camome",
+  "components",
+  "src",
+  "components"
+);
 const STORIES_SRC_DIR = "_stories" as const;
-const STORIES_OUT_DIR = ".stories" as const;
+const STORIES_OUT_DIR = ".demo" as const;
 const processes: BuildResult[] = [];
 
 function extractStoryPath(filePath: string) {
@@ -53,29 +59,28 @@ async function bundleStory(storyFullPath: string) {
     const ssr = renderToString(<Story />);
     const componentOutDir = path.resolve(__dirname, "..", outdir);
 
+    const index = `import Component from "./bundle";
+
+const react = \`${storyCode}\`;
+const css = \`${generatedCss.join("\n")}\`;
+const html = \`${format(ssr, {
+      parser: "html",
+      htmlWhitespaceSensitivity: "ignore",
+    })}\`;
+const metadata = ${JSON.stringify({ layout })};
+
+export default {
+  Component,
+  react,
+  css,
+  html,
+}`;
+
     await fs.mkdir(componentOutDir, {
       recursive: true,
     });
 
-    await Promise.all([
-      fs.writeFile(path.resolve(componentOutDir, `index.html`), ssr),
-      fs.writeFile(
-        path.resolve(componentOutDir, `index.formatted.html`),
-        format(ssr, {
-          parser: "html",
-          htmlWhitespaceSensitivity: "ignore",
-        })
-      ),
-      fs.writeFile(
-        path.resolve(componentOutDir, `styles.css`),
-        generatedCss.join("\n")
-      ),
-      fs.writeFile(path.resolve(componentOutDir, `code.tsx`), storyCode),
-      fs.writeFile(
-        path.resolve(componentOutDir, `metadata.json`),
-        JSON.stringify({ layout })
-      ),
-    ]);
+    await fs.writeFile(path.resolve(componentOutDir, "index.jsx"), index);
   };
 
   const result = await build({
@@ -88,6 +93,8 @@ async function bundleStory(storyFullPath: string) {
     format: "esm",
     external: ["react", "react-dom"],
     outExtension: { ".js": ".jsx" },
+    tsconfig: "node_modules/@camome/components/tsconfig.json",
+    jsx: "automatic",
     watch: argv.watch
       ? {
           onRebuild: onBuild,
@@ -126,7 +133,7 @@ async function bundleStory(storyFullPath: string) {
   process.exit(1);
 });
 
-function generateScopedName(local, filename) {
+function generateScopedName(local: string, filename: string) {
   const dir = filename.split("/").at(-2);
   if (dir === "_stories" || filename.endsWith("index.stories.module.scss")) {
     return "story-" + hash(filename + local);

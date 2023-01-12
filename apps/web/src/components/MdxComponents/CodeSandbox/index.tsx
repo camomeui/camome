@@ -7,39 +7,21 @@ import CodeTabs from "@/components/MdxComponents/CodeTabs";
 import styles from "./styles.module.scss";
 
 export type CodeSandboxProps = {
-  language: string;
+  Component: React.FC;
   react: string;
   html: string;
-  // For preventing hydration error.
-  htmlFormatted?: string;
   css: string;
   bundlePath?: string;
   layout?: "centered" | "padded";
 };
 
 export default function CodeSandbox({
-  language,
+  Component,
   react,
   html,
   css,
-  htmlFormatted = "",
-  bundlePath,
   layout = "centered",
 }: CodeSandboxProps) {
-  const initRef = React.useRef(false);
-  const previewContainerRef = React.useRef<HTMLDivElement>(null!);
-
-  React.useEffect(() => {
-    if (!bundlePath || initRef.current) return;
-    initRef.current = true;
-    (async () => {
-      const { default: Bundle } = await import(
-        `@/public/stories/bundles/${bundlePath}`
-      );
-      hydrateRoot(previewContainerRef.current, <Bundle />);
-    })();
-  }, [bundlePath]);
-
   return (
     <>
       <style jsx global>{`
@@ -53,21 +35,18 @@ export default function CodeSandbox({
             "no-markup"
           )}
         >
-          <div
-            ref={previewContainerRef}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <Component />
         </div>
         <CodeTabs
           items={[
             {
               name: "React",
               code: react,
-              language,
+              language: "tsx",
             },
             {
               name: "HTML",
-              code: htmlFormatted,
+              code: html,
               language: "html",
             },
           ]}

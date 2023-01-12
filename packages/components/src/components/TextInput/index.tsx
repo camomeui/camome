@@ -1,5 +1,7 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
+
+import { BaseProps } from "src/types";
 
 import { FormField, type FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
@@ -14,10 +16,11 @@ export type TextInputProps = {
   type?: "text" | "email" | "url" | "password" | "search";
   size?: TextInputSize;
   fill?: boolean;
-} & NativeProps &
+} & BaseProps &
+  NativeProps &
   Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
-export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     { type, size = "md", fill, description, error, label, id, ...inputProps },
     forwardedRef

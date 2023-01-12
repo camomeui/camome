@@ -1,8 +1,9 @@
 import { GetStaticPathsResult, GetStaticPropsContext } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
+import * as docgen from "react-docgen-typescript";
 
-import type { NavItem, LabeledLink } from "@/types";
+import type { NavItem, LabeledLink, DocsComponentMeta } from "@/types";
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
@@ -14,9 +15,65 @@ type Props = {
   sidebarItems: NavItem[];
   next: LabeledLink | null;
   prev: LabeledLink | null;
+  componentMeta: DocsComponentMeta[] | null;
 };
 
-export default function DocsPage({ sidebarItems, doc, next, prev }: Props) {
+const excludedProps = ["className", "style"];
+
+function getComponentData(name: string): DocsComponentMeta[] {
+  const resp = docgen.parse(
+    `node_modules/@camome/components/src/components/${name}/index.tsx`,
+    {
+      savePropValueAsString: true,
+      propFilter: (prop) => {
+        if (prop.name === "fill") {
+          console.log(prop);
+        }
+        if (prop.declarations !== undefined && prop.declarations.length > 0) {
+          const hasPropAdditionalDescription = prop.declarations.find(
+            (declaration) => {
+              // Only those defined by @camome/components;
+              // excluding HTML attributes.
+              return (
+                declaration.fileName.includes("@camome/components") &&
+                !excludedProps.includes(prop.name)
+              );
+            }
+          );
+
+          return Boolean(hasPropAdditionalDescription);
+        }
+
+        return true;
+      },
+    }
+  );
+
+  if (resp.length === 0) {
+    throw new Error(`Couldn't parse metadata for: ${name}`);
+  }
+
+  return resp.map((component) => ({
+    displayName: component.displayName,
+    props: Object.entries(component.props)
+      .map(([, v]) => ({
+        defaultValue: v.defaultValue?.value ?? null,
+        name: v.name,
+        required: v.required,
+        type: v.type.name,
+        description: v.description,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  }));
+}
+
+export default function DocsPage({
+  sidebarItems,
+  doc,
+  next,
+  prev,
+  componentMeta,
+}: Props) {
   return (
     <>
       <NextSeo title={doc.title} description={doc.description} />
@@ -26,6 +83,8 @@ export default function DocsPage({ sidebarItems, doc, next, prev }: Props) {
           toc={doc.toc}
           next={next ?? undefined}
           prev={prev ?? undefined}
+          componentMeta={componentMeta ?? undefined}
+          key={doc._id} // Force initiate tab state
         />
       </DocsLayout>
     </>
@@ -46,6 +105,13 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     return { notFound: true };
   }
 
+  let componentMeta: DocsComponentMeta[] | null = null;
+  if (doc.slug.startsWith("components")) {
+    componentMeta = doc.components
+      ? doc.components.flatMap(getComponentData)
+      : getComponentData(doc.title);
+  }
+
   const flatItems = flattenSidebarLinks(sidebarItems);
   const docIndex = flatItems.findIndex((item) => item.id === doc.id);
   const next = flatItems[docIndex + 1];
@@ -56,6 +122,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     sidebarItems,
     next: next ?? null,
     prev: prev ?? null,
+    componentMeta: componentMeta ?? null,
   };
 
   return {

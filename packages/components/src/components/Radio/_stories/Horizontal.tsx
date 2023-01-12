@@ -10,20 +10,20 @@ export default function Horizontal() {
       id="_horizontal"
     >
       <Radio
-        labelText="Katz"
+        label="Katz"
         name="gundam-kids-3"
         value="katz"
         defaultChecked
         id="_horizontal-1"
       />
       <Radio
-        labelText="Letz"
+        label="Letz"
         name="gundam-kids-3"
         value="letz"
         id="_horizontal-2"
       />
       <Radio
-        labelText="Kikka"
+        label="Kikka"
         name="gundam-kids-3"
         value="kikka"
         id="_horizontal-3"

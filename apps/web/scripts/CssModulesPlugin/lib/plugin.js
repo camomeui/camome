@@ -16,9 +16,6 @@ const {
   validateNamedExport,
   getPackageVersion,
 } = require("./utils.js");
-const cssHandler = require("lightningcss");
-const camelCase = require("lodash/camelCase");
-const upperFirst = require("lodash/upperFirst");
 const BuildCache = require("./cache.js");
 const { compileAsync, Options, CompileResult } = require("sass");
 import postcss from "postcss";

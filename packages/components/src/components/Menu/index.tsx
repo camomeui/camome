@@ -45,9 +45,9 @@ const MenuDivider = ({ className, ...props }: BaseProps) => {
   return <div className={clsx(styles.divider, className)} {...props} />;
 };
 
-export const Menu = (({ className, ...props }: BaseProps) => {
+export const Menu = ({ className, ...props }: BaseProps) => {
   return <div className={clsx(styles.Block, className)} {...props} />;
-}) as MenuApi;
+};
 
 Menu.Item = MenuItem;
 Menu.Group = MenuGroup;

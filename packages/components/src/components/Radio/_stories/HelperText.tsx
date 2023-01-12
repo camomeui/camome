@@ -10,24 +10,14 @@ export default function HelperText() {
       id="_helper"
     >
       <Radio
-        labelText="Katz"
+        label="Katz"
         name="gundam-kids-4"
         value="katz"
         defaultChecked
         id="_helper-1"
       />
-      <Radio
-        labelText="Letz"
-        name="gundam-kids-4"
-        value="letz"
-        id="_helper-2"
-      />
-      <Radio
-        labelText="Kikka"
-        name="gundam-kids-4"
-        value="kikka"
-        id="_helper-3"
-      />
+      <Radio label="Letz" name="gundam-kids-4" value="letz" id="_helper-2" />
+      <Radio label="Kikka" name="gundam-kids-4" value="kikka" id="_helper-3" />
     </RadioGroup>
   );
 }

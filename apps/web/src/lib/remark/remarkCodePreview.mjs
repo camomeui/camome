@@ -13,10 +13,7 @@ export default function remarkAdmonition() {
         "path" in node.attributes
       ) {
         const previewPath = node.attributes.path;
-        const dir = path.join(
-          "node_modules/@camome/components/.stories",
-          previewPath
-        );
+        const dir = path.join(".stories", previewPath);
         const html = fs.readFileSync(path.join(dir, "index.html"), "utf-8");
         const htmlFormatted = fs.readFileSync(
           path.join(dir, "index.formatted.html"),
@@ -29,10 +26,6 @@ export default function remarkAdmonition() {
           fs.readFileSync(path.join(dir, "metadata.json"), "utf-8")
         );
 
-        const bundleDir = `/public/stories/bundles/${previewPath}`;
-        fs.mkdirSync(process.cwd() + bundleDir, { recursive: true });
-        fs.writeFileSync(`${process.cwd()}${bundleDir}/index.jsx`, bundle);
-
         node.type = "mdxJsxFlowElement";
         node.name = "CodeSandbox";
         node.attributes = [
@@ -44,7 +37,11 @@ export default function remarkAdmonition() {
             value: htmlFormatted,
           },
           { type: "mdxJsxAttribute", name: "css", value: css },
-          { type: "mdxJsxAttribute", name: "bundlePath", value: previewPath },
+          {
+            type: "mdxJsxAttribute",
+            name: "bundlePath",
+            value: previewPath + ".js",
+          },
           {
             type: "mdxJsxAttribute",
             name: "layout",

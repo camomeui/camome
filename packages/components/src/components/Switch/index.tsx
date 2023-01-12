@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
 import { UnstyledInput } from "../UnstyledInput";
 
@@ -15,7 +15,7 @@ export type ToggleProps = {
 } & Omit<JSX.IntrinsicElements["input"], "size">;
 
 // Reference: https://www.w3.org/WAI/ARIA/apg/patterns/switch/
-export const Switch = React.forwardRef<HTMLInputElement, ToggleProps>(
+export const Switch = forwardRef<HTMLInputElement, ToggleProps>(
   ({ on, off, size = "md", style, className, ...props }, ref) => {
     return (
       <span

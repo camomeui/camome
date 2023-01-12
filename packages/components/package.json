@@ -16,9 +16,8 @@
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
-    "build": "vite build && pnpm build:static-stories",
+    "build": "vite build",
     "build:storybook": "storybook build",
-    "build:static-stories": "pnpm -F components run-ts ./scripts/build-static-stories.tsx",
     "typecheck": "pnpm gen-scss-type && tsc",
     "storybook": "storybook dev -p 3920",
     "run-ts": "node -r esbuild-register"
@@ -56,6 +55,7 @@
     "postcss": "^8.4.20",
     "postcss-modules": "^6.0.0",
     "react": "^18.2.0",
+    "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
     "resolve": "^1.22.1",

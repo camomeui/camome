@@ -42,7 +42,6 @@ const _Button = React.forwardRef<
   ) => {
     const mergedProps = {
       ...props,
-      variant,
       className: clsx(
         className,
         styles.Block,

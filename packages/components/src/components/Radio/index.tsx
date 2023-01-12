@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
-import { FormField } from "../FormField";
+import { FormField, FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
@@ -12,14 +12,14 @@ type OmittedNativeProps = "size";
 type NativeProps = Omit<JSX.IntrinsicElements["input"], OmittedNativeProps>;
 
 export type RadioProps = {
-  labelText: string;
   size?: RadioSize;
-} & NativeProps;
+} & NativeProps &
+  Pick<FormFieldProps, "description" | "error" | "id" | "label">;
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({ labelText, size = "md", id, ...inputProps }, forwardedRef) => {
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+  ({ label, size = "md", id, ...inputProps }, forwardedRef) => {
     return (
-      <FormField label={labelText} id={id} custom>
+      <FormField label={label} id={id} custom>
         <div
           className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
         >

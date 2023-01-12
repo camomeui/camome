@@ -1,6 +1,9 @@
 @use "@/styles/variables";
 
-.container {
+$pad-lg: 3rem;
+$pad-sm: 1rem;
+
+.article {
   // Disable container padding and add to .main for
   // preserving the space for outline
   @include variables.container(variables.$xl, 0);
@@ -30,17 +33,27 @@
 .main {
   overflow-x: auto;
   position: relative;
-  padding: 2rem 1rem 4rem 2rem;
-
-  @include variables.mq("xl") {
-    padding: 1rem;
-  }
+  padding-right: 1rem;
 }
 
 .header {
   display: grid;
   row-gap: 1rem;
-  margin-bottom: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  padding-left: $pad-lg;
+  padding-right: $pad-lg;
+  background: var(--cmm-color-surface-1);
+  min-height: 10rem;
+
+  @include variables.mq("xl") {
+    padding-left: $pad-sm;
+    padding-right: $pad-sm;
+  }
+
+  &.withTabs {
+    border-bottom: none;
+  }
 
   .title {
     font-weight: var(--cmm-font-weight-bold);
@@ -55,21 +68,6 @@
   .description {
     color: var(--cmm-color-font-muted);
     font-weight: var(--cmm-font-weight-normal);
-  }
-
-  .date {
-    display: grid;
-    row-gap: 0.25rem;
-
-    &__published {
-      display: block;
-      font-size: var(--cmm-font-size-md);
-    }
-
-    &__lastmod {
-      display: block;
-      font-size: var(--cmm-font-size-sm);
-    }
   }
 
   .author {
@@ -100,9 +98,44 @@
   border-top: 1px solid var(--cmm-color-border-base);
 }
 
+%panel {
+  padding-top: 3rem;
+  padding-left: $pad-lg;
+  padding-bottom: 4rem;
+
+  @include variables.mq("xl") {
+    padding-left: $pad-sm;
+  }
+}
+
+.panel {
+  @extend %panel;
+}
+
 @layer override {
   .tag {
     --cmm-Tag-icon-size: 1rem;
     --cmm-Tag-icon-margin: 0 -0.25rem 0 0;
+  }
+
+  .tab {
+    > :global(.Tab__list) {
+      background: var(--cmm-color-surface-1);
+      padding-left: $pad-lg;
+
+      @include variables.mq("xl") {
+        padding-left: $pad-sm;
+      }
+
+      > :global(.Tab) {
+        font-weight: var(--cmm-font-weight-medium);
+      }
+    }
+
+    > :global(.Tab__panel) {
+      @extend %panel;
+
+      margin-top: 0;
+    }
   }
 }

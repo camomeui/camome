@@ -16,18 +16,16 @@
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0 1rem;
-    line-height: 2;
+    padding: 0 0.5rem;
+    line-height: 2.5;
     color: var(--cmm-Tab-font);
-    border-top-left-radius: var(--cmm-rounded-md);
-    border-top-right-radius: var(--cmm-rounded-md);
+    border-top-left-radius: var(--cmm-rounded-sm);
+    border-top-right-radius: var(--cmm-rounded-sm);
     border-bottom: solid $borderBWidth $borderBPassiveColor;
     margin-bottom: calc($borderBWidth * -1);
     transition: var(--cmm-transition-bg), color 0.3s, border 0.3s;
 
     &:hover {
-      background: var(--cmm-Tab-bg-hover);
-
       &:not(.--active) {
         border-color: var(--cmm-Tab-border-hover);
         color: var(--cmm-Tab-font-hover);
@@ -47,6 +45,7 @@
 
   .list {
     display: flex;
+    gap: 0.75rem;
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: $borderBWidth solid $borderBPassiveColor;

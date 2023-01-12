@@ -1,4 +1,5 @@
 import type { OptionalField } from "@camome/utils";
+import type { Props } from "react-docgen-typescript";
 
 export type Toc = {
   value: string;
@@ -56,4 +57,17 @@ export type DocsSidebarItemConfig =
 
 export type DocsSidebarConfig = {
   items: DocsSidebarItemConfig[];
+};
+
+export type DocsComponentPropItem = {
+  name: string;
+  required: boolean;
+  type: string;
+  defaultValue: string;
+  description: string;
+};
+
+export type DocsComponentMeta = {
+  displayName: string;
+  props: DocsComponentPropItem[];
 };

@@ -38,4 +38,5 @@ next-env.d.ts
 .vscode
 
 .contentlayer
-/public/stories/bundles
+/public/demo/bundles
+.demo
