@@ -11,7 +11,6 @@ import PropsTables from "@/components/PropsTables";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentMeta, LabeledLink, Toc } from "@/types";
 import { Markup } from "@camome/components/Markup";
-import { Spinner } from "@camome/components/Spinner";
 import { Tag } from "@camome/components/Tag";
 import { type Docs } from "contentlayer/generated";
 

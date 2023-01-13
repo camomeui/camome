@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
 import {
   BaseProps,
@@ -22,15 +22,18 @@ export type TagProps = {
   children?: React.ReactNode;
 } & BaseProps;
 
-const defaultSize = "md" as const;
-const defaultVariant = "soft" as const;
-const defaultColorScheme = "primary" as const;
+// Not appending `as const` to prevent react-docgen-typescript from
+// including it.
+// TODO: maybe filterable?
+const defaultSize = "md";
+const defaultVariant = "soft";
+const defaultColorScheme = "primary";
 
-const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
-  (props, forwardedRef) => {
-    const {
+const _Tag = forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
+  (
+    {
       component = "span",
-      size = defaultSize,
+      size = "md",
       variant = defaultVariant,
       colorScheme = defaultColorScheme,
       startDecorator,
@@ -39,7 +42,9 @@ const _Tag = React.forwardRef<HTMLSpanElement, TagProps & PolymorphicProps>(
       style,
       className,
       ...restProps
-    } = props;
+    },
+    forwardedRef
+  ) => {
     return (
       <Box
         component={component}
