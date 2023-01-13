@@ -6,9 +6,9 @@ import styles from "./styles.module.scss";
 
 export type TextInputGroupProps = {
   input: React.ReactNode;
-  leftDecorator: React.ReactNode;
-  rightDecorator: React.ReactNode;
-};
+  leftDecorator?: React.ReactNode;
+  rightDecorator?: React.ReactNode;
+} & BaseProps;
 
 export function TextInputGroup({
   input,
@@ -16,7 +16,7 @@ export function TextInputGroup({
   rightDecorator,
   style,
   className,
-}: TextInputGroupProps & BaseProps) {
+}: TextInputGroupProps) {
   return (
     <div style={style} className={className}>
       <div className={styles.Block}>

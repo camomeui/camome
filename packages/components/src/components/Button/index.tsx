@@ -1,7 +1,13 @@
 import clsx from "clsx";
 import React from "react";
 
-import { BaseProps, PolymorphicProps, ColorScheme, Variant } from "../../types";
+import {
+  BaseProps,
+  PolymorphicProps,
+  ColorScheme,
+  Variant,
+  Size,
+} from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
 import { Box } from "../Box";
 
@@ -9,12 +15,11 @@ import styles from "./styles.module.scss";
 
 export type ButtonVariant = Variant;
 export type ButtonColorScheme = ColorScheme;
-export type ButtonSize = "sm" | "md" | "lg";
 
 export type ButtonBaseProps = {
   variant?: ButtonVariant;
   colorScheme?: ButtonColorScheme;
-  size?: ButtonSize;
+  size?: Size;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: React.ReactNode;

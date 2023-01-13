@@ -3,7 +3,12 @@ import { NextSeo } from "next-seo";
 import React from "react";
 import * as docgen from "react-docgen-typescript";
 
-import type { NavItem, LabeledLink, DocsComponentMeta } from "@/types";
+import type {
+  NavItem,
+  LabeledLink,
+  DocsComponentMeta,
+  DocsComponentPropItem,
+} from "@/types";
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
@@ -60,8 +65,17 @@ function getComponentData(name: string): DocsComponentMeta[] {
         type: v.type.name,
         description: v.description,
       }))
-      .sort((a, b) => a.name.localeCompare(b.name)),
+      .sort(compareProp),
   }));
+}
+
+function compareProp(
+  a: DocsComponentPropItem,
+  b: DocsComponentPropItem
+): number {
+  if (a.required && !b.required) return -1;
+  if (!a.required && b.required) return 1;
+  return a.name.localeCompare(b.name);
 }
 
 export default function DocsPage({

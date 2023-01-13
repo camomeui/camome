@@ -4,13 +4,11 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type AccordionItem = {
-  summary: React.ReactNode;
-  details: React.ReactNode;
-};
-
 export type AccordionProps = {
-  items: AccordionItem[];
+  items: {
+    summary: React.ReactNode;
+    details: React.ReactNode;
+  }[];
   className?: string;
 };
 

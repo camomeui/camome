@@ -11,7 +11,7 @@ type TextareaNativeProps = JSX.IntrinsicElements["textarea"];
 export type TextareaProps = {
   fill?: boolean;
 } & TextareaNativeProps &
-  Pick<FormFieldProps, "description" | "error" | "label">;
+  Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ description, error, label, id, fill, ...props }, forwardedRef) => {

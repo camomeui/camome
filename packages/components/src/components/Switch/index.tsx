@@ -1,17 +1,15 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { Size } from "../../types";
 import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-export type ToggleSize = "sm" | "md" | "lg";
-
 export type ToggleProps = {
   on?: React.ReactNode;
   off?: React.ReactNode;
-  size?: ToggleSize;
-  direction?: "horizontal" | "horizontal-reverse";
+  size?: Size;
 } & Omit<JSX.IntrinsicElements["input"], "size">;
 
 // Reference: https://www.w3.org/WAI/ARIA/apg/patterns/switch/

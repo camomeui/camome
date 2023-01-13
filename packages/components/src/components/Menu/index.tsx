@@ -11,12 +11,6 @@ export const menuClassNames = {
   divider: styles.divider,
 };
 
-type MenuApi = React.FC<BaseProps> & {
-  Item: typeof MenuItem;
-  Group: typeof MenuGroup;
-  Divider: typeof MenuDivider;
-};
-
 type BaseProps = {
   children?: React.ReactNode;
   className?: string;

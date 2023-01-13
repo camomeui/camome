@@ -71,7 +71,7 @@ export default function CodeBlock({
       className={styles.container}
     >
       <Tooltip
-        label={copied ? "Copied!" : "Copy"}
+        title={copied ? "Copied!" : "Copy"}
         className={clsx(styles["tooltip-wrap"], shown && styles.shown)}
         style={{ translate: hasScrollbar ? "-0.6rem" : 0 }}
       >
