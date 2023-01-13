@@ -3,11 +3,7 @@ import { Select } from "@camome/components/Select";
 
 export default function Description() {
   return (
-    <FormField
-      label="Job title"
-      description="Description text"
-      id="_description"
-    >
+    <FormField label="Job title" description="Description text">
       <Select>
         <option value="developer">Developer</option>
         <option value="designer">Designer</option>

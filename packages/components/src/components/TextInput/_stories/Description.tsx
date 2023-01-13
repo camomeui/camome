@@ -6,7 +6,6 @@ export default function Description() {
       label="Name"
       description="Description text"
       placeholder="John Doe"
-      id="_description"
     />
   );
 }

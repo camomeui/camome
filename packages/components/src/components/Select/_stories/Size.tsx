@@ -5,13 +5,13 @@ import styles from "./styles.module.scss";
 export default function Size() {
   return (
     <div className={styles.size__container}>
-      <Select label="Small" size="sm" id="_size-sm">
+      <Select label="Small" size="sm">
         <option value="small">Developer</option>
       </Select>
-      <Select label="Medium" size="md" id="_size-md">
+      <Select label="Medium" size="md">
         <option value="medium">Developer</option>
       </Select>
-      <Select label="Large" size="lg" id="_size-lg">
+      <Select label="Large" size="lg">
         <option value="large">Developer</option>
       </Select>
     </div>

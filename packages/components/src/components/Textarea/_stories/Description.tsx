@@ -7,7 +7,6 @@ export default function Description() {
       description="Description text"
       rows={3}
       placeholder="Type something..."
-      id="_helper"
     />
   );
 }
