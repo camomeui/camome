@@ -11,12 +11,24 @@ type TabsProps = {
     label: React.ReactNode;
     panel: React.ReactNode;
   }[];
+  selectedIndex?: number;
+  onChange?: (index: number) => void;
   className?: string;
 };
 
-export default function DocsTabs({ items, className }: TabsProps) {
+export default function DocsTabs({
+  items,
+  className,
+  selectedIndex,
+  onChange,
+}: TabsProps) {
   return (
-    <HeadlessTab.Group as="div" className={clsx(group, className)}>
+    <HeadlessTab.Group
+      as="div"
+      className={clsx(group, className)}
+      selectedIndex={selectedIndex}
+      onChange={onChange as any}
+    >
       <HeadlessTab.List className={list}>
         {items.map((item) => (
           <HeadlessTab

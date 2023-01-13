@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { FiInfo } from "react-icons/fi";
 
@@ -10,6 +11,7 @@ import PropsTables from "@/components/PropsTables";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentMeta, LabeledLink, Toc } from "@/types";
 import { Markup } from "@camome/components/Markup";
+import { Spinner } from "@camome/components/Spinner";
 import { Tag } from "@camome/components/Tag";
 import { type Docs } from "contentlayer/generated";
 
@@ -67,6 +69,23 @@ export default function DocsTemplate({
 
   const withTabs = tabItems.length > 1;
 
+  const router = useRouter();
+  const tabId = router.query.tab;
+  const tabIndex = tabId ? tabItems.findIndex((item) => item.id === tabId) : 0;
+  const navigateTab = (index: number) => {
+    router.push(
+      {
+        ...router,
+        query: {
+          slug: router.query.slug,
+          ...(index > 0 ? { tab: tabItems[index].id } : {}),
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
   return (
     <div>
       <header className={clsx(styles.header, withTabs && styles.withTabs)}>
@@ -89,7 +108,12 @@ export default function DocsTemplate({
         )}
       </header>
       {withTabs ? (
-        <DocsTabs items={tabItems} className={styles.tab} />
+        <DocsTabs
+          items={tabItems}
+          className={styles.tab}
+          selectedIndex={tabIndex}
+          onChange={navigateTab}
+        />
       ) : (
         <div className={styles.panel}>{tabItems[0].panel}</div>
       )}
