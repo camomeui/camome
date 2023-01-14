@@ -4,14 +4,15 @@ import { useRouter } from "next/router";
 import React from "react";
 import { FiInfo } from "react-icons/fi";
 
+import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsPageNav from "@/components/DocsPageNav";
 import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
-import PropsTables from "@/components/PropsTables";
 import TableOfContents from "@/components/TableOfContents";
-import { DocsComponentMeta, LabeledLink, Toc } from "@/types";
+import { DocsComponentParams, LabeledLink, Toc } from "@/types";
 import { Markup } from "@camome/components/Markup";
 import { Tag } from "@camome/components/Tag";
+import { toKebabCase } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 
 import styles from "./styles.module.scss";
@@ -21,7 +22,7 @@ type Props = {
   toc?: Toc;
   prev?: LabeledLink;
   next?: LabeledLink;
-  componentMeta?: DocsComponentMeta[];
+  componentMeta?: DocsComponentParams[];
 };
 
 export default function DocsTemplate({
@@ -48,7 +49,11 @@ export default function DocsTemplate({
             </div>
             {toc && (
               <aside className={styles.tocWrap}>
-                <TableOfContents toc={toc} className={styles.toc} />
+                <TableOfContents
+                  toc={toc}
+                  className={styles.toc}
+                  anchorsContainerSelector="#markup"
+                />
               </aside>
             )}
           </div>
@@ -57,9 +62,24 @@ export default function DocsTemplate({
       ...(componentMeta
         ? [
             {
-              id: "props",
-              label: "Props",
-              panel: <PropsTables data={componentMeta} />,
+              id: "params",
+              label: "Parameters",
+              panel: (
+                <div className={styles.article}>
+                  <div className={styles.main}>
+                    <ComponentParamTables data={componentMeta} id="params" />
+                  </div>
+                  {toc && (
+                    <aside className={styles.tocWrap}>
+                      <TableOfContents
+                        toc={tocOfComponentParams(componentMeta)}
+                        className={styles.toc}
+                        anchorsContainerSelector="#params"
+                      />
+                    </aside>
+                  )}
+                </div>
+              ),
             },
           ]
         : []),
@@ -118,4 +138,40 @@ export default function DocsTemplate({
       )}
     </div>
   );
+}
+
+export function tocOfComponentParams(params: DocsComponentParams[]): Toc {
+  const variables = params.flatMap((comp) => comp.cssVariables);
+  const classes = params.flatMap((comp) => comp.classes);
+  const hasProps = params.flatMap((comp) => comp.props).length > 0;
+  const hasVariables = variables.length > 0;
+  const hasClasses = classes.length > 0;
+
+  const propToc = {
+    depth: 2,
+    url: "#props",
+    value: "React props",
+  };
+  const varToc = {
+    depth: 2,
+    url: "#variables",
+    value: "CSS variables",
+  };
+  const classToc = {
+    depth: 2,
+    url: "#classes",
+    value: "Classes",
+  };
+  const componentToc = params.map((comp) => ({
+    depth: 3,
+    url: `#${toKebabCase(comp.displayName)}`,
+    value: comp.displayName,
+  }));
+
+  return [
+    ...(hasProps ? [propToc] : []),
+    ...componentToc,
+    ...(hasVariables ? [varToc] : []),
+    ...(hasClasses ? [classToc] : []),
+  ];
 }

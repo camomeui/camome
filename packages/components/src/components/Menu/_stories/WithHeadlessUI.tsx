@@ -10,8 +10,6 @@ import clsx from "clsx";
 import { Button } from "@camome/components/Button";
 import { Menu, menuClassNames } from "@camome/components/Menu";
 
-import styles from "./styles.module.scss";
-
 export default function WithHeadlessUI() {
   const { x, y, reference, floating, strategy } = useFloating({
     placement: "bottom",
@@ -52,9 +50,7 @@ export default function WithHeadlessUI() {
           <HeadlessMenu.Item
             key={label}
             as="button"
-            className={({ active }) =>
-              clsx(item, active && itemActive, styles["with-headless-ui"])
-            }
+            className={({ active }) => clsx(item, active && itemActive)}
           >
             {icon}
             {label}

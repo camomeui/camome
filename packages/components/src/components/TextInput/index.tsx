@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import type { BaseProps, Size } from "../../types";
+import type { Size } from "@camome/system";
 
+import { BaseProps } from "../../types";
 import { FormField, FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
 

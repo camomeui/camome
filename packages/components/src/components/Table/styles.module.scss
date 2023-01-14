@@ -1,0 +1,32 @@
+.Block {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th {
+    text-align: start;
+    border-top: 1px solid var(--cmm-color-border-base);
+    border-bottom: 1px solid var(--cmm-color-border-base);
+    background-color: var(--cmm-color-surface-1);
+    font-size: var(--cmm-font-size-sm);
+  }
+
+  th:first-child {
+    border-left: 1px solid var(--cmm-color-border-base);
+    border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
+  }
+
+  th:last-child {
+    border-right: 1px solid var(--cmm-color-border-base);
+    border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
+  }
+
+  td,
+  th {
+    padding: 0.75rem;
+  }
+
+  tr:not(:last-of-type) td {
+    border-bottom: 1px solid var(--cmm-color-border-base);
+  }
+}

@@ -2,13 +2,9 @@ import { UserCircleIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import React from "react";
 
-import {
-  BaseProps,
-  ColorScheme,
-  PolymorphicProps,
-  Size,
-  Variant,
-} from "../../types";
+import type { ColorScheme, Size, Variant } from "@camome/system";
+
+import { BaseProps, PolymorphicProps } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
 import { Box } from "../Box";
 

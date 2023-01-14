@@ -1,13 +1,9 @@
 import clsx from "clsx";
 import React from "react";
 
-import {
-  BaseProps,
-  PolymorphicProps,
-  ColorScheme,
-  Variant,
-  Size,
-} from "../../types";
+import type { Variant, ColorScheme, Size } from "@camome/system";
+
+import { BaseProps, PolymorphicProps } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
 import { Box } from "../Box";
 

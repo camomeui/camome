@@ -1,0 +1,20 @@
+.Block {
+  scroll-margin-top: 4rem;
+}
+
+h2.Block {
+  font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-2xl);
+  border-bottom: 1px solid var(--cmm-color-border-base);
+  padding-bottom: 0.3rem;
+}
+
+h3.Block {
+  font-weight: var(--cmm-font-weight-semibold);
+  font-size: var(--cmm-font-size-xl);
+}
+
+h4.Block {
+  font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-lg);
+}

@@ -17,6 +17,7 @@ export * from "./components/Textarea";
 export * from "./components/Tooltip";
 export * from "./components/Dialog";
 export * from "./components/Tab";
+export * from "./components/Table";
 export * from "./components/Spinner";
 export * from "./components/Select";
 export * from "./components/Kbd";

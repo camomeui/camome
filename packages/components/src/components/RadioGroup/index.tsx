@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
-import { Orientation } from "../../types";
+import type { Orientation } from "@camome/system";
+
 import { joinLabelIds } from "../../utils/joinLabelIds";
 import { FormField, type FormFieldProps } from "../FormField";
 

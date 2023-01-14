@@ -78,8 +78,8 @@ const darkTheme = {
     bg: cssVar("color.surface.1"),
     bgHover: cssVar("color.surface.2"),
     fontLabel: cssVar("color.font.base"),
-    fontIcon: cssVar("color.font.subtle"),
-    fontGroup: cssVar("color.font.subtle"),
+    fontIcon: cssVar("color.font.muted"),
+    fontGroup: cssVar("color.font.muted"),
   },
   Tab: {
     bg: cssVar("color.surface.0"),

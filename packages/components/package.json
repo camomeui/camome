@@ -75,11 +75,14 @@
     "src"
   ],
   "exports": {
+    "./*": {
+      "import": "./src/components/*"
+    },
     "./hooks/*": {
       "import": "./src/hooks/*.ts"
     },
-    "./*": {
-      "import": "./src/components/*"
+    "./constants/*": {
+      "import": "./src/constants.ts"
     }
   },
   "typesVersions": {
@@ -89,6 +92,9 @@
       ],
       "hooks/*": [
         "./dist/hooks/*.d.ts"
+      ],
+      "constants": [
+        "./dist/constants.d.ts"
       ]
     }
   },

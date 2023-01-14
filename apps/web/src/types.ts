@@ -66,7 +66,14 @@ export type DocsComponentPropItem = {
   description: string;
 };
 
-export type DocsComponentMeta = {
+export type DocsComponentClass = {
+  name: string;
+  type: "block" | "element" | "modifier" | "variant" | "size" | "color-scheme";
+};
+
+export type DocsComponentParams = {
   displayName: string;
   props: DocsComponentPropItem[];
+  cssVariables: { name: string; type: "theme" | "local" }[];
+  classes: DocsComponentClass[];
 };

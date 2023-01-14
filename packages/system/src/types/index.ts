@@ -24,3 +24,7 @@ export type Themes = {
 };
 
 export type ThemeCustomization = DeepPartial<Themes>;
+
+export * from "./component";
+export * from "./font";
+export * from "./misc";

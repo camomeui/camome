@@ -1,13 +1,20 @@
-import * as docgen from "react-docgen-typescript";
+import fs from "fs/promises";
+import path from "path";
 
-import sidebar from "@/content/docs/_sidebar";
-import {
+import { parse } from "react-docgen-typescript";
+
+import type {
   NavItem,
   DocsSidebarItemConfig,
   NavItemLink,
   DocsComponentPropItem,
-  DocsComponentMeta,
+  DocsComponentParams,
+  DocsComponentClass,
+  Toc,
 } from "@/types";
+
+import sidebar from "@/content/docs/_sidebar";
+import { colorSchemes, sizes, variants } from "@camome/system";
 import { allDocs } from "contentlayer/generated";
 
 export function getSidebarItems(
@@ -41,11 +48,15 @@ export function flattenSidebarLinks(items: NavItem[]): NavItemLink[] {
   );
 }
 
-const excludedProps = ["className", "style"];
+const COMPONENTS_ROOT = `node_modules/@camome/components/` as const;
+const SYSTEM_ROOT = `node_modules/@camome/system/` as const;
+const EXCLUDED_PROPS = ["className", "style"];
 
-export function getComponentMeta(name: string): DocsComponentMeta[] {
-  const resp = docgen.parse(
-    `node_modules/@camome/components/src/components/${name}/index.tsx`,
+export async function getComponentMeta(
+  name: string
+): Promise<DocsComponentParams[]> {
+  const resp = parse(
+    path.join(COMPONENTS_ROOT, "src", "components", name, "index.tsx"),
     {
       savePropValueAsString: true,
       propFilter: (prop) => {
@@ -56,7 +67,7 @@ export function getComponentMeta(name: string): DocsComponentMeta[] {
               // excluding HTML attributes.
               return (
                 declaration.fileName.includes("@camome/components") &&
-                !excludedProps.includes(prop.name)
+                !EXCLUDED_PROPS.includes(prop.name)
               );
             }
           );
@@ -73,6 +84,39 @@ export function getComponentMeta(name: string): DocsComponentMeta[] {
     throw new Error(`Couldn't parse metadata for: ${name}`);
   }
 
+  const componentCss = await fs.readFile(
+    path.join(COMPONENTS_ROOT, "dist", "style.css"),
+    "utf-8"
+  );
+  const regex = new RegExp(`--cmm-(${name}-[a-zA-Z0-9-]+)`, "g");
+  const cssVariableNames: string[] = [];
+  for (const match of componentCss.matchAll(regex)) {
+    const variable = match[1].trim();
+    if (!cssVariableNames.includes(variable)) cssVariableNames.push(variable);
+  }
+
+  const themeCss = await fs.readFile(
+    path.join(SYSTEM_ROOT, "dist", "style.css"),
+    "utf-8"
+  );
+
+  const cssVariables: DocsComponentParams["cssVariables"] = cssVariableNames
+    .sort()
+    .map((variable) => ({
+      name: variable,
+      type: themeCss.includes(variable) ? "theme" : "local",
+    }));
+
+  const { default: styles } = (await import(
+    `node_modules/@camome/components/src/components/${name}/styles.module.scss`
+  )) as Record<string, string>;
+  const classes: DocsComponentParams["classes"] = Object.values(styles).map(
+    (name) => ({
+      name,
+      type: classType(name),
+    })
+  );
+
   return resp.map((component) => ({
     displayName: component.displayName,
     props: Object.entries(component.props)
@@ -84,6 +128,8 @@ export function getComponentMeta(name: string): DocsComponentMeta[] {
         description: v.description,
       }))
       .sort(compareProp),
+    cssVariables,
+    classes: classes.sort(compareClass),
   }));
 }
 
@@ -94,4 +140,31 @@ export function compareProp(
   if (a.required && !b.required) return -1;
   if (!a.required && b.required) return 1;
   return a.name.localeCompare(b.name);
+}
+
+function classType(className: string) {
+  if (!className.match(/(-|_)/)) return "block";
+  if (className.includes("__")) return "element";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const lastToken = className.split("-").at(-1) as any;
+  if (variants.includes(lastToken)) return "variant";
+  else if (colorSchemes.includes(lastToken)) return "color-scheme";
+  else if (sizes.includes(lastToken)) return "size";
+  else return "modifier";
+}
+
+export function compareClass(
+  a: DocsComponentClass,
+  b: DocsComponentClass
+): number {
+  const priority: readonly DocsComponentClass["type"][] = [
+    "block",
+    "element",
+    "size",
+    "color-scheme",
+    "variant",
+    "modifier",
+  ] as const;
+  const diff = priority.indexOf(a.type) - priority.indexOf(b.type);
+  return diff === 0 ? a.name.localeCompare(b.name) : diff;
 }

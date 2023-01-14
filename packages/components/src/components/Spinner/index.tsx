@@ -1,6 +1,8 @@
 import clsx from "clsx";
 
-import { BaseProps, Size } from "../../types";
+import type { Size } from "@camome/system";
+
+import { BaseProps } from "../../types";
 
 import styles from "./styles.module.scss";
 

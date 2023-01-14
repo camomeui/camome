@@ -1,6 +1,17 @@
-import { themedComponents } from "../constants";
+import type { Color } from "./color/primitive";
 
-import { Color } from "./color/primitive";
+import {
+  colorSchemes,
+  sizes,
+  variants,
+  themedComponents,
+  orientations,
+} from "../constants";
+
+export type Orientation = typeof orientations[number];
+export type Size = typeof sizes[number];
+export type ColorScheme = typeof colorSchemes[number];
+export type Variant = typeof variants[number];
 
 export type ThemedComponent = typeof themedComponents[number];
 

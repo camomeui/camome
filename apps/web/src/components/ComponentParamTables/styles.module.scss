@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.tableSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__heading {
+    font-size: var(--cmm-font-size-2xl);
+    font-weight: var(--cmm-font-weight-bold);
+  }
+}
+
+.displayName {
+  font-size: var(--cmm-font-size-lg);
+  font-weight: var(--cmm-font-weight-bold);
+}
+
+.code {
+  font-family: var(--cmm-font-family-code);
+  background: var(--cmm-color-neutral-soft-bg);
+  padding: 0.2em 0.5em;
+  border-radius: var(--cmm-rounded-sm);
+  border: 1px solid var(--cmm-color-border-base);
+}
+
+.propsTable {
+  &:not(:first-of-type) {
+    margin-top: 1.5rem;
+  }
+  .propName {
+    font-size: var(--cmm-font-size-md);
+    font-weight: var(--cmm-font-weight-bold);
+    border-bottom: 1px solid var(--cmm-color-border-base);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .dl {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+    font-size: var(--cmm-font-size-sm);
+
+    dt {
+      width: 5rem;
+    }
+
+    code {
+      font-size: var(--cmm-font-size-xs);
+    }
+  }
+}
+
+.variableTable {
+  td:first-child {
+    width: 0;
+    white-space: nowrap;
+  }
+
+  .variable {
+    font-size: var(--cmm-font-size-xs);
+  }
+}
