@@ -30,7 +30,7 @@ export default function CodeBlock({
   const [copied, setCopied] = React.useState(false);
   const [hasScrollbar, setHasScrollbar] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const onEnter = () => {
     setShown(true);
@@ -88,7 +88,7 @@ export default function CodeBlock({
       </Tooltip>
       <Highlight
         {...defaultProps}
-        theme={theme === "dark" ? darkTheme : lightTheme}
+        theme={resolvedTheme === "dark" ? darkTheme : lightTheme}
         code={code?.replace(/\n$/, "") ?? ""}
         language={language as Language}
         // Force update
@@ -101,7 +101,7 @@ export default function CodeBlock({
                 className={clsx(
                   styles["code"],
                   "scrollbar",
-                  theme === "dark" && "dark",
+                  resolvedTheme === "dark" && "dark",
                   classNames?.code
                 )}
                 ref={codeRef}

@@ -6,7 +6,7 @@ import { IconButton } from "@camome/components/IconButton";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   React.useEffect(() => {
@@ -42,11 +42,5 @@ export default function ThemeSwitch() {
     ),
   };
 
-  if (theme === "system" && systemTheme) {
-    return buttonsForCurrent[systemTheme];
-  } else if (theme) {
-    return buttonsForCurrent[theme as "dark" | "light"];
-  } else {
-    return buttonsForCurrent.light;
-  }
+  return buttonsForCurrent[(resolvedTheme as "dark" | "light") ?? "light"];
 }
