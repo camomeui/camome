@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.1
+
+### Patch Changes
+
+- c6ccdc5: Rename @camome/components to @camome/core
+
 ## 0.1.18
 
 ### Patch Changes
