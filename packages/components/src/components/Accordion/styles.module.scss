@@ -9,9 +9,13 @@
   .details {
     border-bottom: 1px solid var(--cmm-color-border-base);
 
+    &:first-of-type {
+      border-top: 1px solid var(--cmm-color-border-base);
+    }
+
     &[open] {
       .summary {
-        svg {
+        > svg {
           rotate: -180deg;
         }
       }
@@ -21,12 +25,12 @@
   .summary {
     display: block;
     cursor: pointer;
-    padding: locals.$pad;
+    padding: locals.$summaryPad;
     display: grid;
     grid-template-columns: 1fr auto;
     user-select: none;
     transition: var(--cmm-transition-bg);
-    font-weight: var(--cmm-font-weight-medium);
+    color: var(--cmm-color-font-base);
 
     &:hover {
       background-color: var(--cmm-color-surface-2);
@@ -37,13 +41,14 @@
     }
 
     > svg {
-      width: 1.3rem;
-      height: 1.3rem;
+      color: var(--cmm-color-font-muted);
+      width: locals.$markerSize;
+      height: locals.$markerSize;
     }
   }
 
-  .contents {
-    padding: 0 locals.$pad locals.$pad locals.$pad;
+  .content {
+    padding: locals.$contentPad;
     font-weight: var(--cmm-font-weight-normal);
     color: var(--cmm-color-font-muted);
   }

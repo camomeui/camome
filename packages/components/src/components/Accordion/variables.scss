@@ -1,2 +1,6 @@
-$pad_name: --cmm-Accordion-pad;
-$pad: var($pad_name, 1rem);
+$summaryPad_name: --cmm-Accordion-summary-pad;
+$summaryPad: var($summaryPad_name, 0.5rem 1rem);
+$contentPad_name: --cmm-Accordion-content-pad;
+$contentPad: var($contentPad_name, 0.5rem 1rem);
+$markerSize_name: --cmm-Accordion-marker-size;
+$markerSize: var($markerSize_name, 1.25em);
