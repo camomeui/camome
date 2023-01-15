@@ -1,6 +1,6 @@
 {
   "name": "@camome/components",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Head-only React components.",
   "author": "Matsura Yuma <lemonburst1958@gmail.com>",
   "license": "MIT",
