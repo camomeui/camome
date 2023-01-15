@@ -7,11 +7,14 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "build:web": "pnpm build --scope=@camome/web",
-    "typecheck": "pnpm -F './apps/*' -r --parallel typecheck",
-    "lint": "eslint packages/** apps/** --ext .ts,.tsx",
+    "typecheck": "pnpm -F \"./apps/*\" -F \"./packages/*\" -r --parallel typecheck",
+    "lint": "eslint packages/** apps/** --ext .ts,.tsx,.js,.jsx,.mjs,.cjs",
     "lint:fix": "pnpm lint --fix",
-    "format": "prettier -w .",
-    "ci:publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish"
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "test": "jest",
+    "ci": "concurrently \"pnpm typecheck\" \"pnpm lint\" \"pnpm format\" \"pnpm test\"",
+    "publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.5",
