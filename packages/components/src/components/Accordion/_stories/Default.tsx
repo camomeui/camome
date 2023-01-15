@@ -6,20 +6,18 @@ export default function Default() {
 
 const data = [
   {
-    summary: "Ad ullamco occaecat aliquip nisi?",
+    summary: "Section 1",
     details:
-      "Reprehenderit exercitation proident et laboris dolor ex nostrud proident enim in consectetur magna aliqua.",
+      "Lorem ipsum dolor sit amet, ei vocent reformidans has, cum eu nonumes oporteat praesent. ",
   },
   {
-    summary:
-      "Aliqua labore dolore exercitation esse anim consectetur eu aliquip?",
-    details: "Officia minim est fugiat dolore.",
+    summary: "Section 2",
+    details: "Cum laudem splendide ei, te sumo nobis mea.",
   },
   {
-    summary:
-      "Pariatur laboris do ut eu mollit ea adipisicing est in laborum enim sint commodo dolore?",
+    summary: "Section 3",
     details:
-      "Qui ex labore proident et voluptate ut aliquip. Labore sit eu deserunt tempor consequat.",
+      "Cu mel homero oporteat partiendo, te vim iuvaret nonumes. Stet ipsum at sit, justo ludus audiam nec ei, an paulo disputando vim.",
   },
 ];
 

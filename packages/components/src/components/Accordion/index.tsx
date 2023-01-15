@@ -9,19 +9,29 @@ export type AccordionProps = {
     summary: React.ReactNode;
     details: React.ReactNode;
   }[];
-  className?: string;
+  classNames?: {
+    block?: string;
+    details?: string;
+    summary?: string;
+    content?: string;
+  };
 };
 
-export function Accordion({ items, className }: AccordionProps) {
+export function Accordion({ items, classNames }: AccordionProps) {
   return (
-    <section className={clsx(styles.Block, className)}>
+    <section className={clsx(styles.Block, classNames?.block)}>
       {items.map(({ summary, details }) => (
-        <details key={summary?.toString()} className={styles.details}>
-          <summary className={styles.summary}>
+        <details
+          key={summary?.toString()}
+          className={clsx(styles.details, classNames?.details)}
+        >
+          <summary className={clsx(styles.summary, classNames?.summary)}>
             <span>{summary}</span>
             <ChevronDownIcon />
           </summary>
-          <div className={styles.contents}>{details}</div>
+          <div className={clsx(styles.content, classNames?.content)}>
+            {details}
+          </div>
         </details>
       ))}
     </section>
