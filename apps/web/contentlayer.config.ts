@@ -24,6 +24,9 @@ export const Docs = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    label: {
+      type: "string",
+    },
     description: {
       type: "string",
     },

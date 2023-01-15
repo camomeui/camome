@@ -2,7 +2,12 @@ import { GetStaticPathsResult, GetStaticPropsContext } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 
-import type { NavItem, LabeledLink, DocsComponentParams } from "@/types";
+import type {
+  NavItem,
+  LabeledLink,
+  DocsComponentParams,
+  Locale,
+} from "@/types";
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
@@ -48,6 +53,7 @@ export default function DocsPage({
 export async function getStaticProps({
   params,
   locale,
+  defaultLocale,
 }: GetStaticPropsContext) {
   const slug = params?.slug;
   if (!Array.isArray(slug)) {
@@ -55,7 +61,10 @@ export async function getStaticProps({
       notFound: true,
     };
   }
-  const sidebarItems = getSidebarItems();
+  const sidebarItems = getSidebarItems(
+    undefined,
+    (locale ?? defaultLocale) as Locale
+  );
   const doc =
     allDocs.find(
       (post) => post.slug === slug.join("/") && post.locale === locale

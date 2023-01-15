@@ -10,6 +10,7 @@ import type {
   DocsComponentPropItem,
   DocsComponentParams,
   DocsComponentClass,
+  Locale,
 } from "@/types";
 
 import sidebar from "@/content/docs/_sidebar";
@@ -17,7 +18,8 @@ import { colorSchemes, sizes, variants } from "@camome/system";
 import { allDocs } from "contentlayer/generated";
 
 export function getSidebarItems(
-  items: DocsSidebarItemConfig[] = sidebar.items
+  items: DocsSidebarItemConfig[] = sidebar.items,
+  locale: Locale
 ) {
   const result: NavItem[] = [];
   for (const item of items) {
@@ -25,16 +27,18 @@ export function getSidebarItems(
       // Category
       result.push({
         ...item,
-        items: getSidebarItems(item.items),
+        items: getSidebarItems(item.items, locale),
       });
     } else {
       // Document link
-      const doc = allDocs.find((d) => d.id === item.id);
+      const doc =
+        allDocs.find((d) => d.id === item.id && d.locale === locale) ??
+        allDocs.find((d) => d.id === item.id);
       if (!doc) continue;
       result.push({
         ...item,
         href: "/docs/" + doc.slug,
-        label: item.label ?? doc.title,
+        label: item.label ?? doc.label ?? doc.title,
       });
     }
   }

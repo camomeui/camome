@@ -18,7 +18,6 @@ const sidebar = {
         },
         {
           id: "headless-integration",
-          label: "Headless UI",
         },
         {
           id: "form",

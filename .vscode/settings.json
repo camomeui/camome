@@ -3,5 +3,8 @@
   "cssVariables.lookupFiles": ["apps/web/src/styles/camome.css"],
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn"
+  },
+  "[mdx]": {
+    "editor.wordWrap": "wordWrapColumn"
   }
 }
