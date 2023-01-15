@@ -3,7 +3,7 @@ on: pull_request
 env:
   CI: true
 jobs:
-  version:
+  check:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +24,4 @@ jobs:
         run: pnpm build
       # TODO: use turborepo to cache and speed up?
       - name: check
-        run: pnpm ci
+        run: pnpm ci:check

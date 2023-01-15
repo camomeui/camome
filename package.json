@@ -13,8 +13,8 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "test": "jest",
-    "ci": "concurrently \"pnpm typecheck\" \"pnpm lint\" \"pnpm format\" \"pnpm test\"",
-    "publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish"
+    "ci:check": "concurrently \"pnpm typecheck\" \"pnpm lint\" \"pnpm format\" \"pnpm test\"",
+    "ci:publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.5",
