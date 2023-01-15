@@ -16,7 +16,7 @@
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
-    "build": "vite build",
+    "build": "pnpm gen-scss-type && vite build",
     "build:storybook": "storybook build",
     "typecheck": "pnpm gen-scss-type && tsc",
     "storybook": "storybook dev -p 3920",
