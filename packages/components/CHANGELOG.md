@@ -1,5 +1,15 @@
 # @camome/components
 
+## 0.1.15
+
+### Patch Changes
+
+- 0b948df: Support CSS Cascade Layers
+- a9a5950: Include color schemes into theme.
+- Updated dependencies [0b948df]
+- Updated dependencies [a9a5950]
+  - @camome/system@0.1.7
+
 ## 0.1.14
 
 ### Patch Changes
