@@ -67,13 +67,14 @@ const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",
     })}\`;
-const metadata = ${JSON.stringify({ layout })};
+const layout = "${layout}";
 
 export default {
   Component,
   react,
   css,
   html,
+  layout,
 }`;
 
     await fs.mkdir(componentOutDir, {

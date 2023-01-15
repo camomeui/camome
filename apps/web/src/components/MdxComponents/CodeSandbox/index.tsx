@@ -34,7 +34,9 @@ export default function CodeSandbox({
             "no-markup"
           )}
         >
-          <Component />
+          <div className={styles.previewInner}>
+            <Component />
+          </div>
         </div>
         <CodeTabs
           items={[
