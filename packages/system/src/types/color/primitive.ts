@@ -23,8 +23,8 @@ export const colorSchemes = [
 ] as const;
 export const variants = ["solid", "soft", "outline", "ghost"] as const;
 
-export type ColorScheme = typeof colorSchemes[number];
-export type Variant = typeof variants[number];
+export type ColorScheme = (typeof colorSchemes)[number];
+export type Variant = (typeof variants)[number];
 
 export type ColorSchemeTokens = {
   font: Color;

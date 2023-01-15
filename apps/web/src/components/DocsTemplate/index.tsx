@@ -7,15 +7,16 @@ import { FiInfo } from "react-icons/fi";
 import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsPageNav from "@/components/DocsPageNav";
 import DocsTabs from "@/components/DocsTabs";
+
+import styles from "./styles.module.scss";
+
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
-import { Markup } from "@camome/components/Markup";
-import { Tag } from "@camome/components/Tag";
+import { Markup } from "@camome/core/Markup";
+import { Tag } from "@camome/core/Tag";
 import { toKebabCase } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
-
-import styles from "./styles.module.scss";
 
 type Props = {
   doc: Docs;

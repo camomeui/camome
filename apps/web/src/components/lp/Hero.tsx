@@ -7,11 +7,12 @@ import NextJsIcon from "@/assets/nextjs.svg";
 import TypeScriptIcon from "@/assets/typescript.svg";
 import BuyButton from "@/components/common/BuyButton";
 import Tag, { TagProps } from "@/components/common/Tag";
-import HeroPng from "@/public/hero-image.png";
-import { Button } from "@camome/components/Button";
-import { TextInput } from "@camome/components/TextInput";
 
 import styles from "./Hero.module.scss";
+
+import HeroPng from "@/public/hero-image.png";
+import { Button } from "@camome/core/Button";
+import { TextInput } from "@camome/core/TextInput";
 
 const tags: TagProps[] = [
   {
