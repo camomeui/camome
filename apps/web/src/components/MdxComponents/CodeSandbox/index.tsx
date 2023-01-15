@@ -31,7 +31,8 @@ export default function CodeSandbox({
           className={clsx(
             styles.preview,
             styles[`preview--${layout}`],
-            "no-markup"
+            "no-markup",
+            "scrollbar"
           )}
         >
           <div className={styles.previewInner}>

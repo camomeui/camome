@@ -75,7 +75,7 @@ const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",
     })}\`;
-const layout = "${layout}";
+const layout = ${layout ? `"${layout}"` : "undefined"};
 
 export default {
   Component,
