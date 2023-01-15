@@ -28,7 +28,7 @@ export default function LocaleSwitch() {
   const currentLocale = (locale ?? defaultLocale) as Locale;
 
   return (
-    <Menu as="div">
+    <Menu as="div" className={styles.menu}>
       <div>
         <Menu.Button as={React.Fragment}>
           {() => (
@@ -53,7 +53,6 @@ export default function LocaleSwitch() {
           position: strategy,
           top: y ?? 0,
           left: x ?? 0,
-          width: "max-content",
         }}
       >
         {["en", "ja"].map((locale) => (
@@ -68,8 +67,7 @@ export default function LocaleSwitch() {
                   className={clsx(
                     menuClassNames.item,
                     active && menuClassNames.itemActive,
-                    disabled && menuClassNames.itemDisabled,
-                    styles.selected
+                    disabled && menuClassNames.itemDisabled
                   )}
                 >
                   <span>{localeToLabel[locale as Locale]}</span>
