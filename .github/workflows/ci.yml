@@ -19,8 +19,9 @@ jobs:
         run: npm i pnpm@latest -g
       - name: install dependencies
         run: pnpm install
+      # TODO: build only necessary stuff for CI?
       - name: build
-        run: pnpm build --filter="./packages/*"
+        run: pnpm build
       # TODO: use turborepo to cache and speed up?
       - name: check
         run: pnpm ci
