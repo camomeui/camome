@@ -62,19 +62,19 @@ export default function DocsTemplate({
       ...(componentMeta
         ? [
             {
-              id: "params",
-              label: "Parameters",
+              id: "api",
+              label: "API",
               panel: (
                 <div className={styles.article}>
                   <div className={styles.main}>
-                    <ComponentParamTables data={componentMeta} id="params" />
+                    <ComponentParamTables data={componentMeta} id="api" />
                   </div>
                   {toc && (
                     <aside className={styles.tocWrap}>
                       <TableOfContents
                         toc={tocOfComponentParams(componentMeta)}
                         className={styles.toc}
-                        anchorsContainerSelector="#params"
+                        anchorsContainerSelector="#api"
                       />
                     </aside>
                   )}
