@@ -10,8 +10,8 @@ import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
-import { Markup } from "@camome/components/Markup";
-import { Tag } from "@camome/components/Tag";
+import { Markup } from "@camome/core/Markup";
+import { Tag } from "@camome/core/Tag";
 import { toKebabCase } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 

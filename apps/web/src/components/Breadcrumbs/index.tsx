@@ -4,7 +4,7 @@ import React from "react";
 import {
   Breadcrumbs as _Breadcrumbs,
   type BreadcrumbsProps,
-} from "@camome/components/Breadcrumbs";
+} from "@camome/core/Breadcrumbs";
 
 type Props = Omit<BreadcrumbsProps, "renderLink">;
 

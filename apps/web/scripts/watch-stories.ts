@@ -5,7 +5,7 @@ import { globbySync } from "globby";
 
 import { toKebabCase } from "@camome/utils";
 
-const STORIES_DIR = "node_modules/@camome/components/.stories/" as const;
+const STORIES_DIR = "node_modules/@camome/core/.stories/" as const;
 const DOCS_DIR = "content/docs/components/" as const;
 const INTERVAL_MS = 1000 as const;
 const cache = new Map<string, number>();

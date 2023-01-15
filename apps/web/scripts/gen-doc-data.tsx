@@ -26,7 +26,7 @@ const argv = yargs(hideBin(process.argv))
 const COMPONENTS_DIR = path.join(
   "node_modules",
   "@camome",
-  "components",
+  "core",
   "src",
   "components"
 );
@@ -94,7 +94,7 @@ export default {
     format: "esm",
     external: ["react", "react-dom"],
     outExtension: { ".js": ".jsx" },
-    tsconfig: "node_modules/@camome/components/tsconfig.json",
+    tsconfig: "node_modules/@camome/core/tsconfig.json",
     jsx: "automatic",
     watch: argv.watch
       ? {

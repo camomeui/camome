@@ -1,0 +1,102 @@
+{
+  "name": "@camome/core",
+  "version": "0.0.0",
+  "description": "Head-only React components.",
+  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "url": "https://github.com/camomeui/camome.git",
+    "type": "git",
+    "directory": "packages/components"
+  },
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc",
+    "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
+    "dev:vite": "vite build --watch",
+    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
+    "build": "pnpm gen-scss-type && vite build",
+    "build:storybook": "storybook build",
+    "typecheck": "pnpm gen-scss-type && tsc",
+    "storybook": "storybook dev -p 3920",
+    "run-ts": "node -r esbuild-register"
+  },
+  "dependencies": {
+    "@camome/system": "workspace:*",
+    "@camome/utils": "workspace:*",
+    "@heroicons/react": "^2.0.10",
+    "clsx": "^1.2.1",
+    "esbuild-sass-plugin": "^2.4.4",
+    "lightningcss": "^1.17.1",
+    "lodash": "^4.17.21",
+    "prism-react-renderer": "^1.3.5"
+  },
+  "devDependencies": {
+    "@floating-ui/react": "^0.14.0",
+    "@headlessui/react": "^1.7.4",
+    "@storybook/addon-docs": "^6.5.15",
+    "@storybook/addon-essentials": "^7.0.0-beta.15",
+    "@storybook/addon-interactions": "^7.0.0-beta.15",
+    "@storybook/addon-links": "^7.0.0-beta.15",
+    "@storybook/blocks": "^7.0.0-alpha.8",
+    "@storybook/jest": "^0.0.10",
+    "@storybook/react": "^7.0.0-beta.15",
+    "@storybook/react-vite": "^7.0.0-alpha.25",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.15",
+    "@types/body-scroll-lock": "^3.1.0",
+    "@types/yargs": "^17.0.17",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "esbuild-css-modules-plugin": "^2.6.3",
+    "esbuild-plugin-sass-modules": "^0.0.3",
+    "globby": "^13.1.2",
+    "postcss": "^8.4.20",
+    "postcss-modules": "^6.0.0",
+    "react": "^18.2.0",
+    "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.40.0",
+    "resolve": "^1.22.1",
+    "sass": "^1.55.0",
+    "storybook": "^7.0.0-beta.15",
+    "storybook-dark-mode": "^2.0.5",
+    "vite": "^4.0.2",
+    "vite-plugin-dts": "^1.7.1",
+    "vite-tsconfig-paths": "^4.0.3",
+    "yargs": "^17.6.2"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./*": {
+      "import": "./src/components/*"
+    },
+    "./hooks/*": {
+      "import": "./src/hooks/*.ts"
+    },
+    "./constants/*": {
+      "import": "./src/constants.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/components/*/index.d.ts"
+      ],
+      "hooks/*": [
+        "./dist/hooks/*.d.ts"
+      ],
+      "constants": [
+        "./dist/constants.d.ts"
+      ]
+    }
+  },
+  "sideEffects": false
+}

@@ -47,7 +47,7 @@ export function flattenSidebarLinks(items: NavItem[]): NavItemLink[] {
   );
 }
 
-const COMPONENTS_ROOT = `node_modules/@camome/components/` as const;
+const COMPONENTS_ROOT = `node_modules/@camome/core/` as const;
 const SYSTEM_ROOT = `node_modules/@camome/system/` as const;
 const EXCLUDED_PROPS = ["className", "style"];
 
@@ -62,10 +62,10 @@ export async function getComponentParams(
         if (prop.declarations !== undefined && prop.declarations.length > 0) {
           const hasPropAdditionalDescription = prop.declarations.find(
             (declaration) => {
-              // Only those defined by @camome/components;
+              // Only those defined by @camome/core;
               // excluding HTML attributes.
               return (
-                declaration.fileName.includes("@camome/components") &&
+                declaration.fileName.includes("@camome/core") &&
                 !EXCLUDED_PROPS.includes(prop.name)
               );
             }
@@ -107,7 +107,7 @@ export async function getComponentParams(
     }));
 
   const { default: styles } = (await import(
-    `node_modules/@camome/components/src/components/${name}/styles.module.scss`
+    `node_modules/@camome/core/src/components/${name}/styles.module.scss`
   )) as Record<string, string>;
   const classes: DocsComponentParams["classes"] = Object.values(styles).map(
     (name) => ({

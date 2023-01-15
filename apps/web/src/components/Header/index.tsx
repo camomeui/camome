@@ -10,8 +10,8 @@ import CollapsibleNav from "@/components/CollapsibleNav";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
-import { IconButton } from "@camome/components/IconButton";
-import { Tooltip } from "@camome/components/Tooltip";
+import { IconButton } from "@camome/core/IconButton";
+import { Tooltip } from "@camome/core/Tooltip";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
