@@ -7,7 +7,6 @@ export default function Error() {
       placeholder="Type something..."
       label="Message"
       error="Something is wrong"
-      id="_error"
     />
   );
 }

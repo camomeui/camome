@@ -23,7 +23,6 @@
 .main {
   display: grid;
   grid-template-columns: 18rem 1fr;
-  column-gap: 1rem;
 
   @include variables.mq("md") {
     grid-template-columns: 1fr;

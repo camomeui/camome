@@ -14,3 +14,7 @@ export function encodeBase64(str: string): string {
 export function toBase64(str: string): string {
   return Buffer.from(str, "base64").toString();
 }
+
+export function uppercaseFirst(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

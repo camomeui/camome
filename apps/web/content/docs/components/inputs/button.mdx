@@ -2,32 +2,41 @@
 title: "Button"
 id: "button"
 description: "A Button is a button."
+components: ["Button"]
 ---
+
+import Default from "@/demo/Button/Default";
+import Variant from "@/demo/Button/Variant";
+import ColorScheme from "@/demo/Button/ColorScheme";
+import Loading from "@/demo/Button/Loading";
+import Disabled from "@/demo/Button/Disabled";
+import Size from "@/demo/Button/Size";
+import WithIcon from "@/demo/Button/WithIcon";
 
 ## Usage
 
-::preview{path=Button/Default}
+<CodeSandbox {...Default} />
 
 ## Variant
 
-::preview{path=Button/Variant}
+<CodeSandbox {...Variant} />
 
-## Color schemes
+## Color scheme
 
-::preview{path=Button/ColorScheme}
+<CodeSandbox {...ColorScheme} />
 
 ## Loading
 
-::preview{path=Button/Loading}
+<CodeSandbox {...Loading} />
 
 ## Disabled
 
-::preview{path=Button/Disabled}
+<CodeSandbox {...Disabled} />
 
 ## Size
 
-::preview{path=Button/Size}
+<CodeSandbox {...Size} />
 
 ## With icon
 
-::preview{path=Button/WithIcon}
+<CodeSandbox {...WithIcon} />

@@ -14,6 +14,7 @@ type Props = {
   asDisclosure?: boolean;
   exclude?: string | string[];
   className?: string;
+  anchorsContainerSelector: string;
 };
 
 export default function TableOfContents({
@@ -22,6 +23,7 @@ export default function TableOfContents({
   fromHeading = 1,
   toHeading = 3,
   exclude = "",
+  anchorsContainerSelector,
   className,
 }: Props) {
   const re = Array.isArray(exclude)
@@ -38,7 +40,7 @@ export default function TableOfContents({
   useTocHighlight({
     linkActiveClassName: styles.active,
     linkClassName: styles.item,
-    anchorsContainerSelector: "#markup",
+    anchorsContainerSelector,
     minHeadingLevel: fromHeading,
     maxHeadingLevel: toHeading,
   });

@@ -2,11 +2,15 @@ import { GetStaticPathsResult, GetStaticPropsContext } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 
-import type { NavItem, LabeledLink } from "@/types";
+import type { NavItem, LabeledLink, DocsComponentParams } from "@/types";
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
-import { flattenSidebarLinks, getSidebarItems } from "@/lib/docs";
+import {
+  flattenSidebarLinks,
+  getComponentParams,
+  getSidebarItems,
+} from "@/lib/docs";
 import { allDocs, type Docs } from "contentlayer/generated";
 
 type Props = {
@@ -14,9 +18,16 @@ type Props = {
   sidebarItems: NavItem[];
   next: LabeledLink | null;
   prev: LabeledLink | null;
+  componentMeta: DocsComponentParams[] | null;
 };
 
-export default function DocsPage({ sidebarItems, doc, next, prev }: Props) {
+export default function DocsPage({
+  sidebarItems,
+  doc,
+  next,
+  prev,
+  componentMeta,
+}: Props) {
   return (
     <>
       <NextSeo title={doc.title} description={doc.description} />
@@ -26,6 +37,8 @@ export default function DocsPage({ sidebarItems, doc, next, prev }: Props) {
           toc={doc.toc}
           next={next ?? undefined}
           prev={prev ?? undefined}
+          componentParams={componentMeta ?? undefined}
+          key={doc._id} // Force initiate tab state
         />
       </DocsLayout>
     </>
@@ -46,6 +59,13 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     return { notFound: true };
   }
 
+  let componentPrams: DocsComponentParams[] | null = null;
+  if (doc.slug.match(/components\/.+/)) {
+    componentPrams = await (doc.components
+      ? (await Promise.all(doc.components.map(getComponentParams))).flat()
+      : getComponentParams(doc.title));
+  }
+
   const flatItems = flattenSidebarLinks(sidebarItems);
   const docIndex = flatItems.findIndex((item) => item.id === doc.id);
   const next = flatItems[docIndex + 1];
@@ -56,6 +76,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     sidebarItems,
     next: next ?? null,
     prev: prev ?? null,
+    componentMeta: componentPrams ?? null,
   };
 
   return {

@@ -68,15 +68,17 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
-          <ThemeSwitch />
-          <Tooltip label="GitHub" placement="bottom">
+          <Tooltip title="Toggle theme" placement="bottom">
+            <ThemeSwitch />
+          </Tooltip>
+          <Tooltip title="GitHub" placement="bottom">
             <IconButton
               component={Link}
               href="https://github.com/sabigara/camome"
               variant="outline"
               colorScheme="neutral"
               size="sm"
-              aria-label="GitHub repository"
+              aria-label="GitHub"
             >
               <FaGithub />
             </IconButton>

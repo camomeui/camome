@@ -4,35 +4,24 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type AccordionItem = {
-  summary: string;
-  details: React.ReactNode;
-};
-
 export type AccordionProps = {
-  items: AccordionItem[];
-  classNames?: {
-    details?: string;
-    summary?: string;
-    contents?: string;
-  };
+  items: {
+    summary: React.ReactNode;
+    details: React.ReactNode;
+  }[];
+  className?: string;
 };
 
-export function Accordion({ items, classNames }: AccordionProps) {
+export function Accordion({ items, className }: AccordionProps) {
   return (
-    <section className={styles.Block}>
+    <section className={clsx(styles.Block, className)}>
       {items.map(({ summary, details }) => (
-        <details
-          key={summary}
-          className={clsx(styles.details, classNames?.details)}
-        >
-          <summary className={clsx(styles.summary, classNames?.summary)}>
+        <details key={summary?.toString()} className={styles.details}>
+          <summary className={styles.summary}>
             <span>{summary}</span>
             <ChevronDownIcon />
           </summary>
-          <div className={clsx(styles.contents, classNames?.contents)}>
-            {details}
-          </div>
+          <div className={styles.contents}>{details}</div>
         </details>
       ))}
     </section>

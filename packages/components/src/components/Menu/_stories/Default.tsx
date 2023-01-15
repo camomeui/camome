@@ -6,8 +6,6 @@ import {
 
 import { Menu } from "@camome/components/Menu";
 
-import styles from "./styles.module.scss";
-
 export default function Default() {
   return (
     <Menu>
@@ -21,7 +19,7 @@ export default function Default() {
       <Menu.Divider />
       <Menu.Group>Danger</Menu.Group>
       {data.category2.map(({ label, icon }) => (
-        <Menu.Item key={label} className={styles.default}>
+        <Menu.Item key={label}>
           {icon}
           {label}
         </Menu.Item>

@@ -3,7 +3,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Button } from "@camome/components/Button";
 import { Checkbox } from "@camome/components/Checkbox";
-import { FormField } from "@camome/components/FormField";
 import { Radio } from "@camome/components/Radio";
 import { RadioGroup } from "@camome/components/RadioGroup";
 import { Select } from "@camome/components/Select";
@@ -60,16 +59,12 @@ export default function WithReactHookForm() {
         </div>
         <RadioGroup label="Job title" aria-required orientation="horizontal">
           <Radio
-            labelText="Developer"
+            label="Developer"
             value="developer"
             {...register("jobTitle")}
           />
-          <Radio
-            labelText="Designer"
-            value="designer"
-            {...register("jobTitle")}
-          />
-          <Radio labelText="Other" value="other" {...register("jobTitle")} />
+          <Radio label="Designer" value="designer" {...register("jobTitle")} />
+          <Radio label="Other" value="other" {...register("jobTitle")} />
         </RadioGroup>
         <Select
           label="Favorite thing"

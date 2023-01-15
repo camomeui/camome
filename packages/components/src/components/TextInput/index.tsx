@@ -1,25 +1,37 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
-import { FormField, type FormFieldProps } from "../FormField";
+import type { Size } from "@camome/system";
+
+import { BaseProps } from "../../types";
+import { FormField, FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-export type TextInputSize = "sm" | "md" | "lg";
 type OmittedNativeProps = "type" | "size";
 type NativeProps = Omit<JSX.IntrinsicElements["input"], OmittedNativeProps>;
 
 export type TextInputProps = {
   type?: "text" | "email" | "url" | "password" | "search";
-  size?: TextInputSize;
+  size?: Size;
   fill?: boolean;
-} & NativeProps &
+} & BaseProps &
+  NativeProps &
   Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
-export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
-    { type, size = "md", fill, description, error, label, id, ...inputProps },
+    {
+      type = "text",
+      size = "md",
+      fill,
+      description,
+      error,
+      label,
+      id,
+      ...inputProps
+    },
     forwardedRef
   ) => {
     const input = (

@@ -1,21 +1,20 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
+
+import type { Size } from "@camome/system";
 
 import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-export type ToggleSize = "sm" | "md" | "lg";
-
 export type ToggleProps = {
   on?: React.ReactNode;
   off?: React.ReactNode;
-  size?: ToggleSize;
-  direction?: "horizontal" | "horizontal-reverse";
+  size?: Size;
 } & Omit<JSX.IntrinsicElements["input"], "size">;
 
 // Reference: https://www.w3.org/WAI/ARIA/apg/patterns/switch/
-export const Switch = React.forwardRef<HTMLInputElement, ToggleProps>(
+export const Switch = forwardRef<HTMLInputElement, ToggleProps>(
   ({ on, off, size = "md", style, className, ...props }, ref) => {
     return (
       <span

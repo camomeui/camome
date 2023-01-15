@@ -7,11 +7,10 @@ type OmittedNativeProps = "type" | "size";
 type NativeProps = Omit<JSX.IntrinsicElements["input"], OmittedNativeProps>;
 
 type SliderSize = "sm" | "md" | "lg";
-type SliderBaseProps = {
-  size?: SliderSize;
-};
 
-export type SliderProps = SliderBaseProps & NativeProps;
+export type SliderProps = {
+  size?: SliderSize;
+} & NativeProps;
 
 export function Slider(props: SliderProps) {
   const { size = "md", className, ...nativeProps } = props;

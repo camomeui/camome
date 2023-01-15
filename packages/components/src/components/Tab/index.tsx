@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
 import styles from "./styles.module.scss";
 
@@ -11,9 +11,7 @@ export const tabClassNames = {
   group: styles.group,
 };
 
-type TabApi = ReturnType<
-  typeof React.forwardRef<HTMLButtonElement, TabProps>
-> & {
+type TabApi = ReturnType<typeof forwardRef<HTMLButtonElement, TabProps>> & {
   Group: typeof TabGroup;
   List: typeof TabList;
   Panel: typeof TabPanel;
@@ -44,7 +42,7 @@ function TabPanel({ children, className }: TabPanelProps) {
 
 type TabProps = { active?: boolean } & BaseProps;
 
-export const Tab = React.forwardRef<HTMLButtonElement, TabProps>(
+export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   ({ active, children, className }, ref) => {
     return (
       <button

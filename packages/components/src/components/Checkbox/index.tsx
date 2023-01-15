@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
 import { FormField, FormFieldProps } from "../FormField";
 import { UnstyledInput } from "../UnstyledInput";
@@ -12,10 +12,11 @@ type NativeProps = Omit<JSX.IntrinsicElements["input"], "size">;
 
 export type CheckboxProps = {
   size?: CheckboxSize;
+  label: string;
 } & NativeProps &
-  Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
+  Pick<Partial<FormFieldProps>, "description" | "error">;
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, description, error, size = "md", id, ...inputProps }, ref) => {
     return (
       <FormField

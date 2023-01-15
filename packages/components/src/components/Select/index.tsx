@@ -1,20 +1,19 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 
-import { FormField, FormFieldProps } from "@camome/components/FormField";
-import { UnstyledInput } from "@camome/components/UnstyledInput";
+import type { Size } from "@camome/system";
+
+import { FormField, FormFieldProps } from "../FormField";
+import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-export type SelectSize = "sm" | "md" | "lg";
+type NativeProps = Omit<JSX.IntrinsicElements["select"], "size" | "ref">;
 
-export type SelectProps = { size?: SelectSize; fill?: boolean } & Omit<
-  JSX.IntrinsicElements["select"],
-  "size" | "ref"
-> &
+export type SelectProps = { size?: Size; fill?: boolean } & NativeProps &
   Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
     { label, description, error, size = "md", fill, id, className, ...props },
     forwardedRef

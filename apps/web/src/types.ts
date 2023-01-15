@@ -57,3 +57,23 @@ export type DocsSidebarItemConfig =
 export type DocsSidebarConfig = {
   items: DocsSidebarItemConfig[];
 };
+
+export type DocsComponentPropItem = {
+  name: string;
+  required: boolean;
+  type: string;
+  defaultValue: string;
+  description: string;
+};
+
+export type DocsComponentClass = {
+  name: string;
+  type: "block" | "element" | "modifier" | "variant" | "size" | "color-scheme";
+};
+
+export type DocsComponentParams = {
+  displayName: string;
+  props: DocsComponentPropItem[];
+  cssVariables: { name: string; type: "theme" | "local" }[];
+  classes: DocsComponentClass[];
+};

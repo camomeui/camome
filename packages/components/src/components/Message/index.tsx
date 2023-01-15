@@ -14,7 +14,7 @@ import styles from "./styles.module.scss";
 type Status = "success" | "info" | "danger" | "warn";
 
 export type MessageProps = {
-  status?: Status;
+  status?: "success" | "info" | "danger" | "warn";
   title?: React.ReactNode;
   icon?: React.ReactNode;
   isAlert?: boolean;

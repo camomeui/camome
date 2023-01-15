@@ -24,6 +24,12 @@ export const Docs = defineDocumentType(() => ({
     headOnly: {
       type: "boolean",
     },
+    components: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+    },
   },
   computedFields: {
     id: {
@@ -45,5 +51,7 @@ export default makeSource({
   contentDirPath: "content",
   contentDirExclude: ["docs/_sidebar.js"],
   documentTypes: [Docs],
-  mdx: mdxOptions,
+  mdx: {
+    ...mdxOptions,
+  },
 });

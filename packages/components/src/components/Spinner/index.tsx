@@ -1,14 +1,13 @@
 import clsx from "clsx";
-import React from "react";
+
+import type { Size } from "@camome/system";
 
 import { BaseProps } from "../../types";
 
 import styles from "./styles.module.scss";
 
-type SpinnerSize = "sm" | "md" | "lg";
-
 export type SpinnerProps = {
-  size?: SpinnerSize;
+  size?: Size;
 } & BaseProps;
 
 export function Spinner({
