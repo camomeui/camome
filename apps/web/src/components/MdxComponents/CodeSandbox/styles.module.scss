@@ -1,3 +1,5 @@
+@use "@/styles/variables";
+
 .preview {
   padding: 2rem;
   margin-top: 2rem;
@@ -5,17 +7,24 @@
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-rounded-lg);
   background: var(--cmm-color-surface-0);
-}
+  overflow-y: auto;
 
-.preview--padded {
-  // dummy
-  padding: 2rem;
-}
+  &--padded {
+    // placeholder
+    margin-top: 2rem;
+  }
 
-.preview--centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &--centered {
+    display: flex;
+
+    .previewInner {
+      margin: auto;
+    }
+  }
+
+  @include variables.mq("md") {
+    padding: 1rem;
+  }
 }
 
 .pre {
