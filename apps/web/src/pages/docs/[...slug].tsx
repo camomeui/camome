@@ -45,7 +45,10 @@ export default function DocsPage({
   );
 }
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
+export async function getStaticProps({
+  params,
+  locale,
+}: GetStaticPropsContext) {
   const slug = params?.slug;
   if (!Array.isArray(slug)) {
     return {
@@ -53,7 +56,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     };
   }
   const sidebarItems = getSidebarItems();
-  const doc = allDocs.find((post) => post.slug === slug.join("/"));
+  const doc =
+    allDocs.find(
+      (post) => post.slug === slug.join("/") && post.locale === locale
+    ) ?? allDocs.find((post) => post.slug === slug.join("/"));
 
   if (!doc) {
     return { notFound: true };
@@ -87,10 +93,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const paths = allDocs.map((doc) => ({
     params: { slug: doc.slug.split("/") },
+    locale: doc.locale,
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }

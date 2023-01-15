@@ -1,0 +1,9 @@
+.button {
+  position: relative;
+}
+
+@layer override {
+  .selected:global(.Menu__item--disabled) {
+    --cmm-Menu-font-icon: var(--cmm-color-success-font);
+  }
+}

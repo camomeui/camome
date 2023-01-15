@@ -77,3 +77,5 @@ export type DocsComponentParams = {
   cssVariables: { name: string; type: "theme" | "local" }[];
   classes: DocsComponentClass[];
 };
+
+export type Locale = "en" | "ja";
