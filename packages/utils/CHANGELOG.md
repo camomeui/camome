@@ -1,5 +1,11 @@
 # @camome/utils
 
+## 0.1.5
+
+### Patch Changes
+
+- f24cf70: Release 2
+
 ## 0.1.4
 
 ### Patch Changes

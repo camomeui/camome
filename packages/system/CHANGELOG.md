@@ -1,5 +1,13 @@
 # @camome/system
 
+## 0.1.9
+
+### Patch Changes
+
+- f24cf70: Release 2
+- Updated dependencies [f24cf70]
+  - @camome/utils@0.1.5
+
 ## 0.1.8
 
 ### Patch Changes
