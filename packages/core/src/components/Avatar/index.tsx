@@ -6,9 +6,10 @@ import type { ColorScheme, Size, Variant } from "@camome/system";
 
 import { BaseProps, PolymorphicProps } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
-import { Box } from "../Box";
 
 import styles from "./styles.module.scss";
+
+import { Box } from "../Box";
 
 export type AvatarProps = {
   size?: Size;

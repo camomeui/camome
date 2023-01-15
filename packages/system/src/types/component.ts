@@ -8,12 +8,12 @@ import {
   orientations,
 } from "../constants";
 
-export type Orientation = typeof orientations[number];
-export type Size = typeof sizes[number];
-export type ColorScheme = typeof colorSchemes[number];
-export type Variant = typeof variants[number];
+export type Orientation = (typeof orientations)[number];
+export type Size = (typeof sizes)[number];
+export type ColorScheme = (typeof colorSchemes)[number];
+export type Variant = (typeof variants)[number];
 
-export type ThemedComponent = typeof themedComponents[number];
+export type ThemedComponent = (typeof themedComponents)[number];
 
 export type Input = {
   bg: Color;

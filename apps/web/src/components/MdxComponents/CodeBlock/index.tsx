@@ -7,9 +7,10 @@ import React from "react";
 import { BiCheck, BiCopy } from "react-icons/bi";
 
 import { Tooltip } from "@camome/core/Tooltip";
-import { useIsomorphicEffect } from "@camome/core/hooks/useIsomorphicEffect";
 
 import styles from "./styles.module.scss";
+
+import { useIsomorphicEffect } from "@camome/core/hooks/useIsomorphicEffect";
 
 export type CodeBlockProps = {
   code: string;
