@@ -25,9 +25,13 @@
     width: 100%;
     color: var(--cmm-Menu-font-label);
 
-    &:hover,
     &--active {
       background: var(--cmm-Menu-bg-hover);
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      background: var(--cmm-Menu-bg);
     }
 
     > svg {
