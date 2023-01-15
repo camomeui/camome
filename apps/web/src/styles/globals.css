@@ -63,3 +63,8 @@
 .hash-link:focus {
   opacity: 1;
 }
+
+[id^="headlessui-tabs-panel-"][role="tabpanel"] {
+  border-radius: var(--cmm-rounded-lg);
+  outline-offset: 0.5rem;
+}
