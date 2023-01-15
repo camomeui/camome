@@ -8,7 +8,7 @@ import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
 import {
   flattenSidebarLinks,
-  getComponentMeta,
+  getComponentParams,
   getSidebarItems,
 } from "@/lib/docs";
 import { allDocs, type Docs } from "contentlayer/generated";
@@ -37,7 +37,7 @@ export default function DocsPage({
           toc={doc.toc}
           next={next ?? undefined}
           prev={prev ?? undefined}
-          componentMeta={componentMeta ?? undefined}
+          componentParams={componentMeta ?? undefined}
           key={doc._id} // Force initiate tab state
         />
       </DocsLayout>
@@ -59,11 +59,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     return { notFound: true };
   }
 
-  let componentMeta: DocsComponentParams[] | null = null;
+  let componentPrams: DocsComponentParams[] | null = null;
   if (doc.slug.match(/components\/.+/)) {
-    componentMeta = await (doc.components
-      ? (await Promise.all(doc.components.map(getComponentMeta))).flat()
-      : getComponentMeta(doc.title));
+    componentPrams = await (doc.components
+      ? (await Promise.all(doc.components.map(getComponentParams))).flat()
+      : getComponentParams(doc.title));
   }
 
   const flatItems = flattenSidebarLinks(sidebarItems);
@@ -76,7 +76,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     sidebarItems,
     next: next ?? null,
     prev: prev ?? null,
-    componentMeta: componentMeta ?? null,
+    componentMeta: componentPrams ?? null,
   };
 
   return {

@@ -52,7 +52,7 @@ const COMPONENTS_ROOT = `node_modules/@camome/components/` as const;
 const SYSTEM_ROOT = `node_modules/@camome/system/` as const;
 const EXCLUDED_PROPS = ["className", "style"];
 
-export async function getComponentMeta(
+export async function getComponentParams(
   name: string
 ): Promise<DocsComponentParams[]> {
   const resp = parse(

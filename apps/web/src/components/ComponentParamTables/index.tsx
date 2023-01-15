@@ -151,6 +151,13 @@ function VarTypeTag({
 }
 
 function ClassTable({ data }: { data: DocsComponentParams["classes"] }) {
+  const deduped = data.reduce(
+    (acc, curr) => [
+      ...acc,
+      ...(acc.map((v) => v.name).includes(curr.name) ? [] : [curr]),
+    ],
+    [] as DocsComponentParams["classes"]
+  );
   return (
     <section className={styles.tableSection}>
       <Heading Level="h2" id="classes">
@@ -164,7 +171,7 @@ function ClassTable({ data }: { data: DocsComponentParams["classes"] }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((_class) => (
+          {deduped.map((_class) => (
             <tr key={_class.name}>
               <td>
                 <code className={clsx(styles.code, styles.variable)}>

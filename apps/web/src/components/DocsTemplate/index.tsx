@@ -22,7 +22,7 @@ type Props = {
   toc?: Toc;
   prev?: LabeledLink;
   next?: LabeledLink;
-  componentMeta?: DocsComponentParams[];
+  componentParams?: DocsComponentParams[];
 };
 
 export default function DocsTemplate({
@@ -30,7 +30,7 @@ export default function DocsTemplate({
   toc,
   prev,
   next,
-  componentMeta,
+  componentParams,
 }: Props) {
   const tabItems = React.useMemo(() => {
     return [
@@ -59,7 +59,7 @@ export default function DocsTemplate({
           </div>
         ),
       },
-      ...(componentMeta
+      ...(componentParams
         ? [
             {
               id: "api",
@@ -67,12 +67,12 @@ export default function DocsTemplate({
               panel: (
                 <div className={styles.article}>
                   <div className={styles.main}>
-                    <ComponentParamTables data={componentMeta} id="api" />
+                    <ComponentParamTables data={componentParams} id="api" />
                   </div>
                   {toc && (
                     <aside className={styles.tocWrap}>
                       <TableOfContents
-                        toc={tocOfComponentParams(componentMeta)}
+                        toc={tocOfComponentParams(componentParams)}
                         className={styles.toc}
                         anchorsContainerSelector="#api"
                       />
@@ -84,7 +84,7 @@ export default function DocsTemplate({
           ]
         : []),
     ];
-  }, [componentMeta, doc.body.code, next, prev, toc]);
+  }, [componentParams, doc.body.code, next, prev, toc]);
 
   const withTabs = tabItems.length > 1;
 

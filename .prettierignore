@@ -6,3 +6,4 @@ node_modules/
 dist
 out
 static-app
+pnpm-lock.yaml
