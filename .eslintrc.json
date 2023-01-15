@@ -18,6 +18,7 @@
         "import/internal-regex": ["^((@|@camome)/|contentlayer/generated)"]
       },
       "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
         "import/order": [
           "error",
           {

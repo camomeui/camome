@@ -10,7 +10,6 @@ import type {
   DocsComponentPropItem,
   DocsComponentParams,
   DocsComponentClass,
-  Toc,
 } from "@/types";
 
 import sidebar from "@/content/docs/_sidebar";

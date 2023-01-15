@@ -1,5 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc",
   "extends": ["next/core-web-vitals", "../../.eslintrc.json"],
+  "settings": {
+    "next": {
+      "rootDir": "apps/web/"
+    }
+  },
   "ignorePatterns": ["*.mjs"]
 }
