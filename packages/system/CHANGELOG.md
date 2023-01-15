@@ -1,5 +1,12 @@
 # @camome/system
 
+## 0.1.7
+
+### Patch Changes
+
+- 0b948df: Support CSS Cascade Layers
+- a9a5950: Include color schemes into theme.
+
 ## 0.1.6
 
 ### Patch Changes
