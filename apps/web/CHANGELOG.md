@@ -1,5 +1,13 @@
 # @camome/web
 
+## 0.1.9
+
+### Patch Changes
+
+- c6ccdc5: Rename @camome/components to @camome/core
+- Updated dependencies [c6ccdc5]
+  - @camome/core@0.0.1
+
 ## 0.1.8
 
 ### Patch Changes
