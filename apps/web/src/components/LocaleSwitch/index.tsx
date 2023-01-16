@@ -7,11 +7,11 @@ import React from "react";
 import { HiOutlineTranslate } from "react-icons/hi";
 import { HiChevronDown, HiCheck } from "react-icons/hi2";
 
-import { Locale } from "@/types";
-import { Button } from "@camome/components/Button";
-import { menuClassNames } from "@camome/components/Menu";
-
 import styles from "./styles.module.scss";
+
+import { Locale } from "@/types";
+import { Button } from "@camome/core/Button";
+import { menuClassNames } from "@camome/core/Menu";
 
 const localeToLabel: { [T in Locale]: string } = {
   en: "English",
