@@ -1,5 +1,16 @@
 # @camome/web
 
+## 0.1.11
+
+### Patch Changes
+
+- 6f207e0: Modify build and package
+- Updated dependencies [6f207e0]
+  - camome@0.1.9
+  - @camome/core@0.0.3
+  - @camome/system@0.1.12
+  - @camome/utils@0.1.7
+
 ## 0.1.10
 
 ### Patch Changes

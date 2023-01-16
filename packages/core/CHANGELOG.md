@@ -1,5 +1,14 @@
 # @camome/components
 
+## 0.0.3
+
+### Patch Changes
+
+- 6f207e0: Modify build and package
+- Updated dependencies [6f207e0]
+  - @camome/system@0.1.12
+  - @camome/utils@0.1.7
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @camome/system
 
+## 0.1.12
+
+### Patch Changes
+
+- 6f207e0: Modify build and package
+- Updated dependencies [6f207e0]
+  - @camome/utils@0.1.7
+
 ## 0.1.11
 
 ### Patch Changes

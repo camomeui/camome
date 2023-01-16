@@ -1,5 +1,11 @@
 # @camome/utils
 
+## 0.1.7
+
+### Patch Changes
+
+- 6f207e0: Modify build and package
+
 ## 0.1.6
 
 ### Patch Changes
