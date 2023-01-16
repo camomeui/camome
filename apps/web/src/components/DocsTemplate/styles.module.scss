@@ -40,11 +40,10 @@ $pad-sm: 1rem;
   display: grid;
   row-gap: 1rem;
   padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   padding-left: $pad-lg;
   padding-right: $pad-lg;
   background: var(--cmm-color-surface-1);
-  min-height: 10rem;
 
   @include variables.mq("xl") {
     padding-left: $pad-sm;
@@ -53,6 +52,7 @@ $pad-sm: 1rem;
 
   &.withTabs {
     border-bottom: none;
+    padding-bottom: 2rem;
   }
 
   .title {

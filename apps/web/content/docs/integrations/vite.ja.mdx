@@ -1,0 +1,48 @@
+---
+title: "Vite"
+id: "vite"
+---
+
+## `vite.config.ts`
+
+```ts:vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { buildScopedClassName } from "@camome/utils";
+
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    modules: {
+      generateScopedName(name, filename) {
+        // OPTIONAL: if (!name.match(/@camome/core/)) return <your-preference>
+        return buildScopedClassName(name, filename);
+      },
+    },
+  },
+});
+```
+
+## Import CSS
+
+```css:App.css
+@layer cmm, override;
+
+@layer override {
+  .Button {
+    border-radius: 999px;
+  }
+}
+```
+
+```tsx:App.tsx
+import "./App.css";
+import "@camome/system/style.min.css";
+import { Button } from "@camome/core";
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```

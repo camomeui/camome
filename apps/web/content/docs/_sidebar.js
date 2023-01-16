@@ -25,6 +25,23 @@ const sidebar = {
       ],
     },
     {
+      id: "integrations",
+      label: "Integrations",
+      type: "collapsible",
+      open: true,
+      items: [
+        {
+          id: "next",
+        },
+        {
+          id: "vite",
+        },
+        {
+          id: "cra",
+        },
+      ],
+    },
+    {
       id: "components",
       label: "Components",
       type: "collapsible",

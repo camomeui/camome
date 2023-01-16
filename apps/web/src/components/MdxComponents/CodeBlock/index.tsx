@@ -67,7 +67,7 @@ export default function CodeBlock({
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onExit}
-      className={styles.container}
+      className={clsx(styles.container, "code-block")}
     >
       <Tooltip
         title={copied ? "Copied!" : "Copy"}

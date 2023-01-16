@@ -1,5 +1,9 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import { Squares2X2Icon, DocumentTextIcon } from "@heroicons/react/24/outline";
+import {
+  Squares2X2Icon,
+  DocumentTextIcon,
+  PuzzlePieceIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -144,5 +148,6 @@ function CategorySection({ items, label, onClickLink }: CategorySectionProps) {
 
 const collapsibleCategoryIconMap: { [id: string]: SvgComponent } = {
   "getting-started": DocumentTextIcon,
+  integrations: PuzzlePieceIcon,
   components: Squares2X2Icon,
 };

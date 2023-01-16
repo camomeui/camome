@@ -68,3 +68,23 @@
   border-radius: var(--cmm-rounded-lg);
   outline-offset: 0.5rem;
 }
+
+.remark-code-title {
+  margin-top: 2rem;
+  border-top-left-radius: var(--cmm-rounded-lg);
+  border-top-right-radius: var(--cmm-rounded-lg);
+  background-color: var(--cmm-color-surface-2);
+  border: 1px solid var(--cmm-color-border-base);
+  color: var(--cmm-color-font-muted);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: var(--cmm-font-size-sm);
+}
+
+.remark-code-title + .code-block pre {
+  margin-top: 0;
+}
+
+.remark-code-title + .code-block pre > code {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
