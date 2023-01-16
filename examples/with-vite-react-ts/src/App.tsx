@@ -1,6 +1,6 @@
 import "./App.css";
 import "@camome/system/style.min.css";
-import { Button } from "@camome/core/dist";
+import { Button } from "@camome/core";
 
 function App() {
   return <Button>Button</Button>;

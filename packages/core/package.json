@@ -78,6 +78,9 @@
     ".": {
       "default": "./src/index.ts"
     },
+    "./*": {
+      "default": "./src/components/*/index.tsx"
+    },
     "./dist": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
@@ -89,7 +92,8 @@
   "typesVersions": {
     "*": {
       "*": [
-        "./dist/*"
+        "./dist/*",
+        "./dist/components/*/index.d.ts"
       ]
     }
   },
