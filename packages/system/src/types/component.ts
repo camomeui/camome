@@ -15,18 +15,18 @@ export type Variant = (typeof variants)[number];
 
 export type ThemedComponent = (typeof themedComponents)[number];
 
-export type Input = {
+export type InputTheme = {
   bg: Color;
   border: Color;
 };
 
-export type Kbd = {
+export type KbdTheme = {
   bg: Color;
   border: Color;
   font: Color;
 };
 
-export type Menu = {
+export type MenuTheme = {
   bg: Color;
   bgHover: Color;
   fontLabel: Color;
@@ -34,7 +34,7 @@ export type Menu = {
   fontGroup: Color;
 };
 
-export type Tab = {
+export type TabTheme = {
   border: Color;
   borderActive: Color;
   borderHover: Color;
@@ -47,7 +47,7 @@ export type Tab = {
   listBg: Color;
 };
 
-export type Switch = {
+export type SwitchTheme = {
   bgOff: Color;
   bgOn: Color;
   bgThumb: Color;
@@ -57,18 +57,18 @@ export type Switch = {
   borderThumb: Color;
 };
 
-export type Tooltip = {
+export type TooltipTheme = {
   bg: Color;
   font: Color;
 };
 
 export type ComponentTheme = {
-  Input: Input;
-  Kbd: Kbd;
-  Menu: Menu;
-  Tab: Tab;
-  Tooltip: Tooltip;
-  Switch: Switch;
+  Input: InputTheme;
+  Kbd: KbdTheme;
+  Menu: MenuTheme;
+  Tab: TabTheme;
+  Tooltip: TooltipTheme;
+  Switch: SwitchTheme;
 };
 
 // Make sure `ComponentTheme` has all the component themes

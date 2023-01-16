@@ -11,8 +11,7 @@ import Tag, { TagProps } from "@/components/common/Tag";
 import styles from "./Hero.module.scss";
 
 import HeroPng from "@/public/hero-image.png";
-import { Button } from "@camome/core/Button";
-import { TextInput } from "@camome/core/TextInput";
+import { Button, TextInput } from "@camome/core";
 
 const tags: TagProps[] = [
   {

@@ -80,6 +80,7 @@ declare interface BuildContext {
   log: (...args: any[]) => void;
   relative: (to: string) => `.${string}`;
   cache: BuildCache;
+  entryPath: string;
 }
 
 declare function CssModulesPlugin(options?: PluginOptions): Plugin;

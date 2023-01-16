@@ -1,17 +1,19 @@
 import fs from "fs/promises";
 import path from "path";
 
+import purgecss from "@fullhuman/postcss-purgecss";
 import { build, type BuildResult } from "esbuild";
 import { globby } from "globby";
+import postcss from "postcss";
 import { format } from "prettier";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { buildScopedClassName, hash } from "@camome/utils";
-
 import CssModulesPlugin from "./CssModulesPlugin";
+
+import { buildScopedClassName, hash } from "@camome/utils";
 
 const argv = yargs(hideBin(process.argv))
   .options({
@@ -23,24 +25,18 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const COMPONENTS_DIR = path.join(
+const STORIES_DIR = path.join(
   "node_modules",
   "@camome",
-  "core",
+  "storybook",
   "src",
-  "components"
+  "stories"
 );
-const STORIES_SRC_DIR = "_stories" as const;
 const STORIES_OUT_DIR = ".demo" as const;
 const processes: BuildResult[] = [];
 
 function extractStoryPath(filePath: string) {
-  const ret = filePath
-    .split(COMPONENTS_DIR + path.sep)[1]
-    .replace(path.join(path.sep, STORIES_SRC_DIR), "");
-  return ret.startsWith(STORIES_SRC_DIR)
-    ? ret.replace(STORIES_SRC_DIR, "")
-    : ret;
+  return filePath.replace(STORIES_DIR, "");
 }
 
 async function bundleStory(storyFullPath: string) {
@@ -57,12 +53,24 @@ async function bundleStory(storyFullPath: string) {
     const layout = Story.parameters?.layout;
 
     const ssr = renderToString(<Story />);
+
+    const { css } = await postcss([
+      purgecss({
+        content: [
+          {
+            raw: ssr,
+            extension: "html",
+          },
+        ],
+      }),
+    ]).process(generatedCss.join("\n"));
+
     const componentOutDir = path.resolve(__dirname, "..", outdir);
 
     const index = `import Component from "./bundle";
 
 const react = \`${storyCode}\`;
-const css = \`${generatedCss.join("\n")}\`;
+const css = \`${css}\`;
 const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",
@@ -118,7 +126,7 @@ export default {
 
 (async () => {
   const storyFullPaths = await globby([
-    COMPONENTS_DIR + `/**/${STORIES_SRC_DIR}/*.tsx`,
+    STORIES_DIR + "/**/*.tsx",
     "!**/index.stories.tsx",
   ]);
 

@@ -14,7 +14,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "@camome/core",
-      formats: ["es"],
+      formats: ["es", "cjs"],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
@@ -31,7 +31,7 @@ export default defineConfig({
     modules: {
       generateScopedName(local, filename) {
         const dir = filename.split("/").at(-2);
-        if (dir === "_stories" || filename.endsWith("stories.module.scss")) {
+        if (dir === "stories" || filename.endsWith("stories.module.scss")) {
           const className = hash(filename + local);
           return className.match(/^[0-9]/) ? `_${className}` : className;
         }

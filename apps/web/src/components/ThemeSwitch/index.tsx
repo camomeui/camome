@@ -2,7 +2,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import React from "react";
 
-import { IconButton } from "@camome/core/IconButton";
+import { IconButton } from "@camome/core";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = React.useState(false);
