@@ -13,8 +13,7 @@ import styles from "./styles.module.scss";
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
-import { Markup } from "@camome/core/Markup";
-import { Tag } from "@camome/core/Tag";
+import { Markup, Tag } from "@camome/core";
 import { toKebabCase } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 

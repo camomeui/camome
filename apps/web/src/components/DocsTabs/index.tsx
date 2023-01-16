@@ -1,7 +1,7 @@
 import { Tab as HeadlessTab } from "@headlessui/react";
 import clsx from "clsx";
 
-import { tabClassNames } from "@camome/core/Tab";
+import { tabClassNames } from "@camome/core";
 
 const { group, list, tab, tabActive, panel } = tabClassNames;
 

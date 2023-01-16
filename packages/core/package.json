@@ -75,26 +75,25 @@
     "src"
   ],
   "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
     "./*": {
-      "import": "./src/components/*"
+      "default": "./src/components/*/index.tsx"
     },
-    "./hooks/*": {
-      "import": "./src/hooks/*.ts"
+    "./dist": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
     },
-    "./constants/*": {
-      "import": "./src/constants.ts"
+    "./dist/style.css": {
+      "default": "./dist/style.css"
     }
   },
   "typesVersions": {
     "*": {
       "*": [
+        "./dist/*",
         "./dist/components/*/index.d.ts"
-      ],
-      "hooks/*": [
-        "./dist/hooks/*.d.ts"
-      ],
-      "constants": [
-        "./dist/constants.d.ts"
       ]
     }
   },

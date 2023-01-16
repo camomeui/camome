@@ -9,7 +9,7 @@ import React from "react";
 
 import LogoSvg from "@/assets/logo.svg";
 import BuyButton from "@/components/common/BuyButton";
-import { IconButton } from "@camome/core/IconButton";
+import { IconButton } from "@camome/core";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./Header.module.scss";

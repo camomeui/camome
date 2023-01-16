@@ -23,6 +23,7 @@
     "@camome/system": "workspace:*",
     "@camome/utils": "workspace:*",
     "@floating-ui/react": "^0.14.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.10",
     "@mdx-js/loader": "^2.1.5",
@@ -43,6 +44,7 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
+    "@camome/storybook": "workspace:*",
     "@types/node": "18.7.14",
     "@types/yargs": "^17.0.17",
     "chokidar": "^3.5.3",
