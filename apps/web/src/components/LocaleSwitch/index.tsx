@@ -9,14 +9,10 @@ import { HiChevronDown, HiCheck } from "react-icons/hi2";
 
 import styles from "./styles.module.scss";
 
+import { localeToLabel } from "@/lib/i18n";
 import { Locale } from "@/types";
 import { Button } from "@camome/core/Button";
 import { menuClassNames } from "@camome/core/Menu";
-
-const localeToLabel: { [T in Locale]: string } = {
-  en: "English",
-  ja: "日本語",
-} as const;
 
 export default function LocaleSwitch() {
   const { locale, defaultLocale, asPath } = useRouter();
