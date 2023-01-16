@@ -20,8 +20,8 @@
     "tsup": "^6.3.0"
   },
   "exports": {
-    "import": "./dist/index.esm.js",
-    "require": "./dist/index.cjs.js"
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
   },
   "types": "./dist/index.d.ts",
   "files": [

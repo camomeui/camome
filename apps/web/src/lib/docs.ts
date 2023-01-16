@@ -49,6 +49,8 @@ export function flattenSidebarLinks(items: NavItem[]): NavItemLink[] {
 
 const COMPONENTS_ROOT = `node_modules/@camome/core/` as const;
 const SYSTEM_ROOT = `node_modules/@camome/system/` as const;
+const SYSTEM_CSS_NAME = "theme.css" as const;
+const CORE_CSS_NAME = "components.css" as const;
 const EXCLUDED_PROPS = ["className", "style"];
 
 export async function getComponentParams(
@@ -84,7 +86,7 @@ export async function getComponentParams(
   }
 
   const componentCss = await fs.readFile(
-    path.join(COMPONENTS_ROOT, "dist", "style.css"),
+    path.join(COMPONENTS_ROOT, "dist", CORE_CSS_NAME),
     "utf-8"
   );
   const regex = new RegExp(`--cmm-(${name}-[a-zA-Z0-9-]+)`, "g");
@@ -95,7 +97,7 @@ export async function getComponentParams(
   }
 
   const themeCss = await fs.readFile(
-    path.join(SYSTEM_ROOT, "dist", "style.css"),
+    path.join(SYSTEM_ROOT, "dist", SYSTEM_CSS_NAME),
     "utf-8"
   );
 

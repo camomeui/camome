@@ -15,11 +15,9 @@
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "dev:vite": "vite build --watch",
-    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\" \"pnpm storybook\"",
+    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
     "build": "pnpm gen-scss-type && vite build",
-    "build:storybook": "storybook build",
     "typecheck": "pnpm gen-scss-type && tsc",
-    "storybook": "storybook dev -p 3920",
     "run-ts": "node -r esbuild-register"
   },
   "dependencies": {
@@ -35,16 +33,6 @@
   "devDependencies": {
     "@floating-ui/react": "^0.14.0",
     "@headlessui/react": "^1.7.4",
-    "@storybook/addon-docs": "7.0.0-beta.28",
-    "@storybook/addon-essentials": "7.0.0-beta.28",
-    "@storybook/addon-interactions": "7.0.0-beta.28",
-    "@storybook/addon-links": "7.0.0-beta.28",
-    "@storybook/blocks": "7.0.0-beta.28",
-    "@storybook/jest": "^0.0.10",
-    "@storybook/react": "7.0.0-beta.28",
-    "@storybook/react-vite": "7.0.0-beta.28",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/theming": "^6.5.15",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/yargs": "^17.0.17",
     "@vitejs/plugin-react": "^3.0.0",
@@ -82,8 +70,8 @@
       "default": "./src/components/*/index.tsx"
     },
     "./dist": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./dist/style.css": {
       "default": "./dist/style.css"

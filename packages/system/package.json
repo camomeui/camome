@@ -30,16 +30,14 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
+    "./theme.css": {
+      "default": "./dist/theme.css"
     },
-    "./style.min.css": {
-      "import": "./dist/style.min.css",
-      "require": "./dist/style.min.css"
+    "./theme.min.css": {
+      "default": "./dist/theme.min.css"
     }
   },
   "types": "./dist/index.d.ts",

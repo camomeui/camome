@@ -15,7 +15,9 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "@camome/core",
       formats: ["es", "cjs"],
-      fileName: (format) => `index.${format}.js`,
+      fileName(format, entryName) {
+        return format === "es" ? `${entryName}.mjs` : `${entryName}.cjs`;
+      },
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -23,6 +25,10 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") return "components.css";
+          return assetInfo.name;
         },
       },
     },

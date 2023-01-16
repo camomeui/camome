@@ -11,7 +11,7 @@ export default defineConfig({
     ".css": "text",
   },
   outExtension(ctx) {
-    return { js: `.${ctx.format}.js` };
+    return { js: ctx.format === "esm" ? ".mjs" : ".cjs" };
   },
   onSuccess: "pnpm tsx ./scripts/generate-css.ts",
 });

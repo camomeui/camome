@@ -7,7 +7,7 @@ import type { AppProps } from "next/app";
 import DefaultSeo from "@/components/common/DefaultSeo";
 
 import "@/styles/globals.css";
-import "@camome/system/style.min.css";
+import "@camome/system/theme.min.css";
 
 type GetLayout = (page: React.ReactElement) => React.ReactNode;
 type NextPageWithLayout = NextPage & {

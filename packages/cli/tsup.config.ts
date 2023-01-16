@@ -6,6 +6,6 @@ export default defineConfig({
   format: ["esm"],
   dts: true,
   outExtension(ctx) {
-    return { js: `.${ctx.format}.js` };
+    return { js: ctx.format === "esm" ? ".mjs" : ".cjs" };
   },
 });
