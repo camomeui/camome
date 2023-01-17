@@ -1,0 +1,145 @@
+---
+title: "導入方法"
+id: "installation"
+---
+
+## インストール
+
+<CodeTabs
+  items={[
+    {
+      name: "npm",
+      code:
+        pm.install("npm", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("npm", "@camome/utils"),
+      language: "bash",
+    },
+    {
+      name: "yarn",
+      code:
+        pm.install("yarn", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("yarn", "@camome/utils"),
+      language: "bash",
+    },
+    {
+      name: "pnpm",
+      code:
+        pm.install("pnpm", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("pnpm", "@camome/utils"),
+      language: "bash",
+    },
+  ]}
+/>
+
+## [方法 1] TypeScript + CSS Modules
+
+こちらの方法では、`node_modules` 内の `@camome/core` のコードを、あなたのアプリのバンドラーでトランスパイルしてから読み込みます。**必要なコンポーネントとそれに対応する CSS だけを読み込めるので、パフォーマンス上の観点から、後述する[[方法 2]](/docs/guide/installation#%E6%96%B9%E6%B3%95-2-%E3%83%90%E3%83%B3%E3%83%89%E3%83%AB%E6%B8%88%E3%81%BF-javascript--%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB-css)よりも推奨されます。**
+
+### バンドラーの設定
+
+Camome のソースコードは [TypeScript](https://www.typescriptlang.org/) + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/) で書かれています。これらは生の JavaScript から直接 `import` できるコードではないため、Webpack や Rollup のプラグインやローダーを設定する必要があります。
+
+主なフレームワークごとの設定方法は以下を参照してください:
+
+<DocLinkGrid links={[{ id: "next" }, { id: "vite" }, { id: "cra" }]} />
+
+### CSS のインポート
+
+CSS のインポートの順番には意味があります。Camome は [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer)を使用しているため、特に優先順位の定義が最初に行われるように注意してください。
+
+必ず以下のような順番でインポートします:
+
+1. Cascade Layers の優先順位の宣言(`globals.css` etc.)
+2. テーマファイル(`@camome/system/theme.css`)
+3. 各コンポーネント(`import { Button } from "@camome/core"`)
+
+例えば Next.js では次のように実装します:
+
+```css:globals.css
+@layer cmm, override;
+
+@layer override {
+  .Button {
+    border-radius: 999px;
+  }
+}
+```
+
+```tsx:_app.tsx
+import "@/styles/globals.css"; // 1
+import "@camome/system/theme.css"; // 2
+import { Button } from "@camome/core/Button"; // 3
+// または: import { Button } from "@camome/core"
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```
+
+CSS のインポートが可能なファイルや、順番が保証されるかどうかはバンドラーやフレームワークに依存するので、うまく動かない場合は確認してみてください。
+
+### `data-theme` 属性でテーマを指定
+
+Camome は `light` と `dark` テーマに対応しており、 `<html>` タグの `data-theme` 属性で指定することができます。
+
+```html:index.html
+<!DOCTYPE html>
+<html data-theme="<light または dark>">
+  <!-- コンテンツ -->
+</html>
+```
+
+<Message status="warn">
+  `data-theme` 属性を付与しないとテーマが適用されないので、この作業は必須です。
+</Message>
+
+<DocLinkGrid links={[{ id: "theming" }]} />
+
+### コンポーネントのインポート方法
+
+`@camome/core` からコンポーネントをインポートする方法は以下の二通りです:
+
+```tsx:個別インポート
+import { Button } from "@camome/core/Button";
+import { TextInput } from "@camome/core/TextInput";
+```
+
+```tsx:一括インポート
+import { Button, TextInput } from "@camome/core";
+```
+
+**基本的には個別インポートの方が望ましい**ですが、一括インポートでも問題ありません。
+
+- 一括インポートの場合、（少なくとも）Next.js と Vite では開発サーバーやビルド時のパフォーマンスが若干落ちるかもしれません。しかしプロダクション環境には影響はないと思います。
+- 個別インポートの方が IDE の自動補完が効きづらいかもしれません。
+- 個別インポートの方が記述が冗長になります。
+
+## [方法 2] バンドル済み JavaScript + グローバル CSS
+
+<Message status="warn">こちらの方法は基本的には非推奨です。</Message>
+
+[[方法 1]](#方法-1-typescript--css-modules)はバンドラーを経由して TypeScript と CSS Modules をトランスパイルする必要があるため、環境によっては導入しにくいかもしれません。その場合はバンドル済みの JavaScript と CSS を使用してください。
+
+次のような特徴があります:
+
+- バンドラーを設定する必要がない。
+- すべてのコンポーネントの CSS が一括で読み込まれる。
+- JavaScript はツリーシェイキングできる（適切に設定されている場合）。
+
+```tsx:_app.tsx
+import "@/styles/globals.css";
+import "@camome/system/theme.css";
+import "@camome/core/components.css"; // 全てのコンポーネントのCSSを読み込む
+import { Button } from "@camome/core/dist"; // トランスパイル済み + CSS Modulesを読み込まない
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```

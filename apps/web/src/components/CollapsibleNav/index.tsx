@@ -147,7 +147,7 @@ function CategorySection({ items, label, onClickLink }: CategorySectionProps) {
 }
 
 const collapsibleCategoryIconMap: { [id: string]: SvgComponent } = {
-  "getting-started": DocumentTextIcon,
+  guide: DocumentTextIcon,
   integrations: PuzzlePieceIcon,
   components: Squares2X2Icon,
 };

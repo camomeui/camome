@@ -1,7 +1,11 @@
 @use "../../styles/utils";
 
 @include utils.layer {
-  :where(.Block) {
+  .Block {
+    > :where(:first-child) {
+      margin-top: 0 !important;
+    }
+
     :where(h1, h2, h3, h4):not(:where([class~="no-markup"] *)) {
       margin-top: 2.25rem;
       margin-bottom: 1.2rem;
@@ -154,14 +158,36 @@
       }
     }
 
-    // FIXME: Mustn't depends on class name.
     :global(.Message):not(:where([class~="no-markup"] *)) {
       margin-top: 2rem;
       margin-bottom: 2rem;
+      font-size: 0.9em;
 
       p {
         &:first-child {
           margin-top: 0;
+        }
+      }
+
+      ul {
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    $statuses: info, success, warn, danger;
+
+    @each $color in $statuses {
+      :global(.Message--#{$color}) {
+        :is(p, li) {
+          color: var(--cmm-color-#{$color}-soft-font);
+        }
+
+        :is(code) {
+          color: var(--cmm-color-#{$color}-font);
+          --cmm-color-code-bg: var(--cmm-color-#{$color}-soft-bg);
+          border: 1px solid var(--cmm-color-#{$color}-outline-border);
         }
       }
     }

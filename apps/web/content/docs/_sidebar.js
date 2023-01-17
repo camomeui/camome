@@ -5,8 +5,8 @@ const sidebar = {
       id: "introduction",
     },
     {
-      id: "getting-started",
-      label: "Getting started",
+      id: "guide",
+      label: "Guide",
       type: "collapsible",
       open: true,
       items: [
@@ -15,6 +15,9 @@ const sidebar = {
         },
         {
           id: "installation",
+        },
+        {
+          id: "theming",
         },
         {
           id: "headless-integration",

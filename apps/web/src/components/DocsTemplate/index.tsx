@@ -116,7 +116,7 @@ export default function DocsTemplate({
           <div>
             <Tag
               component={Link}
-              href="/docs/getting-started/headless-integration"
+              href="/docs/guide/headless-integration"
               size="sm"
               endDecorator={<FiInfo stroke-width="2.5" />}
               className={styles.tag}

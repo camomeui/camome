@@ -4,6 +4,7 @@
   .Block {
     display: grid;
     grid-template-columns: auto 1fr;
+    place-items: center start;
     gap: 0.5rem;
     padding: 1rem;
     border-radius: var(--cmm-rounded-lg);
