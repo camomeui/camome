@@ -23,7 +23,7 @@ export type Themes = {
   dark: Theme;
 };
 
-export type ThemeCustomization = DeepPartial<Themes>;
+export type Config = { themes: Themes };
 
 export * from "./component";
 export * from "./font";

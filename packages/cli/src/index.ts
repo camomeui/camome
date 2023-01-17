@@ -6,12 +6,13 @@ import path from "path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { generateCss } from "@camome/system";
+import { Config, generateCss } from "@camome/system";
 
 yargs(hideBin(process.argv))
+  .scriptName("camome")
   .command(
-    "generate-css",
-    "Generate CSS",
+    "theme",
+    "Generate theme.css",
     (yargs) =>
       yargs.options({
         config: {
@@ -25,8 +26,16 @@ yargs(hideBin(process.argv))
       }),
     async (options) => {
       // TODO: validate config with zod or something.
-      const config = (await import(path.join(process.cwd(), options.config)))
-        .default;
+      let config: Config;
+      try {
+        config = (await import(path.join(process.cwd(), options.config)))
+          .default;
+      } catch (e: any) {
+        if ("code" in e && e.code === "ERR_MODULE_NOT_FOUND") {
+          console.error(`Config file not found at:\n${options.config}`);
+        }
+        process.exit(1);
+      }
       const css = await generateCss(config.themes);
       const outputPath = path.join(process.cwd(), options.output);
       await fs.writeFile(outputPath, css);
