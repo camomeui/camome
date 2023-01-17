@@ -143,8 +143,7 @@ export default {
 });
 
 function generateScopedName(local: string, filename: string) {
-  const dir = filename.split("/").at(-2);
-  if (dir === "_stories" || filename.endsWith("index.stories.module.scss")) {
+  if (filename.includes("apps/storybook")) {
     return "story-" + hash(filename + local);
   }
   return buildScopedClassName(local, filename);
