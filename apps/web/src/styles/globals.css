@@ -1,5 +1,3 @@
-@layer cmm, override;
-
 .scrollbar {
   --scrollbar-width: 16px;
   --scrollbar-thumb-color: var(--cmm-color-gray-3);
@@ -75,6 +73,7 @@
   border-top-right-radius: var(--cmm-rounded-lg);
   background-color: var(--cmm-color-surface-2);
   border: 1px solid var(--cmm-color-border-base);
+  border-bottom-width: 0;
   color: var(--cmm-color-font-muted);
   padding: 0.5rem 1rem 0.5rem 1rem;
   font-size: var(--cmm-font-size-sm);
@@ -87,4 +86,8 @@
 .remark-code-title + .code-block pre > code {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.Button {
+  border-radius: 999px;
 }

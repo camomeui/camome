@@ -2,14 +2,12 @@
   position: relative;
 }
 
-@layer override {
-  .menu {
-    :global(.Menu) {
-      min-width: 8rem;
+.menu {
+  :global(.Menu) {
+    min-width: 8rem;
 
-      :global(.Menu__item--disabled) {
-        --cmm-Menu-font-icon: var(--cmm-color-success-font);
-      }
+    :global(.Menu__item--disabled) {
+      --cmm-Menu-font-icon: var(--cmm-color-success-font);
     }
   }
 }

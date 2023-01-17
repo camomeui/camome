@@ -112,30 +112,28 @@ $pad-sm: 1rem;
   @extend %panel;
 }
 
-@layer override {
-  .tag {
-    --cmm-Tag-icon-size: 1rem;
-    --cmm-Tag-icon-margin: 0 -0.25rem 0 0;
+.tag {
+  --cmm-Tag-icon-size: 1rem;
+  --cmm-Tag-icon-margin: 0 -0.25rem 0 0;
+}
+
+.tab {
+  > :global(.Tab__list) {
+    background: var(--cmm-color-surface-1);
+    padding-left: $pad-lg;
+
+    @include variables.mq("xl") {
+      padding-left: $pad-sm;
+    }
+
+    > :global(.Tab) {
+      font-weight: var(--cmm-font-weight-medium);
+    }
   }
 
-  .tab {
-    > :global(.Tab__list) {
-      background: var(--cmm-color-surface-1);
-      padding-left: $pad-lg;
+  > :global(.Tab__panel) {
+    @extend %panel;
 
-      @include variables.mq("xl") {
-        padding-left: $pad-sm;
-      }
-
-      > :global(.Tab) {
-        font-weight: var(--cmm-font-weight-medium);
-      }
-    }
-
-    > :global(.Tab__panel) {
-      @extend %panel;
-
-      margin-top: 0;
-    }
+    margin-top: 0;
   }
 }

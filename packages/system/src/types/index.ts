@@ -1,5 +1,3 @@
-import { type DeepPartial } from "@camome/utils";
-
 import { ColorPalette } from "./color";
 import { ComponentTheme } from "./component";
 import { FontFamily, FontSize, FontWeight } from "./font";

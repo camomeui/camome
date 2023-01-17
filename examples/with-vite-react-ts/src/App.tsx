@@ -1,8 +1,9 @@
-import "./App.css";
-import "./theme.css";
-// Default theme: import "@camome/system/theme.css"
 import { Button } from "@camome/core/Button";
 import { Switch } from "@camome/core/Switch";
+
+// Default theme: import "@camome/system/theme.css"
+import "./theme.css";
+import "./App.css";
 
 function App() {
   return (

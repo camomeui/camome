@@ -115,7 +115,7 @@ const lightTheme = {
 
 function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
-    font: cssVar(`color.${colorScheme}.6`),
+    font: cssVar(`color.${colorScheme}.7`),
     emphasis: cssVar(`color.${colorScheme}.6`),
     muted: cssVar(`color.${colorScheme}.4`),
     subtle: cssVar(`color.${colorScheme}.1`),
@@ -132,18 +132,18 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
     soft: {
       bg: cssVar(`color.${colorScheme}.0`),
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
       border: cssVar(`color.${colorScheme}.2`),
     },
     ghost: {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
     },
   };
 }

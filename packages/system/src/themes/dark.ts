@@ -46,7 +46,7 @@ const darkTheme = {
     },
     font: {
       base: cssVar("color.white"),
-      muted: cssVar("color.gray.4"),
+      muted: cssVar("color.gray.3"),
       subtle: cssVar("color.gray.6"),
       baseInvert: cssVar("color.white"),
     },
@@ -121,7 +121,7 @@ function alpha(color: string, value: number): string {
 function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   const palette = commonTheme.color[colorScheme];
   return {
-    font: palette[6],
+    font: palette[4],
     emphasis: palette[5],
     muted: alpha(palette[4], 0.75),
     subtle: alpha(palette[4], 0.5),
@@ -139,18 +139,18 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
     soft: {
       bg: alpha(palette[6], 0.15),
       bgHover: alpha(palette[6], 0.3),
-      font: palette[3],
+      font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
       bgHover: alpha(palette[6], 0.3),
-      font: palette[2],
+      font: cssVar(`color.${colorScheme}.font`),
       border: alpha(palette[6], 0.5),
     },
     ghost: {
       bg: "transparent",
       bgHover: alpha(palette[6], 0.3),
-      font: palette[2],
+      font: cssVar(`color.${colorScheme}.font`),
     },
   };
 }

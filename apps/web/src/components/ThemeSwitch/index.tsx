@@ -4,6 +4,8 @@ import React from "react";
 
 import { IconButton } from "@camome/core";
 
+import styles from "./styles.module.scss";
+
 export default function ThemeSwitch() {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme, resolvedTheme } = useTheme();
@@ -14,7 +16,8 @@ export default function ThemeSwitch() {
   }, []);
 
   if (!mounted) {
-    return null;
+    // Show skelton to prevent layout shift.
+    return <div className={styles.skelton} />;
   }
 
   const buttonsForCurrent = {

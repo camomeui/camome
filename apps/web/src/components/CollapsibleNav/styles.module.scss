@@ -114,6 +114,7 @@ details.collapsible {
   }
 
   &[aria-current="page"] {
+    font-weight: var(--cmm-font-weight-semibold);
     border-color: var(--cmm-color-primary-emphasis);
     color: var(--cmm-color-primary-soft-font);
     background-color: var(--cmm-color-primary-soft-bg);
