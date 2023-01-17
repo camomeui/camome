@@ -44,7 +44,7 @@ Camome のソースコードは [TypeScript](https://www.typescriptlang.org/) + 
 
 主なフレームワークごとの設定方法は以下を参照してください:
 
-<DocLinkGrid links={[{ id: "next" }, { id: "vite" }, { id: "cra" }]} />
+<DocLinkCardGrid links={[{ id: "next" }, { id: "vite" }, { id: "cra" }]} />
 
 ### CSS のインポート
 
@@ -53,7 +53,9 @@ CSS のインポートの順番には意味があります。Camome は [CSS Cas
 必ず以下のような順番でインポートします:
 
 1. Cascade Layers の優先順位の宣言(`globals.css` etc.)
-2. テーマファイル(`@camome/system/theme.css`)
+2. テーマファイル（次のいずれか）
+   - `@camome/system/theme.css`
+   - カスタムテーマのパス（<DocLink id="theming" />を参照）
 3. 各コンポーネント(`import { Button } from "@camome/core"`)
 
 例えば Next.js では次のように実装します:
@@ -71,6 +73,7 @@ CSS のインポートの順番には意味があります。Camome は [CSS Cas
 ```tsx:_app.tsx
 import "@/styles/globals.css"; // 1
 import "@camome/system/theme.css"; // 2
+// または: import "@/styles/generated-theme.css"
 import { Button } from "@camome/core/Button"; // 3
 // または: import { Button } from "@camome/core"
 
@@ -98,7 +101,7 @@ Camome は `light` と `dark` テーマに対応しており、 `<html>` タグ�
   `data-theme` 属性を付与しないとテーマが適用されないので、この作業は必須です。
 </Message>
 
-<DocLinkGrid links={[{ id: "theming" }]} />
+<DocLinkCardGrid links={[{ id: "theming" }]} />
 
 ### コンポーネントのインポート方法
 

@@ -67,11 +67,9 @@
 
     :where(a):not(:where([class~="no-markup"] *)) {
       color: var(--cmm-color-link);
-      font-weight: var(--cmm-font-weight-medium);
-
-      &:hover {
-        text-decoration: underline;
-      }
+      text-decoration: underline;
+      text-underline-position: from-font;
+      text-decoration-thickness: from-font;
 
       code {
         text-decoration: underline;

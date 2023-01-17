@@ -6,10 +6,10 @@ import { FiInfo } from "react-icons/fi";
 
 import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsPageNav from "@/components/DocsPageNav";
-import DocsTabs from "@/components/DocsTabs";
 
 import styles from "./styles.module.scss";
 
+import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";

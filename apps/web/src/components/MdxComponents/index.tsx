@@ -2,7 +2,7 @@ import { type MDXComponents } from "mdx/types";
 import Image from "next/image";
 
 import DocLink from "@/components/DocLink";
-import DocLinkGrid from "@/components/DocLinkGrid";
+import DocLinkCardGrid from "@/components/DocLinkCardGrid";
 import A from "@/components/MdxComponents/A";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import CodeTabs from "@/components/MdxComponents/CodeTabs";
@@ -17,8 +17,8 @@ export const mdxComponents: MDXComponents = {
   CodeSandbox,
   CodeTabs,
   DocLink,
-  DocLinkGrid: (props: any) => (
-    <DocLinkGrid
+  DocLinkCardGrid: (props: any) => (
+    <DocLinkCardGrid
       {...props}
       className="no-markup"
       style={{ margin: "1.5rem 0" }}
