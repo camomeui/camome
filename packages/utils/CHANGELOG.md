@@ -1,5 +1,11 @@
 # @camome/utils
 
+## 0.1.8
+
+### Patch Changes
+
+- 8d25375: Modify theme
+
 ## 0.1.7
 
 ### Patch Changes
