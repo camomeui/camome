@@ -24,7 +24,7 @@ details.collapsible {
     gap: 0.75rem;
     user-select: none;
     transition: color 0.3s, background-color 0.3s;
-    border-radius: var(--cmm-rounded-sm);
+    border-radius: var(--cmm-radius-sm);
     background-color: var(--cmm-color-surface-0);
     position: relative;
     padding: 0 0.5rem;
@@ -75,11 +75,11 @@ details.collapsible {
 %item {
   display: flex;
   align-items: center;
-  border-radius: var(--cmm-rounded-sm);
+  border-radius: var(--cmm-radius-sm);
   padding: 0 0.75rem 0 1.25rem;
   width: 100%;
   height: 2rem;
-  border-radius: var(--cmm-rounded-sm);
+  border-radius: var(--cmm-radius-sm);
 }
 
 .section {

@@ -17,7 +17,7 @@
     align-items: center;
     gap: 0.5em;
     position: relative;
-    border-radius: var(--cmm-rounded-sm);
+    border-radius: var(--cmm-radius-sm);
     margin: locals.$margin;
 
     // :focus-visible but look at the children.
@@ -82,7 +82,7 @@
   .mark {
     width: locals.$size;
     height: locals.$size;
-    border-radius: var(--cmm-rounded-sm);
+    border-radius: var(--cmm-radius-sm);
     display: grid;
     place-content: center;
     background: var(--cmm-color-primary-soft-bg);

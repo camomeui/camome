@@ -8,7 +8,7 @@
   .Block {
     @extend %sizeDefaults;
 
-    border-radius: var(--cmm-rounded-lg);
+    border-radius: var(--cmm-radius-lg);
     width: locals.$size;
     height: locals.$size;
     padding: 0;

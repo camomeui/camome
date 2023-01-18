@@ -3,7 +3,7 @@
     border-bottom: 1px solid var(--cmm-color-border-base);
     background: var(--cmm-color-surface-2);
     border: 1px solid var(--cmm-color-border-base);
-    border-radius: var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0 0;
+    border-radius: var(--cmm-radius-lg) var(--cmm-radius-lg) 0 0;
     padding: 0.5rem 0.5rem 0 0.5rem;
     gap: 0.5rem;
   }
@@ -19,7 +19,7 @@
     margin-bottom: -1px;
     border-color: transparent;
     background: none;
-    border-radius: var(--cmm-rounded-md) var(--cmm-rounded-md) 0 0;
+    border-radius: var(--cmm-radius-md) var(--cmm-radius-md) 0 0;
 
     &:hover:not(:global(.Tab--active)) {
       color: var(--cmm-color-font-base);

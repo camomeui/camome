@@ -1,6 +1,6 @@
 import { Color } from "./color";
 
-export type Rounded = {
+export type Radius = {
   none: string;
   xs: string;
   sm: string;

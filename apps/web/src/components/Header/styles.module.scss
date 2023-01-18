@@ -57,7 +57,7 @@
     font-size: var(--cmm-font-size-sm);
     height: 2rem;
     padding: 0 0.5rem;
-    border-radius: var(--cmm-rounded-md);
+    border-radius: var(--cmm-radius-md);
     transition: var(--cmm-transition-bg);
 
     svg {
@@ -131,7 +131,7 @@
   }
 
   &__button {
-    border-radius: var(--cmm-rounded-md) !important;
+    border-radius: var(--cmm-radius-md) !important;
     width: 100% !important;
   }
 

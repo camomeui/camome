@@ -24,7 +24,7 @@ $panelZ: 10;
     translate: -50%;
     background-color: var(--camome-color-white);
     box-shadow: var(--camome-shadow-lg);
-    border-top-left-radius: var(--camome-rounded-sm);
+    border-top-left-radius: var(--camome-radius-sm);
     rotate: 45deg;
     clip-path: polygon(
       -1rem -1rem,
@@ -40,7 +40,7 @@ $panelZ: 10;
     translate: -50%;
     background-color: var(--camome-color-white);
     box-shadow: var(--camome-shadow-sm);
-    border-radius: var(--camome-rounded-lg);
+    border-radius: var(--camome-radius-lg);
   }
 }
 

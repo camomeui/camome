@@ -145,7 +145,7 @@ export const commonTheme = {
     offset: "2px",
     width: "2px",
   },
-  rounded: {
+  radius: {
     none: "none",
     xs: "0.125rem",
     sm: "0.25rem",

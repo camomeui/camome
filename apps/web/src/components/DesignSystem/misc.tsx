@@ -18,8 +18,8 @@ export function Shadows() {
 export function Radiuses() {
   return (
     <div className={clsx(styles.sampleGrid, styles.col4)}>
-      {Object.keys(lightTheme.rounded).map((token) => (
-        <Sample tokens={["rounded", token]} labelFrom={"rounded"} key={token} />
+      {Object.keys(lightTheme.radius).map((token) => (
+        <Sample tokens={["radius", token]} labelFrom={"radius"} key={token} />
       ))}
     </div>
   );

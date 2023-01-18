@@ -43,7 +43,7 @@
   height: 1em;
   vertical-align: middle;
   margin-left: 0.3em;
-  border-radius: var(--cmm-rounded-sm);
+  border-radius: var(--cmm-radius-sm);
   opacity: 0;
 }
 
@@ -63,14 +63,14 @@
 }
 
 [id^="headlessui-tabs-panel-"][role="tabpanel"] {
-  border-radius: var(--cmm-rounded-lg);
+  border-radius: var(--cmm-radius-lg);
   outline-offset: 0.5rem;
 }
 
 .remark-code-title {
   margin-top: 2rem;
-  border-top-left-radius: var(--cmm-rounded-lg);
-  border-top-right-radius: var(--cmm-rounded-lg);
+  border-top-left-radius: var(--cmm-radius-lg);
+  border-top-right-radius: var(--cmm-radius-lg);
   background-color: var(--cmm-color-surface-2);
   border: 1px solid var(--cmm-color-border-base);
   border-bottom-width: 0;

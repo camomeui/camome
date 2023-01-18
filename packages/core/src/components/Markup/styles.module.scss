@@ -58,7 +58,7 @@
       color: var(--cmm-color-font-base);
       background-color: var(--cmm-color-code-bg);
       padding: 0.1em 0.3em;
-      border-radius: var(--cmm-rounded-sm);
+      border-radius: var(--cmm-radius-sm);
       font-family: var(--cmm-font-family-code);
       font-weight: var(--cmm-font-weight-normal);
       font-size: 0.85em;
@@ -130,12 +130,12 @@
 
       th:first-child {
         border-left: 1px solid var(--cmm-color-gray-2);
-        border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
+        border-radius: var(--cmm-radius-lg) 0 0 var(--cmm-radius-lg);
       }
 
       th:last-child {
         border-right: 1px solid var(--cmm-color-gray-2);
-        border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
+        border-radius: 0 var(--cmm-radius-lg) var(--cmm-radius-lg) 0;
       }
 
       td,

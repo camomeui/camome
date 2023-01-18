@@ -84,7 +84,7 @@
   code {
     background-color: var(--cmm-color-gray-2);
     padding: 0.2em 0.3em;
-    border-radius: var(--cmm-rounded-md);
+    border-radius: var(--cmm-radius-md);
     font-family: var(--cmm-font-family-code);
     font-weight: var(--cmm-font-weight-semibold);
     font-size: var(--cmm-font-size-sm);
@@ -96,7 +96,7 @@
       background-color: black;
       color: white;
       padding: 1rem;
-      border-radius: var(--cmm-rounded-lg);
+      border-radius: var(--cmm-radius-lg);
       font-weight: var(--cmm-font-weight-normal);
     }
   }

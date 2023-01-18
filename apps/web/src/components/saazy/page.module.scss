@@ -30,7 +30,7 @@
 .card {
   background-color: var(--cmm-color-white);
   border: 1px solid var(--cmm-color-gray-2);
-  border-radius: var(--cmm-rounded-lg);
+  border-radius: var(--cmm-radius-lg);
   transition: var(--cmm-transition-bg), translate 0.3s;
   overflow: hidden;
   isolation: isolate;

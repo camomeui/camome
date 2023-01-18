@@ -49,7 +49,7 @@ export function getSampleStyles(tokens: string[]): {
     return {
       sample: { background: variable },
     };
-  } else if (tokens.includes("rounded")) {
+  } else if (tokens.includes("radius")) {
     return {
       sample: {
         borderRadius: variable,

@@ -8,7 +8,7 @@
 @mixin thumb-base {
   @include utils.size(locals.$thumbSize);
 
-  border-radius: var(--cmm-rounded-full);
+  border-radius: var(--cmm-radius-full);
   background: locals.$thumbColor;
   border: 3px solid locals.$thumbBorderColor;
   appearance: none;

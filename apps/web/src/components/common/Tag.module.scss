@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: var(--cmm-rounded-full);
+  border-radius: var(--cmm-radius-full);
   border: 1px solid var(--cmm-color-primary-1);
   color: var(--cmm-color-primary-6);
   width: fit-content;
@@ -20,5 +20,5 @@
 .icon {
   width: 1rem;
   height: 1rem;
-  border-radius: var(--cmm-rounded-full);
+  border-radius: var(--cmm-radius-full);
 }

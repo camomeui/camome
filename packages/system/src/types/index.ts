@@ -1,7 +1,7 @@
 import { ColorPalette } from "./color";
 import { ComponentTheme } from "./component";
 import { FontFamily, FontSize, FontWeight } from "./font";
-import { Rounded, Shadow, Outline, Transition } from "./misc";
+import { Radius, Shadow, Outline, Transition } from "./misc";
 
 export type Theme = {
   color: ColorPalette;
@@ -10,7 +10,7 @@ export type Theme = {
     size: FontSize;
     weight: FontWeight;
   };
-  rounded: Rounded;
+  radius: Radius;
   shadow: Shadow;
   outline: Outline;
   transition: Transition;
