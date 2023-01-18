@@ -47,7 +47,7 @@ const lightTheme = {
       base: cssVar("color.black"),
       muted: cssVar("color.gray.6"),
       subtle: cssVar("color.gray.4"),
-      baseInvert: cssVar("color.white"),
+      onEmphasis: cssVar("color.white"),
     },
     border: {
       base: cssVar("color.gray.2"),
@@ -103,13 +103,9 @@ const lightTheme = {
     bgOn: cssVar("color.primary.emphasis"),
     bgThumb: cssVar("color.surface.0"),
     fontOff: cssVar("color.font.muted"),
-    fontOn: cssVar("color.font.baseInvert"),
+    fontOn: cssVar("color.font.onEmphasis"),
     border: cssVar("color.neutral.3"),
     borderThumb: cssVar("color.neutral.3"),
-  },
-  TextInput: {
-    bg: cssVar("color.black"),
-    bgHover: cssVar("color.black"),
   },
 } as const;
 

@@ -3,6 +3,7 @@ import {
   Squares2X2Icon,
   DocumentTextIcon,
   PuzzlePieceIcon,
+  SwatchIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -148,6 +149,7 @@ function CategorySection({ items, label, onClickLink }: CategorySectionProps) {
 
 const collapsibleCategoryIconMap: { [id: string]: SvgComponent } = {
   guide: DocumentTextIcon,
+  ["design-system"]: SwatchIcon,
   integrations: PuzzlePieceIcon,
   components: Squares2X2Icon,
 };

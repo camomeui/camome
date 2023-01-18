@@ -11,7 +11,8 @@
       "@/*": ["src/*"],
       "@/content/*": ["content/*"],
       "@/public/*": ["public/*"],
-      "@/demo/*": [".demo/*"],
+      "@/docs-data/*": [".docs-data/*"],
+      "@/demo/*": [".docs-data/demo/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "rootDirs": [".", ".scss-types"],

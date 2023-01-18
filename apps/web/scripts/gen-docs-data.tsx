@@ -32,7 +32,8 @@ const STORIES_DIR = path.join(
   "src",
   "stories"
 );
-const STORIES_OUT_DIR = ".demo" as const;
+const DOCS_DATA_DIR = ".docs-data";
+const STORIES_OUT_DIR = path.join(DOCS_DATA_DIR, "demo");
 const processes: BuildResult[] = [];
 
 function extractStoryPath(filePath: string) {
@@ -49,7 +50,7 @@ async function bundleStory(storyFullPath: string) {
     const modulePath = path.join("..", outdir, "bundle.jsx");
     delete require.cache[require.resolve(modulePath)];
     const { default: Story } = await require(modulePath);
-    const storyCode = await fs.readFile(path.join(storyFullPath));
+    const storyCode = await fs.readFile(storyFullPath);
     const layout = Story.parameters?.layout;
 
     const ssr = renderToString(<Story />);
@@ -130,10 +131,11 @@ export default {
     "!**/index.stories.tsx",
   ]);
 
-  await fs.rm(STORIES_OUT_DIR, {
+  await fs.rm(DOCS_DATA_DIR, {
     recursive: true,
     force: true,
   });
+  await fs.mkdir(DOCS_DATA_DIR);
 
   await Promise.all(storyFullPaths.map(bundleStory));
 })().catch((e) => {

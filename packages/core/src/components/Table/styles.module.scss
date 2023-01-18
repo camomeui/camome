@@ -21,6 +21,12 @@
     border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
   }
 
+  // For single column table.
+  th:first-child:last-child {
+    border: 1px solid var(--cmm-color-border-base);
+    border-radius: var(--cmm-rounded-lg);
+  }
+
   td,
   th {
     padding: 0.75rem;

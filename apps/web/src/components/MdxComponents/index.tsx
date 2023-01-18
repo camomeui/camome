@@ -1,6 +1,7 @@
 import { type MDXComponents } from "mdx/types";
 import Image from "next/image";
 
+import * as DesignSystem from "@/components/DesignSystem";
 import DocLink from "@/components/DocLink";
 import DocLinkCardGrid from "@/components/DocLinkCardGrid";
 import A from "@/components/MdxComponents/A";
@@ -24,4 +25,5 @@ export const mdxComponents: MDXComponents = {
       style={{ margin: "1.5rem 0" }}
     />
   ),
+  DesignSystem,
 } as const;

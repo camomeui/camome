@@ -191,6 +191,7 @@ importers:
       image-size: ^1.0.2
       mailgun.js: ^8.0.1
       markdown-wasm: ^1.2.0
+      mdx-bundler: ^9.2.1
       next: 13.1.2
       next-contentlayer: ^0.2.9
       next-seo: ^5.5.0
@@ -223,6 +224,7 @@ importers:
       image-size: 1.0.2
       mailgun.js: 8.0.6
       markdown-wasm: 1.2.0
+      mdx-bundler: 9.2.1
       next: 13.1.2_sass@1.57.1
       next-contentlayer: 0.2.9_tnkxb5v37zoygkxxmzyx5rj72i
       next-seo: 5.15.0_next@13.1.2
@@ -2266,6 +2268,19 @@ packages:
       get-tsconfig: 4.3.0
     dev: true
 
+  /@esbuild-plugins/node-resolve/0.1.4:
+    resolution: {integrity: sha512-haFQ0qhxEpqtWWY0kx1Y5oE3sMyO1PcoSiWEPrAw6tm/ZOOLXjSs6Q+v1v9eyuVF0nNt50YEvrcrvENmyoMv5g==}
+    peerDependencies:
+      esbuild: '*'
+    dependencies:
+      '@types/resolve': 1.20.2
+      debug: 4.3.4
+      escape-string-regexp: 4.0.0
+      resolve: 1.22.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@esbuild-plugins/node-resolve/0.1.4_esbuild@0.15.18:
     resolution: {integrity: sha512-haFQ0qhxEpqtWWY0kx1Y5oE3sMyO1PcoSiWEPrAw6tm/ZOOLXjSs6Q+v1v9eyuVF0nNt50YEvrcrvENmyoMv5g==}
     peerDependencies:
@@ -3026,6 +3041,18 @@ packages:
       globby: 11.1.0
       read-yaml-file: 1.1.0
     dev: true
+
+  /@mdx-js/esbuild/2.2.1:
+    resolution: {integrity: sha512-Jf6TJ0VwFO51+cULHtByv+Sz+hoGpsmkbwzgPyMbmK9OvnXCkljinHQdbF9Dt7MuDPFxPRVyf5JMeo+WAEZtMw==}
+    peerDependencies:
+      esbuild: '>=0.11.0'
+    dependencies:
+      '@mdx-js/mdx': 2.2.1
+      node-fetch: 3.3.0
+      vfile: 5.3.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@mdx-js/esbuild/2.2.1_esbuild@0.15.18:
     resolution: {integrity: sha512-Jf6TJ0VwFO51+cULHtByv+Sz+hoGpsmkbwzgPyMbmK9OvnXCkljinHQdbF9Dt7MuDPFxPRVyf5JMeo+WAEZtMw==}
@@ -11276,6 +11303,25 @@ packages:
   /mdn-data/2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
     dev: true
+
+  /mdx-bundler/9.2.1:
+    resolution: {integrity: sha512-hWEEip1KU9MCNqeH2rqwzAZ1pdqPPbfkx9OTJjADqGPQz4t9BO85fhI7AP9gVYrpmfArf9/xJZUN0yBErg/G/Q==}
+    engines: {node: '>=14', npm: '>=6'}
+    peerDependencies:
+      esbuild: 0.*
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@esbuild-plugins/node-resolve': 0.1.4
+      '@fal-works/esbuild-plugin-global-externals': 2.1.2
+      '@mdx-js/esbuild': 2.2.1
+      gray-matter: 4.0.3
+      remark-frontmatter: 4.0.1
+      remark-mdx-frontmatter: 1.1.1
+      uuid: 8.3.2
+      vfile: 5.3.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /mdx-bundler/9.2.1_esbuild@0.15.18:
     resolution: {integrity: sha512-hWEEip1KU9MCNqeH2rqwzAZ1pdqPPbfkx9OTJjADqGPQz4t9BO85fhI7AP9gVYrpmfArf9/xJZUN0yBErg/G/Q==}

@@ -21,7 +21,7 @@ export default {
       Switch: {
         bgOn: theme.color.success.emphasis,
         bgOff: theme.color.danger.emphasis,
-        fontOff: theme.color.font.baseInvert,
+        fontOff: theme.color.font.onEmphasis,
       },
     })),
     dark: defineTheme("dark"),

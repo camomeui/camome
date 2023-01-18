@@ -69,7 +69,7 @@ export type FontColors = {
   base: Color;
   muted: Color;
   subtle: Color;
-  baseInvert: Color;
+  onEmphasis: Color;
 };
 
 export type SurfaceColors = {

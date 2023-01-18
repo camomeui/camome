@@ -20,6 +20,7 @@ import { type Docs } from "contentlayer/generated";
 type Props = {
   doc: Docs;
   toc?: Toc;
+  tocLevel?: number;
   prev?: LabeledLink;
   next?: LabeledLink;
   componentParams?: DocsComponentParams[];
@@ -28,6 +29,7 @@ type Props = {
 export default function DocsTemplate({
   doc,
   toc,
+  tocLevel,
   prev,
   next,
   componentParams,
@@ -51,6 +53,7 @@ export default function DocsTemplate({
               <aside className={styles.tocWrap}>
                 <TableOfContents
                   toc={toc}
+                  toHeading={tocLevel}
                   className={styles.toc}
                   anchorsContainerSelector="#markup"
                 />

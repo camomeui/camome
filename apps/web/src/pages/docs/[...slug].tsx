@@ -40,6 +40,7 @@ export default function DocsPage({
         <DocsTemplate
           doc={doc}
           toc={doc.toc}
+          tocLevel={doc.tocLevel}
           next={next ?? undefined}
           prev={prev ?? undefined}
           componentParams={componentMeta ?? undefined}

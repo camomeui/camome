@@ -20,12 +20,22 @@ const sidebar = {
           id: "theming",
         },
         {
+          id: "design-system",
+        },
+        {
           id: "headless-integration",
         },
         {
           id: "form",
         },
       ],
+    },
+    {
+      id: "design-system",
+      label: "Design system",
+      type: "collapsible",
+      open: true,
+      items: [{ id: "colors" }],
     },
     {
       id: "integrations",

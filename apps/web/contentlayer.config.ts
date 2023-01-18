@@ -42,6 +42,10 @@ export const Docs = defineDocumentType(() => ({
         type: "string",
       },
     },
+    tocLevel: {
+      type: "number",
+      default: 3,
+    },
   },
   computedFields: {
     id: {
