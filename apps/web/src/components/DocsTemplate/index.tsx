@@ -4,17 +4,18 @@ import { useRouter } from "next/router";
 import React from "react";
 import { FiInfo } from "react-icons/fi";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsInnerLayout from "@/components/DocsInnerLayout";
-import DocsPageNav from "@/components/DocsPageNav";
 
 import styles from "./styles.module.scss";
 
+import DocsPageNav from "@/components/DocsPageNav";
 import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
 import { Markup, Tag } from "@camome/core";
-import { toKebabCase } from "@camome/utils";
+import { toKebabCase, uppercaseFirst } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 
 type Props = {
@@ -94,9 +95,21 @@ export default function DocsTemplate({
     );
   };
 
+  const [category] = router.query.slug as string[];
+
+  const breadcrumbs = [
+    {
+      label: "Docs",
+    },
+    {
+      label: uppercaseFirst(category.replace("-", " ")),
+    },
+  ];
+
   return (
     <div>
       <header className={clsx(styles.header, withTabs && styles.withTabs)}>
+        <Breadcrumbs paths={breadcrumbs} />
         <h1 className={styles.title}>{doc.title}</h1>
         {doc.description && (
           <p className={styles.description}>{doc.description}</p>
