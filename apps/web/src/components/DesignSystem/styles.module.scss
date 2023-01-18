@@ -4,7 +4,7 @@
   font-size: var(--cmm-font-size-xs);
 }
 
-.colorSampleGrid {
+.sampleGrid {
   display: grid;
   gap: 1rem;
 
@@ -78,4 +78,17 @@
 .variantContainer {
   display: grid;
   gap: 1rem;
+}
+
+.typographyTable {
+  overflow-x: auto;
+
+  table {
+    min-width: 30rem;
+    white-space: nowrap;
+
+    code {
+      font-size: var(--cmm-font-size-sm);
+    }
+  }
 }

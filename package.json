@@ -9,7 +9,7 @@
     "build:web": "pnpm build --scope=@camome/web",
     "typecheck": "pnpm -F \"./apps/*\" -F \"./packages/*\" -r --parallel typecheck",
     "lint": "eslint packages/** apps/** --ext .ts,.tsx,.js,.jsx,.mjs,.cjs",
-    "lint:fix": "pnpm lint --fix",
+    "lint:fix": "pnpm lint --fix --max-warnings=0",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "test": "jest",
