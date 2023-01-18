@@ -1,5 +1,13 @@
 # @camome/system
 
+## 0.1.13
+
+### Patch Changes
+
+- 8d25375: Modify theme
+- Updated dependencies [8d25375]
+  - @camome/utils@0.1.8
+
 ## 0.1.12
 
 ### Patch Changes
