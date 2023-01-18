@@ -3,4 +3,5 @@
 
 [ -n "$CI" ] && exit 0
 
+pnpm build --filter="./packages/*"
 pnpm ci:check
