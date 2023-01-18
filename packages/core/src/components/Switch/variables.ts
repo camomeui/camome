@@ -3,7 +3,7 @@ import { cssVar } from "@camome/system";
 import { ComponentCssVariables } from "../../types";
 
 const variables = {
-  radius: cssVar("rounded.full"),
+  radius: cssVar("radius.full"),
   thumbWidth: null,
   thumbHeight: null,
   padX: null,

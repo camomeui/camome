@@ -1,7 +1,10 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cssVariables.lookupFiles": ["apps/web/src/styles/camome.css"],
+  "cssVariables.lookupFiles": ["packages/system/dist/theme.css"],
   "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn"
+  },
+  "[mdx]": {
     "editor.wordWrap": "wordWrapColumn"
   }
 }

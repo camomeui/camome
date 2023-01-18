@@ -1,0 +1,138 @@
+---
+title: "テーマのカスタマイズ"
+id: "theming"
+---
+
+## 概要
+
+Camome のデザイントークン（色・フォント・ラディアス）などはすべて [CSS Custom Properties](https://developer.mozilla.org/ja/docs/Web/CSS/--*) で管理されているため、ブランドごとの見た目のカスタマイズが簡単に行えます。
+
+Camome はダークテーマもはじめからサポートしています。
+
+## デフォルトテーマ
+
+デフォルトのテーマファイルは `@camome/system/theme.css` または `@camome/system.theme.min.css` からインポートできます。カスタマイズする必要がない場合はこれを直接使用してください。
+
+## 設定ファイル
+
+テーマを変更したい場合はプロジェクトルートに `camome.config.js` ファイルを作成して、以下のように設定します:
+
+```tsx:camome.config.js
+import { defineTheme } from "@camome/system";
+
+/** @type { import("@camome/system").Config;} */
+export default {
+  themes: {
+    light: defineTheme("light", (theme) => ({
+      color: {
+        // Change primary color to purple
+        primary: {
+          0: "#faf5ff",
+          1: "#f3e8ff",
+          2: "#e9d5ff",
+          3: "#d8b4fe",
+          4: "#c084fc",
+          5: "#a855f7",
+          6: "#9333ea",
+          7: "#7e22ce",
+          8: "#6b21a8",
+          9: "#581c87",
+        },
+      },
+      // Component-level theme
+      Switch: {
+        bgOn: theme.color.success.emphasis,
+        bgOff: theme.color.danger.emphasis,
+        fontOff: theme.color.font.onEmphasis,
+      },
+    })),
+    // For dark theme
+    dark: defineTheme("dark"),
+  },
+};
+```
+
+この例ではプライマリーカラーを紫に変更しているため、ボタンやチェックボックスなど、全てのコンポーネントにカスタムのアクセントカラーが一括で適用されます。
+
+`Switch` プロパティはコンポーネントレベルのテーマの一例です。多くのコンポーネントは `color.<color-scheme>.<variant>...` などの汎用トークンを使用しているため逐一設定する必要はありませんが、複雑なコンポーネントは独自のトークンを持っています。
+
+<Message status="info">
+  例えば `<Button colorScheme="danger" variant="solid" />` であれば
+  `color.danger.solid.bg` などが使用され、これは `
+  <Tag colorScheme="danger" variant="solid" />` などとも共有されています。現在はこれらをコンポーネントごとに個別に変更することはできません（主にグローバルCSSのサイズを小さくするため）。
+</Message>
+
+## Camome CLI
+
+Camome CLI を使うことで設定ファイルの定義を適用したカスタムテーマを生成できます。
+
+```bash
+npx camome theme
+```
+
+以下のオプションを指定できます:
+
+- `--output`: CSS の生成先のパス（デフォルトは `theme.css`）
+- `--config`: 設定ファイルのパス（デフォルトは `camome.config.js`）
+
+<Message status="info">
+  `--watch`
+  モードやバンドラーとの統合などは検討中です。現状はテーマ変更の度にコマンドの実行をお願いします。
+</Message>
+
+## コンポーネントのオーバーライド
+
+Camome の`theme.css` の先頭では以下のように [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer)の優先順位を宣言しています。
+
+```css
+@layer cmm.reset, cmm.theme, cmm.base, cmm.components;
+```
+
+この記述のおかげで、 `theme.css` より後に宣言された CSS のスタイルは(上記のレイヤー内でない限り)詳細度に関係なく優先されます。`cmm.custom` のようなレイヤーを作ってもいいですが、必須ではありません。
+
+```css:globals.css
+/* Buttonのスタイルをオーバーライド
+   (@layerの外側は内側より優先される) */
+.Button {
+  border-radius: 999px;
+}
+
+/* オプショナル */
+@layer cmm.custom {...}
+```
+
+## ダークテーマ
+
+Camome は `light` と `dark` テーマに対応しており、 `<html>` タグの `data-theme` 属性で指定することができます。
+
+```html:index.html
+<!DOCTYPE html>
+<html data-theme="<light または dark>">
+  <!-- コンテンツ -->
+</html>
+```
+
+`theme.css` 内では以下のように定義されています:
+
+```css:theme.css
+@layer cmm.theme {
+  :root[data-theme="light"] {
+    --cmm-color-primary-font: var(--cmm-color-primary-7);
+    --cmm-color-primary-emphasis: var(--cmm-color-primary-6);
+    {...}
+  }
+}
+```
+
+アプリケーション内の CSS で各テーマごとにスタイリングする必要がある場合は次のように書きます:
+
+```css
+:root[data-theme="dark"] .your-class {
+  /* Your styles for dark theme... */
+}
+```
+
+<Message status="info">
+  **`light` と `dark` はそれぞれ独立してカスタマイズできます。**
+  [設定ファイル](#設定ファイル)の項目を参照してください。
+</Message>

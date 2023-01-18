@@ -13,12 +13,18 @@
 
   th:first-child {
     border-left: 1px solid var(--cmm-color-border-base);
-    border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
+    border-radius: var(--cmm-radius-lg) 0 0 var(--cmm-radius-lg);
   }
 
   th:last-child {
     border-right: 1px solid var(--cmm-color-border-base);
-    border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
+    border-radius: 0 var(--cmm-radius-lg) var(--cmm-radius-lg) 0;
+  }
+
+  // For single column table.
+  th:first-child:last-child {
+    border: 1px solid var(--cmm-color-border-base);
+    border-radius: var(--cmm-radius-lg);
   }
 
   td,

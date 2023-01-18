@@ -19,8 +19,6 @@
     padding: 0 0.5rem;
     line-height: 2.5;
     color: var(--cmm-Tab-font);
-    border-top-left-radius: var(--cmm-rounded-sm);
-    border-top-right-radius: var(--cmm-rounded-sm);
     border-bottom: solid $borderBWidth $borderBPassiveColor;
     margin-bottom: calc($borderBWidth * -1);
     transition: var(--cmm-transition-bg), color 0.3s, border 0.3s;
@@ -33,7 +31,7 @@
     }
 
     &:focus-visible {
-      outline: var(--cmm-outline-color-primary);
+      outline-color: var(--cmm-outline-color-primary);
       outline-offset: var(--cmm-outline-offset);
     }
 

@@ -7,6 +7,7 @@ export const menuClassNames = {
   menu: styles.Block,
   item: styles.item,
   itemActive: styles["item--active"],
+  itemDisabled: styles["item--disabled"],
   group: styles.group,
   divider: styles.divider,
 };

@@ -1,6 +1,13 @@
 @use "../../styles/utils";
 @use "./variables" as locals;
 
+@mixin reveal() {
+  .content {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 @include utils.layer {
   .target {
     position: relative;
@@ -8,11 +15,20 @@
     width: fit-content;
     height: fit-content;
 
-    &:hover,
-    &:focus-within {
-      .content {
-        opacity: 1;
-        visibility: visible;
+    &:hover {
+      @include reveal();
+    }
+
+    // TODO: extract this pattern as a mixin
+    @supports selector(:has(:focus-visible)) {
+      &:has(:focus-visible) {
+        @include reveal();
+      }
+    }
+
+    @supports not selector(:has(:focus-visible)) {
+      &:focus-within {
+        @include reveal();
       }
     }
   }
@@ -28,7 +44,7 @@
     background: var(--cmm-Tooltip-bg);
     color: var(--cmm-Tooltip-font);
     border: 1px solid var(--cmm-Tooltip-border);
-    border-radius: var(--cmm-rounded-md);
+    border-radius: var(--cmm-radius-md);
     transition: 0.2s ease-in;
     transition-delay: 0.15s;
     display: inline-block;

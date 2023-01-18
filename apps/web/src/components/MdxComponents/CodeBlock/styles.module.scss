@@ -7,7 +7,7 @@
   display: block;
   background-color: var(--cmm-color-surface-1);
   padding: 1rem;
-  border-radius: var(--cmm-rounded-lg);
+  border-radius: var(--cmm-radius-lg);
   border: 1px solid var(--cmm-color-border-base);
   font-weight: var(--cmm-font-weight-normal);
   font-size: 0.85em;
@@ -22,7 +22,7 @@ $iconSize: 1.2rem;
   width: $size;
   height: $size;
   border: 1px solid var(--cmm-color-border-base);
-  border-radius: var(--cmm-rounded-md);
+  border-radius: var(--cmm-radius-md);
   background-color: var(--cmm-color-surface-1);
   display: grid;
   place-content: center;
@@ -48,3 +48,20 @@ $iconSize: 1.2rem;
     opacity: 1;
   }
 }
+
+// margin-top: 2rem;
+// border-top-left-radius: var(--cmm-radius-lg);
+// border-top-right-radius: var(--cmm-radius-lg);
+// background-color: var(--cmm-color-gray-1);
+// color: var(--cmm-color-gray-5);
+// padding: 0.5rem 1rem 0.5rem 1rem;
+// font-size: var(--cmm-font-size-sm);
+
+// & + * :where(pre):not(:where([class~="no-markup"] *)) {
+//   margin-top: 0;
+
+//   code {
+//     border-top-left-radius: 0;
+//     border-top-right-radius: 0;
+//   }
+// }

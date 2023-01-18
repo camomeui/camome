@@ -32,7 +32,8 @@ const STORIES_DIR = path.join(
   "src",
   "stories"
 );
-const STORIES_OUT_DIR = ".demo" as const;
+const DOCS_DATA_DIR = ".docs-data";
+const STORIES_OUT_DIR = path.join(DOCS_DATA_DIR, "demo");
 const processes: BuildResult[] = [];
 
 function extractStoryPath(filePath: string) {
@@ -49,7 +50,7 @@ async function bundleStory(storyFullPath: string) {
     const modulePath = path.join("..", outdir, "bundle.jsx");
     delete require.cache[require.resolve(modulePath)];
     const { default: Story } = await require(modulePath);
-    const storyCode = await fs.readFile(path.join(storyFullPath));
+    const storyCode = await fs.readFile(storyFullPath);
     const layout = Story.parameters?.layout;
 
     const ssr = renderToString(<Story />);
@@ -75,7 +76,7 @@ const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",
     })}\`;
-const layout = "${layout}";
+const layout = ${layout ? `"${layout}"` : "undefined"};
 
 export default {
   Component,
@@ -130,10 +131,11 @@ export default {
     "!**/index.stories.tsx",
   ]);
 
-  await fs.rm(STORIES_OUT_DIR, {
+  await fs.rm(DOCS_DATA_DIR, {
     recursive: true,
     force: true,
   });
+  await fs.mkdir(DOCS_DATA_DIR);
 
   await Promise.all(storyFullPaths.map(bundleStory));
 })().catch((e) => {
@@ -143,8 +145,7 @@ export default {
 });
 
 function generateScopedName(local: string, filename: string) {
-  const dir = filename.split("/").at(-2);
-  if (dir === "_stories" || filename.endsWith("index.stories.module.scss")) {
+  if (filename.includes("apps/storybook")) {
     return "story-" + hash(filename + local);
   }
   return buildScopedClassName(local, filename);

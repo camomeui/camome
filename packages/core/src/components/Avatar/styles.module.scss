@@ -23,7 +23,7 @@
     @include utils.size(locals.$size);
 
     display: block;
-    border-radius: var(--cmm-rounded-full);
+    border-radius: var(--cmm-radius-full);
     overflow: hidden;
     transition: var(--cmm-transition-bg);
     margin: locals.$margin;

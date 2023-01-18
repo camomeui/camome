@@ -4,9 +4,10 @@
   .Block {
     display: grid;
     grid-template-columns: auto 1fr;
+    place-items: center start;
     gap: 0.5rem;
     padding: 1rem;
-    border-radius: var(--cmm-rounded-lg);
+    border-radius: var(--cmm-radius-lg);
     width: 100%;
   }
 
@@ -36,6 +37,10 @@
     line-height: 1.7;
     font-weight: var(--cmm-font-weight-normal);
     margin-top: -0.25rem;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   .icon {

@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center start;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-md);
+  background: var(--cmm-color-surface-1);
+  transition: var(--cmm-transition-bg);
+
+  &:hover {
+    background: var(--cmm-color-surface-2);
+
+    .arrow {
+      translate: 0.3rem;
+    }
+  }
+}
+
+.icon {
+  color: var(--cmm-color-font-subtle);
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.label {
+  color: var(--cmm-color-font-base);
+  font-weight: var(--cmm-font-weight-semibold);
+  font-size: var(--cmm-font-size-sm);
+}
+
+.arrow {
+  color: var(--cmm-color-font-base);
+  width: 1em;
+  height: 1em;
+  transition: translate 0.3s;
+}

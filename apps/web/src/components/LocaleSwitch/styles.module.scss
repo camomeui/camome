@@ -1,0 +1,13 @@
+.button {
+  position: relative;
+}
+
+.menu {
+  :global(.Menu) {
+    min-width: 8rem;
+
+    :global(.Menu__item--disabled) {
+      --cmm-Menu-font-icon: var(--cmm-color-success-font);
+    }
+  }
+}

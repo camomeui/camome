@@ -1,4 +1,10 @@
-import { toKebabCase, type Path, type DeepPartial } from "@camome/utils";
+import {
+  generatePaths,
+  getValue,
+  toKebabCase,
+  type Path,
+  type DeepPartial,
+} from "@camome/utils";
 
 import { DEFAULT_PREFIX, themedComponents } from "../constants";
 import { Theme } from "../types";
@@ -38,32 +44,6 @@ export function indent(target: string, indent = "  ") {
     indentedCssString += `${indentedLine}\n`;
   }
   return indentedCssString;
-}
-
-export function generatePaths<T>(obj: T, prefix = ""): string[] {
-  const paths: string[] = [];
-  for (const key in obj) {
-    const path = prefix ? `${prefix}.${key}` : key;
-    if (typeof obj[key] === "object") {
-      paths.push(...generatePaths(obj[key] as object, path));
-    } else {
-      paths.push(path);
-    }
-  }
-  return paths;
-}
-
-export function getValue<T, K extends keyof T>(obj: T, key: K | string): T[K] {
-  if (typeof key !== "string") {
-    return obj[key];
-  }
-  const keys = key.split(".");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let result: any = obj;
-  for (const k of keys) {
-    result = result[k];
-  }
-  return result;
 }
 
 export function layerOrder(

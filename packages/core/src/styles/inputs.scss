@@ -24,7 +24,7 @@
 @mixin base() {
   appearance: none;
   border: 1px solid var(--cmm-Input-border);
-  border-radius: var(--cmm-rounded-lg);
+  border-radius: var(--cmm-radius-lg);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);
   // Don't use `background` to avoid collision of `background-image` of Select.

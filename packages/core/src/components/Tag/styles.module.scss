@@ -21,7 +21,7 @@
     @extend %sizeDefaults;
 
     white-space: nowrap;
-    border-radius: var(--cmm-rounded-full);
+    border-radius: var(--cmm-radius-full);
     column-gap: 0.5rem;
     font-weight: var(--cmm-font-weight-semibold);
     display: inline-flex;

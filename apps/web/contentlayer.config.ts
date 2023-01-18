@@ -1,7 +1,16 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  defineDocumentType,
+  makeSource,
+  RawDocumentData,
+} from "contentlayer/source-files";
 
 import { getToc } from "./src/lib/getToc";
 import mdxOptions from "./src/lib/mdxOptions.mjs";
+
+const resolveSlugAndLocale = (raw: RawDocumentData) => {
+  const [slug, locale] = raw.flattenedPath.replace("docs/", "").split(".");
+  return { slug, locale };
+};
 
 export const Docs = defineDocumentType(() => ({
   name: "Docs",
@@ -14,6 +23,9 @@ export const Docs = defineDocumentType(() => ({
     title: {
       type: "string",
       required: true,
+    },
+    label: {
+      type: "string",
     },
     description: {
       type: "string",
@@ -30,6 +42,10 @@ export const Docs = defineDocumentType(() => ({
         type: "string",
       },
     },
+    tocLevel: {
+      type: "number",
+      default: 3,
+    },
   },
   computedFields: {
     id: {
@@ -38,7 +54,12 @@ export const Docs = defineDocumentType(() => ({
     },
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("docs/", ""),
+      resolve: (doc) => resolveSlugAndLocale(doc._raw).slug,
+    },
+    locale: {
+      type: "enum",
+      options: ["en", "ja"],
+      resolve: (doc) => resolveSlugAndLocale(doc._raw).locale,
     },
     toc: {
       type: "list",

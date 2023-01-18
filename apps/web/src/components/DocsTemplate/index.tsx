@@ -6,10 +6,10 @@ import { FiInfo } from "react-icons/fi";
 
 import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsPageNav from "@/components/DocsPageNav";
-import DocsTabs from "@/components/DocsTabs";
 
 import styles from "./styles.module.scss";
 
+import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
 import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
@@ -20,6 +20,7 @@ import { type Docs } from "contentlayer/generated";
 type Props = {
   doc: Docs;
   toc?: Toc;
+  tocLevel?: number;
   prev?: LabeledLink;
   next?: LabeledLink;
   componentParams?: DocsComponentParams[];
@@ -28,6 +29,7 @@ type Props = {
 export default function DocsTemplate({
   doc,
   toc,
+  tocLevel,
   prev,
   next,
   componentParams,
@@ -51,6 +53,7 @@ export default function DocsTemplate({
               <aside className={styles.tocWrap}>
                 <TableOfContents
                   toc={toc}
+                  toHeading={tocLevel}
                   className={styles.toc}
                   anchorsContainerSelector="#markup"
                 />
@@ -84,7 +87,7 @@ export default function DocsTemplate({
           ]
         : []),
     ];
-  }, [componentParams, doc.body.code, next, prev, toc]);
+  }, [componentParams, doc.body.code, next, prev, toc, tocLevel]);
 
   const withTabs = tabItems.length > 1;
 
@@ -116,7 +119,7 @@ export default function DocsTemplate({
           <div>
             <Tag
               component={Link}
-              href="/docs/getting-started/headless-integration"
+              href="/docs/guide/headless-integration"
               size="sm"
               endDecorator={<FiInfo stroke-width="2.5" />}
               className={styles.tag}

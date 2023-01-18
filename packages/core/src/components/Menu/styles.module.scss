@@ -5,7 +5,7 @@
   .Block {
     display: inline-block;
     border: 1px solid var(--cmm-color-border-base);
-    border-radius: var(--cmm-rounded-md);
+    border-radius: var(--cmm-radius-md);
     padding: 0.25rem;
     min-width: 10rem;
     box-shadow: var(--cmm-shadow-sm);
@@ -18,16 +18,20 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    border-radius: var(--cmm-rounded-sm);
+    border-radius: var(--cmm-radius-sm);
     padding: 0.5rem 0.75rem;
     cursor: pointer;
     transition: var(--cmm-transition-bg);
     width: 100%;
     color: var(--cmm-Menu-font-label);
 
-    &:hover,
     &--active {
       background: var(--cmm-Menu-bg-hover);
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      background: var(--cmm-Menu-bg);
     }
 
     > svg {

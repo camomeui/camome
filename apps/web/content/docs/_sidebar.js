@@ -5,8 +5,8 @@ const sidebar = {
       id: "introduction",
     },
     {
-      id: "getting-started",
-      label: "Getting started",
+      id: "guide",
+      label: "Guide",
       type: "collapsible",
       open: true,
       items: [
@@ -17,11 +17,40 @@ const sidebar = {
           id: "installation",
         },
         {
+          id: "theming",
+        },
+        {
+          id: "design-system",
+        },
+        {
           id: "headless-integration",
-          label: "Headless UI",
         },
         {
           id: "form",
+        },
+      ],
+    },
+    {
+      id: "design-system",
+      label: "Design system",
+      type: "collapsible",
+      open: true,
+      items: [{ id: "colors" }, { id: "typography" }, { id: "misc" }],
+    },
+    {
+      id: "integrations",
+      label: "Integrations",
+      type: "collapsible",
+      open: true,
+      items: [
+        {
+          id: "next",
+        },
+        {
+          id: "vite",
+        },
+        {
+          id: "cra",
         },
       ],
     },

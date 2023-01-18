@@ -47,7 +47,7 @@ const lightTheme = {
       base: cssVar("color.black"),
       muted: cssVar("color.gray.6"),
       subtle: cssVar("color.gray.4"),
-      baseInvert: cssVar("color.white"),
+      onEmphasis: cssVar("color.white"),
     },
     border: {
       base: cssVar("color.gray.2"),
@@ -103,19 +103,15 @@ const lightTheme = {
     bgOn: cssVar("color.primary.emphasis"),
     bgThumb: cssVar("color.surface.0"),
     fontOff: cssVar("color.font.muted"),
-    fontOn: cssVar("color.font.baseInvert"),
+    fontOn: cssVar("color.font.onEmphasis"),
     border: cssVar("color.neutral.3"),
     borderThumb: cssVar("color.neutral.3"),
-  },
-  TextInput: {
-    bg: cssVar("color.black"),
-    bgHover: cssVar("color.black"),
   },
 } as const;
 
 function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
-    font: cssVar(`color.${colorScheme}.6`),
+    font: cssVar(`color.${colorScheme}.7`),
     emphasis: cssVar(`color.${colorScheme}.6`),
     muted: cssVar(`color.${colorScheme}.4`),
     subtle: cssVar(`color.${colorScheme}.1`),
@@ -132,18 +128,18 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
     soft: {
       bg: cssVar(`color.${colorScheme}.0`),
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
       border: cssVar(`color.${colorScheme}.2`),
     },
     ghost: {
       bg: "transparent",
       bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.6`),
+      font: cssVar(`color.${colorScheme}.font`),
     },
   };
 }

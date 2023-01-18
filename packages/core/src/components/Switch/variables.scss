@@ -1,5 +1,5 @@
 $radius_name: --cmm-Switch-radius;
-$radius: var($radius_name, var(--cmm-rounded-full));
+$radius: var($radius_name, var(--cmm-radius-full));
 $thumbWidth_name: --cmm-Switch-thumb-width;
 $thumbWidth: var($thumbWidth_name);
 $thumbHeight_name: --cmm-Switch-thumb-height;

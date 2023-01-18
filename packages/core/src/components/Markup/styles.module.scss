@@ -2,6 +2,10 @@
 
 @include utils.layer {
   .Block {
+    > :where(:first-child) {
+      margin-top: 0 !important;
+    }
+
     :where(h1, h2, h3, h4):not(:where([class~="no-markup"] *)) {
       margin-top: 2.25rem;
       margin-bottom: 1.2rem;
@@ -54,7 +58,7 @@
       color: var(--cmm-color-font-base);
       background-color: var(--cmm-color-code-bg);
       padding: 0.1em 0.3em;
-      border-radius: var(--cmm-rounded-sm);
+      border-radius: var(--cmm-radius-sm);
       font-family: var(--cmm-font-family-code);
       font-weight: var(--cmm-font-weight-normal);
       font-size: 0.85em;
@@ -63,11 +67,9 @@
 
     :where(a):not(:where([class~="no-markup"] *)) {
       color: var(--cmm-color-link);
-      font-weight: var(--cmm-font-weight-medium);
-
-      &:hover {
-        text-decoration: underline;
-      }
+      text-decoration: underline;
+      text-underline-position: from-font;
+      text-decoration-thickness: from-font;
 
       code {
         text-decoration: underline;
@@ -79,25 +81,6 @@
       &:has(code) {
         margin-top: 2rem;
         margin-bottom: 2rem;
-      }
-    }
-
-    :global(.remark-code-title) {
-      margin-top: 2rem;
-      border-top-left-radius: var(--cmm-rounded-lg);
-      border-top-right-radius: var(--cmm-rounded-lg);
-      background-color: var(--cmm-color-gray-1);
-      color: var(--cmm-color-gray-5);
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      font-size: var(--cmm-font-size-sm);
-
-      & + * :where(pre):not(:where([class~="no-markup"] *)) {
-        margin-top: 0;
-
-        code {
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
-        }
       }
     }
 
@@ -147,12 +130,12 @@
 
       th:first-child {
         border-left: 1px solid var(--cmm-color-gray-2);
-        border-radius: var(--cmm-rounded-lg) 0 0 var(--cmm-rounded-lg);
+        border-radius: var(--cmm-radius-lg) 0 0 var(--cmm-radius-lg);
       }
 
       th:last-child {
         border-right: 1px solid var(--cmm-color-gray-2);
-        border-radius: 0 var(--cmm-rounded-lg) var(--cmm-rounded-lg) 0;
+        border-radius: 0 var(--cmm-radius-lg) var(--cmm-radius-lg) 0;
       }
 
       td,
@@ -173,14 +156,36 @@
       }
     }
 
-    // FIXME: Mustn't depends on class name.
     :global(.Message):not(:where([class~="no-markup"] *)) {
       margin-top: 2rem;
       margin-bottom: 2rem;
+      font-size: 0.9em;
 
       p {
         &:first-child {
           margin-top: 0;
+        }
+      }
+
+      ul {
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    $statuses: info, success, warn, danger;
+
+    @each $color in $statuses {
+      :global(.Message--#{$color}) {
+        :is(p, li) {
+          color: var(--cmm-color-#{$color}-soft-font);
+        }
+
+        :is(code) {
+          color: var(--cmm-color-#{$color}-font);
+          --cmm-color-code-bg: var(--cmm-color-#{$color}-soft-bg);
+          border: 1px solid var(--cmm-color-#{$color}-outline-border);
         }
       }
     }

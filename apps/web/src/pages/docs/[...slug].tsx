@@ -1,8 +1,17 @@
-import { GetStaticPathsResult, GetStaticPropsContext } from "next";
+import {
+  GetStaticPathsContext,
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+} from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 
-import type { NavItem, LabeledLink, DocsComponentParams } from "@/types";
+import type {
+  NavItem,
+  LabeledLink,
+  DocsComponentParams,
+  Locale,
+} from "@/types";
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
@@ -35,6 +44,7 @@ export default function DocsPage({
         <DocsTemplate
           doc={doc}
           toc={doc.toc}
+          tocLevel={doc.tocLevel}
           next={next ?? undefined}
           prev={prev ?? undefined}
           componentParams={componentMeta ?? undefined}
@@ -45,15 +55,25 @@ export default function DocsPage({
   );
 }
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
+export async function getStaticProps({
+  params,
+  locale,
+  defaultLocale,
+}: GetStaticPropsContext) {
   const slug = params?.slug;
   if (!Array.isArray(slug)) {
     return {
       notFound: true,
     };
   }
-  const sidebarItems = getSidebarItems();
-  const doc = allDocs.find((post) => post.slug === slug.join("/"));
+  const sidebarItems = getSidebarItems(
+    undefined,
+    (locale ?? defaultLocale) as Locale
+  );
+  const doc =
+    allDocs.find(
+      (post) => post.slug === slug.join("/") && post.locale === locale
+    ) ?? allDocs.find((post) => post.slug === slug.join("/"));
 
   if (!doc) {
     return { notFound: true };
@@ -84,10 +104,19 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   };
 }
 
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const paths = allDocs.map((doc) => ({
-    params: { slug: doc.slug.split("/") },
-  }));
+export async function getStaticPaths({
+  locales,
+}: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+  if (!locales) throw new Error("No `locales` passed to `getStaticPaths`");
+  // Make sure to pre-render all the pages for every locale because
+  // `getComponentsParams` relies on reading files in `node_modules`
+  // which is not available on serverless functions.
+  const paths = locales?.flatMap((locale) =>
+    allDocs.map((doc) => ({
+      params: { slug: doc.slug.split("/") },
+      locale: locale,
+    }))
+  );
 
   return {
     paths,

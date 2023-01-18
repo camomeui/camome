@@ -6,6 +6,7 @@ import remarkMdxCodeMeta from "remark-mdx-code-meta";
 import remarkDirective from "remark-directive";
 import remarkCodeTitles from "./remark/remarkCodeTitles.mjs";
 import remarkImgToJsx from "./remark/remarkImgToJsx.mjs";
+import remarkAdmonitions from "./remark/remarkAdmonitions.mjs";
 import linkIcon from "./hast/link-icon.mjs";
 
 /** @type {import('@mdx-js/mdx').CompileOptions} */
@@ -14,6 +15,7 @@ const mdxOptions = {
     remarkGfm,
     remarkMdxCodeMeta,
     remarkDirective,
+    remarkAdmonitions,
     remarkCodeTitles,
     remarkImgToJsx,
   ],

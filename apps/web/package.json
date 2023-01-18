@@ -8,7 +8,7 @@
     "watch-stories": "pnpm run-ts ./scripts/watch-stories.ts",
     "dev:next": "next dev --port 3910",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:next\"",
-    "build": "pnpm gen-doc-data && next build",
+    "build": "pnpm gen-docs-data && next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
@@ -16,7 +16,7 @@
     "typecheck": "tsc",
     "gen-css": "npx camome generate-css --output ./src/styles/camome.css",
     "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
-    "gen-doc-data": "pnpm run-ts ./scripts/gen-doc-data.tsx"
+    "gen-docs-data": "pnpm run-ts ./scripts/gen-docs-data.tsx"
   },
   "dependencies": {
     "@camome/core": "workspace:*",
@@ -34,6 +34,8 @@
     "form-data": "^4.0.0",
     "image-size": "^1.0.2",
     "mailgun.js": "^8.0.1",
+    "markdown-wasm": "^1.2.0",
+    "mdx-bundler": "^9.2.1",
     "next": "13.1.2",
     "next-contentlayer": "^0.2.9",
     "next-seo": "^5.5.0",

@@ -1,0 +1,94 @@
+@use "@/styles/variables";
+
+.variable {
+  font-size: var(--cmm-font-size-xs);
+}
+
+.sampleGrid {
+  display: grid;
+  gap: 1rem;
+
+  &.col4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &.col5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @container (max-width: 30rem) {
+    &.col4,
+    &.col5 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.sample {
+  display: grid;
+  place-content: start stretch;
+  gap: 0.25rem;
+
+  &__preview {
+    display: grid;
+    place-content: center;
+    height: 4.5rem;
+    border-radius: var(--cmm-radius-md);
+    border: 1px solid var(--cmm-color-border-base);
+    background: var(--cmm-color-surface-0);
+  }
+
+  &__block {
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--cmm-radius-sm);
+  }
+
+  &__font {
+    font-size: var(--cmm-font-size-3xl);
+    color: var(--cmm-color-font-base);
+    font-weight: var(--cmm-font-weight-bold);
+  }
+
+  code {
+    display: block;
+    font-size: var(--cmm-font-size-xs);
+    background: none;
+    overflow-wrap: break-word;
+    overflow: hidden;
+  }
+}
+
+.colorSchemeHgroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  margin-bottom: 1.2rem;
+
+  > * {
+    margin: 0;
+  }
+
+  code {
+    font-size: var(--cmm-font-size-xs);
+  }
+}
+
+.variantContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+.typographyTable {
+  overflow-x: auto;
+
+  table {
+    min-width: 30rem;
+    white-space: nowrap;
+
+    code {
+      font-size: var(--cmm-font-size-sm);
+    }
+  }
+}

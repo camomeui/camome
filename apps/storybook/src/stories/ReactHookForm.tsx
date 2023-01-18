@@ -138,7 +138,7 @@ const form = {
 const output = {
   ...size,
   padding: "1rem",
-  borderRadius: "var(--cmm-rounded-lg)",
+  borderRadius: "var(--cmm-radius-lg)",
   backgroundColor: "var(--cmm-color-black)",
   color: "var(--cmm-color-white)",
   fontSize: "var(--cmm-font-size-sm)",

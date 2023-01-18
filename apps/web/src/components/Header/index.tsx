@@ -10,6 +10,7 @@ import CollapsibleNav from "@/components/CollapsibleNav";
 
 import styles from "./styles.module.scss";
 
+import LocaleSwitch from "@/components/LocaleSwitch";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
@@ -68,6 +69,7 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
+          <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">
             <ThemeSwitch />
           </Tooltip>

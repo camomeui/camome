@@ -17,7 +17,7 @@
     align-items: center;
     gap: 0.5em;
     position: relative;
-    border-radius: var(--cmm-rounded-full);
+    border-radius: var(--cmm-radius-full);
     margin: locals.$margin;
 
     // :focus-visible but look at the children.
@@ -80,7 +80,7 @@
     @include utils.size(locals.$size);
 
     appearance: none;
-    border-radius: var(--cmm-rounded-full);
+    border-radius: var(--cmm-radius-full);
     background: var(--cmm-color-primary-soft-bg);
     display: grid;
     place-content: center;
@@ -92,7 +92,7 @@
       @include utils.size(
         calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
       );
-      border-radius: var(--cmm-rounded-full);
+      border-radius: var(--cmm-radius-full);
       background-color: var(--cmm-color-primary-1);
       scale: 0;
     }
