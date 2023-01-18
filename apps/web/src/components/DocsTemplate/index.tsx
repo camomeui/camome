@@ -5,13 +5,13 @@ import React from "react";
 import { FiInfo } from "react-icons/fi";
 
 import ComponentParamTables from "@/components/ComponentParamTables";
+import DocsInnerLayout from "@/components/DocsInnerLayout";
 import DocsPageNav from "@/components/DocsPageNav";
 
 import styles from "./styles.module.scss";
 
 import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
-import TableOfContents from "@/components/TableOfContents";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
 import { Markup, Tag } from "@camome/core";
 import { toKebabCase } from "@camome/utils";
@@ -40,26 +40,20 @@ export default function DocsTemplate({
         id: "usage",
         label: "Usage",
         panel: (
-          <div className={styles.article}>
-            <div className={styles.main}>
+          <DocsInnerLayout
+            toc={toc}
+            tocLevel={tocLevel}
+            anchorsContainerSelector="#markup"
+          >
+            <>
               <Markup className={styles.markup} id="markup">
                 <MdxRenderer code={doc.body.code} />
               </Markup>
               <aside className={styles.aside}>
                 <DocsPageNav next={next} prev={prev} />
               </aside>
-            </div>
-            {toc && (
-              <aside className={styles.tocWrap}>
-                <TableOfContents
-                  toc={toc}
-                  toHeading={tocLevel}
-                  className={styles.toc}
-                  anchorsContainerSelector="#markup"
-                />
-              </aside>
-            )}
-          </div>
+            </>
+          </DocsInnerLayout>
         ),
       },
       ...(componentParams
@@ -68,20 +62,12 @@ export default function DocsTemplate({
               id: "api",
               label: "API",
               panel: (
-                <div className={styles.article}>
-                  <div className={styles.main}>
-                    <ComponentParamTables data={componentParams} id="api" />
-                  </div>
-                  {toc && (
-                    <aside className={styles.tocWrap}>
-                      <TableOfContents
-                        toc={tocOfComponentParams(componentParams)}
-                        className={styles.toc}
-                        anchorsContainerSelector="#api"
-                      />
-                    </aside>
-                  )}
-                </div>
+                <DocsInnerLayout
+                  toc={tocOfComponentParams(componentParams)}
+                  anchorsContainerSelector="#api"
+                >
+                  <ComponentParamTables data={componentParams} id="api" />
+                </DocsInnerLayout>
               ),
             },
           ]
