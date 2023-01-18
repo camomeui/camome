@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Select } from "@camome/core";
+import { Select } from "@camome/core/Select";
 
 const meta: Meta<typeof Select> = {
   title: "components/Select",

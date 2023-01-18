@@ -1,7 +1,8 @@
 import { Dialog as HeadlessDialog } from "@headlessui/react";
 import React from "react";
 
-import { Button, Dialog, dialogClassNames } from "@camome/core";
+import { Button } from "@camome/core/Button";
+import { Dialog, dialogClassNames } from "@camome/core/Dialog";
 
 export default function WithHeadlessUI() {
   const [open, setOpen] = React.useState(false);

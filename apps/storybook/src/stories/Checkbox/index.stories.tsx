@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Checkbox } from "@camome/core";
+import { Checkbox } from "@camome/core/Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
   title: "components/Checkbox",

@@ -1,4 +1,5 @@
-import { FormField, Switch } from "@camome/core";
+import { FormField } from "@camome/core/FormField";
+import { Switch } from "@camome/core/Switch";
 
 import styles from "./styles.module.scss";
 

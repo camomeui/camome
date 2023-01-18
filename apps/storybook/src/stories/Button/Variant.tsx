@@ -1,4 +1,4 @@
-import { Button } from "@camome/core";
+import { Button } from "@camome/core/Button";
 
 import styles from "./Variant.module.scss";
 

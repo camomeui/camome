@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Tag } from "@camome/core";
+import { Tag } from "@camome/core/Tag";
 
 const meta: Meta<typeof Tag> = {
   title: "components/Tag",

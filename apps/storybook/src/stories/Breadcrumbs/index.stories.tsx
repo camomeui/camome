@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Breadcrumbs } from "@camome/core";
+import { Breadcrumbs } from "@camome/core/Breadcrumbs";
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: "components/Breadcrumbs",

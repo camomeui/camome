@@ -1,4 +1,5 @@
-import { FormField, Select } from "@camome/core";
+import { FormField } from "@camome/core/FormField";
+import { Select } from "@camome/core/Select";
 
 export default function Description() {
   return (

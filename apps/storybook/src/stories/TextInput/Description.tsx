@@ -1,4 +1,4 @@
-import { TextInput } from "@camome/core";
+import { TextInput } from "@camome/core/TextInput";
 
 export default function Description() {
   return (

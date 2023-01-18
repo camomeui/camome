@@ -1,4 +1,4 @@
-import { Checkbox } from "@camome/core";
+import { Checkbox } from "@camome/core/Checkbox";
 
 import styles from "./styles.module.scss";
 

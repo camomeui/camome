@@ -1,4 +1,4 @@
-import { Select } from "@camome/core";
+import { Select } from "@camome/core/Select";
 
 export default function Error() {
   return (

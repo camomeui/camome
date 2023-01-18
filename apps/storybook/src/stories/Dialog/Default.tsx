@@ -1,4 +1,4 @@
-import { Dialog } from "@camome/core";
+import { Dialog } from "@camome/core/Dialog";
 
 export default function Default() {
   return (

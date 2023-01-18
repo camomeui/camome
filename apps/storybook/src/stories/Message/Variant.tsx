@@ -1,4 +1,4 @@
-import { Message } from "@camome/core";
+import { Message } from "@camome/core/Message";
 
 import styles from "./styles.module.scss";
 

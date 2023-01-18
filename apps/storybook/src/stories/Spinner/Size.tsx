@@ -1,4 +1,4 @@
-import { Spinner } from "@camome/core";
+import { Spinner } from "@camome/core/Spinner";
 
 import styles from "./styles.module.scss";
 

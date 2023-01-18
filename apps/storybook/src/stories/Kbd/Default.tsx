@@ -1,4 +1,4 @@
-import { Kbd } from "@camome/core";
+import { Kbd } from "@camome/core/Kbd";
 
 import styles from "./Default.module.scss";
 

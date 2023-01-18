@@ -1,15 +1,13 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import {
-  Button,
-  Checkbox,
-  Radio,
-  RadioGroup,
-  Select,
-  TextInput,
-  Textarea,
-} from "@camome/core";
+import { Button } from "@camome/core/Button";
+import { Checkbox } from "@camome/core/Checkbox";
+import { Radio } from "@camome/core/Radio";
+import { RadioGroup } from "@camome/core/RadioGroup";
+import { Select } from "@camome/core/Select";
+import { TextInput } from "@camome/core/TextInput";
+import { Textarea } from "@camome/core/Textarea";
 
 type FormSchema = {
   firstName: string;

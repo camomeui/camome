@@ -1,6 +1,6 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
-import { Switch } from "@camome/core";
+import { Switch } from "@camome/core/Switch";
 
 export default function Default() {
   return (

@@ -1,4 +1,4 @@
-import { Avatar } from "@camome/core";
+import { Avatar } from "@camome/core/Avatar";
 
 import styles from "./styles.module.scss";
 

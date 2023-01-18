@@ -7,7 +7,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 
-import { Button } from "@camome/core";
+import { Button } from "@camome/core/Button";
 
 import styles from "./WithIcon.module.scss";
 

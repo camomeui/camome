@@ -1,6 +1,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
-import { Kbd, TextInput, TextInputGroup } from "@camome/core";
+import { Kbd } from "@camome/core/Kbd";
+import { TextInput } from "@camome/core/TextInput";
+import { TextInputGroup } from "@camome/core/TextInputGroup";
 
 import styles from "./styles.module.scss";
 

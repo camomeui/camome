@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Spinner } from "@camome/core";
+import { Spinner } from "@camome/core/Spinner";
 
 const meta: Meta<typeof Spinner> = {
   title: "components/Spinner",

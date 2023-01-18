@@ -7,7 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
-import { Button, Menu, menuClassNames } from "@camome/core";
+import { Button } from "@camome/core/Button";
+import { Menu, menuClassNames } from "@camome/core/Menu";
 
 export default function WithHeadlessUI() {
   const { x, y, reference, floating, strategy } = useFloating({

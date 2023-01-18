@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Slider } from "@camome/core";
+import { Slider } from "@camome/core/Slider";
 
 const meta: Meta<typeof Slider> = {
   title: "components/Slider",

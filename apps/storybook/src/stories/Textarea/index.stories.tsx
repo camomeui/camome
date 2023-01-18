@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Textarea } from "@camome/core";
+import { Textarea } from "@camome/core/Textarea";
 
 const meta: Meta<typeof Textarea> = {
   title: "components/Textarea",

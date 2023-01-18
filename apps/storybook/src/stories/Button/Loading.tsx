@@ -1,4 +1,5 @@
-import { Button, Spinner } from "@camome/core";
+import { Button } from "@camome/core/Button";
+import { Spinner } from "@camome/core/Spinner";
 
 export default function Loading() {
   return (

@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Avatar } from "@camome/core";
+import { Avatar } from "@camome/core/Avatar";
 
 const meta: Meta<typeof Avatar> = {
   title: "components/Avatar",

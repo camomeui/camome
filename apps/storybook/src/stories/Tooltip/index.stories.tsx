@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Tooltip } from "@camome/core";
+import { Tooltip } from "@camome/core/Tooltip";
 
 const meta: Meta<typeof Tooltip> = {
   title: "components/Tooltip",

@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Kbd } from "@camome/core";
+import { Kbd } from "@camome/core/Kbd";
 
 const meta: Meta<typeof Kbd> = {
   title: "components/Kbd",

@@ -1,4 +1,4 @@
-import { Textarea } from "@camome/core";
+import { Textarea } from "@camome/core/Textarea";
 
 export default function Disabled() {
   return (

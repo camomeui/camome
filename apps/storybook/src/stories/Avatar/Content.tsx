@@ -1,6 +1,6 @@
 import { BoltIcon } from "@heroicons/react/24/outline";
 
-import { Avatar } from "@camome/core";
+import { Avatar } from "@camome/core/Avatar";
 
 import styles from "./styles.module.scss";
 

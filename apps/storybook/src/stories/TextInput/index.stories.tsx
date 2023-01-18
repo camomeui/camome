@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { TextInput } from "@camome/core";
+import { TextInput } from "@camome/core/TextInput";
 
 const meta: Meta<typeof TextInput> = {
   title: "components/TextInput",

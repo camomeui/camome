@@ -1,6 +1,6 @@
 import { BellAlertIcon } from "@heroicons/react/24/outline";
 
-import { IconButton } from "@camome/core";
+import { IconButton } from "@camome/core/IconButton";
 
 import styles from "./Disabled.module.scss";
 

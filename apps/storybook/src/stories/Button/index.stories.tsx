@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Button } from "@camome/core";
+import { Button } from "@camome/core/Button";
 
 const meta: Meta<typeof Button> = {
   title: "components/Button",

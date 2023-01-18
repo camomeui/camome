@@ -1,4 +1,4 @@
-import { Message } from "@camome/core";
+import { Message } from "@camome/core/Message";
 
 export default function Default() {
   return (

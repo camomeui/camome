@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Message } from "@camome/core";
+import { Message } from "@camome/core/Message";
 
 const meta: Meta<typeof Message> = {
   title: "components/Message",

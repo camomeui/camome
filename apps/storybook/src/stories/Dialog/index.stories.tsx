@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Dialog } from "@camome/core";
+import { Dialog } from "@camome/core/Dialog";
 
 const meta: Meta<typeof Dialog> = {
   title: "components/Dialog",

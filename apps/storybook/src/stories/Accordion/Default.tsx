@@ -1,4 +1,4 @@
-import { Accordion } from "@camome/core";
+import { Accordion } from "@camome/core/Accordion";
 
 export default function Default() {
   return <Accordion items={data} />;

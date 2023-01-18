@@ -1,4 +1,5 @@
-import { Button, Tooltip } from "@camome/core";
+import { Button } from "@camome/core/Button";
+import { Tooltip } from "@camome/core/Tooltip";
 
 import styles from "./styles.module.scss";
 

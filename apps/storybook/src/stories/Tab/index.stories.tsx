@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { Tab } from "@camome/core";
+import { Tab } from "@camome/core/Tab";
 
 const meta: Meta<typeof Tab> = {
   title: "components/Tab",

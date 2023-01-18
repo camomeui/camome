@@ -1,10 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
 
-import purgecss from "@fullhuman/postcss-purgecss";
 import { build, type BuildResult } from "esbuild";
 import { globby } from "globby";
-import postcss from "postcss";
 import { format } from "prettier";
 import React from "react";
 import { renderToString } from "react-dom/server";
@@ -55,23 +53,12 @@ async function bundleStory(storyFullPath: string) {
 
     const ssr = renderToString(<Story />);
 
-    const { css } = await postcss([
-      purgecss({
-        content: [
-          {
-            raw: ssr,
-            extension: "html",
-          },
-        ],
-      }),
-    ]).process(generatedCss.join("\n"));
-
     const componentOutDir = path.resolve(__dirname, "..", outdir);
 
     const index = `import Component from "./bundle";
 
 const react = \`${storyCode}\`;
-const css = \`${css}\`;
+const css = \`${generatedCss.join("\n")}\`;
 const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",

@@ -1,4 +1,4 @@
-import { Tab } from "@camome/core";
+import { Tab } from "@camome/core/Tab";
 
 const items = [
   {

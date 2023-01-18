@@ -1,4 +1,4 @@
-import { Tag } from "@camome/core";
+import { Tag } from "@camome/core/Tag";
 
 import styles from "./styles.module.scss";
 

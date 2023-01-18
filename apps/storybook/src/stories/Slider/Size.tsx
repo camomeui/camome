@@ -1,4 +1,4 @@
-import { Slider } from "@camome/core";
+import { Slider } from "@camome/core/Slider";
 
 import styles from "./styles.module.scss";
 

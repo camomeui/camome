@@ -1,4 +1,4 @@
-import { Message } from "@camome/core";
+import { Message } from "@camome/core/Message";
 
 export default function Alert() {
   return <Message title="This is an alert message" isAlert />;

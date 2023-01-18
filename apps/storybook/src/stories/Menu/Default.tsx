@@ -4,7 +4,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 
-import { Menu } from "@camome/core";
+import { Menu } from "@camome/core/Menu";
 
 export default function Default() {
   return (
