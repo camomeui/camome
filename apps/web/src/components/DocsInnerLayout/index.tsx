@@ -1,3 +1,4 @@
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 import TableOfContents from "@/components/TableOfContents";
@@ -6,6 +7,7 @@ import { Toc } from "@/types";
 import styles from "./styles.module.scss";
 
 type Props = {
+  docPath: string;
   toc?: Toc;
   tocLevel?: number;
   anchorsContainerSelector: string;
@@ -13,6 +15,7 @@ type Props = {
 };
 
 export default function DocsInnerLayout({
+  docPath,
   toc,
   tocLevel,
   anchorsContainerSelector,
@@ -28,6 +31,21 @@ export default function DocsInnerLayout({
             toHeading={tocLevel}
             className={styles.toc}
             anchorsContainerSelector={anchorsContainerSelector}
+            extraLinks={
+              <div>
+                <a
+                  href={`https://github.com/camomeui/camome/tree/main/apps/web/content/${docPath}.mdx`}
+                  className={styles.tocExtraLink}
+                >
+                  <PencilSquareIcon />
+                  Edit this page on GitHub
+                </a>
+                <a className={styles.tocExtraLink}>
+                  <span className={styles.emoji}>🎉</span> Start you next
+                  project with Camome template (coming soon)
+                </a>
+              </div>
+            }
           />
         </aside>
       )}

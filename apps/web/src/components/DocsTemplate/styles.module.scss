@@ -40,7 +40,7 @@ $pad-sm: 1rem;
   display: grid;
   row-gap: 1rem;
   padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   padding-left: $pad-lg;
   padding-right: $pad-lg;
   background: var(--cmm-color-surface-1);
@@ -48,11 +48,6 @@ $pad-sm: 1rem;
   @include variables.mq("xl") {
     padding-left: $pad-sm;
     padding-right: $pad-sm;
-  }
-
-  &.withTabs {
-    border-bottom: none;
-    padding-bottom: 2rem;
   }
 
   .title {
@@ -100,7 +95,7 @@ $pad-sm: 1rem;
 }
 
 %panel {
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-left: $pad-lg;
   padding-bottom: 4rem;
 

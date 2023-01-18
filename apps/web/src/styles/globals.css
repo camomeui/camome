@@ -62,11 +62,6 @@
   opacity: 1;
 }
 
-[id^="headlessui-tabs-panel-"][role="tabpanel"] {
-  border-radius: var(--cmm-radius-lg);
-  outline-offset: 0.5rem;
-}
-
 .remark-code-title {
   margin-top: 2rem;
   border-top-left-radius: var(--cmm-radius-lg);

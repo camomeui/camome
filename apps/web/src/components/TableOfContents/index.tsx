@@ -14,6 +14,7 @@ type Props = {
   asDisclosure?: boolean;
   exclude?: string | string[];
   className?: string;
+  extraLinks?: React.ReactNode;
   anchorsContainerSelector: string;
 };
 
@@ -24,6 +25,7 @@ export default function TableOfContents({
   toHeading = 3,
   exclude = "",
   anchorsContainerSelector,
+  extraLinks,
   className,
 }: Props) {
   const re = Array.isArray(exclude)
@@ -46,9 +48,9 @@ export default function TableOfContents({
   });
 
   return (
-    <nav id="toc" className={clsx(styles.Block, className)}>
+    <nav id="toc" className={clsx(styles.Block, "scrollbar", className)}>
       <div className={styles.title}>Contents</div>
-      <ul className={clsx(styles.list, "scrollbar")}>
+      <ul className={styles.list}>
         {filteredToc.map((heading) => (
           <li key={heading.value}>
             <a
@@ -64,6 +66,10 @@ export default function TableOfContents({
           </li>
         ))}
       </ul>
+      <div className={styles.extra}>
+        <hr />
+        {extraLinks}
+      </div>
     </nav>
   );
 }

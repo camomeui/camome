@@ -42,6 +42,7 @@ export default function DocsTemplate({
         label: "Usage",
         panel: (
           <DocsInnerLayout
+            docPath={doc._raw.flattenedPath}
             toc={toc}
             tocLevel={tocLevel}
             anchorsContainerSelector="#markup"
@@ -64,6 +65,7 @@ export default function DocsTemplate({
               label: "API",
               panel: (
                 <DocsInnerLayout
+                  docPath={doc._raw.flattenedPath}
                   toc={tocOfComponentParams(componentParams)}
                   anchorsContainerSelector="#api"
                 >
@@ -108,7 +110,7 @@ export default function DocsTemplate({
 
   return (
     <div>
-      <header className={clsx(styles.header, withTabs && styles.withTabs)}>
+      <header className={clsx(styles.header, withTabs)}>
         <Breadcrumbs paths={breadcrumbs} />
         <h1 className={styles.title}>{doc.title}</h1>
         {doc.description && (
