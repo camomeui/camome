@@ -1,4 +1,8 @@
-import { GetStaticPathsResult, GetStaticPropsContext } from "next";
+import {
+  GetStaticPathsContext,
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+} from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 
@@ -100,14 +104,22 @@ export async function getStaticProps({
   };
 }
 
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const paths = allDocs.map((doc) => ({
-    params: { slug: doc.slug.split("/") },
-    locale: doc.locale,
-  }));
+export async function getStaticPaths({
+  locales,
+}: GetStaticPathsContext): Promise<GetStaticPathsResult> {
+  if (!locales) throw new Error("No `locales` passed to `getStaticPaths`");
+  // Make sure to pre-render all the pages for every locale because
+  // `getComponentsParams` relies on reading files in `node_modules`
+  // which is not available on serverless functions.
+  const paths = locales?.flatMap((locale) =>
+    allDocs.map((doc) => ({
+      params: { slug: doc.slug.split("/") },
+      locale: locale,
+    }))
+  );
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 }
