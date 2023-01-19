@@ -11,6 +11,7 @@ export type CodeSandboxProps = {
   html: string;
   css: string;
   bundlePath?: string;
+  showCode?: boolean;
   layout?: "centered" | "padded";
 };
 
@@ -19,6 +20,7 @@ export default function CodeSandbox({
   react,
   html,
   css,
+  showCode = true,
   layout = "centered",
 }: CodeSandboxProps) {
   return (
@@ -39,20 +41,22 @@ export default function CodeSandbox({
             <Component />
           </div>
         </div>
-        <CodeTabs
-          items={[
-            {
-              name: "React",
-              code: react,
-              language: "tsx",
-            },
-            {
-              name: "HTML",
-              code: html,
-              language: "html",
-            },
-          ]}
-        />
+        {showCode && (
+          <CodeTabs
+            items={[
+              {
+                name: "React",
+                code: react,
+                language: "tsx",
+              },
+              {
+                name: "HTML",
+                code: html,
+                language: "html",
+              },
+            ]}
+          />
+        )}
       </div>
     </>
   );

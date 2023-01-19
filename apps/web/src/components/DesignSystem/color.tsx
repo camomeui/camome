@@ -104,7 +104,7 @@ export function FontColors() {
   );
 }
 
-export function VariantColors() {
+export function TemplateColors() {
   return (
     <ColorsForScheme
       renderColors={(scheme) => (

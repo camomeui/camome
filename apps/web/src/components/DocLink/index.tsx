@@ -8,6 +8,7 @@ import { allDocs, type Docs } from "contentlayer/generated";
 type Props = {
   id?: string;
   href?: string;
+  hash?: string;
   locale?: Locale;
   children?: React.ReactNode | ((doc: Docs) => React.ReactNode);
   className?: string;
@@ -15,8 +16,9 @@ type Props = {
 };
 
 export default function DocLink({
-  href,
   id,
+  href,
+  hash,
   locale,
   children,
   className,
@@ -29,7 +31,7 @@ export default function DocLink({
   if (!doc) throw new Error(`Invalid doc link: ${id}`);
   return (
     <Link
-      href={href ?? "/docs/" + doc.slug}
+      href={href ?? "/docs/" + doc.slug + (hash ? `#${hash}` : "")}
       locale={locale}
       className={className}
       style={style}

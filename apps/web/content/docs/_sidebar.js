@@ -36,6 +36,7 @@ const sidebar = {
       type: "collapsible",
       open: true,
       items: [
+        { id: "design-system:overview" },
         { id: "design-system:colors" },
         { id: "design-system:typography" },
         { id: "design-system:misc" },

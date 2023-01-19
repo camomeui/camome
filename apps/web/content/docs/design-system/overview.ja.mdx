@@ -1,0 +1,25 @@
+---
+title: "デザインシステムについて"
+label: "概要"
+id: "design-system:overview"
+---
+
+## 概要
+
+Camome のデザインシステムは大きく「カラーパレット」「タイポグラフィ」「その他」に分類されます。**デザインシステムとはいっても、網羅的にデザインを拘束するほど厳密なものではありません**。例えば UI パーツの配置を決めるグリッドシステムや `padding` のためのサイズなどは導入して**いません**。
+
+その代わり、**カラーパレットはある程度システマティックに規定されています**。これは主にテーマのカスタマイズを容易にするためです。
+
+## 使用方法
+
+全てのデザイントークンは `@camome/system` で定義されています。ソースコードは JavaScript オブジェクトですが、もちろん CSS の生成を行っています。
+
+### CSS
+
+CSS では、全てのデザイントークンは [CSS Custom Properties](https://developer.mozilla.org/ja/docs/Web/CSS/--*) として宣言されます。 `--cmm-color-primary-5` のような `cmm-` プリフィックスが付与された形式です。
+
+`@camome/system/theme.css` からデフォルトテーマをインポートできますが、カスタマイズすることも可能です。<DocLink id="theming"/> を参照してください。
+
+### JavaScript
+
+<Message status="warn">This section is under construction...</Message>

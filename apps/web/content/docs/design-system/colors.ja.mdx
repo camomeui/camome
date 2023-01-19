@@ -1,29 +1,65 @@
 ---
-title: "カラー"
+title: "カラーパレット"
 id: "design-system:colors"
 tocLevel: 2
 ---
 
+import Variant from "@/demo/Button/Variant";
+
+## 概要
+
+Camome デザインシステムのカラーパレットは以下の 3 つに分類されます。
+
+1. Shade
+2. Semantic
+3. Template
+
+この 3 つの中で Shade が最もプリミティブで、下に向かうにつれより高レベルな意味を持ちます。
+
+<Message status="warn">
+  `color.red.5`
+  のように特定の色を直接指すトークンは含まれていません。サイズをできるだけコンパクトに抑えるためにこのような判断をしました。
+</Message>
+
+## 使用方法
+
+**基本的には Shade をコードの中で使わないでください**。Shade を直接使用すると、例えばダークテーマに対応する際に `:root[data-theme="dark"]` のようなセレクターを大量に書くことになります。
+
+代わりに **Semantic と Template を使ってください**。そうすればテーマの変更などにも柔軟に対応できます。
+
+### Semantic と Template の違い
+
+- Semantic – 汎用的にどこでも使えるトークン。
+- Template – 特定の UI パターンのためのトークン。 例えば <DocLink id="button" hash="variant" /> は複数の Template を実装しており、`variant` プロパティによって切り替えられる。<DocLink id="radio"/> は 1 つの Template (`soft`) のみを実装している例。
+
+<CodeSandbox {...Variant} showCode={false} />
+
+多くの UI コンポーネントはこれらの Template (つまり UI パターン)のいずれかに当てはまることが多いため、そのトークンを継承するのが便利な場合があります。あなたのアプリケーションの独自コンポーネントにも取り入れることができるはずです。
+
+## Shade
+
+<Message status="warn">
+  複数テーマに対応したい場合は Semantic か Template を使用してください。
+</Message>
+
+<DesignSystem.ShadeColors />
+
 ## Semantic
 
-<DesignSystem.SemanticColors />
-
-## Variant
-
-<DesignSystem.VariantColors />
-
-## Font
+### Font
 
 <DesignSystem.FontColors />
 
-## Surface
+### Surface
 
 <DesignSystem.SurfaceColors />
 
-## Border
+### Border
 
 <DesignSystem.BorderColors />
 
-## Shades
+<DesignSystem.SemanticColors />
 
-<DesignSystem.ShadeColors />
+## Template
+
+<DesignSystem.TemplateColors />
