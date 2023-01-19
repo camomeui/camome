@@ -76,7 +76,15 @@ export default function DocsTemplate({
           ]
         : []),
     ];
-  }, [componentParams, doc.body.code, next, prev, toc, tocLevel]);
+  }, [
+    componentParams,
+    doc._raw.flattenedPath,
+    doc.body.code,
+    next,
+    prev,
+    toc,
+    tocLevel,
+  ]);
 
   const withTabs = tabItems.length > 1;
 
