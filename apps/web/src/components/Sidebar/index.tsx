@@ -13,9 +13,17 @@ type Props = {
 };
 
 export default function Sidebar({ items, onClickLink, className }: Props) {
+  const containerRef = React.useRef<HTMLElement>(null!);
   return (
-    <aside className={clsx(styles.Block, "scrollbar", className)}>
-      <CollapsibleNavigation items={items} onClickLink={onClickLink} />
+    <aside
+      className={clsx(styles.Block, "scrollbar", className)}
+      ref={containerRef}
+    >
+      <CollapsibleNavigation
+        items={items}
+        onClickLink={onClickLink}
+        scrollContainer={containerRef}
+      />
     </aside>
   );
 }

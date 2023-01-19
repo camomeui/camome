@@ -11,4 +11,5 @@ $rowGap: 0.25rem;
   position: sticky;
   top: variables.$headerHeight;
   height: calc(100vh - variables.$headerHeight);
+  scroll-behavior: smooth;
 }

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
+import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
 import { NavItem, NavItemCategory } from "@/types";
 import { type SvgComponent } from "@camome/utils";
 
@@ -17,22 +18,29 @@ import styles from "./styles.module.scss";
 type Props = {
   items: NavItem[];
   onClickLink?: () => void;
+  scrollContainer?: React.RefObject<HTMLElement>;
   className?: string;
 };
+
+const ScrollContainerContext =
+  React.createContext<Props["scrollContainer"]>(undefined);
 
 export default function CollapsibleNavigation({
   items,
   onClickLink,
+  scrollContainer,
   className,
 }: Props) {
   return (
-    <nav className={className}>
-      <ul className={styles.rootList}>
-        {items.map((item) => (
-          <Item key={item.id} item={item} onClickLink={onClickLink} />
-        ))}
-      </ul>
-    </nav>
+    <ScrollContainerContext.Provider value={scrollContainer}>
+      <nav className={className}>
+        <ul className={styles.rootList}>
+          {items.map((item) => (
+            <Item key={item.id} item={item} onClickLink={onClickLink} />
+          ))}
+        </ul>
+      </nav>
+    </ScrollContainerContext.Provider>
   );
 }
 
@@ -47,6 +55,21 @@ function Item({ item, onClickLink }: ItemProps) {
     (href: string) => href === router.asPath,
     [router.asPath]
   );
+  const isItemActive = !("items" in item) && isActive(item.href);
+  const linkRef = React.useRef<HTMLLIElement>(null!);
+
+  const scrollContainer = React.useContext(ScrollContainerContext);
+
+  // Scroll the container so that the active link item
+  // is shown at the center.
+  React.useEffect(() => {
+    if (isItemActive && scrollContainer?.current) {
+      scrollContainer.current.scrollTop =
+        linkRef.current.offsetTop +
+        linkRef.current.getBoundingClientRect().height / 2 -
+        scrollContainer.current.getBoundingClientRect().height / 2;
+    }
+  }, [isItemActive, item, scrollContainer]);
 
   if ("items" in item) {
     // Category
@@ -58,7 +81,7 @@ function Item({ item, onClickLink }: ItemProps) {
   } else {
     // Document link
     return (
-      <li key={item.href}>
+      <li key={item.href} ref={linkRef}>
         <Link
           href={item.href}
           className={styles.link}
@@ -102,7 +125,7 @@ function CategoryCollapsible({
 }: CategoryCollapsibleProps) {
   const router = useRouter();
   const detailsRef = React.useRef<HTMLDetailsElement>(null);
-  const isCategoryActive = items.some(
+  const isCategoryActive = flattenSidebarLinks(items).some(
     (i) => !("items" in i) && isActive(i.href)
   );
   const Icon = collapsibleCategoryIconMap[id];
@@ -117,11 +140,7 @@ function CategoryCollapsible({
 
   return (
     <li>
-      <details
-        open={open || isCategoryActive}
-        ref={detailsRef}
-        className={styles.collapsible}
-      >
+      <details open={open} ref={detailsRef} className={styles.collapsible}>
         <summary>
           <span>{Icon && <Icon className={styles.categoryIcon} />}</span>
           <span>{label}</span>

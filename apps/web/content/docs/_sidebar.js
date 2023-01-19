@@ -8,7 +8,7 @@ const sidebar = {
       id: "guide",
       label: "Guide",
       type: "collapsible",
-      open: true,
+      open: false,
       items: [
         {
           id: "overview",
@@ -34,7 +34,7 @@ const sidebar = {
       id: "design-system",
       label: "Design system",
       type: "collapsible",
-      open: true,
+      open: false,
       items: [
         { id: "design-system:overview" },
         { id: "design-system:colors" },
@@ -46,7 +46,7 @@ const sidebar = {
       id: "integrations",
       label: "Integrations",
       type: "collapsible",
-      open: true,
+      open: false,
       items: [
         {
           id: "next",

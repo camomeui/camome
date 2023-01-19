@@ -3,53 +3,12 @@ import path from "path";
 
 import { parse } from "react-docgen-typescript";
 
-import type {
-  NavItem,
-  DocsSidebarItemConfig,
-  NavItemLink,
-  DocsComponentPropItem,
-  DocsComponentParams,
+import {
   DocsComponentClass,
-  Locale,
+  DocsComponentParams,
+  DocsComponentPropItem,
 } from "@/types";
-
-import sidebar from "@/content/docs/_sidebar";
-import { colorSchemes, sizes, variants } from "@camome/system";
-import { allDocs } from "contentlayer/generated";
-
-export function getSidebarItems(
-  items: DocsSidebarItemConfig[] = sidebar.items,
-  locale: Locale
-) {
-  const result: NavItem[] = [];
-  for (const item of items) {
-    if ("items" in item) {
-      // Category
-      result.push({
-        ...item,
-        items: getSidebarItems(item.items, locale),
-      });
-    } else {
-      // Document link
-      const doc =
-        allDocs.find((d) => d.id === item.id && d.locale === locale) ??
-        allDocs.find((d) => d.id === item.id);
-      if (!doc) continue;
-      result.push({
-        ...item,
-        href: "/docs/" + doc.slug,
-        label: item.label ?? doc.label ?? doc.title,
-      });
-    }
-  }
-  return result;
-}
-
-export function flattenSidebarLinks(items: NavItem[]): NavItemLink[] {
-  return items.flatMap((item) =>
-    "items" in item ? flattenSidebarLinks(item.items) : item
-  );
-}
+import { variants, colorSchemes, sizes } from "@camome/system";
 
 const COMPONENTS_ROOT = `node_modules/@camome/core/` as const;
 const SYSTEM_ROOT = `node_modules/@camome/system/` as const;
@@ -138,15 +97,6 @@ export async function getComponentParams(
   }));
 }
 
-export function compareProp(
-  a: DocsComponentPropItem,
-  b: DocsComponentPropItem
-): number {
-  if (a.required && !b.required) return -1;
-  if (!a.required && b.required) return 1;
-  return a.name.localeCompare(b.name);
-}
-
 function classType(className: string) {
   if (!className.match(/(-|_)/)) return "block";
   if (className.includes("__")) return "element";
@@ -156,6 +106,15 @@ function classType(className: string) {
   else if (colorSchemes.includes(lastToken)) return "color-scheme";
   else if (sizes.includes(lastToken)) return "size";
   else return "modifier";
+}
+
+export function compareProp(
+  a: DocsComponentPropItem,
+  b: DocsComponentPropItem
+): number {
+  if (a.required && !b.required) return -1;
+  if (!a.required && b.required) return 1;
+  return a.name.localeCompare(b.name);
 }
 
 export function compareClass(

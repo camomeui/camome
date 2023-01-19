@@ -15,11 +15,9 @@ import type {
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
-import {
-  flattenSidebarLinks,
-  getComponentParams,
-  getSidebarItems,
-} from "@/lib/docs";
+import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
+import { getComponentParams } from "@/lib/docs/getComponentParams";
+import { getSidebarItems } from "@/lib/docs/getSidebarItems";
 import { allDocs, type Docs } from "contentlayer/generated";
 
 type Props = {
