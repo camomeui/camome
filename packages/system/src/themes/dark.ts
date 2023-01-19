@@ -119,8 +119,8 @@ function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
     font: palette[4],
     emphasis: palette[5],
-    muted: alpha(palette[4], 0.75),
-    subtle: alpha(palette[4], 0.5),
+    muted: alpha(palette[6], 0.5),
+    subtle: alpha(palette[6], 0.15),
   };
 }
 
