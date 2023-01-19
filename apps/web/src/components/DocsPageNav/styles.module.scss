@@ -1,28 +1,32 @@
 @use "@/styles/variables";
 
 .Block {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
   width: 100%;
-
-  @include variables.mq("sm") {
-    grid-template-columns: 1fr;
-  }
 }
 
 .link {
-  border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-lg);
-  padding: 1rem;
+  padding: 0.5rem 0;
   display: grid;
   row-gap: 0.25rem;
-  transition: var(--cmm-transition-bg);
-  background: var(--cmm-color-surface-1);
+
+  &:hover {
+    .link__upper {
+      color: var(--cmm-color-link);
+    }
+
+    .link__lower {
+      color: var(--cmm-color-link);
+    }
+  }
 
   &__upper {
     font-size: var(--cmm-font-size-sm);
-    color: var(--cmm-color-font-muted);
+    color: var(--cmm-color-font-subtle);
+    transition: color 0.3s;
 
     &.next {
       text-align: end;
@@ -31,14 +35,16 @@
 
   &__lower {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    color: var(--cmm-color-primary-6);
+    color: var(--cmm-color-font-muted);
     font-weight: var(--cmm-font-weight-medium);
+    gap: 0.25em;
+    transition: color 0.3s;
 
     svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1em;
+      height: 1em;
+      stroke-width: 1.75;
     }
 
     &.next {
@@ -47,20 +53,6 @@
 
     &.prev {
       justify-content: flex-start;
-    }
-  }
-
-  &:hover {
-    background-color: var(--cmm-color-surface-2);
-  }
-
-  @include variables.mq("sm") {
-    &.next {
-      grid-row: 1;
-    }
-
-    &.prev {
-      grid-row: 2;
     }
   }
 }

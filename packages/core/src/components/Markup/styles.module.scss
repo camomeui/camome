@@ -6,6 +6,10 @@
       margin-top: 0 !important;
     }
 
+    > :where(:last-child) {
+      margin-bottom: 0 !important;
+    }
+
     :where(h1, h2, h3, h4):not(:where([class~="no-markup"] *)) {
       margin-top: 2.25rem;
       margin-bottom: 1.2rem;

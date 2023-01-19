@@ -78,15 +78,16 @@ $pad-sm: 1rem;
 }
 
 .markup {
+  padding-bottom: 3rem;
   container-type: inline-size;
+
   :where(h1, h2, h3, h4, h5, h6) {
     scroll-margin-top: calc(variables.$headerHeight + 0.5rem) !important;
   }
 }
 
 .aside {
-  margin-top: 3rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

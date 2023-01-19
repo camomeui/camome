@@ -35,7 +35,11 @@ const sidebar = {
       label: "Design system",
       type: "collapsible",
       open: true,
-      items: [{ id: "colors" }, { id: "typography" }, { id: "misc" }],
+      items: [
+        { id: "design-system:colors" },
+        { id: "design-system:typography" },
+        { id: "design-system:misc" },
+      ],
     },
     {
       id: "integrations",

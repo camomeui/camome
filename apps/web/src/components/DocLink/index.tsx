@@ -26,7 +26,7 @@ export default function DocLink({
   const doc =
     allDocs.find((doc) => doc.id === id && doc.locale === currentLocale) ??
     allDocs.find((doc) => doc.id === id);
-  if (!doc) throw new Error("Invalid doc link");
+  if (!doc) throw new Error(`Invalid doc link: ${id}`);
   return (
     <Link
       href={href ?? "/docs/" + doc.slug}
