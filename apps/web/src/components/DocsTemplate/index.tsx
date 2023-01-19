@@ -101,7 +101,7 @@ export default function DocsTemplate({
 
   const breadcrumbs = [
     {
-      label: "Docs",
+      label: "Documentation",
     },
     {
       label: uppercaseFirst(category.replace("-", " ")),
