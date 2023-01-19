@@ -8,17 +8,19 @@ export function getSidebarItems(
 ) {
   const result: NavItem[] = [];
   for (const item of items) {
+    const doc =
+      allDocs.find((d) => d.id === item.id && d.locale === locale) ??
+      allDocs.find((d) => d.id === item.id);
     if ("items" in item) {
       // Category
       result.push({
         ...item,
+        ...(doc ? { href: "/docs/" + doc.slug } : {}),
         items: getSidebarItems(item.items, locale),
       });
     } else {
       // Document link
-      const doc =
-        allDocs.find((d) => d.id === item.id && d.locale === locale) ??
-        allDocs.find((d) => d.id === item.id);
+
       if (!doc) continue;
       result.push({
         ...item,

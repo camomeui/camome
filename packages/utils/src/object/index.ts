@@ -10,12 +10,19 @@ export function deepUndefinedToNull<T extends object>(
   obj: T
 ): DeepUndefinedToNull<T> {
   return Object.entries(obj).reduce((acc, [k, v]) => {
+    let value = v;
+    if (typeof v === "object") {
+      if (v === null) {
+        value = null;
+      } else if (Array.isArray(v)) {
+        value = v.map(deepUndefinedToNull);
+      } else {
+        value = deepUndefinedToNull(v);
+      }
+    }
     return {
       ...acc,
-      [k]:
-        typeof v === "object" && v !== null
-          ? deepUndefinedToNull(v)
-          : v ?? null,
+      [k]: value ?? null,
     };
   }, {}) as DeepUndefinedToNull<T>;
 }

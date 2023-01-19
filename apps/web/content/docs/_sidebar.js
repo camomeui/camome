@@ -2,31 +2,25 @@
 const sidebar = {
   items: [
     {
-      id: "introduction",
-    },
-    {
       id: "guide",
       label: "Guide",
       type: "collapsible",
       open: false,
       items: [
         {
-          id: "overview",
+          id: "guide:overview",
         },
         {
-          id: "installation",
+          id: "guide:installation",
         },
         {
-          id: "theming",
+          id: "guide:theming",
         },
         {
-          id: "design-system",
+          id: "guide:headless-integration",
         },
         {
-          id: "headless-integration",
-        },
-        {
-          id: "form",
+          id: "guide:form",
         },
       ],
     },

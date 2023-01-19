@@ -37,6 +37,7 @@ export type Authors = { [Name: string]: Author };
 export type NavItemCategory = {
   id: string;
   label: string;
+  href?: string;
   open?: boolean;
   items: NavItem[];
   type: "section" | "collapsible";

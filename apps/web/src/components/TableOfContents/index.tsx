@@ -49,23 +49,27 @@ export default function TableOfContents({
 
   return (
     <nav id="toc" className={clsx(styles.Block, "scrollbar", className)}>
-      <div className={styles.title}>Contents</div>
-      <ul className={styles.list}>
-        {filteredToc.map((heading) => (
-          <li key={heading.value}>
-            <a
-              href={heading.url}
-              className={clsx(
-                styles.item,
-                heading.depth >= indentDepth && styles.indent
-              )}
-              data-depth={heading.depth}
-            >
-              {heading.value}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {toc.length > 0 && (
+        <>
+          <div className={styles.title}>Contents</div>
+          <ul className={styles.list}>
+            {filteredToc.map((heading) => (
+              <li key={heading.value}>
+                <a
+                  href={heading.url}
+                  className={clsx(
+                    styles.item,
+                    heading.depth >= indentDepth && styles.indent
+                  )}
+                  data-depth={heading.depth}
+                >
+                  {heading.value}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <div className={styles.extra}>
         <hr />
         {extraLinks}

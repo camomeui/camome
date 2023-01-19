@@ -65,8 +65,16 @@
 .extra {
   position: sticky;
   bottom: 0;
-  margin-top: 2rem;
   background-color: var(--cmm-color-surface-0);
+  margin-top: 2rem;
+
+  &:first-child {
+    margin-top: 0;
+
+    > hr {
+      display: none;
+    }
+  }
 
   > hr {
     border-color: var(--cmm-color-border-base);

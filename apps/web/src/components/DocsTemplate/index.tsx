@@ -106,6 +106,7 @@ export default function DocsTemplate({
   };
 
   const [category] = router.query.slug as string[];
+  const categoryHref = `/docs/${category}`;
 
   const breadcrumbs = [
     {
@@ -113,6 +114,7 @@ export default function DocsTemplate({
     },
     {
       label: uppercaseFirst(category.replace("-", " ")),
+      href: router.asPath === categoryHref ? undefined : categoryHref,
     },
   ];
 

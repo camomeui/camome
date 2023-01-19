@@ -10,20 +10,29 @@ import { useRouter } from "next/router";
 import React from "react";
 
 import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
-import { NavItem, NavItemCategory } from "@/types";
+import { NavItem, NavItemCategory, NavItemLink } from "@/types";
 import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
 
 type Props = {
   items: NavItem[];
-  onClickLink?: () => void;
+  onClickLink?: React.MouseEventHandler;
   scrollContainer?: React.RefObject<HTMLElement>;
   className?: string;
 };
 
-const ScrollContainerContext =
-  React.createContext<Props["scrollContainer"]>(undefined);
+const NavContext = React.createContext<
+  Pick<Props, "onClickLink" | "scrollContainer"> & {
+    isActive: (href: string) => boolean;
+  }
+>({
+  isActive: () => false,
+});
+
+function useNavContent() {
+  return React.useContext(NavContext);
+}
 
 export default function CollapsibleNavigation({
   items,
@@ -31,34 +40,32 @@ export default function CollapsibleNavigation({
   scrollContainer,
   className,
 }: Props) {
-  return (
-    <ScrollContainerContext.Provider value={scrollContainer}>
-      <nav className={className}>
-        <ul className={styles.rootList}>
-          {items.map((item) => (
-            <Item key={item.id} item={item} onClickLink={onClickLink} />
-          ))}
-        </ul>
-      </nav>
-    </ScrollContainerContext.Provider>
-  );
-}
-
-type ItemProps = {
-  item: NavItem;
-  onClickLink?: () => void;
-};
-
-function Item({ item, onClickLink }: ItemProps) {
   const router = useRouter();
   const isActive = React.useCallback(
     (href: string) => href === router.asPath,
     [router.asPath]
   );
-  const isItemActive = !("items" in item) && isActive(item.href);
-  const linkRef = React.useRef<HTMLLIElement>(null!);
+  return (
+    <NavContext.Provider value={{ scrollContainer, onClickLink, isActive }}>
+      <nav className={className}>
+        <ul className={styles.rootList}>
+          {items.map((item) => (
+            <Item key={item.id} item={item} />
+          ))}
+        </ul>
+      </nav>
+    </NavContext.Provider>
+  );
+}
 
-  const scrollContainer = React.useContext(ScrollContainerContext);
+type ItemProps = {
+  item: NavItem;
+};
+
+function Item({ item }: ItemProps) {
+  const { scrollContainer, isActive } = useNavContent();
+  const isItemActive = item.href && isActive(item.href);
+  const linkRef = React.useRef<HTMLLIElement>(null!);
 
   // Scroll the container so that the active link item
   // is shown at the center.
@@ -74,61 +81,75 @@ function Item({ item, onClickLink }: ItemProps) {
   if ("items" in item) {
     // Category
     return item.type === "collapsible" ? (
-      <CategoryCollapsible {...item} isActive={isActive} />
+      <CategoryCollapsible {...item} summaryRef={linkRef} />
     ) : (
-      <CategorySection {...item} isActive={isActive} />
+      <CategorySection {...item} />
     );
   } else {
     // Document link
     return (
       <li key={item.href} ref={linkRef}>
-        <Link
-          href={item.href}
-          className={styles.link}
-          onClick={onClickLink}
-          aria-current={isActive(item.href) ? "page" : undefined}
-        >
-          {item.label}
-        </Link>
+        <ItemLink {...item}>{item.label}</ItemLink>
       </li>
     );
   }
 }
 
+function ItemLink({ href, label }: NavItemLink) {
+  const { isActive } = useNavContent();
+  return (
+    <Link
+      href={href}
+      className={styles.link}
+      aria-current={isActive(href) ? "page" : undefined}
+    >
+      {label}
+    </Link>
+  );
+}
+
 type CategoryChildrenProps = {
   items: NavItem[];
-  onClickLink?: () => void;
 };
 
-function CategoryChildren({ items, onClickLink }: CategoryChildrenProps) {
+function CategoryChildren({ items }: CategoryChildrenProps) {
   return (
     <ul className={styles.children}>
       {items.map((item) => (
-        <Item key={item.id} item={item} onClickLink={onClickLink} />
+        <Item key={item.id} item={item} />
       ))}
     </ul>
   );
 }
 
-type CategoryCollapsibleProps = NavItemCategory & {
-  isActive: (href: string) => boolean;
-  onClickLink?: () => void;
-};
-
 function CategoryCollapsible({
   id,
   items,
   label,
+  href,
   open,
-  isActive,
-  onClickLink,
-}: CategoryCollapsibleProps) {
+  summaryRef,
+}: NavItemCategory & { summaryRef?: React.Ref<HTMLElement> }) {
+  const { isActive } = useNavContent();
   const router = useRouter();
-  const detailsRef = React.useRef<HTMLDetailsElement>(null);
+  const detailsRef = React.useRef<HTMLDetailsElement>(null!);
   const isCategoryActive = flattenSidebarLinks(items).some(
     (i) => !("items" in i) && isActive(i.href)
   );
   const Icon = collapsibleCategoryIconMap[id];
+
+  const onClickSummary = (e: React.MouseEvent<HTMLElement>) => {
+    if (!href) return;
+    e.preventDefault();
+
+    if (router.asPath === href) {
+      detailsRef.current.open = !detailsRef.current.open;
+      return;
+    }
+
+    router.push(href);
+    detailsRef.current.open = true;
+  };
 
   React.useEffect(() => {
     // Open if category is active and not open.
@@ -141,27 +162,29 @@ function CategoryCollapsible({
   return (
     <li>
       <details open={open} ref={detailsRef} className={styles.collapsible}>
-        <summary>
+        <summary
+          onClick={onClickSummary}
+          className={styles.link}
+          // TODO: not sure this is conforming as summary is not a link.
+          // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current#associated_roles
+          aria-current={href && isActive(href) ? "page" : undefined}
+          ref={summaryRef}
+        >
           <span>{Icon && <Icon className={styles.categoryIcon} />}</span>
           <span>{label}</span>
           <ChevronRightIcon className={styles.chevronIcon} />
         </summary>
-        <CategoryChildren items={items} onClickLink={onClickLink} />
+        <CategoryChildren items={items} />
       </details>
     </li>
   );
 }
 
-type CategorySectionProps = NavItemCategory & {
-  isActive: (href: string) => boolean;
-  onClickLink?: () => void;
-};
-
-function CategorySection({ items, label, onClickLink }: CategorySectionProps) {
+function CategorySection({ items, label }: NavItemCategory) {
   return (
     <li className={styles.section}>
       <div className={styles.sectionLabel}>{label}</div>
-      <CategoryChildren items={items} onClickLink={onClickLink} />
+      <CategoryChildren items={items} />
     </li>
   );
 }

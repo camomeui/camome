@@ -91,7 +91,7 @@ export async function getStaticProps({
 
   const props: Props = {
     doc,
-    sidebarItems,
+    sidebarItems: sidebarItems,
     next: next ?? null,
     prev: prev ?? null,
     componentMeta: componentPrams ?? null,

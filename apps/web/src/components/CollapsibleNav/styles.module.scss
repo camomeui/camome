@@ -29,7 +29,6 @@ details.collapsible {
     position: relative;
     padding: 0 0.5rem;
     transition: var(--cmm-transition-bg);
-    border: 1px solid transparent;
     font-size: var(--cmm-font-size-sm);
     font-weight: var(--cmm-font-weight-medium);
     cursor: pointer;
@@ -51,7 +50,7 @@ details.collapsible {
       transition: color 0.3s, background-color 0.3s;
     }
 
-    &:hover {
+    &:hover:not([aria-current="page"]) {
       background-color: var(--cmm-color-surface-2);
     }
   }
@@ -113,6 +112,7 @@ details.collapsible {
     background-color: var(--cmm-color-surface-2);
   }
 
+  &--active,
   &[aria-current="page"] {
     font-weight: var(--cmm-font-weight-semibold);
     border-color: var(--cmm-color-primary-emphasis);

@@ -3,33 +3,6 @@
 $pad-lg: 3rem;
 $pad-sm: 1rem;
 
-.article {
-  // Disable container padding and add to .main for
-  // preserving the space for outline
-  @include variables.container(variables.$xl, 0);
-
-  display: grid;
-  grid-template-columns: 1fr 18rem;
-  justify-content: center;
-  column-gap: 1rem;
-
-  @include variables.mq("xl") {
-    grid-template-columns: 1fr;
-  }
-}
-
-.tocWrap {
-  @include variables.mq("xl") {
-    display: none;
-  }
-}
-
-.toc {
-  position: sticky;
-  top: calc(variables.$headerHeight + 1rem);
-  margin-right: 1rem;
-}
-
 .main {
   overflow-x: auto;
   position: relative;

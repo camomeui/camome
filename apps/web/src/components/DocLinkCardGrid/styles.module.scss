@@ -4,12 +4,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  container-type: inline-size;
 
-  @include variables.mq("md") {
+  @container (max-width: 48rem) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include variables.mq("sm") {
+  @container (max-width: 30rem) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
