@@ -2,6 +2,8 @@ name: CI
 on: pull_request
 env:
   CI: true
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 jobs:
   check:
     timeout-minutes: 15
@@ -28,4 +30,4 @@ jobs:
       - name: check
         run: pnpm ci:check
       - name: test
-        run: pnpm test && ./scripts/test-storybook.sh
+        run: pnpm ci:test
