@@ -8,6 +8,7 @@ export default function Default() {
       size="lg"
       on={<SunIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
       off={<MoonIcon width="1.2rem" height="1.2rem" strokeWidth={2.5} />}
+      aria-label="Switch"
     />
   );
 }

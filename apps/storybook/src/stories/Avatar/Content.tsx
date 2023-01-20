@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 export default function Content() {
   return (
     <div className={styles.container}>
-      <Avatar src="/demo/avatar-2.jpg" />
+      <Avatar src="/demo/avatar-2.jpg" alt="avatar" />
       <Avatar>MT</Avatar>
       <Avatar>
         <BoltIcon />

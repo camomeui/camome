@@ -20,6 +20,8 @@ export type MessageProps = {
   isAlert?: boolean;
   children?: React.ReactNode;
   className?: string;
+  hideTitle?: boolean;
+  "aria-label"?: string;
 };
 
 const statusIconMap: { [S in Status]: SvgComponent } = {
@@ -29,6 +31,13 @@ const statusIconMap: { [S in Status]: SvgComponent } = {
   danger: FireIcon,
 };
 
+const statusTitleMap: { [S in Status]: string } = {
+  success: "Success",
+  info: "Info",
+  warn: "Warn",
+  danger: "danger",
+};
+
 export function Message({
   status = "info",
   title,
@@ -36,17 +45,29 @@ export function Message({
   isAlert = false,
   children,
   className,
+  hideTitle = false,
+  ...props
 }: MessageProps) {
+  const titleId = React.useId();
   const DefaultIcon = statusIconMap[status];
-  const Tag = isAlert ? "div" : "aside";
+  const Element = isAlert ? "div" : "aside";
   return (
-    <Tag
+    <Element
       role={isAlert ? "alert" : undefined}
       className={clsx(styles.Block, styles[`--${status}`], className)}
+      // One of the aria-* must be supplied when !isAlert.
+      // hideTitle ? aria-label : titleId
+      // https://dequeuniversity.com/rules/axe/4.6/landmark-unique?application=axeAPI
+      aria-label={props["aria-label"]}
+      aria-labelledby={hideTitle ? undefined : titleId}
     >
       <span className={styles.icon}>{icon ? icon : <DefaultIcon />}</span>
-      {title && <div className={clsx(styles.title)}>{title}</div>}
+      {!hideTitle && (
+        <div className={clsx(styles.title)} id={titleId}>
+          {title ?? statusTitleMap[status]}
+        </div>
+      )}
       {children && <div className={styles.message}>{children}</div>}
-    </Tag>
+    </Element>
   );
 }
