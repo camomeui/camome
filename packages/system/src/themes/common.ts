@@ -3,6 +3,7 @@ import { cssVar } from "../lib/utils";
 export const BASE_STYLES = `body {
   font-family: ${cssVar("font.family.base")};
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: ${cssVar("color.font.base")};
   background: ${cssVar("color.surface.0")};
 }
