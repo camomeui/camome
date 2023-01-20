@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
+    "@playwright/test": "^1.29.2",
     "@sucrase/jest-plugin": "^3.0.0",
     "@svgr/webpack": "^6.5.1",
     "@types/jest": "^29.2.5",
