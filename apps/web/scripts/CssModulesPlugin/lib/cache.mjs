@@ -1,5 +1,5 @@
-const { readFile } = require("fs/promises");
-class BuildCache {
+import { readFile } from "fs/promises";
+export class BuildCache {
   /**
    * @param {import('..').Build} build
    */
@@ -70,5 +70,3 @@ class BuildCache {
     this.cache.clear();
   }
 }
-
-module.exports = BuildCache;

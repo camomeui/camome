@@ -1,7 +1,7 @@
 // Original: https://github.com/indooorsman/esbuild-css-modules-plugin
 
-const plugin = require("./lib/plugin");
-const { pluginName } = require("./lib/utils");
+import { setup } from "./lib/plugin.mjs";
+import { pluginName } from "./lib/utils.mjs";
 
 /**
  * @type {(options: import('.').Options) => import('esbuild').Plugin}
@@ -10,7 +10,7 @@ const CssModulesPlugin = (options = {}) => {
   return {
     name: pluginName,
     setup: async (build) => {
-      await plugin.setup(build, options);
+      await setup(build, options);
     },
   };
 };

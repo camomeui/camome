@@ -1,51 +1,32 @@
-const path = require("path");
-const { createHash } = require("crypto");
-const { readFile, writeFile, unlink, appendFile } = require("fs/promises");
-const {
+import { createHash } from "crypto";
+import { readFile, writeFile, unlink, appendFile } from "fs/promises";
+import path from "path";
+
+import postcss from "postcss";
+import postcssModules from "postcss-modules";
+import { compileAsync } from "sass";
+
+import BuildCache from "./cache.mjs";
+import {
   getLogger,
   buildInjectCode,
   pluginName,
   getRootDir,
   pluginNamespace,
-  buildingCssSuffix,
-  builtCssSuffix,
   getModulesCssRegExp,
-  getBuiltModulesCssRegExp,
   getRelativePath,
   getBuildId,
-  validateNamedExport,
   getPackageVersion,
-} = require("./utils.js");
-const BuildCache = require("./cache.js");
-const { compileAsync, Options, CompileResult } = require("sass");
-import postcss from "postcss";
-import postcssModules from "postcss-modules";
-import { buildScopedClassName, hash } from "@camome/utils";
-
-function bufferFromString(str) {
-  var buffer = Buffer.alloc(str.length);
-  buffer.write(str);
-  return buffer;
-}
+} from "./utils.mjs";
 
 /**
  * buildCssModulesJs
  * @param {{fullPath: string; options: import('..').Options; digest: string; build: import('..').Build}} params
  * @returns {Promise<{resolveDir: string; js: string; css: string; originCss: string; exports: Record<string, string>}>}
  */
-const buildCssModulesJs = async ({ fullPath, options, build }) => {
-  const cssFileName = path.basename(fullPath); // e.g. xxx.module.css?esbuild-css-modules-plugin-building
-  const { buildId, relative, packageVersion, log } = build.context;
+const buildCssModulesJs = async ({ fullPath, options }) => {
   const resolveDir = path.dirname(fullPath);
-  const classPrefix =
-    path
-      .basename(fullPath, path.extname(fullPath))
-      .replace(/[^a-zA-Z0-9]/g, "-") + "__";
-  const versionString = packageVersion?.replace(/[^a-zA-Z0-9]/g, "") ?? "";
-  const css = await readFile(fullPath);
   const originCss = (await compileAsync(fullPath, options.scssOptions)).css;
-  const cssModulesOption = options.v2CssModulesOption || {};
-  const genTs = !!options.generateTsFile;
 
   let cssModulesJSON = {};
   const result = await postcss([
@@ -171,13 +152,12 @@ const onLoadModulesCss = async (build, options, args) => {
   const hex = createHash("sha256").update(rpath).digest("hex");
   const digest = hex.slice(hex.length - 255, hex.length);
 
-  const { js, ts, resolveDir, css, exports, originCss } =
-    await buildCssModulesJs({
-      fullPath: absPath,
-      options,
-      digest,
-      build,
-    });
+  const { js, resolveDir, css, exports, originCss } = await buildCssModulesJs({
+    fullPath: absPath,
+    options,
+    digest,
+    build,
+  });
 
   const result = {
     pluginName,
@@ -206,55 +186,6 @@ const onLoadModulesCss = async (build, options, args) => {
  * @param {import('..').Build} build
  * @returns {Promise<import('esbuild').OnResolveResult>}
  */
-const onResolveBuiltModulesCss = async (args, build) => {
-  const { path: p, pluginData = {} } = args;
-  const { relativePathToBuildRoot } = pluginData;
-
-  build.context?.log(
-    `resolve virtual path ${p} to ${relativePathToBuildRoot}${builtCssSuffix}`
-  );
-
-  /**
-   * @type {import('esbuild').OnResolveResult}
-   */
-  const result = {
-    namespace: pluginNamespace,
-    path: relativePathToBuildRoot + builtCssSuffix,
-    external: false,
-    pluginData,
-    sideEffects: true,
-    pluginName,
-  };
-
-  return result;
-};
-
-/**
- * onLoadBuiltModulesCss
- * @param {import('esbuild').OnLoadArgs} args
- * @param {import('..').Build} build
- * @returns {Promise<import('esbuild').OnLoadResult>}
- */
-const onLoadBuiltModulesCss = async ({ pluginData }, build) => {
-  const { log, buildRoot } = build.context;
-  const { css, relativePathToBuildRoot } = pluginData;
-  const absPath = path.resolve(buildRoot, relativePathToBuildRoot);
-  const resolveDir = path.dirname(absPath);
-  log("loading built css for", relativePathToBuildRoot);
-
-  /**
-   * @type {import('esbuild').OnLoadResult}
-   */
-  const result = {
-    contents: css,
-    loader: "css",
-    pluginName,
-    resolveDir,
-    pluginData,
-  };
-
-  return result;
-};
 
 /**
  * onEnd
@@ -419,10 +350,9 @@ const onEnd = async (build, options, result) => {
  * @param {import('..').Options} options
  * @returns {Promise<void>}
  */
-const setup = async (build, options) => {
+export const setup = async (build, options) => {
   await prepareBuild(build, options);
   const modulesCssRegExp = getModulesCssRegExp(options);
-  const builtModulesCssRegExp = getBuiltModulesCssRegExp(options);
 
   // resolve xxx.module.css to xxx.module.css?esbuild-css-modules-plugin-building
   build.onResolve({ filter: modulesCssRegExp, namespace: "file" }, (args) => {
@@ -440,8 +370,4 @@ const setup = async (build, options) => {
   build.onEnd(async (result) => {
     onEnd(build, options, result);
   });
-};
-
-module.exports = {
-  setup,
 };
