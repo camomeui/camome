@@ -6,7 +6,7 @@
       "outputs": [
         "dist/**",
         ".next/**",
-        "contentlayer/generated/**",
+        ".contentlayer/generated/**",
         ".docs-data/**"
       ]
     },
