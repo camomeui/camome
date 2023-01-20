@@ -6,7 +6,7 @@ import postcss from "postcss";
 import postcssModules from "postcss-modules";
 import { compileAsync } from "sass";
 
-import BuildCache from "./cache.mjs";
+import { BuildCache } from "./cache.mjs";
 import {
   getLogger,
   buildInjectCode,

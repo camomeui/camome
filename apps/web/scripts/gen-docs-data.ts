@@ -9,9 +9,9 @@ import { renderToString } from "react-dom/server";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import CssModulesPlugin from "./CssModulesPlugin";
-
 import { buildScopedClassName, hash } from "@camome/utils";
+
+import { CssModulesPlugin } from "../src/lib/CssModulesPlugin/index.mjs";
 
 const argv = yargs(hideBin(process.argv))
   .options({
@@ -51,7 +51,7 @@ async function bundleStory(storyFullPath: string) {
     const storyCode = await fs.readFile(storyFullPath);
     const layout = Story.parameters?.layout;
 
-    const ssr = renderToString(<Story />);
+    const ssr = renderToString(React.createElement(Story));
 
     const componentOutDir = path.resolve(__dirname, "..", outdir);
 

@@ -6,7 +6,7 @@ import { pluginName } from "./lib/utils.mjs";
 /**
  * @type {(options: import('.').Options) => import('esbuild').Plugin}
  */
-const CssModulesPlugin = (options = {}) => {
+export const CssModulesPlugin = (options = {}) => {
   return {
     name: pluginName,
     setup: async (build) => {
@@ -14,5 +14,3 @@ const CssModulesPlugin = (options = {}) => {
     },
   };
 };
-
-module.exports = CssModulesPlugin;
