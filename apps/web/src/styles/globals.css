@@ -82,3 +82,7 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+code {
+  font-family: var(--cmm-font-family-code);
+}
