@@ -5,4 +5,3 @@
 
 pnpm build --filter="./packages/*"
 pnpm ci:check
-pnpm ci:test
