@@ -6,6 +6,7 @@
       "outputs": [
         "dist/**",
         ".next/**",
+        "next-env.d.ts",
         ".contentlayer/generated/**",
         ".docs-data/**"
       ]
