@@ -37,8 +37,6 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Install Playwright
-        run: npx playwright install --with-deps
       # TODO: build only necessary stuff for CI?
       - name: Build
         run: pnpm build
