@@ -42,7 +42,6 @@ jobs:
       # TODO: build only necessary stuff for CI?
       - name: Build
         run: pnpm build
-      # TODO: use turborepo to cache and speed up?
       - name: Check
         run: pnpm ci:check
       - name: Test

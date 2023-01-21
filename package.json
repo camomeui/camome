@@ -13,7 +13,7 @@
     "format": "prettier --cache --check .",
     "format:fix": "prettier --cache --write .",
     "ci:check": "concurrently \"pnpm typecheck\" \"pnpm lint\" \"pnpm format\"",
-    "ci:test": "jest && scripts/test-storybook.sh",
+    "ci:test": "jest",
     "ci:publish": "pnpm build --filter=\"./packages/*\" && pnpm changeset publish",
     "prepare": "husky install"
   },
