@@ -34,7 +34,7 @@ const statusIconMap: { [S in Status]: SvgComponent } = {
 const statusTitleMap: { [S in Status]: string } = {
   success: "Success",
   info: "Info",
-  warn: "Warn",
+  warn: "Warning",
   danger: "danger",
 };
 
