@@ -33,6 +33,7 @@
     "contentlayer": "^0.2.9",
     "form-data": "^4.0.0",
     "image-size": "^1.0.2",
+    "lodash.sortby": "^4.7.0",
     "mailgun.js": "^8.0.1",
     "markdown-wasm": "^1.2.0",
     "mdx-bundler": "^9.2.1",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@camome/storybook": "workspace:*",
+    "@types/lodash.sortby": "^4.7.7",
     "@types/node": "18.7.14",
     "@types/yargs": "^17.0.17",
     "chokidar": "^3.5.3",

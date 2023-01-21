@@ -39,6 +39,7 @@ export type NavItemCategory = {
   label: string;
   href?: string;
   open?: boolean;
+  sort?: "asc";
   items: NavItem[];
   type: "section" | "collapsible";
 };

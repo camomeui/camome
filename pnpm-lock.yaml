@@ -191,6 +191,7 @@ importers:
       '@mdx-js/loader': ^2.1.5
       '@mdx-js/react': ^2.1.5
       '@next/mdx': ^13.0.0
+      '@types/lodash.sortby': ^4.7.7
       '@types/node': 18.7.14
       '@types/yargs': ^17.0.17
       camome: workspace:*
@@ -201,6 +202,7 @@ importers:
       form-data: ^4.0.0
       hastscript: ^7.1.0
       image-size: ^1.0.2
+      lodash.sortby: ^4.7.0
       mailgun.js: ^8.0.1
       markdown-wasm: ^1.2.0
       mdx-bundler: ^9.2.1
@@ -234,6 +236,7 @@ importers:
       contentlayer: 0.2.9_markdown-wasm@1.2.0
       form-data: 4.0.0
       image-size: 1.0.2
+      lodash.sortby: 4.7.0
       mailgun.js: 8.0.6
       markdown-wasm: 1.2.0
       mdx-bundler: 9.2.1
@@ -247,6 +250,7 @@ importers:
       remark-gfm: 3.0.1
     devDependencies:
       '@camome/storybook': link:../storybook
+      '@types/lodash.sortby': 4.7.7
       '@types/node': 18.7.14
       '@types/yargs': 17.0.19
       chokidar: 3.5.3
@@ -5933,6 +5937,12 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/lodash.sortby/4.7.7:
+    resolution: {integrity: sha512-J/4IS+jQopGBrrRetBXDCX0KnSeXJZ0rOTmGAxR9MWGV24YdHxX8IRi9LCGAU9GKWlBov9KRSfQpuup9PReqrw==}
+    dependencies:
+      '@types/lodash': 4.14.191
     dev: true
 
   /@types/lodash/4.14.191:
@@ -13597,7 +13607,6 @@ packages:
 
   /lodash.sortby/4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
-    dev: true
 
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}

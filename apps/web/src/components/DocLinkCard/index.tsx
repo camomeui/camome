@@ -1,7 +1,4 @@
-import {
-  DocumentTextIcon,
-  ArrowSmallRightIcon,
-} from "@heroicons/react/24/outline";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 import DocLink from "@/components/DocLink";
@@ -25,10 +22,7 @@ export default function DocLinkCard({ href, id, label, icon, locale }: Props) {
           <div className={styles.icon}>
             {icon ?? <DocumentTextIcon strokeWidth="2" />}
           </div>
-          <div className={styles.label}>{label ?? doc.title}</div>
-          <div className={styles.arrow}>
-            <ArrowSmallRightIcon strokeWidth="1.75" />
-          </div>
+          <div className={styles.label}>{label ?? doc.label ?? doc.title}</div>
         </>
       )}
     </DocLink>

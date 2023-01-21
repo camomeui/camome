@@ -43,13 +43,13 @@ const sidebar = {
       open: false,
       items: [
         {
-          id: "next",
+          id: "integrations:next",
         },
         {
-          id: "vite",
+          id: "integrations:vite",
         },
         {
-          id: "cra",
+          id: "integrations:cra",
         },
       ],
     },
@@ -64,6 +64,7 @@ const sidebar = {
           label: "Inputs",
           type: "section",
           open: true,
+          sort: "asc",
           items: [
             {
               id: "button",
@@ -99,6 +100,7 @@ const sidebar = {
           label: "Data display",
           type: "section",
           open: true,
+          sort: "asc",
           items: [
             {
               id: "avatar",
@@ -128,6 +130,7 @@ const sidebar = {
           label: "Overlay",
           type: "section",
           open: true,
+          sort: "asc",
           items: [
             {
               id: "dialog",
@@ -145,6 +148,7 @@ const sidebar = {
           label: "Navigation",
           type: "section",
           open: true,
+          sort: "asc",
           items: [
             {
               id: "breadcrumbs",

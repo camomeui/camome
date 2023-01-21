@@ -5,15 +5,17 @@ import {
   PuzzlePieceIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
+import sortBy from "lodash.sortby";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
 import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
 import { NavItem, NavItemCategory, NavItemLink } from "@/types";
-import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
+
+import { type SvgComponent } from "@camome/utils";
 
 type Props = {
   items: NavItem[];
@@ -79,11 +81,15 @@ function Item({ item }: ItemProps) {
   }, [isItemActive, item, scrollContainer]);
 
   if ("items" in item) {
+    let children = item.items;
+    if (item.sort === "asc") {
+      children = sortBy(item.items, (item) => item.label);
+    }
     // Category
     return item.type === "collapsible" ? (
-      <CategoryCollapsible {...item} summaryRef={linkRef} />
+      <CategoryCollapsible {...item} items={children} summaryRef={linkRef} />
     ) : (
-      <CategorySection {...item} />
+      <CategorySection {...item} items={children} />
     );
   } else {
     // Document link
