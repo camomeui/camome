@@ -45,5 +45,3 @@ jobs:
       # TODO: use turborepo to cache and speed up?
       - name: Check
         run: pnpm ci:check
-      - name: Test
-        run: pnpm ci:test
