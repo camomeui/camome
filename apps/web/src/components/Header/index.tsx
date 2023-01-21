@@ -1,10 +1,14 @@
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
-import { Squares2X2Icon } from "@heroicons/react/24/outline";
+import {
+  Squares2X2Icon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 
+import LogoIconSvg from "@/assets/logo-icon.svg";
 import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 
@@ -56,14 +60,14 @@ export default function Header({ menuContent, classNames }: Props) {
           <IconButton
             variant="ghost"
             colorScheme="neutral"
-            className={styles.menuButton}
-            aria-label="Toggle menu"
+            className={styles.menuButtonOpen}
+            aria-label="Toggle navigation menu"
             onClick={openMenu}
-            data-dialog-trigger-for={DIALOG_ID}
           >
-            <Bars3Icon />
+            <Bars3Icon strokeWidth="1.5" />
           </IconButton>
           <Link href="/">
+            <LogoIconSvg className={styles.logoIcon} />
             <LogoSvg className={styles.logo} />
           </Link>
           <Navigation items={navItems} className={styles.desktopOnly} />
@@ -95,6 +99,7 @@ export default function Header({ menuContent, classNames }: Props) {
             onClick={closeMenu}
             data-dialog-trigger-for={DIALOG_ID}
             aria-label="Close menu"
+            className={styles.menuButtonClose}
           >
             <XMarkIcon />
           </IconButton>

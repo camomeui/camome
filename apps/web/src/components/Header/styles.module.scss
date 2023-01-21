@@ -30,10 +30,36 @@
   column-gap: 0.5rem;
 }
 
+@mixin mobileOnly($display: inline) {
+  display: none;
+
+  @include variables.mq("md") {
+    display: inline;
+  }
+}
+
+@mixin desktopOnly($display: inline) {
+  display: $display;
+
+  @include variables.mq("md") {
+    display: none;
+  }
+}
+
+.logoIcon {
+  @include mobileOnly();
+
+  height: 1.75rem;
+  width: auto;
+  color: var(--cmm-color-primary-emphasis);
+}
+
 .logo {
+  @include desktopOnly();
+
   width: 9rem;
   height: auto;
-  color: var(--cmm-color-primary-6);
+  color: var(--cmm-color-primary-emphasis);
 }
 
 .nav {
@@ -72,13 +98,23 @@
   }
 }
 
+%menuButton {
+  --cmm-IconButton-icon-size: 1.5rem;
+  margin-left: -0.5rem;
+}
+
 // FIXME
-.menuButton {
+.menuButtonOpen {
+  @extend %menuButton;
   display: none !important;
 
   @include variables.mq("md") {
     display: grid !important;
   }
+}
+
+.menuButtonClose {
+  @extend %menuButton;
 }
 
 .menu {

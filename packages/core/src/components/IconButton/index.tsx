@@ -11,7 +11,7 @@ import styles from "./styles.module.scss";
 export type IconButtonBaseProps = {
   children?: React.ReactNode;
   ["aria-label"]: string;
-} & ButtonBaseProps;
+} & Omit<ButtonBaseProps, "leftIcon" | "rightIcon">;
 
 export type IconButtonProps = {
   children?: React.ReactNode;
