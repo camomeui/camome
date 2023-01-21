@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-import { buildScopedClassName, hash } from "@camome/utils";
+import { buildScopedClassName } from "@camome/utils";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,11 +36,6 @@ export default defineConfig({
   css: {
     modules: {
       generateScopedName(local, filename) {
-        const dir = filename.split("/").at(-2);
-        if (dir === "stories" || filename.endsWith("stories.module.scss")) {
-          const className = hash(filename + local);
-          return className.match(/^[0-9]/) ? `_${className}` : className;
-        }
         return buildScopedClassName(local, filename);
       },
     },

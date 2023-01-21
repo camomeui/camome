@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 import { Switch } from "@camome/core/Switch";
 
 const meta: Meta<typeof Switch> = {
-  title: "components/Toggle",
+  title: "components/Switch",
   component: Switch,
   tags: ["autodocs"],
 };

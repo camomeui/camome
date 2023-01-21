@@ -1,3 +1,4 @@
-*.js
 dist
 vite.config.ts.timestamp-*
+storybook-static
+examples

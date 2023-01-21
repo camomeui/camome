@@ -2,26 +2,45 @@ name: CI
 on: pull_request
 env:
   CI: true
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 jobs:
   check:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code repository
+      - name: Checkout code repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: setup node.js
+      - name: Setup node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: install pnpm
-        run: npm i pnpm@latest -g
-      - name: install dependencies
-        run: pnpm install
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       # TODO: build only necessary stuff for CI?
-      - name: build
+      - name: Build
         run: pnpm build
-      # TODO: use turborepo to cache and speed up?
-      - name: check
+      - name: Check
         run: pnpm ci:check
+      - name: Test
+        run: pnpm ci:test

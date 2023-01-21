@@ -1,14 +1,15 @@
-const path = require("path");
-const { createHash } = require("crypto");
-const { readFile } = require("fs/promises");
-const fs = require("fs");
+import { createHash } from "crypto";
+import fs from "fs";
+import { readFile } from "fs/promises";
+import path from "path";
+
 const pluginName = "esbuild-css-modules-plugin";
 const pluginNamespace = `${pluginName}-namespace`;
 const buildingCssSuffix = `?${pluginName}-building`;
 const builtCssSuffix = `?${pluginName}-built`;
 const builtCssSuffixRegExp = builtCssSuffix
   .replace("?", "\\?")
-  .replace(/\-/g, "\\-");
+  .replace(/-/g, "\\-");
 
 /**
  * getModulesCssRegExp
@@ -241,7 +242,7 @@ const validateNamedExport = (name) => {
   return !jsKeywords.includes(name);
 };
 
-module.exports = {
+export {
   pluginName,
   pluginNamespace,
   getLogger,

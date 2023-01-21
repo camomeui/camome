@@ -1,6 +1,6 @@
 import type { Plugin, PluginBuild } from "esbuild";
 
-import BuildCache from "./lib/cache";
+import BuildCache from "./lib/cache.mjs";
 
 declare type GenerateScopedNameFunction = (
   name: string,

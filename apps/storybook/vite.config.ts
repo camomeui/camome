@@ -9,10 +9,8 @@ export default defineConfig({
   css: {
     modules: {
       generateScopedName(local, filename) {
-        const dir = filename.split("/").at(-2);
-        if (dir === "_stories" || filename.endsWith("stories.module.scss")) {
-          const className = hash(filename + local);
-          return className.match(/^[0-9]/) ? `_${className}` : className;
+        if (filename.includes("apps/storybook")) {
+          return "story-" + hash(filename + local);
         }
         return buildScopedClassName(local, filename);
       },

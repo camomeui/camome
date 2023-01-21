@@ -2,7 +2,7 @@ import React from "react";
 import { DocsContainer } from "@storybook/addon-docs";
 import { useDarkMode } from "storybook-dark-mode";
 
-import "@camome/system/style.css";
+import "@camome/system/theme.css";
 import "./styles.css";
 
 export const parameters = {

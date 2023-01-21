@@ -3,7 +3,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", ".docs-data/**"]
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "next-env.d.ts",
+        ".contentlayer/generated/**",
+        ".docs-data/**",
+        "storybook-static"
+      ]
     },
     "dev": {
       "dependsOn": ["^build"],

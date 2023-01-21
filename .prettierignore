@@ -5,6 +5,7 @@ node_modules/
 .turbo
 dist
 out
-static-app
 pnpm-lock.yaml
 .docs-data
+storybook-static
+vite.config.ts.timestamp-*.mjs
