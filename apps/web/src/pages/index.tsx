@@ -1,8 +1,33 @@
+import { GetStaticPropsContext } from "next";
+
 import LpLayout from "@/components/lp/layout";
 import RootPage from "@/components/lp/page";
+import { getSidebarItems } from "@/lib/docs/getSidebarItems";
+import { Locale, NavItem } from "@/types";
 
-export default function _RootPage() {
-  return <RootPage />;
+type Props = {
+  sidebarItems: NavItem[];
+};
+
+export default function _RootPage({ sidebarItems }: Props) {
+  return (
+    <LpLayout sidebarItems={sidebarItems}>
+      <RootPage />
+    </LpLayout>
+  );
 }
 
-_RootPage.getLayout = LpLayout;
+export async function getStaticProps({
+  locale,
+  defaultLocale,
+}: GetStaticPropsContext) {
+  const sidebarItems = getSidebarItems(
+    undefined,
+    (locale ?? defaultLocale) as Locale
+  );
+  return {
+    props: {
+      sidebarItems,
+    },
+  };
+}

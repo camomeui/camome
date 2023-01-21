@@ -96,10 +96,11 @@ function Item({ item }: ItemProps) {
 }
 
 function ItemLink({ href, label }: NavItemLink) {
-  const { isActive } = useNavContent();
+  const { isActive, onClickLink } = useNavContent();
   return (
     <Link
       href={href}
+      onClick={onClickLink}
       className={styles.link}
       aria-current={isActive(href) ? "page" : undefined}
     >
@@ -130,7 +131,7 @@ function CategoryCollapsible({
   open,
   summaryRef,
 }: NavItemCategory & { summaryRef?: React.Ref<HTMLElement> }) {
-  const { isActive } = useNavContent();
+  const { isActive, onClickLink } = useNavContent();
   const router = useRouter();
   const detailsRef = React.useRef<HTMLDetailsElement>(null!);
   const isCategoryActive = flattenSidebarLinks(items).some(
@@ -149,6 +150,7 @@ function CategoryCollapsible({
 
     router.push(href);
     detailsRef.current.open = true;
+    onClickLink?.(e);
   };
 
   React.useEffect(() => {
