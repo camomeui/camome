@@ -69,8 +69,8 @@ export default function CodeBlock({
     let ret = code;
     if (omitSvg) {
       ret = code.replace(/<\s*svg[^>]*>.*?<\s*\/\s*svg>/gs, "<svg>...</svg>");
-      ret = ret.replace(/\n$/, "");
     }
+    ret = ret.replace(/\n$/, "");
     return ret;
   }, [code, omitSvg]);
 
