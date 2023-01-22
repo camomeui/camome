@@ -1,21 +1,21 @@
 import { deepmerge } from "deepmerge-ts";
 import { format } from "prettier";
 
-import type { DeepPartial } from "@camome/utils";
+import { DeepPartial, generatePaths, getValue, Path } from "@camome/utils";
 
 import { DEFAULT_PREFIX, layers } from "../constants";
-import { darkTheme } from "../themes";
+import { darkTheme, lightTheme } from "../themes";
 import { BASE_STYLES } from "../themes/common";
 
 import {
   layer,
   modifyCss,
   layerOrder,
-  generateThemeCss,
   splitThemes,
+  cssVar,
+  enclose,
 } from "./utils";
 
-import lightTheme from "../themes/light";
 import { Theme, Themes } from "../types";
 
 type DefineThemeFn = (theme: Theme) => DeepPartial<Theme>;
@@ -95,4 +95,24 @@ export async function generateCss(
   return format(css, {
     parser: "css",
   });
+}
+
+export function generateThemeCss(
+  theme: DeepPartial<Theme>,
+  options: Required<GenerateCssOptions>
+): string {
+  const { prefix, selector } = options;
+  let css = "";
+  const paths = generatePaths(theme);
+  for (const path of paths) {
+    const key = cssVar(path as Path<Theme>, {
+      prefix,
+      withVar: false,
+    });
+    const val = getValue(theme, path);
+    css += `${key}: ${val};\n`;
+  }
+
+  css = enclose(css, selector);
+  return css;
 }
