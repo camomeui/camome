@@ -126,8 +126,8 @@ export function variantColors(colorScheme: ColorScheme): VariantColors {
       font: cssVar(`color.white`),
     },
     soft: {
-      bg: cssVar(`color.${colorScheme}.0`),
-      bgHover: cssVar(`color.${colorScheme}.1`),
+      bg: cssVar(`color.${colorScheme}.1`),
+      bgHover: cssVar(`color.${colorScheme}.2`),
       font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {

@@ -124,7 +124,7 @@ export function colorSchemeColors(
   shade: ColorShade
 ): ColorSchemeTokens {
   return {
-    font: cssVar(`color.${colorScheme}.2`),
+    font: cssVar(`color.${colorScheme}.0`),
     emphasis: cssVar(`color.${colorScheme}.5`),
     muted: alpha(shade[6], 0.5),
     subtle: alpha(shade[6], 0.15),
@@ -142,19 +142,19 @@ export function variantColors(
       font: cssVar(`color.font.onEmphasis`),
     },
     soft: {
-      bg: alpha(shade[6], 0.15),
-      bgHover: alpha(shade[6], 0.3),
+      bg: alpha(shade[6], 0.5),
+      bgHover: alpha(shade[6], 0.75),
       font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
-      bgHover: alpha(shade[6], 0.3),
+      bgHover: alpha(shade[6], 0.5),
       font: cssVar(`color.${colorScheme}.font`),
       border: alpha(shade[6], 0.5),
     },
     ghost: {
       bg: "transparent",
-      bgHover: alpha(shade[6], 0.3),
+      bgHover: alpha(shade[6], 0.5),
       font: cssVar(`color.${colorScheme}.font`),
     },
   };
