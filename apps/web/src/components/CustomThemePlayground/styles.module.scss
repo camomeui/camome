@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  align-items: stretch;
+
+  > * {
+    flex: 1;
+  }
+}
+
+.preview {
+  * {
+    transition: all 0.15s;
+  }
+}

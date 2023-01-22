@@ -17,11 +17,13 @@ export type CodeBlockProps = {
     pre?: string;
     code?: string;
   };
+  omitSvg?: boolean;
 };
 
 export default function CodeBlock({
   language,
   code,
+  omitSvg,
   classNames,
 }: CodeBlockProps) {
   const codeRef = React.useRef<HTMLElement>(null!);
@@ -63,6 +65,15 @@ export default function CodeBlock({
     setMounted(true);
   }, []);
 
+  const trimmedCode = React.useMemo(() => {
+    let ret = code;
+    if (omitSvg) {
+      ret = code.replace(/<\s*svg[^>]*>.*?<\s*\/\s*svg>/gs, "<svg>...</svg>");
+      ret = ret.replace(/\n$/, "");
+    }
+    return ret;
+  }, [code, omitSvg]);
+
   return (
     <div
       onMouseEnter={onEnter}
@@ -86,8 +97,8 @@ export default function CodeBlock({
       </Tooltip>
       <Highlight
         {...defaultProps}
-        theme={resolvedTheme === "dark" ? darkTheme : lightTheme}
-        code={code?.replace(/\n$/, "") ?? ""}
+        theme={resolvedTheme?.startsWith("dark") ? darkTheme : lightTheme}
+        code={trimmedCode ?? ""}
         language={language as Language}
         // Force update
         key={String(mounted)}

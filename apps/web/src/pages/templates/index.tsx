@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from "next";
 
-import RootPage from "@/components/root/page";
 import LpLayout from "@/components/template/layout";
+import TemplatePage from "@/components/template/page";
 import { getSidebarItems } from "@/lib/docs/getSidebarItems";
 import { Locale, NavItem } from "@/types";
 
@@ -12,7 +12,7 @@ type Props = {
 export default function _RootPage({ sidebarItems }: Props) {
   return (
     <LpLayout sidebarItems={sidebarItems}>
-      <RootPage />
+      <TemplatePage />
     </LpLayout>
   );
 }

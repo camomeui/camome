@@ -1,0 +1,57 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option {
+  border-radius: var(--cmm-radius-full);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid var(--cmm-color-border-base);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  position: relative;
+  font-weight: var(--cmm-font-weight-semibold);
+  color: var(--cmm-color-font-subtle);
+  min-width: 8rem;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0.3rem;
+    height: 100%;
+    background: var(--accent-color);
+  }
+
+  &--active {
+    outline: 3px solid var(--cmm-outline-color-primary);
+    outline-offset: 1px;
+  }
+
+  &--checked {
+    color: var(--cmm-color-primary-font);
+  }
+
+  > svg {
+    color: var(--cmm-color-primary-emphasis);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .checkMark {
+    position: absolute;
+  }
+}
+
+.icon {
+  width: 1.25rem;
+  height: auto;
+  display: grid;
+  place-items: center;
+  color: var(--accent-color);
+}

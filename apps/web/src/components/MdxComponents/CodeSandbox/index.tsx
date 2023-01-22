@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-import CodeTabs from "@/components/MdxComponents/CodeTabs";
+import CodeTabs, { CodeTabsProps } from "@/components/MdxComponents/CodeTabs";
 
 import styles from "./styles.module.scss";
 
@@ -11,8 +11,23 @@ export type CodeSandboxProps = {
   html: string;
   css: string;
   bundlePath?: string;
-  showCode?: boolean;
+  showCode?:
+    | false
+    | {
+        react?: boolean;
+        html?: boolean;
+        css?: boolean;
+      };
+  extraCode?: CodeTabsProps["items"];
   layout?: "centered" | "padded";
+  orientation?: "vertical" | "horizontal";
+  classNames?: {
+    preview?: string;
+    codeBlock?: {
+      pre?: string;
+      code?: string;
+    };
+  };
 };
 
 export default function CodeSandbox({
@@ -20,15 +35,50 @@ export default function CodeSandbox({
   react,
   html,
   css,
-  showCode = true,
+  showCode = { html: true, react: true },
+  extraCode = [],
   layout = "centered",
+  orientation = "vertical",
+  classNames,
 }: CodeSandboxProps) {
+  const codeItems: CodeTabsProps["items"] = [];
+  if (showCode !== false) {
+    if (showCode.react)
+      codeItems.push({
+        name: "React",
+        code: react,
+        language: "tsx",
+      });
+    if (showCode.html)
+      codeItems.push({
+        name: "HTML",
+        code: html,
+        language: "html",
+      });
+    if (showCode.css) {
+      codeItems.push({
+        name: "CSS",
+        code: css,
+        language: "css",
+      });
+    }
+    codeItems.push(...extraCode);
+  }
+
   return (
     <>
       <style jsx global>{`
         ${css}
       `}</style>
-      <div>
+      <div
+        className={clsx(
+          styles.container,
+          orientation === "horizontal"
+            ? styles.container__horizontal
+            : styles.container__vertical,
+          classNames?.preview
+        )}
+      >
         <div
           className={clsx(
             styles.preview,
@@ -43,18 +93,8 @@ export default function CodeSandbox({
         </div>
         {showCode && (
           <CodeTabs
-            items={[
-              {
-                name: "React",
-                code: react,
-                language: "tsx",
-              },
-              {
-                name: "HTML",
-                code: html,
-                language: "html",
-              },
-            ]}
+            items={codeItems}
+            classNames={{ codeBlock: classNames?.codeBlock }}
           />
         )}
       </div>

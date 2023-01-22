@@ -6,7 +6,7 @@
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
-[data-theme="dark"] .scrollbar {
+[data-theme^="dark"] .scrollbar {
   --scrollbar-thumb-color: var(--cmm-color-gray-7);
   --scrollbar-thumb-color-hover: var(--cmm-color-gray-6);
 }

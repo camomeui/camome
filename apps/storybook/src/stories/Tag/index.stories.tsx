@@ -14,3 +14,4 @@ export { default as Size } from "./Size";
 export { default as ColorScheme } from "./ColorScheme";
 export { default as Variant } from "./Variant";
 export { default as Decorator } from "./Decorators";
+export { default as Landing } from "./Landing";

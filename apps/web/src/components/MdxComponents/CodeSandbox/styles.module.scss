@@ -1,9 +1,25 @@
 @use "@/styles/variables";
 
+.container {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1rem;
+  width: 100%;
+
+  &__horizontal {
+    flex-direction: row;
+    > * {
+      width: 50%;
+    }
+  }
+
+  &__vertical {
+    flex-direction: column;
+  }
+}
+
 .preview {
   padding: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-lg);
   background: var(--cmm-color-surface-0);
@@ -25,8 +41,4 @@
   @include variables.mq("md") {
     padding: 1rem;
   }
-}
-
-.pre {
-  margin-bottom: 2rem;
 }

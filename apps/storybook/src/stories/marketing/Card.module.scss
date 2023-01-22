@@ -1,0 +1,51 @@
+.container {
+  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-lg);
+  padding: 0.5rem;
+  width: 20rem;
+  display: grid;
+  gap: 0.5rem;
+
+  :root[data-theme^="dark"] & {
+    background: var(--cmm-color-surface-1);
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: var(--cmm-radius-sm);
+}
+
+.title {
+  font-weight: var(--cmm-font-weight-bold);
+}
+
+.price {
+  color: var(--cmm-color-primary-emphasis);
+  font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-lg);
+}
+
+.small {
+  color: var(--cmm-color-font-muted);
+  font-size: var(--cmm-font-size-xs);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  place-self: end;
+  border-radius: var(--cmm-radius-full);
+}

@@ -1,17 +1,23 @@
+import clsx from "clsx";
+
 import CodeBlock from "@/components/MdxComponents/CodeBlock";
 import Tabs from "@/components/Tabs";
 
 import styles from "./styles.module.scss";
 
-type CodeTabsProps = {
+export type CodeTabsProps = {
   items: {
     name: string;
     code: string;
     language?: string;
   }[];
+  classNames?: {
+    tabs?: string;
+    codeBlock?: { pre?: string; code?: string };
+  };
 };
 
-export default function CodeTabs({ items }: CodeTabsProps) {
+export default function CodeTabs({ items, classNames }: CodeTabsProps) {
   return (
     <Tabs
       items={items.map(({ name, code, language }) => ({
@@ -21,12 +27,16 @@ export default function CodeTabs({ items }: CodeTabsProps) {
           <CodeBlock
             code={code}
             language={language}
-            classNames={{ pre: styles.pre, code: styles.code }}
+            classNames={{
+              pre: clsx(styles.pre, classNames?.codeBlock?.pre),
+              code: clsx(styles.code, classNames?.codeBlock?.code),
+            }}
+            omitSvg
           />
         ),
       }))}
       defaultIndex={0}
-      className={styles.container}
+      className={clsx(styles.container, classNames?.tabs)}
     />
   );
 }

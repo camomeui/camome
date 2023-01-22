@@ -1,0 +1,164 @@
+@use "@/styles/variables";
+
+.container {
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+}
+
+.headingBlock {
+  @include variables.container(40rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topHeading {
+  font-size: var(--cmm-font-size-5xl);
+  font-weight: var(--cmm-font-weight-extrabold);
+  line-height: 1.1;
+}
+
+.topSubheading {
+  font-size: var(--cmm-font-size-xl);
+  color: var(--cmm-color-font-muted);
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.installBtn {
+  border: 1px solid var(--cmm-color-border-base);
+}
+
+.featureSection {
+  margin-top: 5rem;
+}
+
+.featList {
+  @include variables.container(70rem);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-lg);
+  background: var(--cmm-color-surface-0);
+  padding: 1rem;
+
+  :root[data-theme="dark"] & {
+    background: var(--cmm-color-surface-1);
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--cmm-color-primary-solid-bg);
+    color: var(--cmm-color-primary-solid-font);
+    border-radius: var(--cmm-radius-md);
+    display: grid;
+    place-content: center;
+
+    > svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &__title {
+    font-weight: var(--cmm-font-weight-bold);
+    font-size: var(--cmm-font-size-lg);
+    line-height: 1.2;
+  }
+
+  &__description {
+    color: var(--cmm-color-font-muted);
+    grid-column: 1 / -1;
+  }
+}
+
+%sectionHeading {
+  font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-5xl);
+}
+
+.styling {
+  @include variables.container(variables.$xl);
+  margin-top: 6rem;
+
+  &__heading {
+    @extend %sectionHeading;
+    text-align: center;
+  }
+
+  &__description {
+    color: var(--cmm-color-font-muted);
+    font-size: var(--cmm-font-size-xl);
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+  }
+
+  &__flex {
+    display: flex;
+  }
+}
+
+.theming {
+  @include variables.container(variables.$xl);
+  margin-top: 6rem;
+
+  &__heading {
+    @extend %sectionHeading;
+    text-align: center;
+  }
+
+  &__description {
+    color: var(--cmm-color-font-muted);
+    font-size: var(--cmm-font-size-xl);
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+  }
+
+  &__sandbox {
+    @include variables.container(48rem);
+
+    margin-top: 3rem;
+  }
+}
+
+.demo {
+  @include variables.container(variables.$xl);
+  margin-top: 6rem;
+
+  &__heading {
+    @extend %sectionHeading;
+    text-align: center;
+  }
+
+  &__description {
+    color: var(--cmm-color-font-muted);
+    font-size: var(--cmm-font-size-xl);
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+  }
+}
+
+.heading {
+  font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-5xl);
+}
+
+.halfWidth {
+  width: 50%;
+}
