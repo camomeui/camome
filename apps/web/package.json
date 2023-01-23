@@ -46,6 +46,7 @@
     "react-wrap-balancer": "^0.4.0",
     "rehype-external-links": "^2.0.1",
     "remark-gfm": "^3.0.1",
+    "sharp": "^0.31.3",
     "undent": "^0.1.0"
   },
   "devDependencies": {

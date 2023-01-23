@@ -3,6 +3,9 @@ import { buildScopedClassName } from "@camome/utils";
 import { withContentlayer } from "next-contentlayer";
 import createMdx from "@next/mdx";
 import mdxOptions from "./src/lib/mdxOptions.mjs";
+import { fileURLToPath } from "url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
