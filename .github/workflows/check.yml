@@ -24,3 +24,10 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      # TODO: build only necessary stuff for CI?
+      - name: Build
+        run: pnpm build
+      - name: Check
+        run: pnpm ci:check
+      - name: Test
+        run: pnpm ci:test
