@@ -213,7 +213,6 @@ importers:
       postcss: ^8.4.20
       postcss-modules: ^6.0.0
       postcss-preset-env: ^7.8.3
-      react-device-detect: ^2.2.2
       react-docgen: 6.0.0-alpha.4
       react-docgen-typescript: ^2.2.2
       react-hook-form: ^7.40.0
@@ -247,7 +246,6 @@ importers:
       next-contentlayer: 0.2.9_tnkxb5v37zoygkxxmzyx5rj72i
       next-seo: 5.15.0_next@13.1.2
       next-themes: 0.2.1_next@13.1.2
-      react-device-detect: 2.2.2
       react-hook-form: 7.42.1
       react-icons: 4.7.1
       react-wrap-balancer: 0.4.0
@@ -16654,15 +16652,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: true
 
-  /react-device-detect/2.2.2:
-    resolution: {integrity: sha512-zSN1gIAztUekp5qUT/ybHwQ9fmOqVT1psxpSlTn1pe0CO+fnJHKRLOWWac5nKxOxvOpD/w84hk1I+EydrJp7SA==}
-    peerDependencies:
-      react: '>= 0.14.0'
-      react-dom: '>= 0.14.0'
-    dependencies:
-      ua-parser-js: 1.0.33
-    dev: false
-
   /react-docgen-typescript/2.2.2:
     resolution: {integrity: sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==}
     peerDependencies:
@@ -18890,10 +18879,6 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  /ua-parser-js/1.0.33:
-    resolution: {integrity: sha512-RqshF7TPTE0XLYAqmjlu5cLLuGdKrNu9O1KLA/qp39QtbZwuzwv1dT46DZSopoUMsYgXpB3Cv8a03FI8b74oFQ==}
-    dev: false
 
   /uglify-js/3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}

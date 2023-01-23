@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { useTheme } from "next-themes";
 import React from "react";
 
 import type { Option } from "./types";
@@ -18,6 +19,7 @@ type Props = {
 };
 
 export default function CustomThemeSandbox({ className, style }: Props) {
+  const { resolvedTheme } = useTheme();
   const [selected, setSelected] = React.useState<Option>(themes[0]);
   const previewRef = React.useRef<HTMLDivElement>(null!);
 
@@ -56,6 +58,10 @@ export default function CustomThemeSandbox({ className, style }: Props) {
 
     setSelected(opt);
   };
+
+  React.useEffect(() => {
+    if (resolvedTheme === "dark") setSelected(themes[2]);
+  }, [resolvedTheme]);
 
   return (
     <div className={clsx(styles.container, className)} style={style}>

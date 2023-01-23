@@ -13,6 +13,7 @@ export default function OverrideDemo() {
       <div className={styles.preview}>
         <Button
           className={overridden ? styles.overridden : undefined}
+          colorScheme="danger"
           size="lg"
           onClick={() => setOverridden((curr) => !curr)}
         >

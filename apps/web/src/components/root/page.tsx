@@ -1,20 +1,19 @@
 import {
   ChevronDoubleRightIcon,
   SparklesIcon,
-  Square2StackIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import React from "react";
-import { isMobile } from "react-device-detect";
+import { FaGithub } from "react-icons/fa";
 import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
 import CustomThemeSandbox from "@/components/CustomThemePlayground";
 import DocLink from "@/components/DocLink";
-import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 
 import styles from "./page.module.scss";
 
+import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import OverrideDemo from "@/components/OverrideDemo";
 import CardDemo from "@/docs-data/demo/marketing/Card";
 import { Button } from "@camome/core/Button";
@@ -25,31 +24,34 @@ export default function RootPage() {
       <section id="hero">
         <div className={styles.headingBlock}>
           <div className={styles.topHeading}>
-            <Balancer>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit
-            </Balancer>
+            <Balancer>Light weight, accessible</Balancer>
+            <Balancer>UI framework for React and CSS</Balancer>
           </div>
           <p className={styles.topSubheading}>
             <Balancer>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+              Camome UI enables you to build various styles of components
+              without run-time JavaScript by fully utilizing the power of CSS.
             </Balancer>
           </p>
           <div className={styles.buttons}>
             <Button
+              component={DocLink}
+              id="guide:overview"
               rightIcon={<ChevronDoubleRightIcon strokeWidth="2" />}
-              size={isMobile ? "md" : "lg"}
+              size="lg"
             >
               Get started
             </Button>
             <Button
+              component="a"
+              href="https://github.com/camomeui/camome"
               variant="soft"
               colorScheme="neutral"
-              size={isMobile ? "md" : "lg"}
-              className={styles.installBtn}
-              rightIcon={<Square2StackIcon />}
+              size="lg"
+              className={styles.githubLink}
+              leftIcon={<FaGithub />}
             >
-              <code>npm install @camome/core</code>
+              GitHub
             </Button>
           </div>
         </div>
@@ -73,8 +75,8 @@ export default function RootPage() {
         </h2>
         <p className={styles.styling__description}>
           <Balancer>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
+            Camome UI is not a fancy framework that advocates for new styling
+            methods. You know how to use it.
           </Balancer>
         </p>
         <CodeSandbox
@@ -101,8 +103,8 @@ export default function RootPage() {
               <h2 className={styles.theming__heading}>Fully themable.</h2>
               <p className={styles.theming__description}>
                 <Balancer>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                  It provides sensible defaults, but may not be to
+                  everyone&apos;s taste. Customize the theme to suit your site.
                 </Balancer>
               </p>
             </div>
@@ -132,8 +134,11 @@ export default function RootPage() {
           </hgroup>
           <p className={styles.override__description}>
             <Balancer>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
+              All styles are enclosed within{" "}
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer">
+                <code>@layer</code>
+              </a>
+              . Don&apos;t worry about order or specificity when overriding.
             </Balancer>
           </p>
         </div>
@@ -151,19 +156,19 @@ const features: {
   {
     title: "Fully themable",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "By combining a well-designed design system and CSS variables, you can freely customize the theme.",
     icon: <SwatchIcon />,
   },
   {
     title: "Just CSS, no runtime JavaScript",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Built on top of CSS Modules, Camome UI is free from runtime overhead unlike with CSS-in-JS",
     icon: <TbBrandCss3 />,
   },
   {
-    title: "Simple yet elegant design",
+    title: "Simple but elegant design",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "All the components are designed to blend in with basic design websites, but also can be aggressively customized.",
     icon: <SparklesIcon />,
   },
 ];
