@@ -20,8 +20,8 @@ export type CodeSandboxProps = {
       };
   extraCode?: CodeTabsProps["items"];
   layout?: "centered" | "padded";
-  orientation?: "vertical" | "horizontal";
   classNames?: {
+    container?: string;
     preview?: string;
     codeBlock?: {
       pre?: string;
@@ -38,7 +38,6 @@ export default function CodeSandbox({
   showCode = { html: true, react: true },
   extraCode = [],
   layout = "centered",
-  orientation = "vertical",
   classNames,
 }: CodeSandboxProps) {
   const codeItems: CodeTabsProps["items"] = [];
@@ -70,14 +69,7 @@ export default function CodeSandbox({
       <style jsx global>{`
         ${css}
       `}</style>
-      <div
-        className={clsx(
-          styles.container,
-          orientation === "horizontal"
-            ? styles.container__horizontal
-            : styles.container__vertical
-        )}
-      >
+      <div className={clsx(styles.container, classNames?.container)}>
         <div
           className={clsx(
             styles.preview,

@@ -6,13 +6,22 @@
   color: var(--cmm-color-font-base);
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-md);
-  width: 32rem;
   height: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
   border-left: 6px solid var(--cmm-color-primary-emphasis);
+
+  @container (max-width: 32rem) {
+    grid-template-columns: 1fr;
+    place-items: center;
+    width: 100%;
+
+    .avatar {
+      --cmm-Avatar-size: 6rem;
+    }
+  }
 
   hr {
     border-color: var(--cmm-color-border-base);

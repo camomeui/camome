@@ -59,14 +59,14 @@ export default function CustomThemeSandbox({ className, style }: Props) {
 
   return (
     <div className={clsx(styles.container, className)} style={style}>
+      <div id={SANDBOX_ID} ref={previewRef} className={styles.preview}>
+        <CustomThemeDemo />
+      </div>
       <CustomThemeRadio
         options={themes}
         onChange={handleChange}
         selected={selected}
       />
-      <div id={SANDBOX_ID} ref={previewRef} className={styles.preview}>
-        <CustomThemeDemo />
-      </div>
     </div>
   );
 }

@@ -27,6 +27,11 @@
 .buttons {
   display: flex;
   gap: 1.5rem;
+
+  @include variables.mq(sm) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .installBtn {
@@ -43,6 +48,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+
+  @include variables.mq("md") {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
 }
 
 .feat {
@@ -88,11 +98,12 @@
 %sectionHeading {
   font-weight: var(--cmm-font-weight-bold);
   font-size: var(--cmm-font-size-5xl);
+  line-height: 1.2;
 }
 
 .styling {
   @include variables.container(variables.$xl);
-  margin-top: 6rem;
+  margin-top: 4rem;
 
   &__heading {
     @extend %sectionHeading;
@@ -105,10 +116,25 @@
     text-align: center;
     max-width: 30rem;
     margin: auto;
+    margin-top: 1rem;
   }
 
   &__flex {
     display: flex;
+  }
+
+  &__sandbox {
+    flex-direction: row;
+    align-items: center;
+    > * {
+      width: 50%;
+    }
+    @include variables.mq("lg") {
+      flex-direction: column;
+      > * {
+        width: 100%;
+      }
+    }
   }
 
   &__preview {
@@ -117,20 +143,42 @@
 }
 
 .theming {
-  @include variables.container(variables.$xl);
-  margin-top: 6rem;
+  margin-top: 5rem;
+
+  &__group {
+    @include variables.container(variables.$md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @include variables.mq("md") {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   &__heading {
     @extend %sectionHeading;
-    text-align: center;
+    line-height: 1;
   }
 
   &__description {
     color: var(--cmm-color-font-muted);
     font-size: var(--cmm-font-size-xl);
-    text-align: center;
     max-width: 30rem;
-    margin: auto;
   }
 
   &__sandbox {
@@ -145,11 +193,20 @@
   margin-top: 6rem;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2rem;
+  place-items: center;
+  gap: 3rem;
+
+  @include variables.mq(lg) {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__heading {
     @extend %sectionHeading;
-    line-height: 1.4;
+
+    @include variables.mq(lg) {
+      text-align: center;
+    }
 
     code {
       background: var(--cmm-color-code-bg);
@@ -157,6 +214,8 @@
       font-size: 0.85em;
       padding: 0.1em;
       border-radius: var(--cmm-radius-md);
+      margin: 0 auto;
+      max-width: 30rem;
     }
   }
 
@@ -165,12 +224,11 @@
     font-size: var(--cmm-font-size-xl);
     max-width: 30rem;
     margin-top: 1rem;
-  }
-}
 
-.heading {
-  font-weight: var(--cmm-font-weight-bold);
-  font-size: var(--cmm-font-size-5xl);
+    @include variables.mq(lg) {
+      text-align: center;
+    }
+  }
 }
 
 .halfWidth {

@@ -41,8 +41,10 @@
     "next-contentlayer": "^0.2.9",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",
+    "react-device-detect": "^2.2.2",
     "react-hook-form": "^7.40.0",
     "react-icons": "^4.4.0",
+    "react-wrap-balancer": "^0.4.0",
     "rehype-external-links": "^2.0.1",
     "remark-gfm": "^3.0.1",
     "undent": "^0.1.0"

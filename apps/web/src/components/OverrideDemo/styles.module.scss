@@ -12,7 +12,7 @@
 
 .overridden {
   border-radius: var(--cmm-radius-full);
-  background-image: linear-gradient(
+  background: linear-gradient(
     to right,
     hsl(240deg 60% 40%) 0%,
     hsl(300deg 80% 40%) 100%

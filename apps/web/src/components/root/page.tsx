@@ -5,15 +5,18 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import React from "react";
+import { isMobile } from "react-device-detect";
 import { TbBrandCss3 } from "react-icons/tb";
+import Balancer from "react-wrap-balancer";
 
 import CustomThemeSandbox from "@/components/CustomThemePlayground";
+import DocLink from "@/components/DocLink";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
-import OverrideDemo from "@/components/OverrideDemo";
-import CardDemo from "@/docs-data/demo/marketing/Card";
 
 import styles from "./page.module.scss";
 
+import OverrideDemo from "@/components/OverrideDemo";
+import CardDemo from "@/docs-data/demo/marketing/Card";
 import { Button } from "@camome/core/Button";
 
 export default function RootPage() {
@@ -22,24 +25,27 @@ export default function RootPage() {
       <section id="hero">
         <div className={styles.headingBlock}>
           <div className={styles.topHeading}>
-            <div>Lorem ipsum dolor sit amet</div>
-            <div>consectetur adipiscing elit</div>
+            <Balancer>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit
+            </Balancer>
           </div>
           <p className={styles.topSubheading}>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+            <Balancer>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+            </Balancer>
           </p>
           <div className={styles.buttons}>
             <Button
               rightIcon={<ChevronDoubleRightIcon strokeWidth="2" />}
-              size="lg"
+              size={isMobile ? "md" : "lg"}
             >
               Get started
             </Button>
             <Button
               variant="soft"
               colorScheme="neutral"
-              size="lg"
+              size={isMobile ? "md" : "lg"}
               className={styles.installBtn}
               rightIcon={<Square2StackIcon />}
             >
@@ -63,15 +69,16 @@ export default function RootPage() {
 
       <section id="styling" className={styles.styling}>
         <h2 className={styles.styling__heading}>
-          Nothing fancy, it just works.
+          <Balancer>Nothing fancy, it just works.</Balancer>
         </h2>
         <p className={styles.styling__description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
+          <Balancer>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt.
+          </Balancer>
         </p>
         <CodeSandbox
           {...CardDemo}
-          orientation="horizontal"
           showCode={{ react: true }}
           extraCode={[
             {
@@ -80,17 +87,37 @@ export default function RootPage() {
               language: "scss",
             },
           ]}
-          classNames={{ preview: styles.styling__preview }}
+          classNames={{
+            container: styles.styling__sandbox,
+            preview: styles.styling__preview,
+          }}
         />
       </section>
 
       <section id="theming" className={styles.theming}>
         <div>
-          <h2 className={styles.theming__heading}>Fully themable.</h2>
-          <p className={styles.theming__description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
-          </p>
+          <div className={styles.theming__group}>
+            <div className={styles.theming__left}>
+              <h2 className={styles.theming__heading}>Fully themable.</h2>
+              <p className={styles.theming__description}>
+                <Balancer>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt.
+                </Balancer>
+              </p>
+            </div>
+            <div className={styles.theming__right}>
+              <Button
+                component={DocLink}
+                id="guide:theming"
+                size="lg"
+                variant="soft"
+                rightIcon={<ChevronDoubleRightIcon />}
+              >
+                Customize theme
+              </Button>
+            </div>
+          </div>
         </div>
         <CustomThemeSandbox className={styles.theming__sandbox} />
       </section>
@@ -100,12 +127,14 @@ export default function RootPage() {
           <hgroup className={styles.override__heading}>
             <p>Simply override.</p>
             <p>
-              It&apos;s not that <code>!important</code>.
+              It&apos;s not that <code>!important</code>
             </p>
           </hgroup>
           <p className={styles.override__description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+            <Balancer>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </Balancer>
           </p>
         </div>
         <OverrideDemo />

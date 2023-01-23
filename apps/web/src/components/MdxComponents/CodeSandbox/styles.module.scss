@@ -4,18 +4,7 @@
   display: flex;
   margin-top: 2rem;
   gap: 1rem;
-
-  &__horizontal {
-    flex-direction: row;
-    align-items: center;
-    > * {
-      width: 50%;
-    }
-  }
-
-  &__vertical {
-    flex-direction: column;
-  }
+  flex-direction: column;
 }
 
 .preview {
@@ -24,6 +13,7 @@
   border-radius: var(--cmm-radius-lg);
   background: var(--cmm-color-surface-0);
   overflow-y: auto;
+  container-type: inline-size;
 
   &--padded {
     // placeholder

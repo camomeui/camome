@@ -13,6 +13,7 @@ export default function OverrideDemo() {
       <div className={styles.preview}>
         <Button
           className={overridden ? styles.overridden : undefined}
+          size="lg"
           onClick={() => setOverridden((curr) => !curr)}
         >
           {overridden ? "Back to default style..." : "Click to make me fancy!"}
@@ -26,7 +27,7 @@ export default function OverrideDemo() {
 const codeCss = undent`
 .Button {
   border-radius: var(--cmm-radius-full);
-  background-image: linear-gradient(
+  background: linear-gradient(
     to right,
     hsl(240deg 60% 40%) 0%,
     hsl(300deg 80% 40%) 100%
