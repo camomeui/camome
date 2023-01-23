@@ -1,10 +1,11 @@
 .container {
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-lg);
-  padding: 0.5rem;
-  width: 20rem;
+  padding: 1rem;
+  width: 24rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
+  box-shadow: var(--cmm-shadow-xl);
 
   :root[data-theme^="dark"] & {
     background: var(--cmm-color-surface-1);
@@ -19,13 +20,25 @@
 
 .img {
   width: 100%;
-  height: 10rem;
+  height: 14rem;
   object-fit: cover;
   border-radius: var(--cmm-radius-sm);
 }
 
+.content {
+  display: grid;
+  gap: 0.5rem;
+}
+
 .title {
   font-weight: var(--cmm-font-weight-bold);
+  font-size: var(--cmm-font-size-lg);
+  line-height: 1.3;
+}
+
+.priceWrap {
+  display: flex;
+  flex-direction: column;
 }
 
 .price {
@@ -42,7 +55,7 @@
 .row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  height: fit-content;
 }
 
 .button {

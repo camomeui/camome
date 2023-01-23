@@ -4,10 +4,10 @@
   display: flex;
   margin-top: 2rem;
   gap: 1rem;
-  width: 100%;
 
   &__horizontal {
     flex-direction: row;
+    align-items: center;
     > * {
       width: 50%;
     }

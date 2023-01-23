@@ -83,12 +83,13 @@ export const themes = [
     googleFont: "Rubik:wght@400;500;600;700",
     icon: <SparklesIcon />,
     css: `
-  .Button, .Avatar {
-    border-radius: 999px;
-  }
-  .Tag--soft {
+#custom-theme-demo-container .Button,
+#custom-theme-demo-container .Avatar {
+  border-radius: 999px;
+}
+#custom-theme-demo-container .Tag--soft {
     border: 1px solid var(--cmm-color-border-base);
-  }
+}
   `,
   },
   {

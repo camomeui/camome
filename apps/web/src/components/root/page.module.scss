@@ -110,6 +110,10 @@
   &__flex {
     display: flex;
   }
+
+  &__preview {
+    border: none !important;
+  }
 }
 
 .theming {
@@ -136,21 +140,31 @@
   }
 }
 
-.demo {
-  @include variables.container(variables.$xl);
+.override {
+  @include variables.container(variables.$lg);
   margin-top: 6rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
 
   &__heading {
     @extend %sectionHeading;
-    text-align: center;
+    line-height: 1.4;
+
+    code {
+      background: var(--cmm-color-code-bg);
+      color: var(--cmm-color-primary-emphasis);
+      font-size: 0.85em;
+      padding: 0.1em;
+      border-radius: var(--cmm-radius-md);
+    }
   }
 
   &__description {
     color: var(--cmm-color-font-muted);
     font-size: var(--cmm-font-size-xl);
-    text-align: center;
     max-width: 30rem;
-    margin: auto;
+    margin-top: 1rem;
   }
 }
 

@@ -43,7 +43,7 @@ export default function Decorators() {
         }
         className={styles["with-avatar"]}
       >
-        John Doe
+        Jean Doe
       </Tag>
     </div>
   );

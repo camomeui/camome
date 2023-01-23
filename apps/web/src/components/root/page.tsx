@@ -9,8 +9,8 @@ import { TbBrandCss3 } from "react-icons/tb";
 
 import CustomThemeSandbox from "@/components/CustomThemePlayground";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
+import OverrideDemo from "@/components/OverrideDemo";
 import CardDemo from "@/docs-data/demo/marketing/Card";
-import MenuAndButtonDemo from "@/docs-data/demo/marketing/MenuAndButton";
 
 import styles from "./page.module.scss";
 
@@ -80,6 +80,7 @@ export default function RootPage() {
               language: "scss",
             },
           ]}
+          classNames={{ preview: styles.styling__preview }}
         />
       </section>
 
@@ -94,13 +95,20 @@ export default function RootPage() {
         <CustomThemeSandbox className={styles.theming__sandbox} />
       </section>
 
-      <section id="demo" className={styles.demo}>
-        <h2 className={styles.demo__heading}>Readable, semantic classes.</h2>
-        <p className={styles.demo__description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </p>
-        <CodeSandbox {...MenuAndButtonDemo} orientation="horizontal" />
+      <section id="override" className={styles.override}>
+        <div>
+          <hgroup className={styles.override__heading}>
+            <p>Simply override.</p>
+            <p>
+              It&apos;s not that <code>!important</code>.
+            </p>
+          </hgroup>
+          <p className={styles.override__description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </p>
+        </div>
+        <OverrideDemo />
       </section>
     </div>
   );

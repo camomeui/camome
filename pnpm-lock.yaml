@@ -220,6 +220,7 @@ importers:
       rehype-external-links: ^2.0.1
       remark-gfm: ^3.0.1
       sass: ^1.55.0
+      undent: ^0.1.0
       yargs: ^17.6.2
     dependencies:
       '@camome/core': link:../../packages/core
@@ -248,6 +249,7 @@ importers:
       react-icons: 4.7.1
       rehype-external-links: 2.0.1
       remark-gfm: 3.0.1
+      undent: 0.1.0
     devDependencies:
       '@camome/storybook': link:../storybook
       '@types/lodash.sortby': 4.7.7
@@ -18886,6 +18888,10 @@ packages:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
     dev: true
+
+  /undent/0.1.0:
+    resolution: {integrity: sha512-vohX7ywgBjRxDNw+f3wHclSXmO0z9HsEfmGObOuG7G0yi7kZ6OtCG8kAxtDSNklmua5KR6ev2drTFqMGqpYEbg==}
+    dev: false
 
   /unfetch/4.2.0:
     resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}

@@ -13,27 +13,29 @@ export default function Card() {
         alt="Entrance of Sheraton Okinawa Sunmarina Resort, a hotel in Okinawa"
         className={styles.img}
       />
-      <div className={styles.tags}>
-        <Tag size="sm" colorScheme="success">
-          30%OFF
-        </Tag>
-        <Tag size="sm" colorScheme="warn">
-          2 rooms left
-        </Tag>
-      </div>
-      <h3 className={styles.title}>Sheraton Okinawa Sunmarina Resort</h3>
-      <div className={styles.row}>
-        <div>
-          <small className={styles.small}>1 night, 2 adults</small>
-          <p className={styles.price}>¥62,000</p>
+      <div className={styles.content}>
+        <div className={styles.tags}>
+          <Tag size="sm" colorScheme="success">
+            30%OFF
+          </Tag>
+          <Tag size="sm" colorScheme="warn">
+            2 rooms left
+          </Tag>
         </div>
-        <Button
-          size="sm"
-          rightIcon={<CalendarDaysIcon />}
-          className={styles.button}
-        >
-          Book now
-        </Button>
+        <h3 className={styles.title}>Sheraton Okinawa Sunmarina Resort</h3>
+        <div className={styles.row}>
+          <div className={styles.priceWrap}>
+            <small className={styles.small}>1 night, 2 adults</small>
+            <p className={styles.price}>¥62,000</p>
+          </div>
+          <Button
+            size="sm"
+            rightIcon={<CalendarDaysIcon />}
+            className={styles.button}
+          >
+            Book now
+          </Button>
+        </div>
       </div>
     </section>
   );

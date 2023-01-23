@@ -75,8 +75,7 @@ export default function CodeSandbox({
           styles.container,
           orientation === "horizontal"
             ? styles.container__horizontal
-            : styles.container__vertical,
-          classNames?.preview
+            : styles.container__vertical
         )}
       >
         <div
@@ -84,7 +83,8 @@ export default function CodeSandbox({
             styles.preview,
             styles[`preview--${layout}`],
             "no-markup",
-            "scrollbar"
+            "scrollbar",
+            classNames?.preview
           )}
         >
           <div className={styles.previewInner}>
