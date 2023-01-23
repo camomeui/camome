@@ -37,6 +37,10 @@
 .githubLink {
   border: 1px solid var(--cmm-color-border-base);
   width: 9rem;
+
+  @include variables.mq(sm) {
+    width: 100%;
+  }
 }
 
 .featureSection {
@@ -133,7 +137,7 @@
       width: 50%;
     }
     @include variables.mq("lg") {
-      flex-direction: column;
+      flex-direction: column !important;
       > * {
         width: 100%;
       }
