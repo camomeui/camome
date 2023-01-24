@@ -8,10 +8,21 @@
 
 .hero {
   @include variables.container();
+
   display: grid;
   grid-template-columns: 50% auto;
   gap: 1rem;
   align-items: center;
+
+  @include variables.mq(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.componentGrid {
+  @include variables.mq(lg) {
+    display: none;
+  }
 }
 
 .componentGridInner {
@@ -259,6 +270,7 @@
   }
 }
 
-.halfWidth {
-  width: 50%;
+.cta {
+  @include variables.container(40rem);
+  margin-top: 6rem;
 }

@@ -1,0 +1,87 @@
+@use "@/styles/variables";
+
+.container {
+  border-radius: var(--cmm-radius-2xl);
+  border: 1px solid var(--cmm-color-border-base);
+  position: relative;
+  background: var(--cmm-color-surface-1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-content: center;
+  background: var(--cmm-color-primary-soft-bg);
+  border-radius: var(--cmm-radius-xl);
+  background: linear-gradient(
+    124deg,
+    hsl(235.8, 64.08%, 48.04%) 0%,
+    hsl(235.2, 64.17%, 47.95%) 8.1%,
+    hsl(233.59, 64.42%, 47.7%) 15.5%,
+    hsl(231.24, 64.83%, 47.3%) 22.5%,
+    hsl(228.41, 65.38%, 46.79%) 29%,
+    hsl(225.29, 66.07%, 46.17%) 35.3%,
+    hsl(222.04, 66.89%, 45.48%) 41.2%,
+    hsl(218.77, 67.83%, 44.73%) 47.1%,
+    hsl(215.57, 68.89%, 43.94%) 52.9%,
+    hsl(212.54, 70.03%, 43.14%) 58.8%,
+    hsl(209.74, 71.24%, 42.36%) 64.7%,
+    hsl(207.27, 72.45%, 41.63%) 71%,
+    hsl(205.19, 73.6%, 40.98%) 77.5%,
+    hsl(203.59, 74.57%, 40.47%) 84.5%,
+    hsl(202.57, 75.24%, 40.12%) 91.9%,
+    hsl(202.21, 75.49%, 40%) 100%
+  );
+  > svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--cmm-color-white);
+    stroke-width: 1.2;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-weight: var(--cmm-font-weight-extrabold);
+  font-size: var(--cmm-font-size-3xl);
+  color: var(--cmm-color-font-base);
+  line-height: 1.2;
+  grid-column: 2;
+}
+
+.description {
+  color: var(--cmm-color-font-muted);
+  grid-column: 2;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  grid-column: 2;
+
+  @include variables.mq(sm) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.githubLink {
+  background: var(--cmm-color-surface-0);
+  transition: var(--cmm-transition-bg);
+
+  &:hover {
+    background: var(--cmm-color-surface-1);
+  }
+}

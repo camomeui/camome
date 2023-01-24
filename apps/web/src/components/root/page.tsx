@@ -9,11 +9,12 @@ import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
 import ComponentGrid from "@/components/ComponentGrid";
+import Cta from "@/components/Cta";
 import CustomThemeSandbox from "@/components/CustomThemePlayground";
-import DocLink from "@/components/DocLink";
 
 import styles from "./page.module.scss";
 
+import DocLink from "@/components/DocLink";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import OverrideDemo from "@/components/OverrideDemo";
 import CardDemo from "@/docs-data/demo/marketing/Card";
@@ -56,7 +57,12 @@ export default function RootPage() {
             </Button>
           </div>
         </div>
-        <ComponentGrid classNames={{ inner: styles.componentGridInner }} />
+        <ComponentGrid
+          classNames={{
+            container: styles.componentGrid,
+            inner: styles.componentGridInner,
+          }}
+        />
       </section>
 
       <section id="features" className={styles.featureSection}>
@@ -146,6 +152,10 @@ export default function RootPage() {
         </div>
         <OverrideDemo />
       </section>
+
+      <div className={styles.cta}>
+        <Cta />
+      </div>
     </div>
   );
 }
