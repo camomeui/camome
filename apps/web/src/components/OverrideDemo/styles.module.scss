@@ -1,0 +1,20 @@
+@use "@/styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preview {
+  margin: auto;
+}
+
+.overridden {
+  border-radius: var(--cmm-radius-full);
+  background: linear-gradient(
+    to right,
+    hsl(240deg 60% 40%) 0%,
+    hsl(300deg 80% 40%) 100%
+  );
+}

@@ -1,10 +1,4 @@
-import {
-  generatePaths,
-  getValue,
-  toKebabCase,
-  type Path,
-  type DeepPartial,
-} from "@camome/utils";
+import { toKebabCase, type Path, type DeepPartial } from "@camome/utils";
 
 import { DEFAULT_PREFIX, themedComponents } from "../constants";
 import { Theme } from "../types";
@@ -84,31 +78,6 @@ export function cssVar<
   }
   name = `--${prefix}-${name}`;
   return withVar ? `var(${name})` : name;
-}
-
-type GenerateCssOptions = {
-  prefix?: string;
-  selector?: string;
-};
-
-export function generateThemeCss(
-  theme: DeepPartial<Theme>,
-  options: Required<GenerateCssOptions>
-): string {
-  const { prefix, selector } = options;
-  let css = "";
-  const paths = generatePaths(theme);
-  for (const path of paths) {
-    const key = cssVar(path as Path<Theme>, {
-      prefix,
-      withVar: false,
-    });
-    const val = getValue(theme, path);
-    css += `${key}: ${val};\n`;
-  }
-
-  css = enclose(css, selector);
-  return css;
 }
 
 type Obj = Record<string, unknown>;

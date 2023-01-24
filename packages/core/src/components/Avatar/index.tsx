@@ -36,6 +36,7 @@ const _Avatar = React.forwardRef<
     src,
     alt,
     children,
+    className,
     ...restProps
   } = props;
 
@@ -52,7 +53,8 @@ const _Avatar = React.forwardRef<
         styles.Block,
         size !== defaultSize && styles[`--${size}`],
         styles[`Block--${variant}`],
-        styles[`Block--${colorScheme}`]
+        styles[`Block--${colorScheme}`],
+        className
       )}
       ref={forwardedRef}
       {...restProps}

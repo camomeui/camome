@@ -20,8 +20,8 @@ export default function ThemeSwitch() {
     return <div className={styles.skelton} />;
   }
 
-  const buttonsForCurrent = {
-    dark: (
+  const buttonsForCurrent = (theme: string) => {
+    return theme.startsWith("dark") ? (
       <IconButton
         aria-label="Switch to light theme"
         onClick={() => setTheme("light")}
@@ -31,8 +31,7 @@ export default function ThemeSwitch() {
       >
         <SunIcon />
       </IconButton>
-    ),
-    light: (
+    ) : (
       <IconButton
         aria-label="Switch to dark theme"
         onClick={() => setTheme("dark")}
@@ -42,8 +41,8 @@ export default function ThemeSwitch() {
       >
         <MoonIcon />
       </IconButton>
-    ),
+    );
   };
 
-  return buttonsForCurrent[(resolvedTheme as "dark" | "light") ?? "light"];
+  return buttonsForCurrent((resolvedTheme as "dark" | "light") ?? "light");
 }

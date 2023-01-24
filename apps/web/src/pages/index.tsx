@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from "next";
 
-import LpLayout from "@/components/lp/layout";
-import RootPage from "@/components/lp/page";
+import RootPage from "@/components/root/page";
+import LpLayout from "@/components/template/layout";
 import { getSidebarItems } from "@/lib/docs/getSidebarItems";
 import { Locale, NavItem } from "@/types";
 

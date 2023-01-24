@@ -22,11 +22,13 @@
     @extend %sizeDefaults;
     @include utils.size(locals.$size);
 
-    display: block;
+    display: inline-block;
     border-radius: var(--cmm-radius-full);
     overflow: hidden;
     transition: var(--cmm-transition-bg);
     margin: locals.$margin;
+    font-weight: var(--cmm-font-weight-medium);
+    box-shadow: 0 0 0 locals.$ringSize var(--cmm-color-surface-0);
 
     * {
       width: 100%;
@@ -62,12 +64,12 @@
 
   %sizeDefaults {
     #{locals.$size_name}: 3rem;
-    font-size: var(--cmm-font-size-lg);
+    font-size: var(--cmm-font-size-md);
   }
 
   .--sm {
     #{locals.$size_name}: 2rem;
-    font-size: var(--cmm-font-size-sm);
+    font-size: var(--cmm-font-size-xs);
   }
 
   .--md {
@@ -76,6 +78,6 @@
 
   .--lg {
     #{locals.$size_name}: 4rem;
-    font-size: var(--cmm-font-size-2xl);
+    font-size: var(--cmm-font-size-xl);
   }
 }

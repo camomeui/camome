@@ -46,7 +46,7 @@ const lightTheme = {
     font: {
       base: cssVar("color.black"),
       muted: cssVar("color.gray.6"),
-      subtle: cssVar("color.gray.4"),
+      subtle: cssVar("color.gray.5"),
       onEmphasis: cssVar("color.white"),
     },
     border: {
@@ -109,7 +109,7 @@ const lightTheme = {
   },
 } as const;
 
-function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
+export function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
     font: cssVar(`color.${colorScheme}.8`),
     emphasis: cssVar(`color.${colorScheme}.6`),
@@ -118,7 +118,7 @@ function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   };
 }
 
-function variantColors(colorScheme: ColorScheme): VariantColors {
+export function variantColors(colorScheme: ColorScheme): VariantColors {
   return {
     solid: {
       bg: cssVar(`color.${colorScheme}.6`),
@@ -126,8 +126,8 @@ function variantColors(colorScheme: ColorScheme): VariantColors {
       font: cssVar(`color.white`),
     },
     soft: {
-      bg: cssVar(`color.${colorScheme}.0`),
-      bgHover: cssVar(`color.${colorScheme}.1`),
+      bg: cssVar(`color.${colorScheme}.1`),
+      bgHover: cssVar(`color.${colorScheme}.2`),
       font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {

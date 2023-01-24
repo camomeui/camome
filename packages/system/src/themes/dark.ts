@@ -3,7 +3,12 @@ import { deepmerge } from "deepmerge-ts";
 
 import { cssVar } from "../lib/utils";
 import { Theme } from "../types";
-import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
+import {
+  ColorScheme,
+  ColorSchemeTokens,
+  ColorShade,
+  VariantColors,
+} from "../types/color";
 
 import { commonTheme } from "./common";
 
@@ -14,40 +19,40 @@ const darkTheme = {
     },
     link: cssVar("color.primary.5"),
     primary: {
-      ...colorSchemeTokens("primary"),
-      ...variantColors("primary"),
+      ...colorSchemeColors("primary", commonTheme.color.primary),
+      ...variantColors("primary", commonTheme.color.primary),
     },
     neutral: {
-      ...colorSchemeTokens("neutral"),
-      ...variantColors("neutral"),
+      ...colorSchemeColors("neutral", commonTheme.color.neutral),
+      ...variantColors("neutral", commonTheme.color.neutral),
     },
     info: {
-      ...colorSchemeTokens("info"),
-      ...variantColors("info"),
+      ...colorSchemeColors("info", commonTheme.color.info),
+      ...variantColors("info", commonTheme.color.info),
     },
     success: {
-      ...colorSchemeTokens("success"),
-      ...variantColors("success"),
+      ...colorSchemeColors("success", commonTheme.color.success),
+      ...variantColors("success", commonTheme.color.success),
     },
     warn: {
-      ...colorSchemeTokens("warn"),
-      ...variantColors("warn"),
+      ...colorSchemeColors("warn", commonTheme.color.warn),
+      ...variantColors("warn", commonTheme.color.warn),
     },
     danger: {
-      ...colorSchemeTokens("danger"),
-      ...variantColors("danger"),
+      ...colorSchemeColors("danger", commonTheme.color.danger),
+      ...variantColors("danger", commonTheme.color.danger),
     },
     surface: {
       0: cssVar("color.black"),
-      1: cssVar("color.neutral.9"),
-      2: cssVar("color.neutral.8"),
-      3: cssVar("color.neutral.7"),
-      4: cssVar("color.neutral.6"),
+      1: cssVar("color.gray.9"),
+      2: cssVar("color.gray.8"),
+      3: cssVar("color.gray.7"),
+      4: cssVar("color.gray.6"),
     },
     font: {
       base: cssVar("color.white"),
       muted: cssVar("color.gray.3"),
-      subtle: cssVar("color.gray.6"),
+      subtle: cssVar("color.gray.4"),
       onEmphasis: cssVar("color.white"),
     },
     border: {
@@ -114,38 +119,42 @@ function alpha(color: string, value: number): string {
   return ret;
 }
 
-function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
-  const palette = commonTheme.color[colorScheme];
+export function colorSchemeColors(
+  colorScheme: ColorScheme,
+  shade: ColorShade
+): ColorSchemeTokens {
   return {
-    font: palette[4],
-    emphasis: palette[5],
-    muted: alpha(palette[6], 0.5),
-    subtle: alpha(palette[6], 0.15),
+    font: cssVar(`color.${colorScheme}.2`),
+    emphasis: cssVar(`color.${colorScheme}.5`),
+    muted: alpha(shade[6], 0.5),
+    subtle: alpha(shade[6], 0.15),
   };
 }
 
-function variantColors(colorScheme: ColorScheme): VariantColors {
-  const palette = commonTheme.color[colorScheme];
+export function variantColors(
+  colorScheme: ColorScheme,
+  shade: ColorShade
+): VariantColors {
   return {
     solid: {
-      bg: palette[6],
-      bgHover: palette[7],
+      bg: cssVar(`color.${colorScheme}.6`),
+      bgHover: cssVar(`color.${colorScheme}.7`),
       font: cssVar(`color.font.onEmphasis`),
     },
     soft: {
-      bg: alpha(palette[6], 0.15),
-      bgHover: alpha(palette[6], 0.3),
+      bg: alpha(shade[6], 0.4),
+      bgHover: alpha(shade[6], 0.5),
       font: cssVar(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
-      bgHover: alpha(palette[6], 0.3),
+      bgHover: alpha(shade[6], 0.3),
       font: cssVar(`color.${colorScheme}.font`),
-      border: alpha(palette[6], 0.5),
+      border: alpha(shade[6], 0.5),
     },
     ghost: {
       bg: "transparent",
-      bgHover: alpha(palette[6], 0.3),
+      bgHover: alpha(shade[6], 0.3),
       font: cssVar(`color.${colorScheme}.font`),
     },
   };

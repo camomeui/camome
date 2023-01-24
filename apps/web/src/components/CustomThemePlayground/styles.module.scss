@@ -1,0 +1,24 @@
+@use "@/styles/variables";
+
+.container {
+  display: grid;
+  grid-template-columns: 70% auto;
+  gap: 1rem;
+  align-items: stretch;
+
+  > * {
+    flex: 1;
+  }
+
+  @include variables.mq("md") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.preview {
+  container-type: inline-size;
+
+  * {
+    transition: all 0.15s;
+  }
+}

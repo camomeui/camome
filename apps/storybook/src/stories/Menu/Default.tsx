@@ -10,40 +10,20 @@ export default function Default() {
   return (
     <Menu>
       <Menu.Group>Editing</Menu.Group>
-      {data.category1.map((item) => (
-        <Menu.Item key={item.label}>
-          {item.icon}
-          {item.label}
-        </Menu.Item>
-      ))}
+      <Menu.Item>
+        <PencilSquareIcon />
+        Edit
+      </Menu.Item>
+      <Menu.Item>
+        <Square2StackIcon />
+        Duplicate
+      </Menu.Item>
       <Menu.Divider />
       <Menu.Group>Danger</Menu.Group>
-      {data.category2.map(({ label, icon }) => (
-        <Menu.Item key={label}>
-          {icon}
-          {label}
-        </Menu.Item>
-      ))}
+      <Menu.Item>
+        <TrashIcon />
+        Delete
+      </Menu.Item>
     </Menu>
   );
 }
-
-const data = {
-  category1: [
-    {
-      label: "Edit",
-      icon: <PencilSquareIcon />,
-    },
-    {
-      label: "Duplicate",
-      icon: <Square2StackIcon />,
-    },
-  ],
-
-  category2: [
-    {
-      label: "Delete",
-      icon: <TrashIcon />,
-    },
-  ],
-};
