@@ -1,6 +1,7 @@
-import { visit } from "unist-util-visit";
-import sizeOf from "image-size";
 import fs from "fs";
+
+import sizeOf from "image-size";
+import { visit } from "unist-util-visit";
 
 // https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/4d6114f8f858cea78574a87a113ddb6a89f8ddce/lib/remark-img-to-jsx.js
 export default function remarkImgToJsx() {

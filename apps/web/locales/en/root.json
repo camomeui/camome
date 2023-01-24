@@ -1,0 +1,51 @@
+{
+  "button": {
+    "get-started": "Get started",
+    "github": "GitHub"
+  },
+  "hero": {
+    "heading": {
+      "0": "Light weight, accessible",
+      "1": "UI framework for React and CSS"
+    },
+    "subheading": "Camome UI enables you to build various styles of components without run-time JavaScript by fully utilizing the power of CSS."
+  },
+  "features": {
+    "themable": {
+      "title": "Fully themable",
+      "description": "By combining a well-constructed design system and CSS variables, you can freely customize the theme."
+    },
+    "no-runtime": {
+      "title": "Just CSS, no runtime JavaScript",
+      "description": "Built on top of CSS Modules, Camome UI is free from runtime overhead unlike with CSS-in-JS."
+    },
+    "design": {
+      "title": "Simple but elegant design",
+      "description": "All the components are designed to blend in with basic design websites, but also can be aggressively customized."
+    }
+  },
+  "styling": {
+    "heading": "Nothing fancy, it just works.",
+    "subheading": "Camome UI is not a fancy framework that advocates for new styling methods. You know how to use it."
+  },
+  "theming": {
+    "heading": "Fully themable.",
+    "subheading": "It provides sensible defaults, but may not be to everyone's taste. Customize the theme to suit your site.",
+    "button": "Customize theme"
+  },
+  "override": {
+    "heading": { "0": "Simply override.", "1": "It's not that", "2": "" },
+    "subheading": {
+      "0": "All styles are enclosed within",
+      "1": "Don't worry about order or specificity when overriding."
+    },
+    "button": {
+      "is-default": "Click to make me fancy!",
+      "is-overridden": "Back to default style..."
+    }
+  },
+  "cta": {
+    "heading": "Start your next project from here.",
+    "subheading": "Develop faster with a well-constructed design system and components."
+  }
+}

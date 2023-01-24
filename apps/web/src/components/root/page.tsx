@@ -3,17 +3,18 @@ import {
   SparklesIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
+import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
 import ComponentGrid from "@/components/ComponentGrid";
-import Cta from "@/components/Cta";
-import CustomThemeSandbox from "@/components/CustomThemePlayground";
 
 import styles from "./page.module.scss";
 
+import Cta from "@/components/Cta";
+import CustomThemeSandbox from "@/components/CustomThemePlayground";
 import DocLink from "@/components/DocLink";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import OverrideDemo from "@/components/OverrideDemo";
@@ -21,19 +22,40 @@ import CardDemo from "@/docs-data/demo/marketing/Card";
 import { Button } from "@camome/core/Button";
 
 export default function RootPage() {
+  const { t } = useTranslation("root");
+
+  const features: {
+    title: string;
+    icon: React.ReactNode;
+    description: string;
+  }[] = [
+    {
+      title: t("features.themable.title"),
+      description: t("features.themable.description"),
+      icon: <SwatchIcon />,
+    },
+    {
+      title: t("features.no-runtime.title"),
+      description: t("features.no-runtime.description"),
+      icon: <TbBrandCss3 />,
+    },
+    {
+      title: t("features.design.title"),
+      description: t("features.design.description"),
+      icon: <SparklesIcon />,
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <section id="hero" className={styles.hero}>
         <div className={styles.headingBlock}>
           <div className={styles.topHeading}>
-            <Balancer>Light weight, accessible</Balancer>
-            <Balancer>UI framework for React and CSS</Balancer>
+            <Balancer>{t("hero.heading.0")}</Balancer>
+            <Balancer>{t("hero.heading.1")}</Balancer>
           </div>
           <p className={styles.topSubheading}>
-            <Balancer>
-              Camome UI enables you to build various styles of components
-              without run-time JavaScript by fully utilizing the power of CSS.
-            </Balancer>
+            <Balancer>{t("hero.subheading")}</Balancer>
           </p>
           <div className={styles.buttons}>
             <Button
@@ -42,7 +64,7 @@ export default function RootPage() {
               rightIcon={<ChevronDoubleRightIcon strokeWidth="2" />}
               size="lg"
             >
-              Get started
+              {t("button.get-started")}
             </Button>
             <Button
               component="a"
@@ -53,7 +75,7 @@ export default function RootPage() {
               className={styles.githubLink}
               leftIcon={<FaGithub />}
             >
-              GitHub
+              {t("button.github")}
             </Button>
           </div>
         </div>
@@ -79,13 +101,10 @@ export default function RootPage() {
 
       <section id="styling" className={styles.styling}>
         <h2 className={styles.styling__heading}>
-          <Balancer>Nothing fancy, it just works.</Balancer>
+          <Balancer>{t("styling.heading")}</Balancer>
         </h2>
         <p className={styles.styling__description}>
-          <Balancer>
-            Camome UI is not a fancy framework that advocates for new styling
-            methods. You know how to use it.
-          </Balancer>
+          <Balancer>{t("styling.subheading")}</Balancer>
         </p>
         <CodeSandbox
           {...CardDemo}
@@ -108,12 +127,11 @@ export default function RootPage() {
         <div>
           <div className={styles.theming__group}>
             <div className={styles.theming__left}>
-              <h2 className={styles.theming__heading}>Fully themable.</h2>
+              <h2 className={styles.theming__heading}>
+                {t("theming.heading")}
+              </h2>
               <p className={styles.theming__description}>
-                <Balancer>
-                  It provides sensible defaults, but may not be to
-                  everyone&apos;s taste. Customize the theme to suit your site.
-                </Balancer>
+                <Balancer>{t("theming.subheading")}</Balancer>
               </p>
             </div>
             <div className={styles.theming__right}>
@@ -124,7 +142,7 @@ export default function RootPage() {
                 variant="soft"
                 rightIcon={<ChevronDoubleRightIcon />}
               >
-                Customize theme
+                {t("theming.button")}
               </Button>
             </div>
           </div>
@@ -135,18 +153,19 @@ export default function RootPage() {
       <section id="override" className={styles.override}>
         <div>
           <hgroup className={styles.override__heading}>
-            <p>Simply override.</p>
+            <p>{t("override.heading.0")}</p>
             <p>
-              It&apos;s not that <code>!important</code>
+              {t("override.heading.1")} <code>!important</code>{" "}
+              {t("override.heading.2")}
             </p>
           </hgroup>
           <p className={styles.override__description}>
             <Balancer>
-              All styles are enclosed within{" "}
+              {t("override.subheading.0")}{" "}
               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer">
                 <code>@layer</code>
-              </a>
-              . Don&apos;t worry about order or specificity when overriding.
+              </a>{" "}
+              {t("override.subheading.1")}
             </Balancer>
           </p>
         </div>
@@ -159,31 +178,6 @@ export default function RootPage() {
     </div>
   );
 }
-
-const features: {
-  title: string;
-  icon: React.ReactNode;
-  description: string;
-}[] = [
-  {
-    title: "Fully themable",
-    description:
-      "By combining a well-designed design system and CSS variables, you can freely customize the theme.",
-    icon: <SwatchIcon />,
-  },
-  {
-    title: "Just CSS, no runtime JavaScript",
-    description:
-      "Built on top of CSS Modules, Camome UI is free from runtime overhead unlike with CSS-in-JS",
-    icon: <TbBrandCss3 />,
-  },
-  {
-    title: "Simple but elegant design",
-    description:
-      "All the components are designed to blend in with basic design websites, but also can be aggressively customized.",
-    icon: <SparklesIcon />,
-  },
-];
 
 const cardScss = `.container {
   border: 1px solid var(--cmm-color-border-base);

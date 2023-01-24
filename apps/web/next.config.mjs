@@ -1,9 +1,13 @@
 import path from "path";
-import { buildScopedClassName } from "@camome/utils";
-import { withContentlayer } from "next-contentlayer";
-import createMdx from "@next/mdx";
-import mdxOptions from "./src/lib/mdxOptions.mjs";
 import { fileURLToPath } from "url";
+
+import createMdx from "@next/mdx";
+import { withContentlayer } from "next-contentlayer";
+import withNextTranslate from "next-translate";
+
+import { buildScopedClassName } from "@camome/utils";
+
+import mdxOptions from "./src/lib/mdxOptions.mjs";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -12,10 +16,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  i18n: {
-    locales: ["en", "ja"],
-    defaultLocale: "en",
-  },
   transpilePackages: ["@camome/core"],
   experimental: {
     outputFileTracingRoot: path.join(__dirname, "../../"),
@@ -71,4 +71,4 @@ const withMdx = createMdx({
   options: mdxOptions,
 });
 
-export default withContentlayer(withMdx(nextConfig));
+export default withNextTranslate(withContentlayer(withMdx(nextConfig)));

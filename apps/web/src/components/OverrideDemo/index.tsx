@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import undent from "undent";
 
@@ -8,6 +9,7 @@ import styles from "./styles.module.scss";
 
 export default function OverrideDemo() {
   const [overridden, setOverridden] = React.useState(false);
+  const { t } = useTranslation("root");
   return (
     <section className={styles.container}>
       <div className={styles.preview}>
@@ -17,7 +19,9 @@ export default function OverrideDemo() {
           size="lg"
           onClick={() => setOverridden((curr) => !curr)}
         >
-          {overridden ? "Back to default style..." : "Click to make me fancy!"}
+          {overridden
+            ? t("override.button.is-overridden")
+            : t("override.button.is-default")}
         </Button>
       </div>
       <CodeBlock code={codeCss} language="css" />
