@@ -4,5 +4,6 @@
   "pages": {
     "*": ["common"],
     "/": ["root"]
-  }
+  },
+  "logBuild": false
 }
