@@ -13,7 +13,7 @@
   ],
   "overrides": [
     {
-      "files": "**/*.{js,jsx,ts,tsx}",
+      "files": "**/*.{js,jsx,mjs,cjs,ts,tsx}",
       "settings": {
         "import/internal-regex": ["^((@|@camome)/|contentlayer/generated)"]
       },

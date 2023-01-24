@@ -5,6 +5,5 @@
     "next": {
       "rootDir": "apps/web/"
     }
-  },
-  "ignorePatterns": ["*.mjs"]
+  }
 }
