@@ -3,6 +3,7 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
@@ -17,18 +18,17 @@ type Props = {
 };
 
 export default function Cta({ className }: Props) {
+  const { t } = useTranslation("root");
   return (
     <section className={clsx(styles.container, className)}>
       <span className={styles.icon}>
         <RocketLaunchIcon />
       </span>
       <h2 className={styles.title}>
-        <Balancer>Start your next project from here.</Balancer>
+        <Balancer>{t("cta.heading")}</Balancer>
       </h2>
       <p className={styles.description}>
-        <Balancer>
-          Develop faster with a well-constructed design system and components.
-        </Balancer>
+        <Balancer>{t("cta.subheading")}</Balancer>
       </p>
       <div className={styles.buttons}>
         <Button
@@ -37,7 +37,7 @@ export default function Cta({ className }: Props) {
           size="md"
           rightIcon={<ChevronDoubleRightIcon />}
         >
-          Get started
+          {t("button.get-started")}
         </Button>
         <Button
           component="a"
@@ -48,7 +48,7 @@ export default function Cta({ className }: Props) {
           className={styles.githubLink}
           leftIcon={<FaGithub />}
         >
-          GitHub
+          {t("button.github")}
         </Button>
       </div>
     </section>
