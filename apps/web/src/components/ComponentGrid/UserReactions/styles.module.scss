@@ -1,0 +1,37 @@
+.container {
+  padding: 1rem;
+  background: var(--cmm-color-surface-0);
+  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-lg);
+}
+
+.reactions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  :global {
+    .Tag {
+      transition: var(--cmm-transition-bg);
+      font-weight: var(--cmm-font-weight-normal);
+
+      &:hover {
+        cursor: pointer;
+        background: var(--cmm-color-primary-outline-bg-hover);
+      }
+    }
+  }
+}
+
+.users {
+  padding-left: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &__label {
+    color: var(--cmm-color-font-subtle);
+    font-size: var(--cmm-font-size-sm);
+  }
+}

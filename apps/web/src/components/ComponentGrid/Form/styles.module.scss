@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  :global {
+    .Switch {
+      --cmm-Switch-gap: 0px;
+    }
+  }
+}
+
+.col2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0.5rem;
+}
+
+.switchField {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  width: fit-content;
+}

@@ -10,7 +10,6 @@
 @include utils.layer {
   .Block {
     @extend %sizeDefaults;
-    #{labelVars.$fontWeight_name}: var(--cmm-font-weight-normal);
 
     display: grid;
     grid-template-columns: auto 1fr;
@@ -102,7 +101,7 @@
     #{locals.$size_name}: 1.25rem;
 
     > label {
-      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-sm);
     }
   }
 

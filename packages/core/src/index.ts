@@ -5,6 +5,7 @@ export * from "./components/Markup";
 export * from "./components/Breadcrumbs";
 export * from "./components/Message";
 export * from "./components/Avatar";
+export * from "./components/AvatarGroup";
 export * from "./components/Checkbox";
 export * from "./components/Radio";
 export * from "./components/RadioGroup";

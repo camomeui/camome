@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
+import ComponentGrid from "@/components/ComponentGrid";
 import CustomThemeSandbox from "@/components/CustomThemePlayground";
 import DocLink from "@/components/DocLink";
 
@@ -21,7 +22,7 @@ import { Button } from "@camome/core/Button";
 export default function RootPage() {
   return (
     <div className={styles.container}>
-      <section id="hero">
+      <section id="hero" className={styles.hero}>
         <div className={styles.headingBlock}>
           <div className={styles.topHeading}>
             <Balancer>Light weight, accessible</Balancer>
@@ -55,6 +56,7 @@ export default function RootPage() {
             </Button>
           </div>
         </div>
+        <ComponentGrid classNames={{ inner: styles.componentGridInner }} />
       </section>
 
       <section id="features" className={styles.featureSection}>

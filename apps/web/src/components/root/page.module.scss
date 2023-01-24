@@ -1,13 +1,25 @@
 @use "@/styles/variables";
 
 .container {
-  padding-top: 4rem;
+  padding-top: 5rem;
   padding-bottom: 8rem;
+  overflow-x: hidden;
+}
+
+.hero {
+  @include variables.container();
+  display: grid;
+  grid-template-columns: 50% auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.componentGridInner {
+  // ComponentGrid's main content (inner) is absolutely positioned
+  translate: 0 -50%;
 }
 
 .headingBlock {
-  @include variables.container(40rem);
-
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -44,7 +56,7 @@
 }
 
 .featureSection {
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
 .featList {
@@ -217,7 +229,7 @@
     }
 
     code {
-      background: var(--cmm-color-code-bg);
+      background: var(--cmm-color-surface-2);
       color: var(--cmm-color-primary-emphasis);
       font-size: 0.85em;
       padding: 0.1em;
@@ -238,7 +250,7 @@
     }
 
     code {
-      background: var(--cmm-color-code-bg);
+      background: var(--cmm-color-surface-2);
       color: var(--cmm-color-primary-emphasis);
       font-size: 0.85em;
       padding: 0.1em 0.25em;

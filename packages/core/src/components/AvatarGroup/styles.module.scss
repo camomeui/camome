@@ -1,0 +1,11 @@
+@use "../../styles/utils";
+@use "../Avatar/variables" as avatarVars;
+
+@include utils.layer {
+  .Block {
+    #{avatarVars.$ringSize_name}: 2px;
+    #{avatarVars.$margin_name}: 0 0 0 -0.5rem;
+    color: gray;
+    display: flex;
+  }
+}
