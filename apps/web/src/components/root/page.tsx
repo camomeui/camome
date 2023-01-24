@@ -168,7 +168,7 @@ const features: {
   {
     title: "Fully themable",
     description:
-      "By combining a well-designed design system and CSS variables, you can freely customize the theme.",
+      "By combining a well-constructed design system and CSS variables, you can freely customize the theme.",
     icon: <SwatchIcon />,
   },
   {
