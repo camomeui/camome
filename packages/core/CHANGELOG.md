@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.8
+
+### Patch Changes
+
+- 70dbdaa: Fix path of components.css
+
 ## 0.0.7
 
 ### Patch Changes
