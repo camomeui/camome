@@ -69,12 +69,12 @@
     "./*": {
       "default": "./src/components/*/index.tsx"
     },
+    "./dist/components.css": {
+      "default": "./dist/components.css"
+    },
     "./dist": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./dist/components.css": {
-      "default": "./dist/components.css"
     }
   },
   "typesVersions": {
