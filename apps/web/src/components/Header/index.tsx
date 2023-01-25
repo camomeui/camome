@@ -66,7 +66,7 @@ export default function Header({ menuContent, classNames }: Props) {
           >
             <Bars3Icon strokeWidth="1.5" />
           </IconButton>
-          <Link href="/">
+          <Link href="/" aria-label="Home">
             <LogoIconSvg className={styles.logoIcon} />
             <LogoSvg className={styles.logo} />
           </Link>
