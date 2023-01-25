@@ -1,8 +1,4 @@
-import {
-  Squares2X2Icon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
@@ -25,15 +21,18 @@ const DIALOG_ID = "header-menu" as const;
 
 const navItems: NavItem[] = [
   {
+    id: "docs",
+    href: "/docs/guide/overview",
+    label: "Docs",
+  },
+  {
     id: "components",
     href: "/docs/components",
     label: "Components",
   },
 ];
 
-const linkToIconMap: { [id: string]: SvgComponent } = {
-  components: Squares2X2Icon,
-};
+const linkToIconMap: { [id: string]: SvgComponent } = {};
 
 type Props = {
   menuContent?: ({ close }: { close: () => void }) => React.ReactNode;
