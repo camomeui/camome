@@ -1,5 +1,11 @@
 # @camome/utils
 
+## 0.1.9
+
+### Patch Changes
+
+- 0762b67: Transpile TypeScript files of @camome/core
+
 ## 0.1.8
 
 ### Patch Changes
