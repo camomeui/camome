@@ -183,13 +183,13 @@
     @each $color in $statuses {
       :global(.Message--#{$color}) {
         :is(p, li) {
-          color: var(--cmm-color-#{$color}-soft-font);
+          color: var(--cmm-#{$color}-font);
         }
 
         :is(code) {
           color: var(--cmm-color-#{$color}-font);
-          --cmm-color-code-bg: var(--cmm-color-#{$color}-soft-bg);
-          border: 1px solid var(--cmm-color-#{$color}-outline-border);
+          --cmm-color-code-bg: var(--cmm-Message-#{$color}-bg);
+          border: 1px solid var(--cmm-Message-#{$color}-border);
         }
       }
     }

@@ -19,4 +19,5 @@ export const themedComponents = [
   "Tab",
   "Switch",
   "Tooltip",
+  "Message",
 ] as const;

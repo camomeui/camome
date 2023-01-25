@@ -31,6 +31,7 @@ export type ColorSchemeTokens = {
   emphasis: Color;
   muted: Color;
   subtle: Color;
+  border: Color;
 };
 
 type VariantSolid = {

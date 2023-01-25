@@ -86,6 +86,28 @@ const darkTheme = {
     fontIcon: cssVar("color.font.muted"),
     fontGroup: cssVar("color.font.muted"),
   },
+  Message: {
+    info: {
+      bg: cssVar("color.primary.subtle"),
+      font: cssVar("color.primary.font"),
+      border: cssVar("color.primary.border"),
+    },
+    success: {
+      bg: cssVar("color.success.subtle"),
+      font: cssVar("color.success.font"),
+      border: cssVar("color.success.border"),
+    },
+    warn: {
+      bg: cssVar("color.warn.subtle"),
+      font: cssVar("color.warn.font"),
+      border: cssVar("color.warn.border"),
+    },
+    danger: {
+      bg: cssVar("color.danger.subtle"),
+      font: cssVar("color.danger.font"),
+      border: cssVar("color.danger.border"),
+    },
+  },
   Tab: {
     bg: cssVar("color.surface.0"),
     listBg: cssVar("color.surface.0"),
@@ -128,6 +150,7 @@ export function colorSchemeColors(
     emphasis: cssVar(`color.${colorScheme}.5`),
     muted: alpha(shade[6], 0.5),
     subtle: alpha(shade[6], 0.15),
+    border: alpha(shade[6], 0.5),
   };
 }
 

@@ -34,6 +34,19 @@ export type MenuTheme = {
   fontGroup: Color;
 };
 
+type MessageThemItem = {
+  bg: Color;
+  font: Color;
+  border: Color;
+};
+
+export type MessageTheme = {
+  info: MessageThemItem;
+  success: MessageThemItem;
+  warn: MessageThemItem;
+  danger: MessageThemItem;
+};
+
 export type TabTheme = {
   border: Color;
   borderActive: Color;
@@ -69,6 +82,7 @@ export type ComponentTheme = {
   Tab: TabTheme;
   Tooltip: TooltipTheme;
   Switch: SwitchTheme;
+  Message: MessageTheme;
 };
 
 // Make sure `ComponentTheme` has all the component themes

@@ -7,6 +7,8 @@
     place-items: center start;
     gap: 0.5rem;
     padding: 1rem;
+    border-width: 1px;
+    border-style: solid;
     border-radius: var(--cmm-radius-lg);
     width: 100%;
   }
@@ -15,8 +17,9 @@
 
   @each $color in $statuses {
     .--#{$color} {
-      color: var(--cmm-color-#{$color}-soft-font);
-      background: var(--cmm-color-#{$color}-soft-bg);
+      color: var(--cmm-Message-#{$color}-font);
+      background: var(--cmm-Message-#{$color}-bg);
+      border-color: var(--cmm-Message-#{$color}-border);
     }
   }
 

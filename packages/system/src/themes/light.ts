@@ -82,6 +82,28 @@ const lightTheme = {
     fontIcon: cssVar("color.font.muted"),
     fontGroup: cssVar("color.font.muted"),
   },
+  Message: {
+    info: {
+      bg: cssVar("color.primary.0"),
+      font: cssVar("color.primary.font"),
+      border: cssVar("color.primary.border"),
+    },
+    success: {
+      bg: cssVar("color.success.0"),
+      font: cssVar("color.success.font"),
+      border: cssVar("color.success.border"),
+    },
+    warn: {
+      bg: cssVar("color.warn.0"),
+      font: cssVar("color.warn.font"),
+      border: cssVar("color.warn.border"),
+    },
+    danger: {
+      bg: cssVar("color.danger.0"),
+      font: cssVar("color.danger.font"),
+      border: cssVar("color.danger.border"),
+    },
+  },
   Tab: {
     bg: cssVar("color.surface.0"),
     listBg: cssVar("color.surface.0"),
@@ -115,6 +137,7 @@ export function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
     emphasis: cssVar(`color.${colorScheme}.6`),
     muted: cssVar(`color.${colorScheme}.4`),
     subtle: cssVar(`color.${colorScheme}.1`),
+    border: cssVar(`color.${colorScheme}.1`),
   };
 }
 
