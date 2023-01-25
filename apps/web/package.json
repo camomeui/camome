@@ -28,6 +28,7 @@
     "@heroicons/react": "^2.0.10",
     "@mdx-js/loader": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
+    "@next/bundle-analyzer": "^13.1.5",
     "@next/mdx": "^13.0.0",
     "camome": "workspace:*",
     "contentlayer": "^0.2.9",

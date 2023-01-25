@@ -1,6 +1,7 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
+import createBundleAnalyzer from "@next/bundle-analyzer";
 import createMdx from "@next/mdx";
 import { withContentlayer } from "next-contentlayer";
 import withNextTranslate from "next-translate";
@@ -71,4 +72,10 @@ const withMdx = createMdx({
   options: mdxOptions,
 });
 
-export default withNextTranslate(withContentlayer(withMdx(nextConfig)));
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withBundleAnalyzer(
+  withNextTranslate(withContentlayer(withMdx(nextConfig)))
+);
