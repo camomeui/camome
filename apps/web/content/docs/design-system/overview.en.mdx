@@ -1,0 +1,25 @@
+---
+title: "About design system"
+label: "Overview"
+id: "design-system:overview"
+---
+
+## Overview
+
+The design system of Camome is mainly divided into "color palette", "typography", and "others". Although it is called a design system, it is not as strict as to constraint the design completely. For example, grid systems for determining the placement of UI parts and sizes for padding are not introduced.
+
+Instead, the **color palette is somewhat systematically specified**. This is mainly to make it easy to customize themes.
+
+## Usage
+
+All design tokens are defined in `@camome/system`. The source code is a JavaScript object, but of course it also generates CSS.
+
+### CSS
+
+In CSS, all design tokens are declared as [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*). They are in the form of `cmm-` prefix, like `--cmm-color-primary-5`.
+
+You can import the default theme from `@camome/system/theme.css`, but it is also possible to customize it. See <DocLink id="guide:theming"/> for more information.
+
+### JavaScript
+
+<Message status="warn">This section is under construction...</Message>

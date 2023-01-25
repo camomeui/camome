@@ -2,3 +2,149 @@
 title: "Installation"
 id: "guide:installation"
 ---
+
+## Install
+
+<CodeTabs
+  items={[
+    {
+      name: "npm",
+      code:
+        pm.install("npm", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("npm", "@camome/utils"),
+      language: "bash",
+    },
+    {
+      name: "yarn",
+      code:
+        pm.install("yarn", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("yarn", "@camome/utils"),
+      language: "bash",
+    },
+    {
+      name: "pnpm",
+      code:
+        pm.install("pnpm", "@camome/system @camome/core") +
+        "\n" +
+        pm.installDev("pnpm", "@camome/utils"),
+      language: "bash",
+    },
+  ]}
+/>
+
+## [Method 1] TypeScript + CSS Modules
+
+In this method, you will transpile and load the code from `@camome/core` inside `node_modules` using your app's bundler. This is recommended from a performance perspective because you can only load the necessary components and their corresponding CSS.
+
+### Setup bundler
+
+The source code for Camome is written in [TypeScript](https://www.typescriptlang.org/) + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/). As these are not directly importable code from raw JavaScript, you will need to set up plugins or loaders for Webpack or Rollup.
+
+Please refer to the following for the main frameworks' setup methods:
+
+<DocLinkCardGrid
+  links={[
+    { id: "integrations:next" },
+    { id: "integrations:vite" },
+    { id: "integrations:cra" },
+  ]}
+/>
+
+### CSS imports
+
+The order of CSS import statements matter. Camome declares the priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) in the theme file, so please make sure to import the theme file first.
+
+For example, in Next.js it would look like this:
+
+```tsx:_app.tsx
+import "@camome/system/theme.css";
+// or: import "@/styles/generated-theme.css"
+import "@/styles/globals.css";
+import { Button } from "@camome/core/Button";
+// or: import { Button } from "@camome/core"
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```
+
+```css:globals.css
+/* Override styles of Button
+   (Outside of @layer always wins over inside) */
+.Button {
+  border-radius: 999px;
+}
+```
+
+<Message status="info">
+  Whether the file can import CSS and whether the order is guaranteed depends on
+  the bundler and framework, so please check if it does not work properly.
+</Message>
+
+<DocLinkCardGrid links={[{ id: "guide:theming" }]} />
+
+### Specifying a theme with the `data-theme` attribute
+
+Camome supports `light` and `dark` themes, which can be specified with the `data-theme` attribute on the `<html>` tag.
+
+```html:index.html
+<!DOCTYPE html>
+<html data-theme="<light or dark>">
+  <!-- Content -->
+</html>
+```
+
+<Message status="warn">
+  The theme will not be applied if the `data-theme` attribute is not added, so
+  this task is mandatory.
+</Message>
+
+<DocLinkCardGrid links={[{ id: "guide:theming" }]} />
+
+### Importing components
+
+There are two ways to import components from `@camome/core`:
+
+```tsx:individual-import.tsx
+import { Button } from "@camome/core/Button";
+import { TextInput } from "@camome/core/TextInput";
+```
+
+```tsx:bulk-import.tsx
+import { Button, TextInput } from "@camome/core";
+```
+
+**Generally, individual import is preferred**, but bulk import is also fine.
+
+- When using bulk import, performance of the development server or build may slightly decrease (at least) in Next.js and Vite. However, it is not expected to have an impact on the production environment.
+- Individual import may make it more difficult for the IDE's auto-completion to work.
+- Individual import may result in more verbose code.
+
+## [Method 2] Bundled JavaScript + Global CSS
+
+<Message status="warn">This method is generally not recommended.</Message>
+
+Method 1, which transpiles TypeScript and CSS Modules through a bundler, may be difficult to implement depending on the environment. In that case, use bundled JavaScript and CSS.
+
+It has the following characteristics:
+
+- No need to set up a bundler.
+- All component CSS is loaded at once.
+- JavaScript can be tree-shaken (if properly configured).
+
+```tsx:_app.tsx
+import "@/styles/globals.css";
+import "@camome/system/theme.css";
+import "@camome/core/components.css"; // Loads CSS for all components
+import { Button } from "@camome/core/dist"; // Loads transpiled + CSS Modules
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```

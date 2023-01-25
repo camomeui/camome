@@ -7,11 +7,11 @@ import DemoReactHookForm from "@/demo/ReactHookForm";
 
 ## Overview
 
-Camome doesn't provide built-in features that enable form validation or submission by client-side JavaScript.
+Camome does not include client-side form validation functionality using JavaScript. Instead, it focuses on easily generating semantic and accessible HTML.
 
-Instead, we focus on helping you build semantic and accessible HTML by `FormField` component that automatically publishes `id`s and ties them to appropriate `<label>`s and `<input>`s. It also supports adding descriptive text (including errors) that's defined as [`aria-describedby`](https://www.w3.org/TR/wai-aria-1.1/#aria-describedby) attribute.
+By using the FormField component, you can automatically generate ids and properly link <label> and <input>, as well as include explanatory text (including errors) and mark them up in an accessible way using the aria-describedby attribute.
 
-As Camome follows the Web standard and exports the HTML-based APIs, it can be easily integrated with existing form libraries such as [React Hook Form](https://react-hook-form.com/).
+Since Camome aims to provide HTML-based APIs as much as possible without using JavaScript, it can easily be combined with existing form libraries like [React Hook Form](https://react-hook-form.com/).
 
 ## Example with React Hook Form
 

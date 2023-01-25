@@ -1,0 +1,65 @@
+---
+title: "Color palette"
+id: "design-system:colors"
+tocLevel: 2
+---
+
+import Variant from "@/demo/Button/Variant";
+
+## Overview
+
+The color palette of the Camome design system is divided into three categories:
+
+1.  Shade
+2.  Semantic
+3.  Template
+
+Of these three, Shade is the most primitive and has higher level meanings as you go down.
+
+<Message status="warn">
+  Tokens that directly reference specific colors, such as `color.red.5`, are not
+  included to keep the size as compact as possible.
+</Message>
+
+## Usage
+
+**In general, do not use Shade in your code**. If you use Shade directly, you will have to write a lot of selectors like `:root[data-theme="dark"]` when corresponding to a dark theme, for example.
+
+Instead, **use Semantic and Template**. This way, you can respond flexibly to changes in the theme.
+
+### Differences between Semantic and Template
+
+- Semantic - tokens that can be used generically anywhere.
+- Template - tokens for specific UI patterns. For example, <DocLink id="button" hash="variant" /> has multiple templates and can be switched by the `variant` property. <DocLink id="radio"/> has only one template (`soft`) as an example.
+
+<CodeSandbox {...Variant} showCode={false} />
+
+Many UI components often match one of these templates, so it can be useful to inherit those tokens. You should also be able to adopt these tokens in your own custom components in your application.
+
+## Shade
+
+<Message status="warn">
+  Use Semantic or Template when you want to support multiple themes.
+</Message>
+
+<DesignSystem.ShadeColors />
+
+## Semantic
+
+### Font
+
+<DesignSystem.FontColors />
+
+### Surface
+
+<DesignSystem.SurfaceColors />
+
+### Border
+
+<DesignSystem.BorderColors />
+
+<DesignSystem.SemanticColors />
+
+## Template
+
+<DesignSystem.TemplateColors />
