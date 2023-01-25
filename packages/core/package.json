@@ -80,6 +80,7 @@
   "typesVersions": {
     "*": {
       "*": [
+        "./dist/index.d.ts",
         "./dist/components/*/index.d.ts"
       ]
     }
