@@ -4,8 +4,8 @@ import React from "react";
 
 import type { Option } from "./types";
 
-import CustomThemeDemo from "@/components/CustomThemePlayground/CustomThemeDemo";
-import CustomThemeRadio from "@/components/CustomThemePlayground/CustomThemeRadio";
+import CustomThemeDemo from "@/components/CustomThemeSandbox/CustomThemeDemo";
+import CustomThemeRadio from "@/components/CustomThemeSandbox/CustomThemeRadio";
 import { generateThemeCss } from "@camome/system";
 
 import styles from "./styles.module.scss";

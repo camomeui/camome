@@ -3,23 +3,24 @@ import {
   SparklesIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
-import ComponentGrid from "@/components/ComponentGrid";
-
 import styles from "./page.module.scss";
 
+import ComponentGrid from "@/components/ComponentGrid";
 import Cta from "@/components/Cta";
-import CustomThemeSandbox from "@/components/CustomThemePlayground";
-import DocLink from "@/components/DocLink";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import OverrideDemo from "@/components/OverrideDemo";
 import CardDemo from "@/docs-data/demo/marketing/Card";
 import { Button } from "@camome/core/Button";
+
+const CustomThemeSandbox = dynamic(import("@/components/CustomThemeSandbox"));
 
 export default function RootPage() {
   const { t } = useTranslation("root");
@@ -59,8 +60,8 @@ export default function RootPage() {
           </p>
           <div className={styles.buttons}>
             <Button
-              component={DocLink}
-              id="guide:overview"
+              component={Link}
+              href="/docs/guide/overview"
               rightIcon={<ChevronDoubleRightIcon strokeWidth="2" />}
               size="lg"
             >
@@ -136,8 +137,8 @@ export default function RootPage() {
             </div>
             <div className={styles.theming__right}>
               <Button
-                component={DocLink}
-                id="guide:theming"
+                component={Link}
+                href="/docs/guide/theming"
                 size="lg"
                 variant="soft"
                 rightIcon={<ChevronDoubleRightIcon />}

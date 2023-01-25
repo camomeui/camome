@@ -3,15 +3,15 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
 
-import DocLink from "@/components/DocLink";
-import { Button } from "@camome/core/Button";
-
 import styles from "./styles.module.scss";
+
+import { Button } from "@camome/core/Button";
 
 type Props = {
   className?: string;
@@ -32,8 +32,8 @@ export default function Cta({ className }: Props) {
       </p>
       <div className={styles.buttons}>
         <Button
-          component={DocLink}
-          id="guide:overview"
+          component={Link}
+          href="/docs/guide/overview"
           size="md"
           rightIcon={<ChevronDoubleRightIcon />}
         >
