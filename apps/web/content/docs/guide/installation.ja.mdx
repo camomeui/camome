@@ -59,7 +59,7 @@ CSS のインポートの順番には意味があります。Camome はテーマ
 例えば Next.js では次のように実装します:
 
 ```tsx:_app.tsx
-import "@camome/system/theme.css";
+import "@camome/system/dist/theme.css";
 // または: import "@/styles/generated-theme.css"
 import "@/styles/globals.css";
 import { Button } from "@camome/core/Button";
@@ -137,8 +137,8 @@ import { Button, TextInput } from "@camome/core";
 
 ```tsx:_app.tsx
 import "@/styles/globals.css";
-import "@camome/system/theme.css";
-import "@camome/core/components.css"; // 全てのコンポーネントのCSSを読み込む
+import "@camome/system/dist/theme.css";
+import "@camome/core/dist/components.css"; // 全てのコンポーネントのCSSを読み込む
 import { Button } from "@camome/core/dist"; // トランスパイル済み + CSS Modulesを読み込まない
 
 function App() {
