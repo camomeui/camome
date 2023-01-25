@@ -302,13 +302,12 @@ importers:
       '@vitejs/plugin-react': ^3.0.0
       autoprefixer: ^10.4.13
       clsx: ^1.2.1
-      esbuild-css-modules-plugin: ^2.6.3
       esbuild-plugin-sass-modules: ^0.0.3
       esbuild-sass-plugin: ^2.4.4
       globby: ^13.1.2
       lightningcss: ^1.17.1
       lodash: ^4.17.21
-      postcss: ^8.4.20
+      postcss: ^8.4.21
       postcss-modules: ^6.0.0
       prism-react-renderer: ^1.3.5
       react: ^18.2.0
@@ -340,7 +339,6 @@ importers:
       '@types/yargs': 17.0.20
       '@vitejs/plugin-react': 3.0.1_vite@4.0.4
       autoprefixer: 10.4.13_postcss@8.4.21
-      esbuild-css-modules-plugin: 2.7.1
       esbuild-plugin-sass-modules: 0.0.3
       globby: 13.1.3
       postcss: 8.4.21
@@ -8780,6 +8778,7 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
+    dev: false
 
   /detect-libc/2.0.1:
     resolution: {integrity: sha512-463v3ZeIrcWtdgIg6vI6XUncguvr2TnGl4SzDXinkt9mSLpBJKXT3mW6xT3VQdDN11+WVs29pgvivTc4Lp8v+w==}
@@ -9200,20 +9199,6 @@ packages:
     os: [android]
     requiresBuild: true
     optional: true
-
-  /esbuild-css-modules-plugin/2.7.1:
-    resolution: {integrity: sha512-lyz7oztJaqkSzXFTnMBW4nOqiXdw28DIpSZyOf73n9kxe3W5NV9VP/bJfg9ceX80B2xGhLYicb/n0oiGi0Mfnw==}
-    engines: {node: '>= 16'}
-    peerDependencies:
-      esbuild: '*'
-    dependencies:
-      fs-extra: 10.1.0
-      lightningcss: 1.18.0
-      lodash: 4.17.21
-      postcss: 8.4.21
-      postcss-modules: 6.0.0_postcss@8.4.21
-      tmp: 0.2.1
-    dev: true
 
   /esbuild-darwin-64/0.14.54:
     resolution: {integrity: sha512-jtdKWV3nBviOd5v4hOpkVmpxsBy90CGzebpbO9beiqUYVMBtSc0AL9zGftFuBon7PNDcdvNCEuQqw2x0wP9yug==}
@@ -13552,6 +13537,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-darwin-x64/1.18.0:
@@ -13560,6 +13546,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-linux-arm-gnueabihf/1.18.0:
@@ -13568,6 +13555,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-linux-arm64-gnu/1.18.0:
@@ -13576,6 +13564,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-linux-arm64-musl/1.18.0:
@@ -13584,6 +13573,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-linux-x64-gnu/1.18.0:
@@ -13592,6 +13582,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-linux-x64-musl/1.18.0:
@@ -13600,6 +13591,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss-win32-x64-msvc/1.18.0:
@@ -13608,6 +13600,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /lightningcss/1.18.0:
@@ -13624,6 +13617,7 @@ packages:
       lightningcss-linux-x64-gnu: 1.18.0
       lightningcss-linux-x64-musl: 1.18.0
       lightningcss-win32-x64-msvc: 1.18.0
+    dev: false
 
   /lilconfig/2.0.6:
     resolution: {integrity: sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==}
@@ -18655,13 +18649,6 @@ packages:
     engines: {node: '>=0.6.0'}
     dependencies:
       os-tmpdir: 1.0.2
-    dev: true
-
-  /tmp/0.2.1:
-    resolution: {integrity: sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==}
-    engines: {node: '>=8.17.0'}
-    dependencies:
-      rimraf: 3.0.2
     dev: true
 
   /tmpl/1.0.5:
