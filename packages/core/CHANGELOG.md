@@ -1,5 +1,19 @@
 # @camome/components
 
+## 0.0.5
+
+### Patch Changes
+
+- 1dd8c7e: - Modify theme
+  - Change default title of Message
+- 914f2c2: Add Semantic.border and Message tokens.
+- fb8d290: Change `exports` field of package.json of @camome/core.
+- Updated dependencies [1dd8c7e]
+- Updated dependencies [914f2c2]
+- Updated dependencies [175030b]
+- Updated dependencies [18346b6]
+  - @camome/system@0.1.14
+
 ## 0.0.4
 
 ### Patch Changes
