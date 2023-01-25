@@ -1,5 +1,18 @@
 # @camome/web
 
+## 0.1.15
+
+### Patch Changes
+
+- 3328208: Revert exports
+- 28c2022: Change export path of css files
+- Updated dependencies [3328208]
+- Updated dependencies [612f0bf]
+- Updated dependencies [28c2022]
+  - @camome/core@0.0.7
+  - @camome/system@0.1.15
+  - camome@0.1.12
+
 ## 0.1.14
 
 ### Patch Changes
