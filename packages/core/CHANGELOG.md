@@ -1,5 +1,14 @@
 # @camome/components
 
+## 0.0.10
+
+### Patch Changes
+
+- 0762b67: Transpile TypeScript files of @camome/core
+- Updated dependencies [0762b67]
+  - @camome/system@0.1.16
+  - @camome/utils@0.1.9
+
 ## 0.0.9
 
 ### Patch Changes
