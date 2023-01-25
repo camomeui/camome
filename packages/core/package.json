@@ -66,22 +66,22 @@
     ".": {
       "default": "./src/index.ts"
     },
-    "./*": {
-      "default": "./src/components/*/index.tsx"
-    },
     "./dist/components.css": {
       "default": "./dist/components.css"
     },
     "./dist": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./*": {
+      "default": "./src/components/*/index.tsx"
     }
   },
   "typesVersions": {
     "*": {
       "*": [
-        "./dist/*",
-        "./dist/components/*/index.d.ts"
+        "./dist/components/*/index.d.ts",
+        "./dist/*"
       ]
     }
   },
