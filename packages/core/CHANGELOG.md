@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.11
+
+### Patch Changes
+
+- f00b67d: Fix package.json
+
 ## 0.0.10
 
 ### Patch Changes
