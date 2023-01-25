@@ -11,9 +11,6 @@ import { FaGithub } from "react-icons/fa";
 import LogoIconSvg from "@/assets/logo-icon.svg";
 import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
-
-import styles from "./styles.module.scss";
-
 import LocaleSwitch from "@/components/LocaleSwitch";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -21,6 +18,8 @@ import { LabeledLink, NavItem, NavItemLink } from "@/types";
 import { IconButton } from "@camome/core/IconButton";
 import { Tooltip } from "@camome/core/Tooltip";
 import { type SvgComponent } from "@camome/utils";
+
+import styles from "./styles.module.scss";
 
 const DIALOG_ID = "header-menu" as const;
 

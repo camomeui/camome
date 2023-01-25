@@ -14,9 +14,9 @@
   "scripts": {
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
-    "dev:vite": "vite build --watch",
-    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:vite\"",
-    "build": "pnpm gen-scss-type && vite build",
+    "build": "pnpm gen-scss-type && tsup",
+    "dev:tsup": "tsup build --watch",
+    "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:tsup\"",
     "typecheck": "pnpm gen-scss-type && tsc",
     "run-ts": "node -r esbuild-register"
   },
@@ -37,10 +37,9 @@
     "@types/yargs": "^17.0.17",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
-    "esbuild-css-modules-plugin": "^2.6.3",
     "esbuild-plugin-sass-modules": "^0.0.3",
     "globby": "^13.1.2",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.21",
     "postcss-modules": "^6.0.0",
     "react": "^18.2.0",
     "react-docgen-typescript": "^2.2.2",
@@ -50,6 +49,7 @@
     "sass": "^1.55.0",
     "storybook": "^7.0.0-beta.15",
     "storybook-dark-mode": "^2.0.5",
+    "tsup": "^6.3.0",
     "vite": "^4.0.2",
     "vite-plugin-dts": "^1.7.1",
     "vite-tsconfig-paths": "^4.0.3",
@@ -62,26 +62,26 @@
     "dist",
     "src"
   ],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
     "./dist/components.css": {
       "default": "./dist/components.css"
     },
-    "./dist": {
+    ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./*": {
-      "default": "./src/components/*/index.tsx"
+      "import": "./dist/*/index.mjs",
+      "require": "./dist/*/index.cjs"
     }
   },
   "typesVersions": {
     "*": {
       "*": [
-        "./dist/components/*/index.d.ts",
-        "./dist/*"
+        "./dist/*/index.d.ts",
+        "./dist/index.d.ts"
       ]
     }
   },

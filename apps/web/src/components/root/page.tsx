@@ -11,14 +11,14 @@ import { FaGithub } from "react-icons/fa";
 import { TbBrandCss3 } from "react-icons/tb";
 import Balancer from "react-wrap-balancer";
 
-import styles from "./page.module.scss";
-
 import ComponentGrid from "@/components/ComponentGrid";
 import Cta from "@/components/Cta";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import OverrideDemo from "@/components/OverrideDemo";
 import CardDemo from "@/docs-data/demo/marketing/Card";
 import { Button } from "@camome/core/Button";
+
+import styles from "./page.module.scss";
 
 const CustomThemeSandbox = dynamic(import("@/components/CustomThemeSandbox"));
 

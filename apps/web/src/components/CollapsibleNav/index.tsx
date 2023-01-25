@@ -12,10 +12,9 @@ import React from "react";
 
 import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
 import { NavItem, NavItemCategory, NavItemLink } from "@/types";
+import { type SvgComponent } from "@camome/utils";
 
 import styles from "./styles.module.scss";
-
-import { type SvgComponent } from "@camome/utils";
 
 type Props = {
   items: NavItem[];

@@ -7,9 +7,6 @@ import { FiInfo } from "react-icons/fi";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ComponentParamTables from "@/components/ComponentParamTables";
 import DocsInnerLayout from "@/components/DocsInnerLayout";
-
-import styles from "./styles.module.scss";
-
 import DocsPageNav from "@/components/DocsPageNav";
 import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
@@ -18,6 +15,8 @@ import { Markup } from "@camome/core/Markup";
 import { Tag } from "@camome/core/Tag";
 import { toKebabCase, uppercaseFirst } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
+
+import styles from "./styles.module.scss";
 
 type Props = {
   doc: Docs;

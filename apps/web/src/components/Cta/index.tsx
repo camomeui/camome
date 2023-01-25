@@ -9,9 +9,9 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
 
-import styles from "./styles.module.scss";
-
 import { Button } from "@camome/core/Button";
+
+import styles from "./styles.module.scss";
 
 type Props = {
   className?: string;

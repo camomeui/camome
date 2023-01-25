@@ -7,12 +7,12 @@ import React from "react";
 import { HiOutlineTranslate } from "react-icons/hi";
 import { HiChevronDown, HiCheck } from "react-icons/hi2";
 
-import styles from "./styles.module.scss";
-
 import { localeToLabel } from "@/lib/i18n";
 import { Locale } from "@/types";
 import { Button } from "@camome/core/Button";
 import { menuClassNames } from "@camome/core/Menu";
+
+import styles from "./styles.module.scss";
 
 export default function LocaleSwitch() {
   const { locale, defaultLocale, asPath } = useRouter();
