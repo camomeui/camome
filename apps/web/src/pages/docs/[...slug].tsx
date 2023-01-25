@@ -15,6 +15,10 @@ import type {
 
 import DocsLayout from "@/components/DocsLayout";
 import DocsTemplate from "@/components/DocsTemplate";
+import {
+  DocsMetaContext,
+  DocsMetaContextValue,
+} from "@/contexts/DocsMetaContext";
 import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
 import { getComponentParams } from "@/lib/docs/getComponentParams";
 import { getSidebarItems } from "@/lib/docs/getSidebarItems";
@@ -23,6 +27,7 @@ import { allDocs, type Docs } from "contentlayer/generated";
 type Props = {
   doc: Docs;
   sidebarItems: NavItem[];
+  docsMeta: DocsMetaContextValue;
   next: LabeledLink | null;
   prev: LabeledLink | null;
   componentMeta: DocsComponentParams[] | null;
@@ -31,6 +36,7 @@ type Props = {
 export default function DocsPage({
   sidebarItems,
   doc,
+  docsMeta,
   next,
   prev,
   componentMeta,
@@ -38,17 +44,19 @@ export default function DocsPage({
   return (
     <>
       <NextSeo title={doc.title} description={doc.description} />
-      <DocsLayout sidebarItems={sidebarItems}>
-        <DocsTemplate
-          doc={doc}
-          toc={doc.toc}
-          tocLevel={doc.tocLevel}
-          next={next ?? undefined}
-          prev={prev ?? undefined}
-          componentParams={componentMeta ?? undefined}
-          key={doc._id} // Force initiate tab state
-        />
-      </DocsLayout>
+      <DocsMetaContext.Provider value={docsMeta}>
+        <DocsLayout sidebarItems={sidebarItems}>
+          <DocsTemplate
+            doc={doc}
+            toc={doc.toc}
+            tocLevel={doc.tocLevel}
+            next={next ?? undefined}
+            prev={prev ?? undefined}
+            componentParams={componentMeta ?? undefined}
+            key={doc._id} // Force initiate tab state
+          />
+        </DocsLayout>
+      </DocsMetaContext.Provider>
     </>
   );
 }
@@ -91,6 +99,15 @@ export async function getStaticProps({
 
   const props: Props = {
     doc,
+    docsMeta: {
+      docs: allDocs.map((doc) => ({
+        id: doc.id!,
+        slug: doc.slug,
+        title: doc.title,
+        locale: doc.locale ?? "en",
+        label: doc.label ?? null,
+      })),
+    },
     sidebarItems,
     next: next ?? null,
     prev: prev ?? null,
