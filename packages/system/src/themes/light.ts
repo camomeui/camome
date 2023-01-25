@@ -133,7 +133,7 @@ const lightTheme = {
 
 export function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
   return {
-    font: cssVar(`color.${colorScheme}.8`),
+    font: cssVar(`color.${colorScheme}.7`),
     emphasis: cssVar(`color.${colorScheme}.6`),
     muted: cssVar(`color.${colorScheme}.4`),
     subtle: cssVar(`color.${colorScheme}.1`),
