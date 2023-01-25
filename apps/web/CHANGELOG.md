@@ -1,5 +1,21 @@
 # @camome/web
 
+## 0.1.13
+
+### Patch Changes
+
+- 1dd8c7e: - Modify theme
+  - Change default title of Message
+- fb8d290: Change `exports` field of package.json of @camome/core.
+- Updated dependencies [1dd8c7e]
+- Updated dependencies [914f2c2]
+- Updated dependencies [175030b]
+- Updated dependencies [fb8d290]
+- Updated dependencies [18346b6]
+  - @camome/system@0.1.14
+  - @camome/core@0.0.5
+  - camome@0.1.11
+
 ## 0.1.12
 
 ### Patch Changes
