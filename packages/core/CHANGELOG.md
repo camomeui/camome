@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.6
+
+### Patch Changes
+
+- 47f8b39: Change exports of @camome/core
+
 ## 0.0.5
 
 ### Patch Changes
