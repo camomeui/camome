@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Table } from "@camome/core";
+import { Table } from "@camome/core/Table";
 import { lightTheme } from "@camome/system";
 
 import styles from "./styles.module.scss";

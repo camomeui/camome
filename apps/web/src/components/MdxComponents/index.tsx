@@ -8,7 +8,7 @@ import A from "@/components/MdxComponents/A";
 import CodeSandbox from "@/components/MdxComponents/CodeSandbox";
 import CodeTabs from "@/components/MdxComponents/CodeTabs";
 import Pre from "@/components/MdxComponents/Pre";
-import { Message, MessageProps } from "@camome/core";
+import { Message, type MessageProps } from "@camome/core/Message";
 
 export const mdxComponents: MDXComponents = {
   a: A,

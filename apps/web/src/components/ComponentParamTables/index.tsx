@@ -4,7 +4,8 @@ import React from "react";
 import type { DocsComponentParams, DocsComponentClass } from "@/types";
 
 import Heading from "@/components/Heading";
-import { Table, Tag } from "@camome/core";
+import { Table } from "@camome/core/Table";
+import { Tag } from "@camome/core/Tag";
 import { type ColorScheme } from "@camome/system";
 import { toKebabCase, uppercaseFirst } from "@camome/utils";
 

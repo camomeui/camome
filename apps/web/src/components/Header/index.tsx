@@ -18,7 +18,8 @@ import LocaleSwitch from "@/components/LocaleSwitch";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
-import { IconButton, Tooltip } from "@camome/core";
+import { IconButton } from "@camome/core/IconButton";
+import { Tooltip } from "@camome/core/Tooltip";
 import { type SvgComponent } from "@camome/utils";
 
 const DIALOG_ID = "header-menu" as const;

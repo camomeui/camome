@@ -14,7 +14,8 @@ import DocsPageNav from "@/components/DocsPageNav";
 import DocsTabs from "@/components/DocsTabs";
 import MdxRenderer from "@/components/MdxRenderer";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
-import { Markup, Tag } from "@camome/core";
+import { Markup } from "@camome/core/Markup";
+import { Tag } from "@camome/core/Tag";
 import { toKebabCase, uppercaseFirst } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 
