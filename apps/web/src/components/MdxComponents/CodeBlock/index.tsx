@@ -6,10 +6,10 @@ import darkTheme from "prism-react-renderer/themes/vsDark";
 import React from "react";
 import { BiCheck, BiCopy } from "react-icons/bi";
 
-import styles from "./styles.module.scss";
-
 import { useIsomorphicEffect } from "@/hooks/useIsomoficEffect";
 import { Tooltip } from "@camome/core/Tooltip";
+
+import styles from "./styles.module.scss";
 
 export type CodeBlockProps = {
   code: string;

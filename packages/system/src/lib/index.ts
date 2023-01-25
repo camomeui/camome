@@ -6,6 +6,7 @@ import { DeepPartial, generatePaths, getValue, Path } from "@camome/utils";
 import { DEFAULT_PREFIX, layers } from "../constants";
 import { darkTheme, lightTheme } from "../themes";
 import { BASE_STYLES } from "../themes/common";
+import { Theme, Themes } from "../types";
 
 import {
   layer,
@@ -15,8 +16,6 @@ import {
   cssVar,
   enclose,
 } from "./utils";
-
-import { Theme, Themes } from "../types";
 
 type DefineThemeFn = (theme: Theme) => DeepPartial<Theme>;
 
