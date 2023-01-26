@@ -1,8 +1,6 @@
 import { Button } from "@camome/core/Button";
 import { Switch } from "@camome/core/Switch";
 
-// Default theme: import "@camome/system/dist/theme.css"
-import "./theme.css";
 import "./App.css";
 
 function App() {
