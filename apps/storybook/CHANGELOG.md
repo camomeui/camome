@@ -1,5 +1,17 @@
 # @camome/storybook
 
+## 0.0.11
+
+### Patch Changes
+
+- 53a011b: - Modify light theme
+  - Modify Message colors
+- Updated dependencies [037903c]
+- Updated dependencies [5f24fe5]
+- Updated dependencies [53a011b]
+  - @camome/core@0.0.12
+  - @camome/system@0.1.17
+
 ## 0.0.10
 
 ### Patch Changes

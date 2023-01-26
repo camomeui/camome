@@ -1,5 +1,16 @@
 # @camome/components
 
+## 0.0.12
+
+### Patch Changes
+
+- 037903c: Bundle deps of @camome/core
+- 5f24fe5: - Remove `"sideEffects": false` from @camome/core.
+- 53a011b: - Modify light theme
+  - Modify Message colors
+- Updated dependencies [53a011b]
+  - @camome/system@0.1.17
+
 ## 0.0.11
 
 ### Patch Changes

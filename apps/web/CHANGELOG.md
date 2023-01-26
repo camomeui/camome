@@ -1,5 +1,19 @@
 # @camome/web
 
+## 0.1.20
+
+### Patch Changes
+
+- 5f24fe5: - Remove `"sideEffects": false` from @camome/core.
+- 53a011b: - Modify light theme
+  - Modify Message colors
+- Updated dependencies [037903c]
+- Updated dependencies [5f24fe5]
+- Updated dependencies [53a011b]
+  - @camome/core@0.0.12
+  - @camome/system@0.1.17
+  - camome@0.1.14
+
 ## 0.1.19
 
 ### Patch Changes
