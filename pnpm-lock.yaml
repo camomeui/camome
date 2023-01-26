@@ -147,6 +147,7 @@ importers:
       react-dom: ^18.2.0
       react-hook-form: ^7.40.0
       storybook: ^7.0.0-beta.28
+      storybook-dark-mode: ^2.0.5
       typescript: ^4.9.3
       vite: ^4.0.0
     dependencies:
@@ -175,6 +176,7 @@ importers:
       axe-playwright: 1.1.12
       prop-types: 15.8.1
       storybook: 7.0.0-beta.33
+      storybook-dark-mode: 2.0.5_biqbaboplfbrettd7655fr4n2y
       typescript: 4.9.4
       vite: 4.0.4
 
@@ -4572,6 +4574,24 @@ packages:
       - supports-color
     dev: true
 
+  /@storybook/components/6.5.15_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-bHTT0Oa3s4g+MBMaLBbX9ofMtb1AW59AzIUNGrfqW1XqJMGuUHMiJ7TSo+i5dRSFpbFygnwMEG9LfHxpR2Z0Dw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/client-logger': 6.5.15
+      '@storybook/csf': 0.0.2--canary.4566f4d.1
+      '@storybook/theming': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      core-js: 3.27.2
+      memoizerific: 1.11.3
+      qs: 6.11.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      regenerator-runtime: 0.13.11
+      util-deprecate: 1.0.2
+    dev: true
+
   /@storybook/components/7.0.0-beta.31_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-3j5TyueJ3cSvVPpGcqPhGnfcmEkMHx9I3qlsl3bggvSNb4FwZbGmSNPPUsv1GiGOYzbdSdd1R/HAA3nmkKeXLQ==}
     peerDependencies:
@@ -6193,7 +6213,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.0.4_sass@1.57.1
+      vite: 4.0.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -17793,6 +17813,29 @@ packages:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
     dev: true
 
+  /storybook-dark-mode/2.0.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-egOMu2tgGttGAMtFZcDLZobs1xc7LzFOh+pRVqaW59AVp05ABdQ3Hj6IX2Pz7tYGmF9AmaK+nBv0hDFxPe7Hfg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/addons': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/api': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/components': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/core-events': 6.5.15
+      '@storybook/theming': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      fast-deep-equal: 3.1.3
+      global: 4.4.0
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: true
+
   /storybook/7.0.0-beta.33:
     resolution: {integrity: sha512-8QI7woVh4RisxjFwOG97nY7PY7A4A3OUtaolZy9fGVOUMEekAUtSDo+phmFAnDPLjoSl61vZ+lHS4ENp/liMOQ==}
     hasBin: true
@@ -19252,40 +19295,6 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.10.1
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
-  /vite/4.0.4_sass@1.57.1:
-    resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.16.17
-      postcss: 8.4.21
-      resolve: 1.22.1
-      rollup: 3.10.1
-      sass: 1.57.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
