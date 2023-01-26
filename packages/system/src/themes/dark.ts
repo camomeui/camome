@@ -89,22 +89,22 @@ const darkTheme = {
   Message: {
     info: {
       bg: cssVar("color.primary.subtle"),
-      font: cssVar("color.primary.font"),
+      font: cssVar("color.primary.3"),
       border: cssVar("color.primary.border"),
     },
     success: {
       bg: cssVar("color.success.subtle"),
-      font: cssVar("color.success.font"),
+      font: cssVar("color.success.3"),
       border: cssVar("color.success.border"),
     },
     warn: {
       bg: cssVar("color.warn.subtle"),
-      font: cssVar("color.warn.font"),
+      font: cssVar("color.warn.3"),
       border: cssVar("color.warn.border"),
     },
     danger: {
       bg: cssVar("color.danger.subtle"),
-      font: cssVar("color.danger.font"),
+      font: cssVar("color.danger.3"),
       border: cssVar("color.danger.border"),
     },
   },

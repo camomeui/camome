@@ -2,3 +2,152 @@
 title: "Theming"
 id: "guide:theming"
 ---
+
+<Message status="info">
+  For individual design tokens, please refer to the design system documentation
+  as well.
+</Message>
+
+<DocLinkCardGrid
+  links={[
+    { id: "design-system:colors" },
+    { id: "design-system:typography" },
+    { id: "design-system:misc" },
+  ]}
+/>
+
+## Overview
+
+Since all of Camome's design tokens (colors, fonts, radii, etc.) are managed with [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), it is easy to customize the appearance for each brand.
+
+Camome also supports dark theme from the beginning.
+
+## Default Theme
+
+The default theme file can be imported from `@camome/system/theme.css` or `@camome/system.theme.min.css`. If you don't need to customize it, use it directly.
+
+## Configuration File
+
+If you want to change the theme, create a `camome.config.js` file in the project root and set it up like this:
+
+```tsx:camome.config.js
+import { defineTheme } from "@camome/system";
+
+/** @type { import("@camome/system").Config;} */
+export default {
+  themes: {
+    light: defineTheme("light", (theme) => ({
+      color: {
+        // Change primary color to purple
+        primary: {
+          0: "#faf5ff",
+          1: "#f3e8ff",
+          2: "#e9d5ff",
+          3: "#d8b4fe",
+          4: "#c084fc",
+          5: "#a855f7",
+          6: "#9333ea",
+          7: "#7e22ce",
+          8: "#6b21a8",
+          9: "#581c87",
+        },
+      },
+      // Component-level theme
+      Switch: {
+        bgOn: theme.color.success.emphasis,
+        bgOff: theme.color.danger.emphasis,
+        fontOff: theme.color.font.onEmphasis,
+      },
+    })),
+    // For dark theme
+    dark: defineTheme("dark"),
+  },
+};
+```
+
+In this example, the primary color is changed to purple, so custom accent colors are applied to all components such as buttons and checkboxes at once.
+
+`Switch` properties are an example of component-level themes. Many components use generic tokens such as `color.<color-scheme>.<variant>...`, so there is no need to set them individually, but complex components have their own tokens.
+
+<Message status="info">
+  For example, `<Button colorScheme="danger" variant="solid" />` uses
+  `color.danger.solid.bg` and so on, and these are also shared with things like
+  `<Tag colorScheme="danger" variant="solid" />
+  `. Currently, it is not possible to change these individually for each component
+  (mainly to keep the size of global CSS small).
+</Message>
+
+## Camome CLI
+
+You can use Camome CLI to generate a custom theme with the definition of the configuration file.
+
+```bash
+npx camome theme
+```
+
+The following options are available:
+
+- `--output`: Path of CSS generation destination (default is `theme.css`)
+- `--config`: Path of configuration file (default is `camome.config.js`)
+
+<Message status="info">
+  `--watch` Mode and integration with bundlers are under consideration.
+  Currently, please run the command each time you change the theme.
+</Message>
+
+## Overriding Components
+
+At the top of Camome's `theme.css`, the priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) is declared as follows:
+
+```css
+@layer cmm.reset, cmm.theme, cmm.base, cmm.components;
+```
+
+Thanks to this line, CSS styles declared after `theme.css` will be prioritized regardless of specificity (as long as they are not inside the above mentioned layer). Creating a layer like `cmm.custom` is optional.
+
+```css:globals.css
+/* Override styles of Button
+   (Outside of @layer always wins over inside) */
+.Button {
+  border-radius: 999px;
+}
+
+/* Optional */
+@layer cmm.custom {...}
+```
+
+## Dark theme
+
+Camome supports both `light` and `dark` themes, which can be specified by the `data-theme` attribute of the `<html>` tag.
+
+```html:index.html
+<!DOCTYPE html>
+<html data-theme="<light or dark>">
+  <!-- Content -->
+</html>
+```
+
+It is defined as follows in `theme.css`:
+
+```css:theme.css
+@layer cmm.theme {
+  :root[data-theme="light"] {
+    --cmm-color-primary-font: var(--cmm-color-primary-7);
+    --cmm-color-primary-emphasis: var(--cmm-color-primary-6);
+    {...}
+  }
+}
+```
+
+If you need to style for each theme in your application's CSS, write it as follows:
+
+```css
+:root[data-theme="dark"] .your-class {
+  /* Your styles for dark theme... */
+}
+```
+
+<Message status="info">
+  **`light` and `dark` can be customized independently.** Please refer to the
+  [configuration file](#configuration-file) section.
+</Message>

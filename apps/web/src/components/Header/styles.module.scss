@@ -70,7 +70,6 @@
   .list {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
   }
 
   .link {
@@ -79,7 +78,7 @@
     gap: 0.25rem;
     color: var(--cmm-color-font-base);
     background: var(--cmm-color-surface-0);
-    font-weight: var(--cmm-font-weight-medium);
+    font-weight: var(--cmm-font-weight-bold);
     font-size: var(--cmm-font-size-sm);
     height: 2rem;
     padding: 0 0.5rem;
