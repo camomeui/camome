@@ -93,9 +93,8 @@ export function postcssModules() {
 }
 
 export default defineConfig(async () => {
-  const entries = await globby("./src/components/*/index.tsx");
   return {
-    entry: entries,
+    entry: await globby("./src/components/*/index.tsx"),
     minify: true,
     sourcemap: true,
     treeshake: true,
