@@ -10,8 +10,8 @@
     "camome-init": "npx camome theme --output src/theme.css"
   },
   "dependencies": {
-    "@camome/core": "^0.0.3",
-    "@camome/system": "^0.1.12",
+    "@camome/core": "^0.0.11",
+    "@camome/system": "^0.1.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
