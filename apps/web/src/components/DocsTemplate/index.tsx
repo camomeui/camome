@@ -41,8 +41,8 @@ export default function DocsTemplate({
   const tabItems = React.useMemo(() => {
     return [
       {
-        id: "usage",
-        label: "Usage",
+        id: "how-to-use",
+        label: "How to use",
         panel: (
           <DocsInnerLayout
             docPath={doc._raw.flattenedPath}
@@ -65,7 +65,7 @@ export default function DocsTemplate({
         ? [
             {
               id: "api",
-              label: "API",
+              label: "API reference",
               panel: (
                 <DocsInnerLayout
                   docPath={doc._raw.flattenedPath}
