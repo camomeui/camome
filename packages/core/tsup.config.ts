@@ -101,6 +101,7 @@ export default defineConfig(async () => {
     treeshake: true,
     dts: true,
     format: ["esm", "cjs"],
+    noExternal: ["@heroicons/react", "clsx"],
     outExtension(ctx) {
       return { js: ctx.format === "esm" ? ".mjs" : ".cjs" };
     },
