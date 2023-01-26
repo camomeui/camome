@@ -13,7 +13,8 @@ import MdxRenderer from "@/components/MdxRenderer";
 import { DocsComponentParams, LabeledLink, Toc } from "@/types";
 import { Markup } from "@camome/core/Markup";
 import { Tag } from "@camome/core/Tag";
-import { toKebabCase, uppercaseFirst } from "@camome/utils";
+import { Tooltip } from "@camome/core/Tooltip";
+import { formatBytes, toKebabCase, uppercaseFirst } from "@camome/utils";
 import { type Docs } from "contentlayer/generated";
 
 import styles from "./styles.module.scss";
@@ -25,6 +26,7 @@ type Props = {
   prev?: LabeledLink;
   next?: LabeledLink;
   componentParams?: DocsComponentParams[];
+  bundleSize?: { js: number; css: number };
 };
 
 export default function DocsTemplate({
@@ -34,6 +36,7 @@ export default function DocsTemplate({
   prev,
   next,
   componentParams,
+  bundleSize,
 }: Props) {
   const tabItems = React.useMemo(() => {
     return [
@@ -126,17 +129,34 @@ export default function DocsTemplate({
         {doc.description && (
           <p className={styles.description}>{doc.description}</p>
         )}
-        {doc.headOnly && (
-          <div>
-            <Tag
-              component={Link}
-              href="/docs/guide/headless-integration"
-              size="sm"
-              endDecorator={<FiInfo stroke-width="2.5" />}
-              className={styles.tag}
-            >
-              Head-only
-            </Tag>
+        {(bundleSize || doc.headOnly) && (
+          <div className={styles.tags}>
+            {bundleSize && (
+              <Tooltip
+                placement="bottom"
+                title={<BundleSizeTooltipContent {...bundleSize} />}
+              >
+                <Tag
+                  size="sm"
+                  startDecorator={<span>📦</span>}
+                  colorScheme="info"
+                >
+                  {formatBytes(bundleSize.js + bundleSize.css)}
+                </Tag>
+              </Tooltip>
+            )}
+            {doc.headOnly && (
+              <Tag
+                component={Link}
+                href="/docs/guide/headless-integration"
+                size="sm"
+                colorScheme="info"
+                endDecorator={<FiInfo stroke-width="2.5" />}
+                className={styles.tag}
+              >
+                Head-only
+              </Tag>
+            )}
           </div>
         )}
       </header>
@@ -188,4 +208,17 @@ export function tocOfComponentParams(params: DocsComponentParams[]): Toc {
     ...(hasVariables ? [varToc] : []),
     ...(hasClasses ? [classToc] : []),
   ];
+}
+
+function BundleSizeTooltipContent(bundleSize: { js: number; css: number }) {
+  return (
+    <dl className={styles.bundleSizeTooltip}>
+      {Object.entries(bundleSize).map(([key, val]) => (
+        <div key={key}>
+          <dt>{key.toUpperCase()}:</dt>
+          <dd>{formatBytes(val)}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }

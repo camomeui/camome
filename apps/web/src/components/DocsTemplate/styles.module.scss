@@ -11,12 +11,12 @@ $pad-sm: 1rem;
 
 .header {
   display: grid;
-  row-gap: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: $pad-lg;
   padding-right: $pad-lg;
   background: var(--cmm-color-surface-1);
+  row-gap: 1rem;
 
   @include variables.mq("xl") {
     padding-left: $pad-sm;
@@ -38,14 +38,14 @@ $pad-sm: 1rem;
     font-weight: var(--cmm-font-weight-normal);
   }
 
-  .author {
+  .tags {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
 
-    &__name {
-      font-size: var(--cmm-font-size-md);
-      font-weight: var(--cmm-font-weight-medium);
+    > * {
+      display: inline-flex;
     }
   }
 }
@@ -105,5 +105,19 @@ $pad-sm: 1rem;
     @extend %panel;
 
     margin-top: 0;
+  }
+}
+
+.bundleSizeTooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  > div {
+    display: flex;
+
+    > dt {
+      width: 3em;
+    }
   }
 }

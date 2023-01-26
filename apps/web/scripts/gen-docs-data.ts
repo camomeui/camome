@@ -1,8 +1,13 @@
 import fs from "fs/promises";
 import path from "path";
+import zlib from "zlib";
 
-import { build, type BuildResult } from "esbuild";
+import autoprefixer from "autoprefixer";
+import { build, OnLoadResult, type BuildResult } from "esbuild";
+import { sassPlugin } from "esbuild-sass-plugin";
 import { globby } from "globby";
+import postcss, { AcceptedPlugin } from "postcss";
+import PostcssModulesPlugin from "postcss-modules";
 import { format } from "prettier";
 import React from "react";
 import { renderToString } from "react-dom/server";
@@ -10,8 +15,6 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import { buildScopedClassName, hash } from "@camome/utils";
-
-import { CssModulesPlugin } from "../src/lib/CssModulesPlugin/index.mjs";
 
 const argv = yargs(hideBin(process.argv))
   .options({
@@ -42,12 +45,11 @@ async function bundleStory(storyFullPath: string) {
   const storyPath = extractStoryPath(storyFullPath);
   const outdir = path.join(STORIES_OUT_DIR, storyPath.replace(".tsx", ""));
 
-  const generatedCss: string[] = [];
-
   const onBuild = async () => {
     const modulePath = path.join("..", outdir, "bundle.jsx");
     delete require.cache[require.resolve(modulePath)];
     const { default: Story } = await require(modulePath);
+    const css = await fs.readFile(path.join(outdir, "bundle.css"));
     const storyCode = await fs.readFile(storyFullPath);
     const layout = Story.parameters?.layout;
 
@@ -58,7 +60,7 @@ async function bundleStory(storyFullPath: string) {
     const index = `import Component from "./bundle";
 
 const react = \`${storyCode}\`;
-const css = \`${generatedCss.join("\n")}\`;
+const css = \`${css}\`;
 const html = \`${format(ssr, {
       parser: "html",
       htmlWhitespaceSensitivity: "ignore",
@@ -92,17 +94,15 @@ export default {
     outExtension: { ".js": ".jsx" },
     tsconfig: "node_modules/@camome/core/tsconfig.json",
     jsx: "automatic",
+    legalComments: "none",
     watch: argv.watch
       ? {
           onRebuild: onBuild,
         }
       : undefined,
     plugins: [
-      CssModulesPlugin({
-        generateScopedName,
-        onGenerateCss(css) {
-          generatedCss.push(css);
-        },
+      sassPlugin({
+        transform: postcssModules([autoprefixer()]),
       }),
     ],
   });
@@ -110,6 +110,49 @@ export default {
   processes.push(result);
 
   await onBuild();
+}
+
+async function calculateBundleSize() {
+  const OUT_DIR = path.join(DOCS_DATA_DIR, "bundle-size");
+  const components = await globby(
+    "./node_modules/@camome/core/dist/*/index.mjs"
+  );
+
+  await build({
+    entryPoints: components,
+    external: ["react"],
+    format: "esm",
+    bundle: true,
+    outdir: OUT_DIR,
+    minify: true,
+    plugins: [
+      sassPlugin({
+        transform: postcssModules(),
+      }),
+    ],
+  });
+  const dataRecord: Record<string, { js: number; css: number }> = {};
+  const outDirs = await globby(`${OUT_DIR}/*`, { onlyDirectories: true });
+  for (const dir of outDirs) {
+    const [js, css] = await Promise.all([
+      fs.readFile(path.join(dir, "index.js")),
+      fs.readFile(path.join(dir, "index.css")).catch(() => {
+        // Some components don't have styles.
+      }),
+    ]);
+    dataRecord[path.basename(dir).trim()] = {
+      js: zlib.gzipSync(js).length,
+      css: css ? zlib.gzipSync(css).length : 0,
+    };
+  }
+  await fs.rm(OUT_DIR, {
+    recursive: true,
+    force: true,
+  });
+  await fs.writeFile(
+    path.join(DOCS_DATA_DIR, "bundle-size.json"),
+    JSON.stringify(dataRecord, null, 2)
+  );
 }
 
 (async () => {
@@ -125,15 +168,33 @@ export default {
   await fs.mkdir(DOCS_DATA_DIR);
 
   await Promise.all(storyFullPaths.map(bundleStory));
+  await calculateBundleSize();
 })().catch((e) => {
   console.error(e);
   processes.forEach((p) => void p.stop?.());
   process.exit(1);
 });
 
-function generateScopedName(local: string, filename: string) {
-  if (filename.includes("apps/storybook")) {
-    return "story-" + hash(filename + local);
-  }
-  return buildScopedClassName(local, filename);
+function postcssModules(plugins: AcceptedPlugin[] = []) {
+  return async function (source: string, path: string): Promise<OnLoadResult> {
+    const { css } = await postcss([
+      PostcssModulesPlugin({
+        generateScopedName(name, filename) {
+          if (filename.includes("apps/storybook")) {
+            return "story-" + hash(filename + name);
+          }
+          return buildScopedClassName(name, filename);
+        },
+        getJSON() {
+          return;
+        },
+      }),
+      ...plugins,
+    ]).process(source, { from: path, map: false });
+
+    return {
+      contents: css,
+      loader: "css",
+    };
+  };
 }

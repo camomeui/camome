@@ -195,9 +195,12 @@ importers:
       '@types/lodash.sortby': ^4.7.7
       '@types/node': 18.7.14
       '@types/yargs': ^17.0.17
+      D: ^1.0.0
+      autoprefixer: ^10.4.13
       camome: workspace:*
       chokidar: ^3.5.3
       contentlayer: ^0.2.9
+      esbuild-sass-plugin: ^2.4.5
       eslint: 8.23.0
       eslint-config-next: 13.0.0
       form-data: ^4.0.0
@@ -238,8 +241,10 @@ importers:
       '@mdx-js/react': 2.2.1
       '@next/bundle-analyzer': 13.1.5
       '@next/mdx': 13.1.5_vvg67iglxhejglpl7nsv3pjzui
+      D: 1.0.0
       camome: link:../../packages/cli
       contentlayer: 0.2.9_markdown-wasm@1.2.0
+      esbuild-sass-plugin: 2.4.5
       form-data: 4.0.0
       image-size: 1.0.2
       lodash.sortby: 4.7.0
@@ -263,6 +268,7 @@ importers:
       '@types/lodash.sortby': 4.7.7
       '@types/node': 18.7.14
       '@types/yargs': 17.0.20
+      autoprefixer: 10.4.13_postcss@8.4.21
       chokidar: 3.5.3
       eslint: 8.23.0
       eslint-config-next: 13.0.0_eslint@8.23.0
@@ -6337,6 +6343,11 @@ packages:
       tslib: 2.4.1
     dev: true
 
+  /D/1.0.0:
+    resolution: {integrity: sha512-nQvrCBu7K2pSSEtIM0EEF03FVjcczCXInMt3moLNFbjlWx6bZrX72uT6/1uAXDbnzGUAx9gTyDiQ+vrFi663oA==}
+    deprecated: Package no longer supported. Contact support@npmjs.com for more info.
+    dev: false
+
   /abab/2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     dev: true
@@ -9270,7 +9281,6 @@ packages:
       esbuild: 0.15.18
       resolve: 1.22.1
       sass: 1.57.1
-    dev: true
 
   /esbuild-sunos-64/0.14.54:
     resolution: {integrity: sha512-28GZ24KmMSeKi5ueWzMcco6EBHStL3B6ubM7M51RmPwXQGLe0teBGJocmWhgwccA1GeFXqxzILIxXpHbl9Q/Kw==}

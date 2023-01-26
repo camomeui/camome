@@ -19,6 +19,7 @@ import {
   DocsMetaContext,
   DocsMetaContextValue,
 } from "@/contexts/DocsMetaContext";
+import bundleSizeJson from "@/docs-data/bundle-size.json";
 import { flattenSidebarLinks } from "@/lib/docs/flattenSidebarLinks";
 import { getComponentParams } from "@/lib/docs/getComponentParams";
 import { getSidebarItems } from "@/lib/docs/getSidebarItems";
@@ -31,6 +32,7 @@ type Props = {
   next: LabeledLink | null;
   prev: LabeledLink | null;
   componentMeta: DocsComponentParams[] | null;
+  bundleSize: { js: number; css: number } | null;
 };
 
 export default function DocsPage({
@@ -40,6 +42,7 @@ export default function DocsPage({
   next,
   prev,
   componentMeta,
+  bundleSize,
 }: Props) {
   return (
     <>
@@ -53,6 +56,7 @@ export default function DocsPage({
             next={next ?? undefined}
             prev={prev ?? undefined}
             componentParams={componentMeta ?? undefined}
+            bundleSize={bundleSize ?? undefined}
             key={doc._id} // Force initiate tab state
           />
         </DocsLayout>
@@ -91,6 +95,7 @@ export async function getStaticProps({
       ? (await Promise.all(doc.components.map(getComponentParams))).flat()
       : getComponentParams(doc.title));
   }
+  const bundleSize = bundleSizeJson[doc.title as keyof typeof bundleSizeJson];
 
   const flatItems = flattenSidebarLinks(sidebarItems);
   const docIndex = flatItems.findIndex((item) => item.id === doc.id);
@@ -112,6 +117,7 @@ export async function getStaticProps({
     next: next ?? null,
     prev: prev ?? null,
     componentMeta: componentPrams ?? null,
+    bundleSize: bundleSize ?? null,
   };
 
   return {
