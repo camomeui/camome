@@ -48,21 +48,23 @@ async function createBulletFile(dist: string) {
   }
   const cjsExports = `module.exports = {\n${cjsModules}\n}`;
   const cjsContent = `${cjsRequires}\n\n${cjsExports}`;
-  await fs.writeFile(path.join(dist, "index.mjs"), esmContent);
-  await fs.writeFile(path.join(dist, "index.d.ts"), dtsContent);
-  await fs.writeFile(path.join(dist, "index.cjs"), cjsContent);
+  await Promise.all([
+    fs.writeFile(path.join(dist, "index.mjs"), esmContent),
+    fs.writeFile(path.join(dist, "index.d.ts"), dtsContent),
+    fs.writeFile(path.join(dist, "index.cjs"), cjsContent),
+  ]);
 }
 
 async function generateBundledCss(dist: string) {
   await esbuild.build({
     entryPoints: [path.join(dist, "index.mjs")],
     outdir: dist,
+    bundle: true,
     plugins: [
       sassPlugin({
         transform: postcssModules(),
       }),
     ],
-    bundle: true,
   });
   await Promise.all([
     fs.rm(path.join(dist, "index.js")),
