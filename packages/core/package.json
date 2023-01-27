@@ -15,7 +15,7 @@
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
     "build": "pnpm gen-scss-type && tsup",
-    "dev:tsup": "tsup build --watch",
+    "dev:tsup": "pnpm build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:tsup\"",
     "typecheck": "pnpm gen-scss-type && tsc",
     "run-ts": "node -r esbuild-register"
