@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.13
+
+### Patch Changes
+
+- 69b4cdd: Fix style of Radio so that it matches Checkbox.
+
 ## 0.0.12
 
 ### Patch Changes
