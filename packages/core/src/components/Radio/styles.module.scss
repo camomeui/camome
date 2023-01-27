@@ -11,8 +11,6 @@
   .Block {
     @extend %sizeDefaults;
 
-    #{labelVars.$fontWeight_name}: var(--cmm-font-weight-normal);
-
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -102,7 +100,7 @@
     #{locals.$size_name}: 1.25rem;
 
     > label {
-      #{labelVars.$fontSize_name}: var(--cmm-font-size-md);
+      #{labelVars.$fontSize_name}: var(--cmm-font-size-sm);
     }
   }
 
