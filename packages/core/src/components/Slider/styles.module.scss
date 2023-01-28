@@ -9,9 +9,14 @@
   @include utils.size(locals.$thumbSize);
 
   border-radius: var(--cmm-radius-full);
-  background: locals.$thumbColor;
-  border: 3px solid locals.$thumbBorderColor;
+  background: var(--cmm-color-white);
+  border: 2px solid var(--cmm-color-primary-emphasis);
   appearance: none;
+}
+
+@mixin focus {
+  outline: 2px solid var(--cmm-outline-color-primary);
+  outline-offset: 2px;
 }
 
 @include utils.layer {
@@ -21,20 +26,9 @@
     appearance: none;
     height: locals.$trackHeight;
     border-radius: locals.$trackRadius;
-    background: locals.$trackColor;
-    outline: none;
+    background: var(--cmm-color-primary-soft-bg);
     cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-within {
-      &::-webkit-slider-thumb {
-        outline: var(--cmm-outline);
-        outline-offset: var(--cmm-outline-offset);
-      }
-    }
+    outline: none;
 
     &::-webkit-slider-thumb {
       @include thumb-base;
@@ -42,6 +36,14 @@
 
     &::-moz-range-thumb {
       @include thumb-base;
+    }
+
+    &:focus-within::-webkit-slider-thumb {
+      @include focus;
+    }
+
+    &:focus-within::-moz-range-thumb {
+      @include focus;
     }
   }
 
