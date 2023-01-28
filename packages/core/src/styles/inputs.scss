@@ -27,6 +27,7 @@
   border-radius: var(--cmm-radius-lg);
   transition: var(--cmm-transition-bg);
   font-weight: var(--cmm-font-weight-normal);
+  outline-offset: 0;
   // Don't use `background` to avoid collision of `background-image` of Select.
   // TODO: Workaround without knowing the internal of a child.
   background-color: var(--cmm-Input-bg);
@@ -38,10 +39,6 @@
     &::placeholder {
       color: var(--cmm-color-font-subtle);
     }
-  }
-
-  &:focus-visible {
-    outline-offset: 0;
   }
 
   &::placeholder {
