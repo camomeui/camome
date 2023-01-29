@@ -1,5 +1,19 @@
 # @camome/web
 
+## 0.1.22
+
+### Patch Changes
+
+- 4fe3edd: Fix names of decorators
+- Updated dependencies [39f512e]
+- Updated dependencies [4fe3edd]
+- Updated dependencies [4cef229]
+- Updated dependencies [8fbc71a]
+- Updated dependencies [7ccf4c8]
+  - @camome/core@0.0.14
+  - @camome/system@0.1.18
+  - camome@0.1.15
+
 ## 0.1.21
 
 ### Patch Changes

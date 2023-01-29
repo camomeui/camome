@@ -1,5 +1,11 @@
 # @camome/system
 
+## 0.1.18
+
+### Patch Changes
+
+- 7ccf4c8: Modify light theme
+
 ## 0.1.17
 
 ### Patch Changes

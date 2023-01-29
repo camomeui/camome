@@ -1,5 +1,16 @@
 # @camome/components
 
+## 0.0.14
+
+### Patch Changes
+
+- 39f512e: Fix style of Slider
+- 4fe3edd: Fix names of decorators
+- 4cef229: Fix outline of Button
+- 8fbc71a: Modify style and default title of Message
+- Updated dependencies [7ccf4c8]
+  - @camome/system@0.1.18
+
 ## 0.0.13
 
 ### Patch Changes
