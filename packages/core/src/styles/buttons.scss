@@ -3,12 +3,12 @@
 
 @mixin modifier($variant, $scheme) {
   .Block--#{$variant}.Block--#{$scheme} {
-    background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg);
+    background: var(--cmm-color-#{$scheme}-#{$variant}-bg);
     color: var(--cmm-color-#{$scheme}-#{$variant}-font);
     border-color: var(--cmm-color-#{$scheme}-#{$variant}-border);
 
     &:hover:not(:disabled) {
-      background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg-hover);
+      background: var(--cmm-color-#{$scheme}-#{$variant}-bg-hover);
     }
   }
 }

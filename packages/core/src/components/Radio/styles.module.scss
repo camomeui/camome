@@ -43,18 +43,18 @@
       // Be careful, order matters!
       &:checked {
         & + .mark {
-          background-color: var(--cmm-color-primary-soft-bg);
+          background: var(--cmm-color-primary-soft-bg);
 
           &::before {
             scale: 1;
-            background-color: var(--cmm-color-primary-soft-font);
+            background: var(--cmm-color-primary-soft-font);
           }
         }
       }
 
       &:hover:not(:disabled) {
         & + .mark {
-          background-color: var(--cmm-color-primary-soft-bg-hover);
+          background: var(--cmm-color-primary-soft-bg-hover);
         }
       }
 
@@ -91,7 +91,7 @@
         calc(locals.$size * (calc(1 - locals.$ringWidthRatio)))
       );
       border-radius: var(--cmm-radius-full);
-      background-color: var(--cmm-color-primary-1);
+      background: var(--cmm-color-primary-1);
       scale: 0;
     }
   }

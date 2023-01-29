@@ -10,7 +10,7 @@
   .backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
   }
 
   .panel-wrapper {
@@ -26,7 +26,7 @@
     max-width: locals.$maxWidth;
     margin: 0 locals.$outerMargin;
     padding: 1.5rem;
-    background-color: var(--cmm-color-surface-0);
+    background: var(--cmm-color-surface-0);
     border-radius: var(--cmm-radius-xl);
   }
 

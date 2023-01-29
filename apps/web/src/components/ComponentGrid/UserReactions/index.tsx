@@ -31,10 +31,8 @@ export default function UserReactions() {
           <Avatar src="/demo/avatar-1.jpg" alt="avatar" size="sm" />
           <Avatar src="/demo/avatar-2.jpg" alt="avatar" size="sm" />
           <Avatar src="/demo/avatar-3.jpg" alt="avatar" size="sm" />
-          <Avatar size="sm" variant="solid">
-            YM
-          </Avatar>
-          <Avatar size="sm" variant="solid" colorScheme="neutral">
+          <Avatar size="sm">YM</Avatar>
+          <Avatar size="sm" colorScheme="neutral">
             +12
           </Avatar>
         </AvatarGroup>

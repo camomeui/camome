@@ -6,14 +6,14 @@
   $selector: ".Block--#{$variant}.Block--#{$scheme}";
 
   #{$selector} {
-    background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg);
+    background: utils.opaque(var(--cmm-color-#{$scheme}-#{$variant}-bg));
     color: var(--cmm-color-#{$scheme}-#{$variant}-font);
     border-color: var(--cmm-color-#{$scheme}-#{$variant}-border);
   }
 
   // FIXME: Support image
   :is(a, button)#{$selector}:hover {
-    background-color: var(--cmm-color-#{$scheme}-#{$variant}-bg-hover);
+    background: var(--cmm-color-#{$scheme}-#{$variant}-bg-hover);
   }
 }
 

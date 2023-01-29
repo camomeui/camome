@@ -60,7 +60,7 @@
 
     :where(code):not(:where([class~="no-markup"] *)) {
       color: var(--cmm-color-font-base);
-      background-color: var(--cmm-color-code-bg);
+      background: var(--cmm-color-code-bg);
       padding: 0.1em 0.3em;
       border-radius: var(--cmm-radius-sm);
       font-family: var(--cmm-font-family-code);
@@ -129,7 +129,7 @@
         text-align: start;
         border-top: 1px solid var(--cmm-color-gray-2);
         border-bottom: 1px solid var(--cmm-color-gray-2);
-        background-color: var(--cmm-color-gray-0);
+        background: var(--cmm-color-gray-0);
       }
 
       th:first-child {

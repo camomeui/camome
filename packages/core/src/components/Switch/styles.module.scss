@@ -108,7 +108,7 @@
       top: 50%;
       left: locals.$padX;
       translate: 0 -50%;
-      background-color: var(--cmm-Switch-bg-thumb);
+      background: var(--cmm-Switch-bg-thumb);
       border: 1px solid var(--cmm-Switch-border-thumb);
       border-radius: locals.$radius;
       transition: left 0.3s;

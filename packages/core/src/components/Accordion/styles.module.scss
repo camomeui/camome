@@ -33,7 +33,7 @@
     color: var(--cmm-color-font-base);
 
     &:hover {
-      background-color: var(--cmm-color-surface-2);
+      background: var(--cmm-color-surface-2);
     }
 
     &::-webkit-details-marker {
