@@ -40,10 +40,10 @@ export default function DocsInnerLayout({
                   <PencilSquareIcon />
                   Edit this page on GitHub
                 </a>
-                <a className={styles.tocExtraLink}>
+                <span className={styles.tocExtraLink}>
                   <span className={styles.emoji}>🎉</span> Start you next
                   project with Camome template (coming soon)
-                </a>
+                </span>
               </div>
             }
           />
