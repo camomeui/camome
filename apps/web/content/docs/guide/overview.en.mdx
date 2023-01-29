@@ -2,3 +2,78 @@
 title: "Overview"
 id: "guide:overview"
 ---
+
+## What is Camome UI
+
+Camome UI is a **React component library and a CSS framework**.
+
+## Features
+
+### Lightweight bundle size
+
+For example, the `Button` of [`@mui/material@5.11.6`](https://bundlephobia.com/package/@mui/material@5.11.6) is **16.9KB** on its own, and Emotion and ThemeProvider are added to it.
+
+On the other hand, Camome UI's [`Button`](https://chat.openai.com/docs/components/inputs/button) is lightweight, **1.42KB** (including CSS), and an additional 4KB of global CSS is added to it.
+
+<Message status="info">
+  Camome UI imports CSS Modules within the distribution package and is not
+  calculated by bundlephobia, so we are [analyzing
+  it](https://github.com/camomeui/camome/blob/4cef229a074c05d437e65abb9a1b62286f131598/apps/web/scripts/gen-docs-data.ts#L124).
+</Message>
+
+### CSS first & no JS runtime
+
+Camome UI uses [CSS Modules](https://github.com/css-modules/css-modules) for styling, so there is no load of runtime for styling like [Emotion](https://emotion.sh/docs/introduction) and [Styled Components](https://styled-components.com/).
+
+Also, since no event handlers or `useEffect` are used at all, it can also be used as a pure CSS framework as described later. For complex UIs such as <DocLink id="menu"/> and <DocLink id="tab"/>, please consider <DocLink id="guide:headless-integration"/>.
+
+### Dark mode and custom theme
+
+It is compatible with dark mode by default. It is also possible to customize the theme. For details, please refer to <DocLink id="guide:theming"/>.
+
+### Guaranteed style override
+
+One drawback of CSS Modules is that "it is difficult to override styles". For example, all components of Camome UI accept the `className` prop, and this is combined with the default class name with [clsx](https://github.com/lukeed/clsx). As a result, an attribute such as `class="Button custom-class"` is added, but there is no guarantee that the latter class will win in normal situations. This is a problem.
+
+However, **Camome UI supports [CSS Cascade Layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer), so it can be overridden certainly**. For more information, please refer to <DocLink id="guide:theming" hash="overriding-components" />.
+
+### Accessible
+
+It may not be perfect, but accessibility is paid attention to as much as possible.
+
+For example, the <DocLink id="switch"/> is implemented only with CSS, but it still allows for focus and switching by keyboard, and the <DocLink id="accordion"/> also supports opening and closing without client-side JavaScript using the `<details />` element. Also, each `<input />`-related component has been made easy to set appropriate `label` and `aria-describedby` attributes using `<FormField />` (see: <DocLink id="guide:form"/>).
+
+<Message status="info">
+  If you find any accessibility problems, please report them to
+  [Issues](https://github.com/camomeui/camome/issues).
+</Message>
+
+### Portable
+
+It is primarily designed for use as a React library, but it can also be used as a CSS framework like Bootstrap by importing bundled CSS.
+
+This means that it is not dependent on the React ecosystem, so it should be easy to port to other frameworks like Vue or Svelte.
+
+```html
+<head>
+  <link
+    href="https://unpkg.com/@camome/system@latest/dist/theme.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://unpkg.com/@camome/core@latest/dist/components.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <button class="Button Button--primary Button--soft">Click me</button>
+</body>
+```
+
+## Roadmap
+
+- `<input type="<number,file,password>" />`
+- Toast
+- Slider (non-native)
+- Component block
+- RTL support

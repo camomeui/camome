@@ -13,7 +13,7 @@ Camome UI は **React コンポーネントライブラリであり、CSS フレ
 
 例えば [`@mui/material@5.11.6`](https://bundlephobia.com/package/@mui/material@5.11.6) の `Button` は単体で**16.9KB**あり、それに Emotion や ThemeProvider も加わります。
 
-それに大して Camome UI の [`Button`](/docs/components/inputs/button)は単体で **1.42KB**(CSS 含む)と軽量であり、それにグローバル CSS の 4KB が加わります。
+それに対して Camome UI の [`Button`](/docs/components/inputs/button)は単体で **1.42KB**(CSS 含む)と軽量であり、それにグローバル CSS の 4KB が加わります。
 
 <Message status="info">
   Camome UI は配布パッケージ内で CSS
@@ -40,7 +40,7 @@ Camome UI はスタイリングに [CSS Modules](https://github.com/css-modules/
 
 ### スタイルの確実なオーバーライド
 
-CSS Modules の欠点として「スタイルのオーバーライドがしにくい」ということがあります。例えば、Camome UI のすべてのコンポーネントは `className` prop を受け取るようになっており、これを [clsx](https://github.com/lukeed/clsx)でデフォルトのクラス名と結合しています。結果として `class=".Button .custom-class"` のような属性が付与されますが、普通であればこのときに後者のクラスが勝つという保証はありません。これは問題です。
+CSS Modules の欠点として「スタイルのオーバーライドがしにくい」ということがあります。例えば、Camome UI のすべてのコンポーネントは `className` prop を受け取るようになっており、これを [clsx](https://github.com/lukeed/clsx)でデフォルトのクラス名と結合しています。結果として `class="Button custom-class"` のような属性が付与されますが、普通であればこのときに後者のクラスが勝つという保証はありません。これは問題です。
 
 しかし、**Camome UI は [CSS Cascade Layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) をサポートしているため、確実にオーバーライドできます**。詳しくは <DocLink id="guide:theming" hash="コンポーネントのオーバーライド" label="コンポーネントのオーバーライド"/> を参照してください。
 
