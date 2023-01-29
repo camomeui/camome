@@ -24,6 +24,8 @@ export const BASE_STYLES = `body {
   position: absolute;
 }` as const;
 
+// Tokens are mostly borrowed from Tailwind (MIT)
+// https://github.com/tailwindlabs/tailwindcss/blob/afd159dd8d5b91015e1d486df7158e10874dd815/src/public/colors.js
 export const commonTheme = {
   color: {
     black: "#141517",

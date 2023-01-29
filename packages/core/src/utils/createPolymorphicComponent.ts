@@ -1,4 +1,4 @@
-// Taken from codebase of Mantine
+// Borrowed from Mantine (MIT)
 // https://github.com/mantinedev/mantine/blob/master/src/mantine-utils/src/create-polymorphic-component/create-polymorphic-component.ts
 
 import React from "react";
