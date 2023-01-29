@@ -1,6 +1,6 @@
-$leftDecorWidth_name: --cmm-TextInput-left-decor-width;
-$leftDecorWidth: var($leftDecorWidth_name, 0.75rem);
-$rightDecorWidth_name: --cmm-TextInput-right-decor-width;
-$rightDecorWidth: var($rightDecorWidth_name, 0.75rem);
+$startDecorWidth_name: --cmm-TextInput-start-decor-width;
+$startDecorWidth: var($startDecorWidth_name, 0.75rem);
+$endDecorWidth_name: --cmm-TextInput-end-decor-width;
+$endDecorWidth: var($endDecorWidth_name, 0.75rem);
 $margin_name: --cmm-TextInput-margin;
 $margin: var($margin_name);

@@ -35,7 +35,7 @@ export default function Cta({ className }: Props) {
           component={Link}
           href="/docs/guide/overview"
           size="md"
-          rightIcon={<ChevronDoubleRightIcon />}
+          endDecorator={<ChevronDoubleRightIcon />}
         >
           {t("button.get-started")}
         </Button>
@@ -46,7 +46,7 @@ export default function Cta({ className }: Props) {
           colorScheme="neutral"
           size="md"
           className={styles.githubLink}
-          leftIcon={<FaGithub />}
+          startDecorator={<FaGithub />}
         >
           {t("button.github")}
         </Button>

@@ -17,7 +17,7 @@
 
 @layer override {
   .group :global(.TextInputGroup) {
-    --cmm-TextInput-left-decor-width: 2.5rem;
-    --cmm-TextInput-right-decor-width: 4.5rem;
+    --cmm-TextInput-start-decor-width: 2.5rem;
+    --cmm-TextInput-end-decor-width: 4.5rem;
   }
 }

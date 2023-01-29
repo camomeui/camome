@@ -20,17 +20,17 @@
     }
   }
 
-  .decorator--left {
+  .decorator--start {
     @extend %decorator;
 
     left: 0;
-    width: textInputVars.$leftDecorWidth;
+    width: textInputVars.$startDecorWidth;
   }
 
-  .decorator--right {
+  .decorator--end {
     @extend %decorator;
 
     right: 0;
-    width: textInputVars.$rightDecorWidth;
+    width: textInputVars.$endDecorWidth;
   }
 }

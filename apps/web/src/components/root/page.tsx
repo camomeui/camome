@@ -62,7 +62,7 @@ export default function RootPage() {
             <Button
               component={Link}
               href="/docs/guide/overview"
-              rightIcon={<ChevronDoubleRightIcon strokeWidth="2" />}
+              endDecorator={<ChevronDoubleRightIcon strokeWidth="2" />}
               size="lg"
             >
               {t("button.get-started")}
@@ -74,7 +74,7 @@ export default function RootPage() {
               colorScheme="neutral"
               size="lg"
               className={styles.githubLink}
-              leftIcon={<FaGithub />}
+              startDecorator={<FaGithub />}
             >
               {t("button.github")}
             </Button>
@@ -141,7 +141,7 @@ export default function RootPage() {
                 href="/docs/guide/theming"
                 size="lg"
                 variant="soft"
-                rightIcon={<ChevronDoubleRightIcon />}
+                endDecorator={<ChevronDoubleRightIcon />}
               >
                 {t("theming.button")}
               </Button>

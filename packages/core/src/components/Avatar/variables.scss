@@ -2,10 +2,5 @@ $size_name: --cmm-Avatar-size;
 $size: var($size_name);
 $margin_name: --cmm-Avatar-margin;
 $margin: var($margin_name);
-$ring_name: --cmm-Avatar-ring;
-$ring: var(
-  $ring_name,
-  0 0 0 var(--Avatar-ring-size) var(--cmm-color-surface-0)
-);
 $ringSize_name: --cmm-Avatar-ring-size;
 $ringSize: var($ringSize_name);

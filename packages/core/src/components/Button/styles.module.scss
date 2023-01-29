@@ -45,13 +45,13 @@
     }
   }
 
-  .leftIcon {
+  .startDecorator {
     @extend %icon;
 
     margin-right: locals.$iconMargin;
   }
 
-  .rightIcon {
+  .endDecorator {
     @extend %icon;
 
     margin-left: locals.$iconMargin;

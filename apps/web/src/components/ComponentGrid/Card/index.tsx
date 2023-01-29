@@ -28,7 +28,7 @@ export default function Card() {
           <p className={styles.price}>¥62,000</p>
           <Button
             size="sm"
-            rightIcon={<CalendarDaysIcon />}
+            endDecorator={<CalendarDaysIcon />}
             className={styles.button}
           >
             Book now

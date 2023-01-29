@@ -9,20 +9,20 @@ import {
 
 import { Button } from "@camome/core/Button";
 
-import styles from "./WithIcon.module.scss";
+import styles from "./WithDecorator.module.scss";
 
-export default function WithIcon() {
+export default function WithDecorator() {
   return (
     <div className={styles.container}>
       <Button
-        leftIcon={<ArrowPathIcon strokeWidth="2.25" />}
+        startDecorator={<ArrowPathIcon strokeWidth="2.25" />}
         size="sm"
         variant="outline"
       >
         Auto-sync
       </Button>
       <Button
-        rightIcon={<PaperAirplaneIcon strokeWidth="2.25" />}
+        endDecorator={<PaperAirplaneIcon strokeWidth="2.25" />}
         size="sm"
         variant="ghost"
       >
@@ -30,17 +30,17 @@ export default function WithIcon() {
       </Button>
 
       <Button
-        leftIcon={<CloudArrowDownIcon strokeWidth="2.25" />}
+        startDecorator={<CloudArrowDownIcon strokeWidth="2.25" />}
         variant="soft"
       >
         Download
       </Button>
-      <Button rightIcon={<ChatBubbleLeftEllipsisIcon strokeWidth="2.5" />}>
+      <Button endDecorator={<ChatBubbleLeftEllipsisIcon strokeWidth="2.5" />}>
         Chat with us
       </Button>
 
       <Button
-        leftIcon={<HeartIcon strokeWidth="2.25" />}
+        startDecorator={<HeartIcon strokeWidth="2.25" />}
         size="lg"
         variant="ghost"
         colorScheme="success"
@@ -48,7 +48,7 @@ export default function WithIcon() {
         Like
       </Button>
       <Button
-        rightIcon={<TrashIcon strokeWidth="2" />}
+        endDecorator={<TrashIcon strokeWidth="2" />}
         size="lg"
         colorScheme="danger"
       >

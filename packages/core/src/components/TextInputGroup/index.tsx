@@ -6,26 +6,26 @@ import styles from "./styles.module.scss";
 
 export type TextInputGroupProps = {
   input: React.ReactNode;
-  leftDecorator?: React.ReactNode;
-  rightDecorator?: React.ReactNode;
+  startDecorator?: React.ReactNode;
+  endDecorator?: React.ReactNode;
 } & BaseProps;
 
 export function TextInputGroup({
   input,
-  leftDecorator,
-  rightDecorator,
+  startDecorator,
+  endDecorator,
   style,
   className,
 }: TextInputGroupProps) {
   return (
     <div style={style} className={className}>
       <div className={styles.Block}>
-        {leftDecorator && (
-          <span className={styles[`decorator--left`]}>{leftDecorator}</span>
+        {startDecorator && (
+          <span className={styles[`decorator--start`]}>{startDecorator}</span>
         )}
         {input}
-        {rightDecorator && (
-          <span className={styles[`decorator--right`]}>{rightDecorator}</span>
+        {endDecorator && (
+          <span className={styles[`decorator--end`]}>{endDecorator}</span>
         )}
       </div>
     </div>

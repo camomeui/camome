@@ -3,7 +3,7 @@ import { Spinner } from "@camome/core/Spinner";
 
 export default function Loading() {
   return (
-    <Button disabled leftIcon={<Spinner size="sm" />}>
+    <Button disabled startDecorator={<Spinner size="sm" />}>
       Saving...
     </Button>
   );

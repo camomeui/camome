@@ -30,7 +30,7 @@ export default function Card() {
           </div>
           <Button
             size="sm"
-            rightIcon={<CalendarDaysIcon />}
+            endDecorator={<CalendarDaysIcon />}
             className={styles.button}
           >
             Book now

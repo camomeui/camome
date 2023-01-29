@@ -31,8 +31,8 @@ export default function LocaleSwitch() {
             <Button
               ref={reference}
               className={clsx(styles.button)}
-              leftIcon={<HiOutlineTranslate />}
-              rightIcon={<HiChevronDown />}
+              startDecorator={<HiOutlineTranslate />}
+              endDecorator={<HiChevronDown />}
               size="sm"
               variant="outline"
               colorScheme="neutral"

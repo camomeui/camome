@@ -30,7 +30,7 @@ export default function CustomThemeDemo() {
           eiusmod tempor incididunt.
         </p>
         <div className={styles.buttons}>
-          <Button size="sm" leftIcon={<RiUserAddLine />}>
+          <Button size="sm" startDecorator={<RiUserAddLine />}>
             Follow
           </Button>
           <Button size="sm" variant="outline" colorScheme="neutral">

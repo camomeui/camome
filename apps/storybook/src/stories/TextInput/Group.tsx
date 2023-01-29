@@ -10,13 +10,13 @@ export default function Group() {
   return (
     <TextInputGroup
       input={<TextInput type="search" size="md" placeholder="Search" />}
-      leftDecorator={
+      startDecorator={
         <MagnifyingGlassIcon
           strokeWidth="2.5"
-          style={{ color: "var(--cmm-color-gray-3)" }}
+          style={{ color: "var(--cmm-color-font-subtle)" }}
         />
       }
-      rightDecorator={
+      endDecorator={
         <div
           style={{
             display: "flex",

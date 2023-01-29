@@ -15,4 +15,4 @@ export { default as Variant } from "./Variant";
 export { default as ColorScheme } from "./ColorScheme";
 export { default as Disabled } from "./Disabled";
 export { default as Loading } from "./Loading";
-export { default as WithIcon } from "./WithIcon";
+export { default as WithDecorator } from "./WithDecorator";

@@ -16,8 +16,8 @@ export type ButtonBaseProps = {
   variant?: ButtonVariant;
   colorScheme?: ButtonColorScheme;
   size?: Size;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  startDecorator?: React.ReactNode;
+  endDecorator?: React.ReactNode;
   children?: React.ReactNode;
 };
 
@@ -33,8 +33,8 @@ const _Button = React.forwardRef<
       variant = "solid",
       colorScheme = "primary",
       size = "md",
-      leftIcon,
-      rightIcon,
+      startDecorator,
+      endDecorator,
       className,
       children,
       ...props
@@ -54,9 +54,13 @@ const _Button = React.forwardRef<
 
     return (
       <Box component={component} ref={ref} {...mergedProps}>
-        {leftIcon && <span className={styles.leftIcon}>{leftIcon}</span>}
+        {startDecorator && (
+          <span className={styles.startDecorator}>{startDecorator}</span>
+        )}
         {children}
-        {rightIcon && <span className={styles.rightIcon}>{rightIcon}</span>}
+        {endDecorator && (
+          <span className={styles.endDecorator}>{endDecorator}</span>
+        )}
       </Box>
     );
   }
