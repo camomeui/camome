@@ -12,6 +12,7 @@ type Props = {
     id: string;
     label?: string;
     locale?: Locale;
+    hash?: string;
   }[];
   sort?: "asc";
   className?: string;

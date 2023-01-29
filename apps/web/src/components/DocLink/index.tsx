@@ -13,7 +13,7 @@ type Props = {
   href?: string;
   hash?: string;
   locale?: Locale;
-  children?:
+  label?:
     | React.ReactNode
     | ((doc: DocsMetaContextValue["docs"][number]) => React.ReactNode);
   className?: string;
@@ -25,7 +25,7 @@ export default function DocLink({
   href,
   hash,
   locale,
-  children,
+  label,
   className,
   style,
 }: Props) {
@@ -42,7 +42,7 @@ export default function DocLink({
       className={className}
       style={style}
     >
-      {typeof children === "function" ? children(doc) : children ?? doc.title}
+      {typeof label === "function" ? label(doc) : label ?? doc.title}
     </Link>
   );
 }

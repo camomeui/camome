@@ -12,12 +12,25 @@ type Props = {
   href?: string;
   icon?: React.ReactNode;
   locale?: Locale;
+  hash?: string;
 };
 
-export default function DocLinkCard({ href, id, label, icon, locale }: Props) {
+export default function DocLinkCard({
+  href,
+  id,
+  label,
+  icon,
+  locale,
+  hash,
+}: Props) {
   return (
-    <DocLink id={id} href={href} className={styles.container} locale={locale}>
-      {(doc) => (
+    <DocLink
+      id={id}
+      href={href}
+      className={styles.container}
+      locale={locale}
+      hash={hash}
+      label={(doc) => (
         <>
           <div className={styles.icon}>
             {icon ?? <DocumentTextIcon strokeWidth="2" />}
@@ -25,6 +38,6 @@ export default function DocLinkCard({ href, id, label, icon, locale }: Props) {
           <div className={styles.label}>{label ?? doc.label ?? doc.title}</div>
         </>
       )}
-    </DocLink>
+    />
   );
 }
