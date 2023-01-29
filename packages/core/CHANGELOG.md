@@ -1,5 +1,14 @@
 # @camome/components
 
+## 0.0.15
+
+### Patch Changes
+
+- 2b07ab1: Modify shadows
+- a359664: Make background of Avatar opaque
+- Updated dependencies [2b07ab1]
+  - @camome/system@0.1.19
+
 ## 0.0.14
 
 ### Patch Changes

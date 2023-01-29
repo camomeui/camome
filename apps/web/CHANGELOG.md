@@ -1,5 +1,16 @@
 # @camome/web
 
+## 0.1.23
+
+### Patch Changes
+
+- a359664: Make background of Avatar opaque
+- Updated dependencies [2b07ab1]
+- Updated dependencies [a359664]
+  - @camome/system@0.1.19
+  - @camome/core@0.0.15
+  - camome@0.1.16
+
 ## 0.1.22
 
 ### Patch Changes
