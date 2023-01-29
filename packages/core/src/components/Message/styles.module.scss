@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
-    font-weight: var(--cmm-font-weight-medium);
+    font-weight: var(--cmm-font-weight-bold);
     font-size: var(--cmm-font-size-md);
 
     // Maybe better to switch to :has() when Firefox supports it.
@@ -49,6 +49,7 @@
     svg {
       width: 1.5rem;
       height: 1.5rem;
+      stroke-width: 2;
     }
   }
 }
