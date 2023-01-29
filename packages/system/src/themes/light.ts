@@ -45,7 +45,7 @@ const lightTheme = {
     },
     font: {
       base: cssVar("color.black"),
-      muted: cssVar("color.gray.6"),
+      muted: cssVar("color.gray.7"),
       subtle: cssVar("color.gray.5"),
       onEmphasis: cssVar("color.white"),
     },
