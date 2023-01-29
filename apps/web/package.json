@@ -14,7 +14,6 @@
     "lint": "next lint",
     "lint:fix": "pnpm lint --fix",
     "typecheck": "pnpm gen-scss-type && tsc",
-    "gen-css": "npx camome generate-css --output ./src/styles/camome.css",
     "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
     "gen-docs-data": "tsx ./scripts/gen-docs-data.ts"
   },
