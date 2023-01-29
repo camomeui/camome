@@ -28,6 +28,7 @@ export type CodeSandboxProps = {
       code?: string;
     };
   };
+  previewStyle?: React.CSSProperties;
 };
 
 export default function CodeSandbox({
@@ -39,6 +40,7 @@ export default function CodeSandbox({
   extraCode = [],
   layout = "centered",
   classNames,
+  previewStyle,
 }: CodeSandboxProps) {
   const codeItems: CodeTabsProps["items"] = [];
   if (showCode !== false) {
@@ -78,6 +80,7 @@ export default function CodeSandbox({
             "scrollbar",
             classNames?.preview
           )}
+          style={previewStyle}
         >
           <div className={styles.previewInner}>
             <Component />

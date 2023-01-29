@@ -6,7 +6,6 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import React from "react";
 
 import { Button } from "@camome/core/Button";
 import { Menu, menuClassNames } from "@camome/core/Menu";
