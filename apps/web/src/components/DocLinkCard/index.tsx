@@ -33,7 +33,7 @@ export default function DocLinkCard({
       label={(doc) => (
         <>
           <div className={styles.icon}>
-            {icon ?? <DocumentTextIcon strokeWidth="2" />}
+            {icon ?? <DocumentTextIcon strokeWidth="1.5" />}
           </div>
           <div className={styles.label}>{label ?? doc.label ?? doc.title}</div>
         </>
