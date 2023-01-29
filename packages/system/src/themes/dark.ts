@@ -66,9 +66,6 @@ const darkTheme = {
       danger: cssVar("color.danger.6"),
     },
   },
-  shadow: {
-    color: "rgba(12, 12, 13, 0.1)",
-  },
   /* Components */
   Input: {
     bg: cssVar("color.surface.2"),

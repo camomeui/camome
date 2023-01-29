@@ -11,7 +11,6 @@ export type Radius = {
 };
 
 export type Shadow = {
-  color: Color;
   xs: string;
   sm: string;
   md: string;

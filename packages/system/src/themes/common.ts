@@ -159,11 +159,11 @@ export const commonTheme = {
     full: "9999px",
   },
   shadow: {
-    xs: `2px 2px 2px ${cssVar("shadow.color")}`,
-    sm: `2px 2px 6px ${cssVar("shadow.color")}`,
-    md: `2px 2px 10px ${cssVar("shadow.color")}`,
-    lg: `2px 2px 14px ${cssVar("shadow.color")}`,
-    xl: `2px 2px 18px ${cssVar("shadow.color")}`,
+    xs: `0 1px 2px 0 rgb(0 0 0 / 0.075)`,
+    sm: `0 1px 3px 0 rgb(0 0 0 / 0.075), 0 1px 2px -1px rgb(0 0 0 / 0.075)`,
+    md: `0 4px 6px -1px rgb(0 0 0 / 0.075), 0 2px 4px -2px rgb(0 0 0 / 0.075)`,
+    lg: `0 10px 15px -3px rgb(0 0 0 / 0.075), 0 4px 6px -4px rgb(0 0 0 / 0.075)`,
+    xl: `0 20px 25px -5px rgb(0 0 0 / 0.075), 0 8px 10px -6px rgb(0 0 0 / 0.075)`,
   },
   transition: {
     bg: "background-color 0.3s",

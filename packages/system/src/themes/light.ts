@@ -60,10 +60,6 @@ const lightTheme = {
       danger: cssVar("color.danger.4"),
     },
   },
-  shadow: {
-    color: "rgba(12, 12, 13, 0.1)",
-  },
-
   /* Components */
   Input: {
     bg: cssVar("color.surface.0"),
