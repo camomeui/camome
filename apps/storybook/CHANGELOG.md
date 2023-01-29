@@ -1,5 +1,19 @@
 # @camome/storybook
 
+## 0.0.13
+
+### Patch Changes
+
+- 4fe3edd: Fix names of decorators
+- 8fbc71a: Modify style and default title of Message
+- Updated dependencies [39f512e]
+- Updated dependencies [4fe3edd]
+- Updated dependencies [4cef229]
+- Updated dependencies [8fbc71a]
+- Updated dependencies [7ccf4c8]
+  - @camome/core@0.0.14
+  - @camome/system@0.1.18
+
 ## 0.0.12
 
 ### Patch Changes
