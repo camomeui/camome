@@ -2,3 +2,85 @@
 title: "概要"
 id: "guide:overview"
 ---
+
+## Camome UI とは
+
+Camome UI は **React コンポーネントライブラリであり、CSS フレームワークでもあります**。
+
+## 特徴
+
+### 軽量なバンドルサイズ
+
+例えば [`@mui/material@5.11.6`](https://bundlephobia.com/package/@mui/material@5.11.6) の `Button` は単体で**16.9KB**あり、それに Emotion や ThemeProvider も加わります。
+
+それに大して Camome UI の [`Button`](/docs/components/inputs/button)は単体で **1.42KB**(CSS 含む)と軽量であり、それにグローバル CSS の 4KB が加わります。
+
+<Message status="info">
+  Camome UI は配布パッケージ内で CSS
+  Modulesをインポートしており、bundlephobiaなどでは計算してくれないようなので[独自に計測](https://github.com/camomeui/camome/blob/4cef229a074c05d437e65abb9a1b62286f131598/apps/web/scripts/gen-docs-data.ts#L124)しています。
+</Message>
+
+### CSS ファースト & JS ランタイムなし
+
+Camome UI はスタイリングに [CSS Modules](https://github.com/css-modules/css-modules) を使用しているため、[Emotion](https://emotion.sh/docs/introduction) や [Styled Components](https://styled-components.com/) のようなスタイリングのためのランタイムの負荷がありません。
+
+また、イベントハンドラや `useEffect` を一切使用していないため、後述するようにピュアな CSS フレームワークとしても使用可能です。<DocLink id="menu"/> や <DocLink id="tab"/> のような複雑な UI については<DocLink id="guide:headless-integration"/>を検討してください。
+
+### ダークモード & カスタムテーマ
+
+デフォルトでダークモードに対応しています。また、テーマをカスタマイズすることも可能です。詳細は <DocLink id="guide:theming"/> を参照してください。
+
+<DocLinkCardGrid
+  links={[
+    {
+      id: "guide:theming",
+    },
+  ]}
+/>
+
+### スタイルの確実なオーバーライド
+
+CSS Modules の欠点として「スタイルのオーバーライドがしにくい」ということがあります。例えば、Camome UI のすべてのコンポーネントは `className` prop を受け取るようになっており、これを [clsx](https://github.com/lukeed/clsx)でデフォルトのクラス名と結合しています。結果として `class=".Button .custom-class"` のような属性が付与されますが、普通であればこのときに後者のクラスが勝つという保証はありません。これは問題です。
+
+しかし、**Camome UI は [CSS Cascade Layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) をサポートしているため、確実にオーバーライドできます**。詳しくは <DocLink id="guide:theming" hash="コンポーネントのオーバーライド" label="コンポーネントのオーバーライド"/> を参照してください。
+
+### アクセシブル
+
+完璧とはいえませんが、アクセシビリティには可能な限り注意が払われています。
+
+例えば <DocLink id="switch"/> は CSS のみで実装されていますが、それでもキーボードによるフォーカスや切り替えが可能ですし、<DocLink id="accordion"/> も `<details />` エレメントを使うことでクライアントサイド JavaScript なしでの開閉に対応しています。また、各 `<input />` 系のコンポーネントは `<FormField />` によって適切な `label` や `aria-describedby` 属性を手軽に設定できるようになっています（参照: <DocLink id="guide:form"/>）。
+
+<Message status="info">
+  アクセシビリティ上の問題を発見した場合は
+  [Issues](https://github.com/camomeui/camome/issues) へ報告をお願いします。
+</Message>
+
+### ポータブル
+
+React ライブラリとしての使用を第一に考えられていますが、バンドル済みの CSS をインポートすることで、Bootstrap のような CSS フレームワークとしても使用できます。
+
+```html
+<head>
+  <link
+    href="https://unpkg.com/@camome/system@latest/dist/theme.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://unpkg.com/@camome/core@latest/dist/components.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <button class="Button Button--primary Button--soft">Click me</button>
+</body>
+```
+
+このように、React のエコシステムに依存しているわけではないので、Vue や Svelte のような別のフレームワークに移植することも容易なはずです。
+
+## ロードマップ
+
+- `<input type="<number,file,password>" />`
+- Toast
+- Slider (非ネイティブ)
+- コンポーネントブロック
+- RTL 対応
