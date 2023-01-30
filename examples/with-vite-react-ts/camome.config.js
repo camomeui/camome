@@ -1,9 +1,7 @@
-import { defineTheme } from "@camome/system";
-
 /** @type { import("@camome/system").Config;} */
 export default {
   themes: {
-    light: defineTheme("light", (theme) => ({
+    light: {
       color: {
         primary: {
           0: "#faf5ff",
@@ -19,11 +17,10 @@ export default {
         },
       },
       Switch: {
-        bgOn: theme.color.success.emphasis,
-        bgOff: theme.color.danger.emphasis,
-        fontOff: theme.color.font.onEmphasis,
+        bgOn: (get) => get("color.success.emphasis"),
+        bgOff: (get) => get("color.danger.emphasis"),
+        fontOff: (get) => get("color.font.onEmphasis"),
       },
-    })),
-    dark: defineTheme("dark"),
+    },
   },
 };

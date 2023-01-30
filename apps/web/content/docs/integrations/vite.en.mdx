@@ -2,3 +2,67 @@
 title: "Vite"
 id: "integrations:vite"
 ---
+
+## Example project
+
+[Example project with Vite, React, TypeScript](https://github.com/camomeui/camome/tree/main/examples/with-vite-react-ts) is found here.
+
+## `vite.config.ts`
+
+```ts:vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { generateScopedName } from "@camome/utils";
+
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    modules: {
+      generateScopedName(name, filename) {
+        // @camome/core depends on static class names
+        // but your own module classes won't.
+        if (!filename.match(/@camome\/core/)) {
+          // Whatever.
+          return name + "-" + hash(filename);
+        }
+        return generateScopedName(name, filename);
+      },
+    },
+  },
+});
+```
+
+## Import CSS
+
+```tsx:main.tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+// Make sure `theme.css` is imported first.
+import "@camome/system/dist/theme.css"
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+```tsx:App.tsx
+import { Button } from "@camome/core";
+import "./App.css";
+
+function App() {
+  return <Button>Button</Button>;
+}
+
+export default App;
+```
+
+```css:App.css
+/* Guaranteed override */
+.Button {
+  border-radius: 999px;
+}
+```

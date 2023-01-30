@@ -1,7 +1,4 @@
-body {
-  padding: 1rem;
-}
-
+/* Guaranteed override */
 .Button {
   border-radius: 999px;
 }

@@ -1,13 +1,13 @@
 import { Button } from "@camome/core/Button";
 import { Switch } from "@camome/core/Switch";
 
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <div style={{ display: "flex", gap: "2rem" }}>
+    <div className={styles.container}>
       <Button>Rounded</Button>
-      <Switch on="ON" off="OFF" />
+      <Switch />
     </div>
   );
 }
