@@ -68,5 +68,8 @@
       ]
     }
   },
-  "sideEffects": true
+  "sideEffects": [
+    "*.module.scss",
+    "chunk-*.mjs"
+  ]
 }
