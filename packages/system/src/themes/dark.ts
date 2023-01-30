@@ -19,7 +19,7 @@ const darkTheme = {
   color: {
     code: {
       block: (get) => mix(get("color.surface.0"), get("color.surface.2"), 0.5),
-      inline: getFn("color.surface.2"),
+      inline: getFn("color.surface.3"),
     },
     link: getFn("color.primary.5"),
     primary: {
@@ -56,7 +56,7 @@ const darkTheme = {
     font: {
       base: getFn("color.white"),
       muted: getFn("color.gray.3"),
-      subtle: getFn("color.gray.4"),
+      subtle: getFn("color.gray.5"),
       onEmphasis: getFn("color.white"),
     },
     border: {
@@ -137,7 +137,7 @@ export function colorSchemeColors(
     font: getFn(`color.${colorScheme}.2`),
     emphasis: getFn(`color.${colorScheme}.5`),
     muted: (get) => mix(getBg(get), getColor(get), 0.5),
-    subtle: (get) => mix(getBg(get), getColor(get), 0.1),
+    subtle: (get) => mix(getBg(get), getColor(get), 0.025),
     border: (get) => mix(getBg(get), getColor(get), 0.2),
   };
 }
@@ -177,7 +177,7 @@ export function messageColors(
 ): WithCallback<MessageThemeItem> {
   return {
     bg: (get) =>
-      mix(get("color.surface.0"), get(`color.${colorScheme}.6`), 0.05),
+      mix(get("color.surface.0"), get(`color.${colorScheme}.6`), 0.025),
     font: getFn(`color.${colorScheme}.3`),
     border: "transparent",
   };

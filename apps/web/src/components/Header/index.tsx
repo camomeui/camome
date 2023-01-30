@@ -69,9 +69,9 @@ export default function Header({ menuContent, classNames }: Props) {
             <LogoIconSvg className={styles.logoIcon} />
             <LogoSvg className={styles.logo} />
           </Link>
-          <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
+          <Navigation items={navItems} className={styles.desktopOnly} />
           <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">
             <ThemeSwitch />

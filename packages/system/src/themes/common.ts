@@ -29,7 +29,7 @@ export const BASE_STYLES = `body {
 export const commonTheme = {
   color: {
     black: "#141517",
-    white: "#fff",
+    white: "#ffffffe3",
     gray: {
       0: "#f7fafc",
       1: "#edf2f7",

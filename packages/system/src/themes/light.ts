@@ -111,9 +111,9 @@ const lightTheme = {
     font: getFn("color.white"),
   },
   Switch: {
-    bgOff: getFn("color.neutral.subtle"),
+    bgOff: getFn("color.surface.2"),
     bgOn: getFn("color.primary.emphasis"),
-    bgThumb: getFn("color.surface.0"),
+    bgThumb: getFn("color.white"),
     fontOff: getFn("color.font.muted"),
     fontOn: getFn("color.font.onEmphasis"),
     border: getFn("color.neutral.3"),

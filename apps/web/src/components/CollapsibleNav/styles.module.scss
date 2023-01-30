@@ -38,7 +38,7 @@ details.collapsible {
     .categoryIcon {
       width: 1.25rem;
       height: 1.25rem;
-      color: var(--cmm-color-primary-font);
+      color: var(--cmm-color-primary-emphasis);
       stroke-width: 2;
     }
 
@@ -116,7 +116,7 @@ details.collapsible {
   &[aria-current="page"] {
     font-weight: var(--cmm-font-weight-semibold);
     border-color: var(--cmm-color-primary-emphasis);
-    color: var(--cmm-color-primary-soft-font);
+    color: var(--cmm-color-primary-emphasis);
     background-color: var(--cmm-color-primary-subtle);
   }
 }

@@ -3,11 +3,19 @@
 }
 
 .menu {
-  :global(.Menu) {
-    min-width: 8rem;
+  :global {
+    .Menu {
+      min-width: 8rem;
 
-    :global(.Menu__item--disabled) {
-      --cmm-Menu-font-icon: var(--cmm-color-success-font);
+      .Menu__item {
+        > :first-child {
+          flex: 1;
+        }
+      }
+
+      .Menu__item--disabled {
+        --cmm-Menu-font-icon: var(--cmm-color-success-emphasis);
+      }
     }
   }
 }
