@@ -1,5 +1,12 @@
 # @camome/storybook
 
+## 0.0.16
+
+### Patch Changes
+
+- @camome/core@0.0.17
+- @camome/system@0.1.20
+
 ## 0.0.15
 
 ### Patch Changes
