@@ -72,7 +72,6 @@ export default function Footer() {
           <div className={styles.description__logo}>
             <LogoSvg />
           </div>
-          <p className={styles.description__text}>Made by Matsura Yuma</p>
         </div>
         <nav className={styles.navGrid}>
           {navSections.map((navItem) => (

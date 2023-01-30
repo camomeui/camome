@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
     "tsup": "^6.3.0"
   },
   "exports": {
@@ -26,5 +27,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "chroma-js": "^2.4.2"
+  }
 }

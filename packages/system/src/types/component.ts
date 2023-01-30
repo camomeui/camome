@@ -34,17 +34,17 @@ export type MenuTheme = {
   fontGroup: Color;
 };
 
-type MessageThemItem = {
+export type MessageThemeItem = {
   bg: Color;
   font: Color;
   border: Color;
 };
 
 export type MessageTheme = {
-  info: MessageThemItem;
-  success: MessageThemItem;
-  warn: MessageThemItem;
-  danger: MessageThemItem;
+  info: MessageThemeItem;
+  success: MessageThemeItem;
+  warn: MessageThemeItem;
+  danger: MessageThemeItem;
 };
 
 export type TabTheme = {

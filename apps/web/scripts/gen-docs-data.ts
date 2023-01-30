@@ -196,7 +196,7 @@ function postcssModules(plugins: AcceptedPlugin[] = []) {
         },
       }),
       ...plugins,
-    ]).process(source, { from: path, map: false });
+    ]).process(source, { from: path });
 
     return {
       contents: css,

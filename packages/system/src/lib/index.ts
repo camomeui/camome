@@ -6,7 +6,7 @@ import { DeepPartial, generatePaths, getValue, Path } from "@camome/utils";
 import { DEFAULT_PREFIX, layers } from "../constants";
 import { darkTheme, lightTheme } from "../themes";
 import { BASE_STYLES } from "../themes/common";
-import { Theme, Themes } from "../types";
+import { Config, Theme, ThemeConfig } from "../types";
 
 import {
   layer,
@@ -15,19 +15,15 @@ import {
   splitThemes,
   cssVar,
   enclose,
+  resolveThemeCallback,
 } from "./utils";
 
-type DefineThemeFn = (theme: Theme) => DeepPartial<Theme>;
-
-export function defineTheme(
+export function makeThemeFromConfig(
   scheme: "light" | "dark",
-  config: DefineThemeFn | DeepPartial<Theme> = {}
+  config: ThemeConfig = {}
 ): Theme {
   const defaultTheme = scheme === "light" ? lightTheme : darkTheme;
-  return deepmerge(
-    defaultTheme,
-    typeof config === "function" ? config(defaultTheme) : config
-  ) as Theme;
+  return resolveThemeCallback(deepmerge(defaultTheme, config) as Theme);
 }
 
 type GenerateCssOptions = {
@@ -36,7 +32,7 @@ type GenerateCssOptions = {
 };
 
 export async function generateCss(
-  themes: Themes,
+  config: Config = {},
   options: GenerateCssOptions = {}
 ): Promise<string> {
   const { prefix = DEFAULT_PREFIX, selector = ":root" } = options;
@@ -47,7 +43,10 @@ export async function generateCss(
     { comment: "Normalize", enclosure: _layer("reset") }
   );
 
-  const { common, dark, light } = splitThemes(themes);
+  const { common, dark, light } = splitThemes({
+    dark: makeThemeFromConfig("dark", config.themes?.dark),
+    light: makeThemeFromConfig("light", config.themes?.light),
+  });
 
   const commonTheme = modifyCss(
     generateThemeCss(common, {

@@ -34,9 +34,10 @@ yargs(hideBin(process.argv))
         if ("code" in e && e.code === "ERR_MODULE_NOT_FOUND") {
           console.error(`Config file not found at:\n${options.config}`);
         }
+        console.error(e);
         process.exit(1);
       }
-      const css = await generateCss(config.themes);
+      const css = await generateCss(config);
       const outputPath = path.join(process.cwd(), options.output);
       await fs.writeFile(outputPath, css);
       console.log(`CSS file exported to:\n${outputPath}`);
