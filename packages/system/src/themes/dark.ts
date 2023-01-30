@@ -54,10 +54,11 @@ const darkTheme = {
       4: getFn("color.gray.6"),
     },
     font: {
-      base: getFn("color.white"),
+      base: (get) => mix(get("color.surface.0"), get("color.white"), 0.85),
       muted: getFn("color.gray.3"),
       subtle: getFn("color.gray.5"),
-      onEmphasis: getFn("color.white"),
+      onEmphasis: (get) =>
+        mix(get("color.surface.0"), get("color.white"), 0.85),
     },
     border: {
       base: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.5),
