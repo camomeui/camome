@@ -60,7 +60,7 @@
 
     :where(code):not(:where([class~="no-markup"] *)) {
       color: var(--cmm-color-font-base);
-      background: var(--cmm-color-code-bg);
+      background: var(--cmm-color-code-inline);
       padding: 0.1em 0.3em;
       border-radius: var(--cmm-radius-sm);
       font-family: var(--cmm-font-family-code);
@@ -187,7 +187,7 @@
 
         :is(code) {
           color: var(--cmm-color-#{$color}-font);
-          --cmm-color-code-bg: var(--cmm-Message-#{$color}-bg);
+          --cmm-color-code-inline: var(--cmm-Message-#{$color}-bg);
           border: 1px solid var(--cmm-Message-#{$color}-border);
         }
       }

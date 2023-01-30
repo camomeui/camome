@@ -41,7 +41,7 @@
   border-left-color: var(--cmm-color-border-base);
 
   &:hover {
-    background: var(--cmm-color-surface-2);
+    background: var(--cmm-color-surface-1);
   }
 
   a {
@@ -56,7 +56,7 @@
 }
 
 .active {
-  background-color: var(--cmm-color-primary-soft-bg) !important;
+  background-color: var(--cmm-color-primary-subtle) !important;
   color: var(--cmm-color-primary-soft-font);
   position: relative;
   border-left-color: var(--cmm-color-primary-soft-font);

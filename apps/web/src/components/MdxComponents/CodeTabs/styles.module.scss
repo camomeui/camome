@@ -1,29 +1,29 @@
 .container {
   :global(.Tab__list) {
-    border-bottom: 1px solid var(--cmm-color-border-base);
-    background: var(--cmm-color-surface-2);
     border: 1px solid var(--cmm-color-border-base);
-    border-radius: var(--cmm-radius-lg) var(--cmm-radius-lg) 0 0;
-    padding: 0.5rem 0.5rem 0 0.5rem;
-    gap: 0.5rem;
+    background: var(--cmm-color-surface-2);
+    border-radius: var(--cmm-radius-xl) var(--cmm-radius-xl) 0 0;
+    padding: 0 0.5rem;
+    gap: 1rem;
   }
 
   :global(.Tab) {
-    padding: 0 0.75rem;
+    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
     height: 2rem;
     font-size: var(--cmm-font-size-sm);
     font-weight: var(--cmm-font-weight-medium);
     color: var(--cmm-color-font-muted);
-    border-width: 1px;
+    border-width: 0;
     border-bottom-width: 2px;
     margin-bottom: -1px;
     border-color: transparent;
-    background: none;
-    border-radius: var(--cmm-radius-md) var(--cmm-radius-md) 0 0;
+    // background: none;
+    // border-radius: var(--cmm-radius-lg) var(--cmm-radius-lg) 0 0;
 
     &:hover:not(:global(.Tab--active)) {
-      color: var(--cmm-color-font-base);
-      background: var(--cmm-color-surface-3);
+      // color: var(--cmm-color-font-base);
+      // background: var(--cmm-color-surface-3);
+      border-color: var(--cmm-color-neutral-muted);
     }
 
     &:focus-visible {
@@ -33,10 +33,8 @@
   }
 
   :global(.Tab--active) {
-    color: var(--cmm-color-primary-emphasis);
-    background: var(--cmm-color-surface-0);
-    border-color: var(--cmm-color-border-base);
-    border-bottom-color: var(--cmm-color-primary-emphasis);
+    color: var(--cmm-color-primary-font);
+    border-color: var(--cmm-color-primary-muted);
   }
 
   :global(.Tab__panel) {

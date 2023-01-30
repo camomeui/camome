@@ -5,10 +5,9 @@
 .code {
   border: none;
   display: block;
-  background-color: var(--cmm-color-surface-1);
+  background-color: var(--cmm-color-code-block);
   padding: 1rem;
-  border-radius: var(--cmm-radius-lg);
-  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-xl);
   font-weight: var(--cmm-font-weight-normal);
   font-size: 0.85em;
   max-height: 28em;

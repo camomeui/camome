@@ -64,14 +64,14 @@
 
 .remark-code-title {
   margin-top: 2rem;
-  border-top-left-radius: var(--cmm-radius-lg);
-  border-top-right-radius: var(--cmm-radius-lg);
+  border-top-left-radius: var(--cmm-radius-xl);
+  border-top-right-radius: var(--cmm-radius-xl);
   background-color: var(--cmm-color-surface-2);
   border: 1px solid var(--cmm-color-border-base);
-  border-bottom-width: 0;
   color: var(--cmm-color-font-muted);
   padding: 0.5rem 1rem 0.5rem 1rem;
-  font-size: var(--cmm-font-size-sm);
+  font-size: var(--cmm-font-size-xs);
+  font-family: var(--cmm-font-family-code);
 }
 
 .remark-code-title + .code-block pre {

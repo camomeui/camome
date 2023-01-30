@@ -90,7 +90,8 @@ export type PrimitiveColors = {
   black: Color;
   white: Color;
   code: {
-    bg: Color;
+    inline: Color;
+    block: Color;
   };
   link: Color;
   gray: ColorShade;

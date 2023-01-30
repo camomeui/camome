@@ -11,7 +11,8 @@ import { commonTheme } from "./common";
 const lightTheme = {
   color: {
     code: {
-      bg: getFn("color.gray.1"),
+      block: (get) => mix(get("color.surface.0"), get("color.surface.2"), 0.6),
+      inline: getFn("color.surface.2"),
     },
     link: getFn("color.primary.6"),
     primary: {
@@ -127,7 +128,7 @@ export function colorSchemeTokens(
     font: getFn(`color.${colorScheme}.7`),
     emphasis: getFn(`color.${colorScheme}.6`),
     muted: getFn(`color.${colorScheme}.4`),
-    subtle: getFn(`color.${colorScheme}.1`),
+    subtle: getFn(`color.${colorScheme}.0`),
     border: getFn(`color.${colorScheme}.2`),
   };
 }
@@ -165,7 +166,7 @@ export function messageColors(
 ): WithCallback<MessageThemeItem> {
   return {
     bg: (get) =>
-      mix(get("color.surface.0"), get(`color.${colorScheme}.4`), 0.2),
+      mix(get("color.surface.0"), get(`color.${colorScheme}.4`), 0.15),
     font: getFn(`color.${colorScheme}.font`),
     border: "transparent",
   };

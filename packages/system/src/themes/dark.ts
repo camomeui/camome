@@ -18,7 +18,8 @@ import { commonTheme } from "./common";
 const darkTheme = {
   color: {
     code: {
-      bg: getFn("color.surface.3"),
+      block: (get) => mix(get("color.surface.0"), get("color.surface.2"), 0.5),
+      inline: getFn("color.surface.2"),
     },
     link: getFn("color.primary.5"),
     primary: {
@@ -59,8 +60,8 @@ const darkTheme = {
       onEmphasis: getFn("color.white"),
     },
     border: {
-      base: getFn("color.gray.7"),
-      subtle: getFn("color.gray.8"),
+      base: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.5),
+      subtle: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.3),
     },
   },
   outline: {
@@ -136,7 +137,7 @@ export function colorSchemeColors(
     font: getFn(`color.${colorScheme}.2`),
     emphasis: getFn(`color.${colorScheme}.5`),
     muted: (get) => mix(getBg(get), getColor(get), 0.5),
-    subtle: (get) => mix(getBg(get), getColor(get), 0.2),
+    subtle: (get) => mix(getBg(get), getColor(get), 0.1),
     border: (get) => mix(getBg(get), getColor(get), 0.2),
   };
 }
