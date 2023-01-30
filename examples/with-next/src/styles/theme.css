@@ -1,0 +1,813 @@
+@layer cmm.reset, cmm.theme, cmm.base, cmm.components;
+/* Normalize */
+@layer cmm.reset {
+  /* Borrowed from Tailwind (MIT): https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css */
+
+  /*
+  1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+  2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+  */
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box; /* 1 */
+    border-width: 0; /* 2 */
+    border-style: solid; /* 2 */
+    border-color: currentColor; /* 2 */
+  }
+
+  /*
+  1. Use a consistent sensible line-height in all browsers.
+  2. Prevent adjustments of font size after orientation changes in iOS.
+  3. Use a more readable tab size.
+  4. Use the user's configured `sans` font-family by default.
+  5. Use the user's configured `sans` font-feature-settings by default.
+  */
+
+  html {
+    line-height: 1.5; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -moz-tab-size: 4; /* 3 */
+    tab-size: 4; /* 3 */
+  }
+
+  /*
+  1. Remove the margin in all browsers.
+  2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+  */
+
+  body {
+    margin: 0; /* 1 */
+    line-height: inherit; /* 2 */
+  }
+
+  /*
+  1. Add the correct height in Firefox.
+  2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+  3. Ensure horizontal rules are visible by default.
+  */
+
+  hr {
+    height: 0; /* 1 */
+    color: inherit; /* 2 */
+    border-top-width: 1px; /* 3 */
+  }
+
+  /*
+  Add the correct text decoration in Chrome, Edge, and Safari.
+  */
+
+  abbr:where([title]) {
+    text-decoration: underline dotted;
+  }
+
+  /*
+  Remove the default font size and weight for headings.
+  */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  /*
+  Reset links to optimize for opt-in styling instead of opt-out.
+  */
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  /*
+  Add the correct font weight in Edge and Safari.
+  */
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  /*
+  Add the correct font size in all browsers.
+  */
+
+  small {
+    font-size: 80%;
+  }
+
+  /*
+  Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+  */
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  /*
+  1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+  2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+  3. Remove gaps between table borders by default.
+  */
+
+  table {
+    text-indent: 0; /* 1 */
+    border-color: inherit; /* 2 */
+    border-collapse: collapse; /* 3 */
+  }
+
+  /*
+  1. Change the font styles in all browsers.
+  2. Remove the margin in Firefox and Safari.
+  3. Remove default padding in all browsers.
+  */
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    font-weight: inherit; /* 1 */
+    line-height: inherit; /* 1 */
+    color: inherit; /* 1 */
+    margin: 0; /* 2 */
+    padding: 0; /* 3 */
+  }
+
+  /*
+  Remove the inheritance of text transform in Edge and Firefox.
+  */
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  /*
+  1. Correct the inability to style clickable types in iOS and Safari.
+  2. Remove default button styles.
+  */
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button; /* 1 */
+    background-color: transparent; /* 2 */
+    background-image: none; /* 2 */
+  }
+
+  /*
+  Use the modern Firefox focus style for all focusable elements.
+  */
+
+  :-moz-focusring {
+    outline: auto;
+  }
+
+  /*
+  Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+  */
+
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  /*
+  Add the correct vertical alignment in Chrome and Firefox.
+  */
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  /*
+  Correct the cursor style of increment and decrement buttons in Safari.
+  */
+
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  /*
+  1. Correct the odd appearance in Chrome and Safari.
+  2. Correct the outline style in Safari.
+  */
+
+  [type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    outline-offset: -2px; /* 2 */
+  }
+
+  /*
+  Remove the inner padding in Chrome and Safari on macOS.
+  */
+
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  /*
+  1. Correct the inability to style clickable types in iOS and Safari.
+  2. Change font properties to `inherit` in Safari.
+  */
+
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    font: inherit; /* 2 */
+  }
+
+  /*
+  Add the correct display in Chrome and Safari.
+  */
+
+  summary {
+    display: list-item;
+  }
+
+  /*
+  Removes the default spacing and border for appropriate elements.
+  */
+
+  blockquote,
+  dl,
+  dd,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  figure,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+  Prevent resizing textareas horizontally by default.
+  */
+
+  textarea {
+    resize: vertical;
+  }
+
+  /*
+  1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+  2. Set the default placeholder color to the user's configured gray 400 color.
+  */
+
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 1; /* 1 */
+    color: #9ca3af; /* 2 */
+  }
+
+  /*
+  Set the default cursor for buttons.
+  */
+
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  /*
+  Make sure disabled buttons don't get the pointer cursor.
+  */
+  :disabled {
+    cursor: default;
+  }
+
+  /*
+  1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+  2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+     This can trigger a poorly considered lint error in some tools but is included by design.
+  */
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block; /* 1 */
+    vertical-align: middle; /* 2 */
+  }
+
+  /*
+  Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+  */
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Make elements with the HTML hidden attribute stay hidden by default */
+  [hidden] {
+    display: none;
+  }
+}
+/* Theme - common */
+@layer cmm.theme {
+  :root {
+    --cmm-color-black: #141517;
+    --cmm-color-white: #fff;
+    --cmm-color-gray-0: #f7fafc;
+    --cmm-color-gray-1: #edf2f7;
+    --cmm-color-gray-2: #e2e8f0;
+    --cmm-color-gray-3: #cbd5e0;
+    --cmm-color-gray-4: #a0aec0;
+    --cmm-color-gray-5: #718096;
+    --cmm-color-gray-6: #4a5568;
+    --cmm-color-gray-7: #2d3748;
+    --cmm-color-gray-8: #1a202c;
+    --cmm-color-gray-9: #171923;
+    --cmm-color-primary-solid-font: #fff;
+    --cmm-color-primary-outline-bg: transparent;
+    --cmm-color-primary-ghost-bg: transparent;
+    --cmm-color-neutral-0: #f7fafc;
+    --cmm-color-neutral-1: #edf2f7;
+    --cmm-color-neutral-2: #e2e8f0;
+    --cmm-color-neutral-3: #cbd5e0;
+    --cmm-color-neutral-4: #a0aec0;
+    --cmm-color-neutral-5: #718096;
+    --cmm-color-neutral-6: #4a5568;
+    --cmm-color-neutral-7: #2d3748;
+    --cmm-color-neutral-8: #1a202c;
+    --cmm-color-neutral-9: #171923;
+    --cmm-color-neutral-solid-bg: #4a5568;
+    --cmm-color-neutral-solid-bg-hover: #2d3748;
+    --cmm-color-neutral-solid-font: #fff;
+    --cmm-color-neutral-outline-bg: transparent;
+    --cmm-color-neutral-ghost-bg: transparent;
+    --cmm-color-info-0: #eff6ff;
+    --cmm-color-info-1: #dbeafe;
+    --cmm-color-info-2: #bfdbfe;
+    --cmm-color-info-3: #93c5fd;
+    --cmm-color-info-4: #60a5fa;
+    --cmm-color-info-5: #3b82f6;
+    --cmm-color-info-6: #2563eb;
+    --cmm-color-info-7: #1d4ed8;
+    --cmm-color-info-8: #1e40af;
+    --cmm-color-info-9: #1e3a8a;
+    --cmm-color-info-solid-bg: #2563eb;
+    --cmm-color-info-solid-bg-hover: #1d4ed8;
+    --cmm-color-info-solid-font: #fff;
+    --cmm-color-info-outline-bg: transparent;
+    --cmm-color-info-ghost-bg: transparent;
+    --cmm-color-success-0: #f0fdf4;
+    --cmm-color-success-1: #dcfce7;
+    --cmm-color-success-2: #bbf7d0;
+    --cmm-color-success-3: #86efac;
+    --cmm-color-success-4: #4ade80;
+    --cmm-color-success-5: #22c55e;
+    --cmm-color-success-6: #16a34a;
+    --cmm-color-success-7: #15803d;
+    --cmm-color-success-8: #166534;
+    --cmm-color-success-9: #14532d;
+    --cmm-color-success-solid-bg: #16a34a;
+    --cmm-color-success-solid-bg-hover: #15803d;
+    --cmm-color-success-solid-font: #fff;
+    --cmm-color-success-outline-bg: transparent;
+    --cmm-color-success-ghost-bg: transparent;
+    --cmm-color-warn-0: #fff7ed;
+    --cmm-color-warn-1: #ffedd5;
+    --cmm-color-warn-2: #fed7aa;
+    --cmm-color-warn-3: #fdba74;
+    --cmm-color-warn-4: #fb923c;
+    --cmm-color-warn-5: #f97316;
+    --cmm-color-warn-6: #ea580c;
+    --cmm-color-warn-7: #c2410c;
+    --cmm-color-warn-8: #9a3412;
+    --cmm-color-warn-9: #7c2d12;
+    --cmm-color-warn-solid-bg: #ea580c;
+    --cmm-color-warn-solid-bg-hover: #c2410c;
+    --cmm-color-warn-solid-font: #fff;
+    --cmm-color-warn-outline-bg: transparent;
+    --cmm-color-warn-ghost-bg: transparent;
+    --cmm-color-danger-0: #fef2f2;
+    --cmm-color-danger-1: #fee2e2;
+    --cmm-color-danger-2: #fecaca;
+    --cmm-color-danger-3: #fca5a5;
+    --cmm-color-danger-4: #f87171;
+    --cmm-color-danger-5: #ef4444;
+    --cmm-color-danger-6: #dc2626;
+    --cmm-color-danger-7: #b91c1c;
+    --cmm-color-danger-8: #991b1b;
+    --cmm-color-danger-9: #7f1d1d;
+    --cmm-color-danger-solid-bg: #dc2626;
+    --cmm-color-danger-solid-bg-hover: #b91c1c;
+    --cmm-color-danger-solid-font: #fff;
+    --cmm-color-danger-outline-bg: transparent;
+    --cmm-color-danger-ghost-bg: transparent;
+    --cmm-color-font-on-emphasis: #fff;
+    --cmm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --cmm-font-family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+      Consolas, monospace;
+    --cmm-font-size-xs: 0.75rem;
+    --cmm-font-size-sm: 0.875rem;
+    --cmm-font-size-md: 1rem;
+    --cmm-font-size-lg: 1.125rem;
+    --cmm-font-size-xl: 1.25rem;
+    --cmm-font-size-2xl: 1.5rem;
+    --cmm-font-size-3xl: 1.875rem;
+    --cmm-font-size-4xl: 2.25rem;
+    --cmm-font-size-5xl: 3rem;
+    --cmm-font-size-6xl: 3.75rem;
+    --cmm-font-weight-thin: 100;
+    --cmm-font-weight-extralight: 200;
+    --cmm-font-weight-light: 300;
+    --cmm-font-weight-normal: 400;
+    --cmm-font-weight-medium: 500;
+    --cmm-font-weight-semibold: 600;
+    --cmm-font-weight-bold: 700;
+    --cmm-font-weight-extrabold: 800;
+    --cmm-font-weight-black: 900;
+    --cmm-outline-offset: 2px;
+    --cmm-outline-width: 2px;
+    --cmm-radius-none: none;
+    --cmm-radius-xs: 0.125rem;
+    --cmm-radius-sm: 0.25rem;
+    --cmm-radius-md: 0.375rem;
+    --cmm-radius-lg: 0.5rem;
+    --cmm-radius-xl: 0.75rem;
+    --cmm-radius-2xl: 1rem;
+    --cmm-radius-3xl: 1.25rem;
+    --cmm-radius-4xl: 1.5rem;
+    --cmm-radius-full: 9999px;
+    --cmm-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.075);
+    --cmm-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.075),
+      0 1px 2px -1px rgb(0 0 0 / 0.075);
+    --cmm-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.075),
+      0 2px 4px -2px rgb(0 0 0 / 0.075);
+    --cmm-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.075),
+      0 4px 6px -4px rgb(0 0 0 / 0.075);
+    --cmm-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.075),
+      0 8px 10px -6px rgb(0 0 0 / 0.075);
+    --cmm-transition-bg: background-color 0.3s;
+    --cmm-Message-info-border: transparent;
+    --cmm-Message-success-border: transparent;
+    --cmm-Message-warn-border: transparent;
+    --cmm-Message-danger-border: transparent;
+    --cmm-Tooltip-bg: #4a5568;
+    --cmm-Tooltip-font: #fff;
+    --cmm-Switch-font-on: #fff;
+  }
+}
+/* Theme - light */
+@layer cmm.theme {
+  :root[data-theme="light"] {
+    --cmm-color-primary-0: #faf5ff;
+    --cmm-color-primary-1: #f3e8ff;
+    --cmm-color-primary-2: #e9d5ff;
+    --cmm-color-primary-3: #d8b4fe;
+    --cmm-color-primary-4: #c084fc;
+    --cmm-color-primary-5: #a855f7;
+    --cmm-color-primary-6: #9333ea;
+    --cmm-color-primary-7: #7e22ce;
+    --cmm-color-primary-8: #6b21a8;
+    --cmm-color-primary-9: #581c87;
+    --cmm-color-primary-font: #7e22ce;
+    --cmm-color-primary-emphasis: #9333ea;
+    --cmm-color-primary-muted: #c084fc;
+    --cmm-color-primary-subtle: #f3e8ff;
+    --cmm-color-primary-border: #e9d5ff;
+    --cmm-color-primary-solid-bg: #9333ea;
+    --cmm-color-primary-solid-bg-hover: #7e22ce;
+    --cmm-color-primary-soft-bg: #f3e8ff;
+    --cmm-color-primary-soft-bg-hover: #e9d5ff;
+    --cmm-color-primary-soft-font: #7e22ce;
+    --cmm-color-primary-outline-bg-hover: #f3e8ff;
+    --cmm-color-primary-outline-font: #7e22ce;
+    --cmm-color-primary-outline-border: #e9d5ff;
+    --cmm-color-primary-ghost-bg-hover: #f3e8ff;
+    --cmm-color-primary-ghost-font: #7e22ce;
+    --cmm-color-neutral-font: #2d3748;
+    --cmm-color-neutral-emphasis: #4a5568;
+    --cmm-color-neutral-muted: #a0aec0;
+    --cmm-color-neutral-subtle: #edf2f7;
+    --cmm-color-neutral-border: #e2e8f0;
+    --cmm-color-neutral-soft-bg: #edf2f7;
+    --cmm-color-neutral-soft-bg-hover: #e2e8f0;
+    --cmm-color-neutral-soft-font: #2d3748;
+    --cmm-color-neutral-outline-bg-hover: #edf2f7;
+    --cmm-color-neutral-outline-font: #2d3748;
+    --cmm-color-neutral-outline-border: #e2e8f0;
+    --cmm-color-neutral-ghost-bg-hover: #edf2f7;
+    --cmm-color-neutral-ghost-font: #2d3748;
+    --cmm-color-info-font: #1d4ed8;
+    --cmm-color-info-emphasis: #2563eb;
+    --cmm-color-info-muted: #60a5fa;
+    --cmm-color-info-subtle: #dbeafe;
+    --cmm-color-info-border: #bfdbfe;
+    --cmm-color-info-soft-bg: #dbeafe;
+    --cmm-color-info-soft-bg-hover: #bfdbfe;
+    --cmm-color-info-soft-font: #1d4ed8;
+    --cmm-color-info-outline-bg-hover: #dbeafe;
+    --cmm-color-info-outline-font: #1d4ed8;
+    --cmm-color-info-outline-border: #bfdbfe;
+    --cmm-color-info-ghost-bg-hover: #dbeafe;
+    --cmm-color-info-ghost-font: #1d4ed8;
+    --cmm-color-success-font: #15803d;
+    --cmm-color-success-emphasis: #16a34a;
+    --cmm-color-success-muted: #4ade80;
+    --cmm-color-success-subtle: #dcfce7;
+    --cmm-color-success-border: #bbf7d0;
+    --cmm-color-success-soft-bg: #dcfce7;
+    --cmm-color-success-soft-bg-hover: #bbf7d0;
+    --cmm-color-success-soft-font: #15803d;
+    --cmm-color-success-outline-bg-hover: #dcfce7;
+    --cmm-color-success-outline-font: #15803d;
+    --cmm-color-success-outline-border: #bbf7d0;
+    --cmm-color-success-ghost-bg-hover: #dcfce7;
+    --cmm-color-success-ghost-font: #15803d;
+    --cmm-color-warn-font: #c2410c;
+    --cmm-color-warn-emphasis: #ea580c;
+    --cmm-color-warn-muted: #fb923c;
+    --cmm-color-warn-subtle: #ffedd5;
+    --cmm-color-warn-border: #fed7aa;
+    --cmm-color-warn-soft-bg: #ffedd5;
+    --cmm-color-warn-soft-bg-hover: #fed7aa;
+    --cmm-color-warn-soft-font: #c2410c;
+    --cmm-color-warn-outline-bg-hover: #ffedd5;
+    --cmm-color-warn-outline-font: #c2410c;
+    --cmm-color-warn-outline-border: #fed7aa;
+    --cmm-color-warn-ghost-bg-hover: #ffedd5;
+    --cmm-color-warn-ghost-font: #c2410c;
+    --cmm-color-danger-font: #b91c1c;
+    --cmm-color-danger-emphasis: #dc2626;
+    --cmm-color-danger-muted: #f87171;
+    --cmm-color-danger-subtle: #fee2e2;
+    --cmm-color-danger-border: #fecaca;
+    --cmm-color-danger-soft-bg: #fee2e2;
+    --cmm-color-danger-soft-bg-hover: #fecaca;
+    --cmm-color-danger-soft-font: #b91c1c;
+    --cmm-color-danger-outline-bg-hover: #fee2e2;
+    --cmm-color-danger-outline-font: #b91c1c;
+    --cmm-color-danger-outline-border: #fecaca;
+    --cmm-color-danger-ghost-bg-hover: #fee2e2;
+    --cmm-color-danger-ghost-font: #b91c1c;
+    --cmm-color-code-bg: #edf2f7;
+    --cmm-color-link: #9333ea;
+    --cmm-color-surface-0: #fff;
+    --cmm-color-surface-1: #f7fafc;
+    --cmm-color-surface-2: #edf2f7;
+    --cmm-color-surface-3: #e2e8f0;
+    --cmm-color-surface-4: #cbd5e0;
+    --cmm-color-font-base: #141517;
+    --cmm-color-font-muted: #2d3748;
+    --cmm-color-font-subtle: #718096;
+    --cmm-color-border-base: #e2e8f0;
+    --cmm-color-border-subtle: #edf2f7;
+    --cmm-outline-color-primary: #c084fc;
+    --cmm-outline-color-danger: #f87171;
+    --cmm-Input-bg: #fff;
+    --cmm-Input-border: #e2e8f0;
+    --cmm-Kbd-bg: #fff;
+    --cmm-Kbd-border: #e2e8f0;
+    --cmm-Kbd-font: #2d3748;
+    --cmm-Menu-bg: #fff;
+    --cmm-Menu-bg-hover: #edf2f7;
+    --cmm-Menu-font-label: #141517;
+    --cmm-Menu-font-icon: #2d3748;
+    --cmm-Menu-font-group: #2d3748;
+    --cmm-Message-info-bg: #e8f0fe;
+    --cmm-Message-info-font: #1d4ed8;
+    --cmm-Message-success-bg: #e6f9eb;
+    --cmm-Message-success-font: #15803d;
+    --cmm-Message-warn-bg: #feede6;
+    --cmm-Message-warn-font: #c2410c;
+    --cmm-Message-danger-bg: #feeaea;
+    --cmm-Message-danger-font: #b91c1c;
+    --cmm-Tab-bg: #fff;
+    --cmm-Tab-list-bg: #fff;
+    --cmm-Tab-bg-active: #fff;
+    --cmm-Tab-bg-hover: #edf2f7;
+    --cmm-Tab-border: #e2e8f0;
+    --cmm-Tab-border-active: #9333ea;
+    --cmm-Tab-border-hover: #d8b4fe;
+    --cmm-Tab-font: #2d3748;
+    --cmm-Tab-font-active: #7e22ce;
+    --cmm-Tab-font-hover: #2d3748;
+    --cmm-Switch-bg-off: #dc2626;
+    --cmm-Switch-bg-on: #16a34a;
+    --cmm-Switch-bg-thumb: #fff;
+    --cmm-Switch-font-off: #fff;
+    --cmm-Switch-border: #cbd5e0;
+    --cmm-Switch-border-thumb: #cbd5e0;
+  }
+}
+/* Theme - dark */
+@layer cmm.theme {
+  :root[data-theme="dark"] {
+    --cmm-color-primary-0: #eff6ff;
+    --cmm-color-primary-1: #dbeafe;
+    --cmm-color-primary-2: #bfdbfe;
+    --cmm-color-primary-3: #93c5fd;
+    --cmm-color-primary-4: #60a5fa;
+    --cmm-color-primary-5: #3b82f6;
+    --cmm-color-primary-6: #2563eb;
+    --cmm-color-primary-7: #1d4ed8;
+    --cmm-color-primary-8: #1e40af;
+    --cmm-color-primary-9: #1e3a8a;
+    --cmm-color-primary-font: #bfdbfe;
+    --cmm-color-primary-emphasis: #3b82f6;
+    --cmm-color-primary-muted: #1e48a7;
+    --cmm-color-primary-subtle: #18306b;
+    --cmm-color-primary-border: #18306b;
+    --cmm-color-primary-solid-bg: #2563eb;
+    --cmm-color-primary-solid-bg-hover: #1d4ed8;
+    --cmm-color-primary-soft-bg: #16254d;
+    --cmm-color-primary-soft-bg-hover: #18306b;
+    --cmm-color-primary-soft-font: #bfdbfe;
+    --cmm-color-primary-outline-bg-hover: #18306b;
+    --cmm-color-primary-outline-font: #bfdbfe;
+    --cmm-color-primary-outline-border: #18306b;
+    --cmm-color-primary-ghost-bg-hover: #18306b;
+    --cmm-color-primary-ghost-font: #bfdbfe;
+    --cmm-color-neutral-font: #e2e8f0;
+    --cmm-color-neutral-emphasis: #718096;
+    --cmm-color-neutral-muted: #363e4b;
+    --cmm-color-neutral-subtle: #262a33;
+    --cmm-color-neutral-border: #262a33;
+    --cmm-color-neutral-soft-bg: #1e2127;
+    --cmm-color-neutral-soft-bg-hover: #262a33;
+    --cmm-color-neutral-soft-font: #e2e8f0;
+    --cmm-color-neutral-outline-bg-hover: #262a33;
+    --cmm-color-neutral-outline-font: #e2e8f0;
+    --cmm-color-neutral-outline-border: #262a33;
+    --cmm-color-neutral-ghost-bg-hover: #262a33;
+    --cmm-color-neutral-ghost-font: #e2e8f0;
+    --cmm-color-info-font: #bfdbfe;
+    --cmm-color-info-emphasis: #3b82f6;
+    --cmm-color-info-muted: #1e48a7;
+    --cmm-color-info-subtle: #18306b;
+    --cmm-color-info-border: #18306b;
+    --cmm-color-info-soft-bg: #16254d;
+    --cmm-color-info-soft-bg-hover: #18306b;
+    --cmm-color-info-soft-font: #bfdbfe;
+    --cmm-color-info-outline-bg-hover: #18306b;
+    --cmm-color-info-outline-font: #bfdbfe;
+    --cmm-color-info-outline-border: #18306b;
+    --cmm-color-info-ghost-bg-hover: #18306b;
+    --cmm-color-info-ghost-font: #bfdbfe;
+    --cmm-color-success-font: #bbf7d0;
+    --cmm-color-success-emphasis: #22c55e;
+    --cmm-color-success-muted: #157437;
+    --cmm-color-success-subtle: #144b27;
+    --cmm-color-success-border: #144b27;
+    --cmm-color-success-soft-bg: #143720;
+    --cmm-color-success-soft-bg-hover: #144b27;
+    --cmm-color-success-soft-font: #bbf7d0;
+    --cmm-color-success-outline-bg-hover: #144b27;
+    --cmm-color-success-outline-font: #bbf7d0;
+    --cmm-color-success-outline-border: #144b27;
+    --cmm-color-success-ghost-bg-hover: #144b27;
+    --cmm-color-success-ghost-font: #bbf7d0;
+    --cmm-color-warn-font: #fed7aa;
+    --cmm-color-warn-emphasis: #f97316;
+    --cmm-color-warn-muted: #a64012;
+    --cmm-color-warn-subtle: #6a2c15;
+    --cmm-color-warn-border: #6a2c15;
+    --cmm-color-warn-soft-bg: #4c2216;
+    --cmm-color-warn-soft-bg-hover: #6a2c15;
+    --cmm-color-warn-soft-font: #fed7aa;
+    --cmm-color-warn-outline-bg-hover: #6a2c15;
+    --cmm-color-warn-outline-font: #fed7aa;
+    --cmm-color-warn-outline-border: #6a2c15;
+    --cmm-color-warn-ghost-bg-hover: #6a2c15;
+    --cmm-color-warn-ghost-font: #fed7aa;
+    --cmm-color-danger-font: #fecaca;
+    --cmm-color-danger-emphasis: #ef4444;
+    --cmm-color-danger-muted: #9c1f1f;
+    --cmm-color-danger-subtle: #64191b;
+    --cmm-color-danger-border: #64191b;
+    --cmm-color-danger-soft-bg: #481719;
+    --cmm-color-danger-soft-bg-hover: #64191b;
+    --cmm-color-danger-soft-font: #fecaca;
+    --cmm-color-danger-outline-bg-hover: #64191b;
+    --cmm-color-danger-outline-font: #fecaca;
+    --cmm-color-danger-outline-border: #64191b;
+    --cmm-color-danger-ghost-bg-hover: #64191b;
+    --cmm-color-danger-ghost-font: #fecaca;
+    --cmm-color-code-bg: #2d3748;
+    --cmm-color-link: #3b82f6;
+    --cmm-color-surface-0: #141517;
+    --cmm-color-surface-1: #171923;
+    --cmm-color-surface-2: #1a202c;
+    --cmm-color-surface-3: #2d3748;
+    --cmm-color-surface-4: #4a5568;
+    --cmm-color-font-base: #fff;
+    --cmm-color-font-muted: #cbd5e0;
+    --cmm-color-font-subtle: #a0aec0;
+    --cmm-color-border-base: #2d3748;
+    --cmm-color-border-subtle: #1a202c;
+    --cmm-outline-color-primary: #2563eb;
+    --cmm-outline-color-danger: #dc2626;
+    --cmm-Input-bg: #1a202c;
+    --cmm-Input-border: #2d3748;
+    --cmm-Kbd-bg: #1a202c;
+    --cmm-Kbd-border: #2d3748;
+    --cmm-Kbd-font: #cbd5e0;
+    --cmm-Menu-bg: #171923;
+    --cmm-Menu-bg-hover: #1a202c;
+    --cmm-Menu-font-label: #fff;
+    --cmm-Menu-font-icon: #cbd5e0;
+    --cmm-Menu-font-group: #cbd5e0;
+    --cmm-Message-info-bg: #151e39;
+    --cmm-Message-info-font: #93c5fd;
+    --cmm-Message-success-bg: #142a1c;
+    --cmm-Message-success-font: #86efac;
+    --cmm-Message-warn-bg: #381c17;
+    --cmm-Message-warn-font: #fdba74;
+    --cmm-Message-danger-bg: #351618;
+    --cmm-Message-danger-font: #fca5a5;
+    --cmm-Tab-bg: #141517;
+    --cmm-Tab-list-bg: #141517;
+    --cmm-Tab-bg-active: #141517;
+    --cmm-Tab-bg-hover: #262a33;
+    --cmm-Tab-border: #2d3748;
+    --cmm-Tab-border-active: #3b82f6;
+    --cmm-Tab-border-hover: #1d4ed8;
+    --cmm-Tab-font: #cbd5e0;
+    --cmm-Tab-font-active: #3b82f6;
+    --cmm-Tab-font-hover: #fff;
+    --cmm-Switch-bg-off: #1a202c;
+    --cmm-Switch-bg-on: #2563eb;
+    --cmm-Switch-bg-thumb: #f7fafc;
+    --cmm-Switch-font-off: #cbd5e0;
+    --cmm-Switch-border: #4a5568;
+    --cmm-Switch-border-thumb: #e2e8f0;
+  }
+}
+/* Base */
+@layer cmm.base {
+  body {
+    font-family: var(--cmm-font-family-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--cmm-color-font-base);
+    background: var(--cmm-color-surface-0);
+  }
+
+  *:focus-visible {
+    outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
+  }
+
+  .visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+  }
+}
