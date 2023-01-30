@@ -1,5 +1,13 @@
 # @camome/storybook
 
+## 0.0.15
+
+### Patch Changes
+
+- 92f86c0: Fix stlyes of Switch
+- Updated dependencies [92f86c0]
+  - @camome/core@0.0.16
+
 ## 0.0.14
 
 ### Patch Changes
