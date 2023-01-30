@@ -26,7 +26,3 @@
     @content;
   }
 }
-
-@function opaque($color) {
-  @return var(--cmm-color-surface-0) linear-gradient($color 0 100%);
-}

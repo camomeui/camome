@@ -1,7 +1,12 @@
-import { toKebabCase, type Path, type DeepPartial } from "@camome/utils";
+import {
+  getValue,
+  toKebabCase,
+  type Path,
+  type DeepPartial,
+} from "@camome/utils";
 
 import { DEFAULT_PREFIX, themedComponents } from "../constants";
-import { Theme } from "../types";
+import { Theme, ThemeConfigCallback, WithCallback } from "../types";
 import { ThemedComponent } from "../types/component";
 
 export type AppendCssOptions = {
@@ -92,14 +97,13 @@ export function splitThemes<T extends Obj>({
 }: SplitThemesParams<T>): SplitThemesParams<DeepPartial<T>> & {
   common: DeepPartial<T>;
 } {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   const retLight: any = {};
   const retDark: any = {};
   const retCommon: any = {};
-  /* eslint-enable @typescript-eslint/no-explicit-any */
 
   for (const [key, lightVal] of Object.entries(light)) {
     const darkVal = dark[key];
+
     if (typeof lightVal === "object") {
       const { common, dark, light } = splitThemes({
         light: lightVal as T,
@@ -118,4 +122,45 @@ export function splitThemes<T extends Obj>({
     }
   }
   return { light: retLight, dark: retDark, common: retCommon };
+}
+
+export function resolveThemeCallback(config: WithCallback<Theme>): Theme {
+  const get = (key: Path<WithCallback<Theme>>): string => {
+    const value = getValue(config, key) as unknown as
+      | ThemeConfigCallback
+      | string;
+    if (typeof value === "function") {
+      return value(get);
+    } else if (value.startsWith("var")) {
+      const path = value
+        .match(/^var\(--cmm-([^)]*)\)/)?.[1]
+        ?.replaceAll("-", ".");
+      if (!path) throw new Error(`Invalid theme path: ${path}`);
+      return get(path as any);
+    } else {
+      return value;
+    }
+  };
+
+  const _resolveThemeConfig = (_config: any) => {
+    const ret: any = {};
+    for (const [key, val] of Object.entries(_config)) {
+      let resolvedVal;
+      if (typeof val === "object") {
+        resolvedVal = _resolveThemeConfig(val);
+      } else if (typeof val === "function") {
+        resolvedVal = val(get);
+      } else {
+        resolvedVal = val;
+      }
+      ret[key] = resolvedVal;
+    }
+    return ret;
+  };
+
+  return _resolveThemeConfig(config);
+}
+
+export function getFn(path: Path<Theme>): ThemeConfigCallback {
+  return (_get) => _get(path);
 }

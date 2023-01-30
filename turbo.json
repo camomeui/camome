@@ -12,9 +12,6 @@
         "storybook-static"
       ]
     },
-    "dev": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
-    }
+    "dev": {}
   }
 }

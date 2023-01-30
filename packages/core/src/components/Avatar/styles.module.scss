@@ -6,7 +6,7 @@
   $selector: ".Block--#{$variant}.Block--#{$scheme}";
 
   #{$selector} {
-    background: utils.opaque(var(--cmm-color-#{$scheme}-#{$variant}-bg));
+    background: var(--cmm-color-#{$scheme}-#{$variant}-bg);
     color: var(--cmm-color-#{$scheme}-#{$variant}-font);
     border-color: var(--cmm-color-#{$scheme}-#{$variant}-border);
   }

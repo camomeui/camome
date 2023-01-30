@@ -3,3 +3,4 @@ export * from "./css";
 export * from "./string";
 export * from "./object";
 export { formatBytes } from "./number/formatBytes";
+export { mix } from "./color/mix";

@@ -7,11 +7,7 @@ import {
 
 import type { Option } from "./types";
 
-import {
-  defineTheme,
-  darkColorSchemeColors,
-  darkVariantColors,
-} from "@camome/system";
+import { makeThemeFromConfig } from "@camome/system";
 
 const purpleShade = {
   0: "#faf5ff",
@@ -56,13 +52,13 @@ export const themes = [
   {
     name: "light",
     label: "Light",
-    properties: defineTheme("light"),
+    properties: makeThemeFromConfig("light", {}),
     icon: <SunIcon />,
   },
   {
     name: "light-energetic",
     label: "Energetic",
-    properties: defineTheme("light", () => ({
+    properties: makeThemeFromConfig("light", {
       font: {
         family: {
           base: "Rubik, sans-serif",
@@ -79,7 +75,7 @@ export const themes = [
           base: pinkShade[3],
         },
       },
-    })),
+    }),
     googleFont: "Rubik:wght@400;500;600;700",
     icon: <SparklesIcon />,
     css: `
@@ -95,16 +91,16 @@ export const themes = [
   {
     name: "dark",
     label: "Dark",
-    properties: defineTheme("dark"),
+    properties: makeThemeFromConfig("dark", {}),
     icon: <MoonIcon />,
   },
   {
     name: "dark-cyber",
     label: "Cyberpunk",
-    properties: defineTheme("dark", (theme) => ({
+    properties: makeThemeFromConfig("dark", {
       font: {
         family: {
-          base: theme.font.family.code,
+          base: (get) => get("font.family.code"),
         },
         size: {
           xs: "0.7rem",
@@ -117,13 +113,9 @@ export const themes = [
       color: {
         primary: {
           ...purpleShade,
-          ...darkColorSchemeColors("primary", purpleShade),
-          ...darkVariantColors("primary", purpleShade),
         },
         neutral: {
           ...limeShade,
-          ...darkColorSchemeColors("neutral", limeShade),
-          ...darkVariantColors("neutral", limeShade),
           outline: {
             bgHover: limeShade[9],
             border: limeShade[4],
@@ -142,11 +134,8 @@ export const themes = [
         md: "none",
         lg: "none",
         xl: "none",
-        "2xl": "none",
-        "3xl": "none",
-        "4xl": "none",
       },
-    })),
+    }),
     icon: <BoltIcon />,
     css: `
    #custom-theme-demo-container {

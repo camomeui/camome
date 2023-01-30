@@ -1,7 +1,9 @@
 import { deepmerge } from "deepmerge-ts";
 
-import { cssVar } from "../lib/utils";
-import { Theme } from "../types";
+import { mix } from "@camome/utils";
+
+import { getFn } from "../lib/utils";
+import { MessageThemeItem, Theme, ThemeConfig, WithCallback } from "../types";
 import { ColorScheme, ColorSchemeTokens, VariantColors } from "../types/color";
 
 import { commonTheme } from "./common";
@@ -9,9 +11,9 @@ import { commonTheme } from "./common";
 const lightTheme = {
   color: {
     code: {
-      bg: cssVar("color.gray.1"),
+      bg: getFn("color.gray.1"),
     },
-    link: cssVar("color.primary.6"),
+    link: getFn("color.primary.6"),
     primary: {
       ...colorSchemeTokens("primary"),
       ...variantColors("primary"),
@@ -37,130 +39,136 @@ const lightTheme = {
       ...variantColors("danger"),
     },
     surface: {
-      0: cssVar("color.white"),
-      1: cssVar("color.neutral.0"),
-      2: cssVar("color.neutral.1"),
-      3: cssVar("color.neutral.2"),
-      4: cssVar("color.neutral.3"),
+      0: getFn("color.white"),
+      1: getFn("color.neutral.0"),
+      2: getFn("color.neutral.1"),
+      3: getFn("color.neutral.2"),
+      4: getFn("color.neutral.3"),
     },
     font: {
-      base: cssVar("color.black"),
-      muted: cssVar("color.gray.7"),
-      subtle: cssVar("color.gray.5"),
-      onEmphasis: cssVar("color.white"),
+      base: getFn("color.black"),
+      muted: getFn("color.gray.7"),
+      subtle: getFn("color.gray.5"),
+      onEmphasis: getFn("color.white"),
     },
     border: {
-      base: cssVar("color.gray.2"),
-      subtle: cssVar("color.gray.1"),
+      base: getFn("color.gray.2"),
+      subtle: getFn("color.gray.1"),
     },
   },
   outline: {
     color: {
-      primary: cssVar("color.primary.4"),
-      danger: cssVar("color.danger.4"),
+      primary: getFn("color.primary.4"),
+      danger: getFn("color.danger.4"),
     },
   },
   /* Components */
   Input: {
-    bg: cssVar("color.surface.0"),
-    bgHover: cssVar("color.surface.0"),
-    border: cssVar("color.border.base"),
+    bg: getFn("color.surface.0"),
+    border: getFn("color.border.base"),
   },
   Kbd: {
-    bg: cssVar("color.surface.0"),
-    border: cssVar("color.surface.3"),
-    font: cssVar("color.font.muted"),
+    bg: getFn("color.surface.0"),
+    border: getFn("color.surface.3"),
+    font: getFn("color.font.muted"),
   },
   Menu: {
-    bg: cssVar("color.surface.0"),
-    bgHover: cssVar("color.surface.2"),
-    fontLabel: cssVar("color.font.base"),
-    fontIcon: cssVar("color.font.muted"),
-    fontGroup: cssVar("color.font.muted"),
+    bg: getFn("color.surface.0"),
+    bgHover: getFn("color.surface.2"),
+    fontLabel: getFn("color.font.base"),
+    fontIcon: getFn("color.font.muted"),
+    fontGroup: getFn("color.font.muted"),
   },
   Message: {
     info: {
-      bg: cssVar("color.primary.0"),
-      font: cssVar("color.primary.font"),
-      border: cssVar("color.primary.border"),
+      ...messageColors("info"),
     },
     success: {
-      bg: cssVar("color.success.0"),
-      font: cssVar("color.success.font"),
-      border: cssVar("color.success.border"),
+      ...messageColors("success"),
     },
     warn: {
-      bg: cssVar("color.warn.0"),
-      font: cssVar("color.warn.font"),
-      border: cssVar("color.warn.border"),
+      ...messageColors("warn"),
     },
     danger: {
-      bg: cssVar("color.danger.0"),
-      font: cssVar("color.danger.font"),
-      border: cssVar("color.danger.border"),
+      ...messageColors("danger"),
     },
   },
   Tab: {
-    bg: cssVar("color.surface.0"),
-    listBg: cssVar("color.surface.0"),
-    bgActive: cssVar("color.surface.0"),
-    bgHover: cssVar("color.neutral.subtle"),
-    border: cssVar("color.border.base"),
-    borderActive: cssVar("color.primary.emphasis"),
-    borderHover: cssVar("color.primary.3"),
-    font: cssVar("color.font.muted"),
-    fontActive: cssVar("color.primary.font"),
-    fontHover: cssVar("color.font.muted"),
+    bg: getFn("color.surface.0"),
+    listBg: getFn("color.surface.0"),
+    bgActive: getFn("color.surface.0"),
+    bgHover: getFn("color.neutral.subtle"),
+    border: getFn("color.border.base"),
+    borderActive: getFn("color.primary.emphasis"),
+    borderHover: getFn("color.primary.3"),
+    font: getFn("color.font.muted"),
+    fontActive: getFn("color.primary.font"),
+    fontHover: getFn("color.font.muted"),
   },
   Tooltip: {
-    bg: cssVar("color.gray.6"),
-    font: cssVar("color.white"),
+    bg: getFn("color.gray.6"),
+    font: getFn("color.white"),
   },
   Switch: {
-    bgOff: cssVar("color.neutral.subtle"),
-    bgOn: cssVar("color.primary.emphasis"),
-    bgThumb: cssVar("color.surface.0"),
-    fontOff: cssVar("color.font.muted"),
-    fontOn: cssVar("color.font.onEmphasis"),
-    border: cssVar("color.neutral.3"),
-    borderThumb: cssVar("color.neutral.3"),
+    bgOff: getFn("color.neutral.subtle"),
+    bgOn: getFn("color.primary.emphasis"),
+    bgThumb: getFn("color.surface.0"),
+    fontOff: getFn("color.font.muted"),
+    fontOn: getFn("color.font.onEmphasis"),
+    border: getFn("color.neutral.3"),
+    borderThumb: getFn("color.neutral.3"),
   },
-} as const;
+} as const satisfies ThemeConfig;
 
-export function colorSchemeTokens(colorScheme: ColorScheme): ColorSchemeTokens {
+export function colorSchemeTokens(
+  colorScheme: ColorScheme
+): WithCallback<ColorSchemeTokens> {
   return {
-    font: cssVar(`color.${colorScheme}.7`),
-    emphasis: cssVar(`color.${colorScheme}.6`),
-    muted: cssVar(`color.${colorScheme}.4`),
-    subtle: cssVar(`color.${colorScheme}.1`),
-    border: cssVar(`color.${colorScheme}.1`),
+    font: getFn(`color.${colorScheme}.7`),
+    emphasis: getFn(`color.${colorScheme}.6`),
+    muted: getFn(`color.${colorScheme}.4`),
+    subtle: getFn(`color.${colorScheme}.1`),
+    border: getFn(`color.${colorScheme}.2`),
   };
 }
 
-export function variantColors(colorScheme: ColorScheme): VariantColors {
+export function variantColors(
+  colorScheme: ColorScheme
+): WithCallback<VariantColors> {
   return {
     solid: {
-      bg: cssVar(`color.${colorScheme}.6`),
-      bgHover: cssVar(`color.${colorScheme}.7`),
-      font: cssVar(`color.white`),
+      bg: getFn(`color.${colorScheme}.6`),
+      bgHover: getFn(`color.${colorScheme}.7`),
+      font: getFn(`color.white`),
     },
     soft: {
-      bg: cssVar(`color.${colorScheme}.1`),
-      bgHover: cssVar(`color.${colorScheme}.2`),
-      font: cssVar(`color.${colorScheme}.font`),
+      bg: getFn(`color.${colorScheme}.1`),
+      bgHover: getFn(`color.${colorScheme}.2`),
+      font: getFn(`color.${colorScheme}.font`),
     },
     outline: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.font`),
-      border: cssVar(`color.${colorScheme}.2`),
+      bgHover: getFn(`color.${colorScheme}.1`),
+      font: getFn(`color.${colorScheme}.font`),
+      border: getFn(`color.${colorScheme}.2`),
     },
     ghost: {
       bg: "transparent",
-      bgHover: cssVar(`color.${colorScheme}.1`),
-      font: cssVar(`color.${colorScheme}.font`),
+      bgHover: getFn(`color.${colorScheme}.1`),
+      font: getFn(`color.${colorScheme}.font`),
     },
   };
 }
 
-export default deepmerge(commonTheme, lightTheme) satisfies Theme;
+export function messageColors(
+  colorScheme: ColorScheme
+): WithCallback<MessageThemeItem> {
+  return {
+    bg: (get) =>
+      mix(get("color.surface.0"), get(`color.${colorScheme}.4`), 0.2),
+    font: getFn(`color.${colorScheme}.font`),
+    border: "transparent",
+  };
+}
+
+export default deepmerge(commonTheme, lightTheme) satisfies WithCallback<Theme>;

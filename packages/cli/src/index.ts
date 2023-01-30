@@ -37,7 +37,7 @@ yargs(hideBin(process.argv))
         console.error(e);
         process.exit(1);
       }
-      const css = await generateCss(config.themes);
+      const css = await generateCss(config);
       const outputPath = path.join(process.cwd(), options.output);
       await fs.writeFile(outputPath, css);
       console.log(`CSS file exported to:\n${outputPath}`);
