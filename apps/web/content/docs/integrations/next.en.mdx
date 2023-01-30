@@ -2,3 +2,76 @@
 title: "Next.js"
 id: "integrations:next"
 ---
+
+## Example project
+
+[Example project with Next.js, TypeScript](https://github.com/camomeui/camome/tree/main/examples/with-next) is found here.
+
+## `next.config.js`
+
+```js:next.config.js
+const { generateScopedName, hash } = require("@camome/utils");
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  transpilePackages: ["@camome/core"],
+  webpack: (config) => {
+    // Generate static class names for `@camome/core`.
+    // There's no way to do so without messing up like this.
+    config.module.rules
+      .find(({ oneOf }) => !!oneOf)
+      .oneOf.filter(({ use }) => JSON.stringify(use)?.includes("css-loader"))
+      .reduce((acc, { use }) => acc.concat(use), [])
+      .forEach(({ options }) => {
+        if (options.modules) {
+          options.modules.getLocalIdent = (
+            context,
+            localIdentName,
+            localName
+          ) => {
+            const filename = context.resourcePath;
+            // @camome/core depends on static class names
+            // but your own module classes won't.
+            if (!filename.match(/@camome\/core/)) {
+              // Whatever. `hash()` doesn't have any special effect.
+              return localName + "-" + hash(filename);
+            }
+            return generateScopedName(localName, filename);
+          };
+        }
+      });
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;
+```
+
+## import CSS
+
+```tsx:_app.tsx
+import "@camome/system/dist/theme.css";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+```
+
+```css:globals.css
+/* Guaranteed override */
+.Button {
+  border-radius: 999px;
+}
+```
+
+```tsx:page.tsx
+import { Button } from "@camome/core/Button";
+
+export default function HomePage() {
+  return <Button>Button</Button>;
+}
+```

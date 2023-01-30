@@ -49,7 +49,7 @@ const sidebar = {
           id: "integrations:vite",
         },
         {
-          id: "integrations:cra",
+          id: "integrations:cdn",
         },
       ],
     },

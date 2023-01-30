@@ -1,3 +1,4 @@
+// Or default: "@camome/system/dist/theme.css";
 import "@/styles/theme.css";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
