@@ -34,13 +34,9 @@ id: "guide:installation"
   ]}
 />
 
-## [方法 1] TypeScript + CSS Modules
+## バンドラーの設定
 
-こちらの方法では、`node_modules` 内の `@camome/core` のコードを、あなたのアプリのバンドラーでトランスパイルしてから読み込みます。**必要なコンポーネントとそれに対応する CSS だけを読み込めるので、パフォーマンス上の観点から、後述する[[方法 2]](/docs/guide/installation#%E6%96%B9%E6%B3%95-2-%E3%83%90%E3%83%B3%E3%83%89%E3%83%AB%E6%B8%88%E3%81%BF-javascript--%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB-css)よりも推奨されます。**
-
-### バンドラーの設定
-
-Camome のソースコードは [TypeScript](https://www.typescriptlang.org/) + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/) で書かれています。これらは生の JavaScript から直接 `import` できるコードではないため、Webpack や Rollup のプラグインやローダーを設定する必要があります。
+Camome の配布コードは JavaScript + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/) で書かれています。`*.module.scss` は JavaScript から直接 `import` できるコードではないため、Webpack や Rollup のプラグインやローダーを設定する必要があります。
 
 主なフレームワークごとの設定方法は以下を参照してください:
 
@@ -52,7 +48,7 @@ Camome のソースコードは [TypeScript](https://www.typescriptlang.org/) + 
   ]}
 />
 
-### CSS のインポート
+## CSS のインポート
 
 CSS のインポートの順番には意味があります。Camome はテーマファイル内で [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer)の優先順位を宣言しているため、**テーマファイルが最初にインポートされるようにしてください。**
 
@@ -87,7 +83,7 @@ export default App;
 
 <DocLinkCardGrid links={[{ id: "guide:theming" }]} />
 
-### `data-theme` 属性でテーマを指定
+## `data-theme` 属性でテーマを指定
 
 Camome は `light` と `dark` テーマに対応しており、 `<html>` タグの `data-theme` 属性で指定することができます。
 
@@ -104,7 +100,7 @@ Camome は `light` と `dark` テーマに対応しており、 `<html>` タグ�
 
 <DocLinkCardGrid links={[{ id: "guide:theming" }]} />
 
-### コンポーネントのインポート方法
+## コンポーネントのインポート方法
 
 `@camome/core` からコンポーネントをインポートする方法は以下の二通りです:
 
@@ -119,31 +115,6 @@ import { Button, TextInput } from "@camome/core";
 
 **基本的には個別インポートの方が望ましい**ですが、一括インポートでも問題ありません。
 
-- 一括インポートの場合、（少なくとも）Next.js と Vite では開発サーバーやビルド時のパフォーマンスが若干落ちるかもしれません。しかしプロダクション環境には影響はないと思います。
+- 一括インポートの場合、（少なくとも）Next.js と Vite では開発サーバーやビルド時のパフォーマンスが若干落ちるかもしれません。しかしプロダクション環境には（ツリーシェイキングされているので）影響はないと思います。
 - 個別インポートの方が IDE の自動補完が効きづらいかもしれません。
 - 個別インポートの方が記述が冗長になります。
-
-## [方法 2] バンドル済み JavaScript + グローバル CSS
-
-<Message status="warn">こちらの方法は基本的には非推奨です。</Message>
-
-[[方法 1]](#方法-1-typescript--css-modules)はバンドラーを経由して TypeScript と CSS Modules をトランスパイルする必要があるため、環境によっては導入しにくいかもしれません。その場合はバンドル済みの JavaScript と CSS を使用してください。
-
-次のような特徴があります:
-
-- バンドラーを設定する必要がない。
-- すべてのコンポーネントの CSS が一括で読み込まれる。
-- JavaScript はツリーシェイキングできる（適切に設定されている場合）。
-
-```tsx:_app.tsx
-import "@/styles/globals.css";
-import "@camome/system/dist/theme.css";
-import "@camome/core/dist/components.css"; // 全てのコンポーネントのCSSを読み込む
-import { Button } from "@camome/core/dist"; // トランスパイル済み + CSS Modulesを読み込まない
-
-function App() {
-  return <Button>Button</Button>;
-}
-
-export default App;
-```

@@ -34,15 +34,11 @@ id: "guide:installation"
   ]}
 />
 
-## [Method 1] TypeScript + CSS Modules
-
-In this method, you will transpile and load the code from `@camome/core` inside `node_modules` using your app's bundler. This is recommended from a performance perspective because you can only load the necessary components and their corresponding CSS.
-
 ### Setup bundler
 
-The source code for Camome is written in [TypeScript](https://www.typescriptlang.org/) + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/). As these are not directly importable code from raw JavaScript, you will need to set up plugins or loaders for Webpack or Rollup.
+The distributed code for Camome is written in JavaScript + [CSS Modules](https://github.com/css-modules/css-modules) in [Sass](https://sass-lang.com/). As these cannot be directly imported from JavaScript, you will need to set up plugins or loaders for Webpack or Rollup.
 
-Please refer to the following for the main frameworks' setup methods:
+Please refer to the following docs for how to set up with your framework:
 
 <DocLinkCardGrid
   links={[
@@ -54,7 +50,7 @@ Please refer to the following for the main frameworks' setup methods:
 
 ### CSS imports
 
-The order of CSS import statements matter. Camome declares the priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) in the theme file, so please make sure to import the theme file first.
+The order of CSS import statements matter. Camome declares the priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) in the theme file, so please make sure to import it first.
 
 For example, in Next.js it would look like this:
 
@@ -79,11 +75,6 @@ export default App;
   border-radius: 999px;
 }
 ```
-
-<Message status="info">
-  Whether the file can import CSS and whether the order is guaranteed depends on
-  the bundler and framework, so please check if it does not work properly.
-</Message>
 
 <DocLinkCardGrid links={[{ id: "guide:theming" }]} />
 
@@ -120,31 +111,6 @@ import { Button, TextInput } from "@camome/core";
 
 **Generally, individual import is preferred**, but bulk import is also fine.
 
-- When using bulk import, performance of the development server or build may slightly decrease (at least) in Next.js and Vite. However, it is not expected to have an impact on the production environment.
-- Individual import may make it more difficult for the IDE's auto-completion to work.
+- When using bulk import, performance of the development server and build may slightly decrease (at least with Next.js and Vite). However, it should not affect the production environment (as they should be tree-shaken).
+- Individual import may result in poorer auto-completion by IDEs.
 - Individual import may result in more verbose code.
-
-## [Method 2] Bundled JavaScript + Global CSS
-
-<Message status="warn">This method is generally not recommended.</Message>
-
-Method 1, which transpiles TypeScript and CSS Modules through a bundler, may be difficult to implement depending on the environment. In that case, use bundled JavaScript and CSS.
-
-It has the following characteristics:
-
-- No need to set up a bundler.
-- All component CSS is loaded at once.
-- JavaScript can be tree-shaken (if properly configured).
-
-```tsx:_app.tsx
-import "@/styles/globals.css";
-import "@camome/system/theme.css";
-import "@camome/core/components.css"; // Loads CSS for all components
-import { Button } from "@camome/core/dist"; // Loads transpiled + CSS Modules
-
-function App() {
-  return <Button>Button</Button>;
-}
-
-export default App;
-```
