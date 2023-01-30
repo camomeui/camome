@@ -8,7 +8,7 @@ id: "integrations:next"
 ```ts:vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import { buildScopedClassName } from "@camome/utils";
+import { generateScopedName } from "@camome/utils";
 
 export default defineConfig({
   plugins: [react()],
@@ -16,7 +16,7 @@ export default defineConfig({
     modules: {
       generateScopedName(name, filename) {
         // OPTIONAL: if (!name.match(/@camome/core/)) return <your-preference>
-        return buildScopedClassName(name, filename);
+        return generateScopedName(name, filename);
       },
     },
   },

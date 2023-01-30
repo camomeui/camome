@@ -1,6 +1,6 @@
 import path from "path";
 
-export function buildScopedClassName(local: string, fileName: string) {
+export function generateScopedName(local: string, fileName: string) {
   const isBlock = local.startsWith("Block");
   const isModifier = local.startsWith("--");
   const separator = isModifier ? "" : "__";

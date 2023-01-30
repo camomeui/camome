@@ -6,7 +6,7 @@ import createMdx from "@next/mdx";
 import { withContentlayer } from "next-contentlayer";
 import withNextTranslate from "next-translate";
 
-import { buildScopedClassName } from "@camome/utils";
+import { generateScopedName } from "@camome/utils";
 
 import mdxOptions from "./src/lib/mdxOptions.mjs";
 
@@ -34,7 +34,7 @@ const nextConfig = {
             localIdentName,
             localName
           ) => {
-            return buildScopedClassName(localName, context.resourcePath);
+            return generateScopedName(localName, context.resourcePath);
           };
         }
       });

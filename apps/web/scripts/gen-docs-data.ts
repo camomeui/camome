@@ -13,7 +13,7 @@ import { renderToString } from "react-dom/server";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { buildScopedClassName, hash } from "@camome/utils";
+import { generateScopedName, hash } from "@camome/utils";
 
 import { CssModulesPlugin } from "../src/lib/CssModulesPlugin/index.mjs";
 
@@ -107,7 +107,7 @@ export default {
           if (filename.includes("apps/storybook")) {
             return "story-" + hash(filename + local);
           }
-          return buildScopedClassName(local, filename);
+          return generateScopedName(local, filename);
         },
         onGenerateCss(css) {
           generatedCss.push(css);
@@ -189,7 +189,7 @@ function postcssModules(plugins: AcceptedPlugin[] = []) {
     const { css } = await postcss([
       PostcssModulesPlugin({
         generateScopedName(name, filename) {
-          return buildScopedClassName(name, filename);
+          return generateScopedName(name, filename);
         },
         getJSON() {
           return;

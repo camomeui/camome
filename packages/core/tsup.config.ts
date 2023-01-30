@@ -8,7 +8,7 @@ import postcss from "postcss";
 import postcssModulesPlugin from "postcss-modules";
 import { defineConfig } from "tsup";
 
-import { buildScopedClassName } from "@camome/utils";
+import { generateScopedName } from "@camome/utils";
 
 async function copyScssFiles(src: string, dist: string) {
   const files = await globby(`${src}/**/*.scss`);
@@ -77,7 +77,7 @@ export function postcssModules() {
     const { css } = await postcss([
       postcssModulesPlugin({
         generateScopedName(name, filename) {
-          return buildScopedClassName(name, filename);
+          return generateScopedName(name, filename);
         },
         getJSON() {
           return;
