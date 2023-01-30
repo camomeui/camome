@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.16
+
+### Patch Changes
+
+- 92f86c0: Fix stlyes of Switch
+
 ## 0.0.15
 
 ### Patch Changes
