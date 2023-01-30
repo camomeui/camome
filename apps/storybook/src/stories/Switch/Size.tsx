@@ -7,13 +7,13 @@ export default function Size() {
   return (
     <div className={styles.size__container}>
       <FormField label="Small">
-        <Switch size="sm" on="ON" off="OFF" />
+        <Switch size="sm" />
       </FormField>
       <FormField label="Medium">
-        <Switch size="md" on="ON" off="OFF" />
+        <Switch size="md" />
       </FormField>
       <FormField label="Large">
-        <Switch size="lg" on="ON" off="OFF" />
+        <Switch size="lg" />
       </FormField>
     </div>
   );

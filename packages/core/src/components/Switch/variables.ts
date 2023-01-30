@@ -10,7 +10,8 @@ const variables = {
   padY: null,
   labelFontSize: null,
   labelPadX: null,
-  gap: null,
+  width: null,
+  borderWidth: "1px",
 } as const satisfies ComponentCssVariables;
 
 export default variables;

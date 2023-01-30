@@ -16,7 +16,7 @@ export default function Default() {
           <FormField.Label />
           <FormField.Description />
         </div>
-        <Switch size="md" on="ON" off="OFF" />
+        <Switch size="md" />
       </div>
     </FormField>
   );

@@ -3,10 +3,8 @@
 
 @include utils.layer {
   %shape {
-    width: calc(
-      locals.$thumbWidth * 2 + calc(locals.$labelPadX * 2) + locals.$gap
-    );
-    height: calc(locals.$thumbHeight + locals.$padY);
+    width: locals.$width;
+    height: calc(locals.$thumbHeight + locals.$padY * 2);
     border-radius: locals.$radius;
   }
 
@@ -15,37 +13,37 @@
 
     box-sizing: content-box;
     display: flex;
-    border: 1px solid var(--cmm-Switch-border);
+    border: locals.$borderWidth solid var(--cmm-Switch-border);
     border-radius: locals.$radius;
     position: relative;
   }
 
   .--sm {
-    #{locals.$thumbWidth_name}: 0.8rem;
-    #{locals.$thumbHeight_name}: 0.8rem;
+    #{locals.$width_name}: 1.75rem;
+    #{locals.$thumbWidth_name}: 0.75rem;
+    #{locals.$thumbHeight_name}: 0.75rem;
     #{locals.$padX_name}: 0.1rem;
-    #{locals.$padY_name}: 0.12rem;
-    #{locals.$gap_name}: 0.3rem;
+    #{locals.$padY_name}: 0.1rem;
     #{locals.$labelPadX_name}: 0.4rem;
     #{locals.$labelFontSize_name}: calc(var(--cmm-font-size-xs) * 0.8);
   }
 
   .--md {
+    #{locals.$width_name}: 2.25rem;
     #{locals.$thumbWidth_name}: 1rem;
     #{locals.$thumbHeight_name}: 1rem;
-    #{locals.$padX_name}: 0.18rem;
-    #{locals.$padY_name}: 0.25rem;
-    #{locals.$gap_name}: 0.5rem;
+    #{locals.$padX_name}: 0.1rem;
+    #{locals.$padY_name}: 0.1rem;
     #{locals.$labelPadX_name}: 0.4rem;
     #{locals.$labelFontSize_name}: calc(var(--cmm-font-size-xs) * 0.9);
   }
 
   .--lg {
+    #{locals.$width_name}: 3rem;
     #{locals.$thumbWidth_name}: 1.25rem;
     #{locals.$thumbHeight_name}: 1.25rem;
-    #{locals.$padX_name}: 0.18rem;
-    #{locals.$padY_name}: 0.25rem;
-    #{locals.$gap_name}: 0.5rem;
+    #{locals.$padX_name}: 0.15rem;
+    #{locals.$padY_name}: 0.15rem;
     #{locals.$labelPadX_name}: 0.4rem;
     #{locals.$labelFontSize_name}: var(--cmm-font-size-xs);
   }
@@ -109,7 +107,7 @@
       left: locals.$padX;
       translate: 0 -50%;
       background: var(--cmm-Switch-bg-thumb);
-      border: 1px solid var(--cmm-Switch-border-thumb);
+      border: locals.$borderWidth solid var(--cmm-Switch-border-thumb);
       border-radius: locals.$radius;
       transition: left 0.3s;
       z-index: 10;
