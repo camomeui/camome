@@ -30,13 +30,6 @@ const statusIconMap: { [S in Status]: SvgComponent } = {
   danger: FireIcon,
 };
 
-const statusTitleMap: { [S in Status]: string } = {
-  success: "Success",
-  info: "Info",
-  warn: "Caution",
-  danger: "Danger",
-};
-
 const _Message = React.forwardRef<HTMLDivElement, MessageProps>(
   (
     {
@@ -62,7 +55,7 @@ const _Message = React.forwardRef<HTMLDivElement, MessageProps>(
         <span className={styles.icon}>{icon ? icon : <DefaultIcon />}</span>
         {title && (
           <div className={clsx(styles.title)} id={titleId}>
-            {statusTitleMap[status]}
+            {title}
           </div>
         )}
         {children && <div className={styles.message}>{children}</div>}

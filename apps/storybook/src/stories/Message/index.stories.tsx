@@ -15,5 +15,4 @@ export default meta;
 
 export { default as Default } from "./Default";
 export { default as Variant } from "./Variant";
-export { default as WithoutTitle } from "./WithoutTitle";
 export { default as Alert } from "./Alert";

@@ -1,7 +1,7 @@
 import { Message } from "@camome/core/Message";
 
 export default function Alert() {
-  return <Message title="This is an alert message" isAlert />;
+  return <Message>This is an alert message</Message>;
 }
 
 Alert.parameters = {
