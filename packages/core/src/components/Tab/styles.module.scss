@@ -26,6 +26,7 @@
     &:hover {
       &:not(.--active) {
         border-color: var(--cmm-Tab-border-hover);
+        border-color: var(--cmm-Tab-bg-hover);
         color: var(--cmm-Tab-font-hover);
       }
     }
@@ -37,6 +38,7 @@
 
     &--active {
       border-color: var(--cmm-Tab-border-active);
+      background: var(--cmm-Tab-bg-active);
       color: var(--cmm-Tab-font-active);
     }
   }

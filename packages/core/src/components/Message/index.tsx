@@ -8,7 +8,9 @@ import clsx from "clsx";
 import React from "react";
 
 import { type SvgComponent } from "@camome/utils";
-import { createPolymorphicComponent } from "src/utils/createPolymorphicComponent";
+
+import { BaseProps, PolymorphicProps } from "../../types";
+import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
 
 import styles from "./styles.module.scss";
 
@@ -20,8 +22,7 @@ export type MessageProps = {
   icon?: React.ReactNode;
   isAlert?: boolean;
   children?: React.ReactNode;
-  className?: string;
-};
+} & BaseProps;
 
 const statusIconMap: { [S in Status]: SvgComponent } = {
   success: CheckCircleIcon,
@@ -30,7 +31,10 @@ const statusIconMap: { [S in Status]: SvgComponent } = {
   danger: FireIcon,
 };
 
-const _Message = React.forwardRef<HTMLDivElement, MessageProps>(
+const _Message = React.forwardRef<
+  HTMLDivElement,
+  MessageProps & PolymorphicProps
+>(
   (
     {
       status = "info",

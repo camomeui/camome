@@ -15,9 +15,7 @@
   }
 }
 
-@layer override {
-  .group :global(.TextInputGroup) {
-    --cmm-TextInput-start-decor-width: 2.5rem;
-    --cmm-TextInput-end-decor-width: 4.5rem;
-  }
+.group :global(.TextInputGroup) {
+  --cmm-TextInput-start-decor-width: 2.5rem;
+  --cmm-TextInput-end-decor-width: 3.5rem;
 }

@@ -23,7 +23,7 @@ export default function Group() {
             fontSize: "0.9rem",
           }}
         >
-          <Kbd>⌘ + K</Kbd>
+          <Kbd>⌘ K</Kbd>
         </div>
       }
       className={styles.group}

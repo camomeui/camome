@@ -7,14 +7,14 @@ import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-export type ToggleProps = {
+export type SwitchProps = {
   on?: React.ReactNode;
   off?: React.ReactNode;
   size?: Size;
 } & Omit<JSX.IntrinsicElements["input"], "size">;
 
 // Reference: https://www.w3.org/WAI/ARIA/apg/patterns/switch/
-export const Switch = forwardRef<HTMLInputElement, ToggleProps>(
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ on, off, size = "md", style, className, ...props }, ref) => {
     return (
       <span

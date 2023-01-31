@@ -35,6 +35,7 @@
   &:disabled {
     color: var(--cmm-color-font-muted);
     cursor: not-allowed;
+    opacity: 0.6;
 
     &::placeholder {
       color: var(--cmm-color-font-subtle);

@@ -32,10 +32,6 @@
     transition: var(--cmm-transition-bg);
     color: var(--cmm-color-font-base);
 
-    &:hover {
-      background: var(--cmm-color-surface-2);
-    }
-
     &::-webkit-details-marker {
       display: none;
     }
