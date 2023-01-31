@@ -19,7 +19,7 @@ const darkTheme = {
   color: {
     code: {
       block: (get) => mix(get("color.surface.0"), get("color.surface.2"), 0.5),
-      inline: getFn("color.surface.3"),
+      inline: getFn("color.code.block"),
     },
     link: getFn("color.primary.5"),
     primary: {
@@ -61,7 +61,7 @@ const darkTheme = {
         mix(get("color.surface.0"), get("color.white"), 0.85),
     },
     border: {
-      base: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.5),
+      base: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.6),
       subtle: (get) => mix(get("color.surface.0"), get("color.gray.7"), 0.3),
     },
   },

@@ -12,7 +12,7 @@ const lightTheme = {
   color: {
     code: {
       block: (get) => mix(get("color.surface.0"), get("color.surface.2"), 0.6),
-      inline: getFn("color.surface.2"),
+      inline: getFn("color.code.block"),
     },
     link: getFn("color.primary.6"),
     primary: {

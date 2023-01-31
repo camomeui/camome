@@ -86,3 +86,7 @@
 code {
   font-family: var(--cmm-font-family-code);
 }
+
+.Message {
+  border-radius: var(--cmm-radius-xl);
+}
