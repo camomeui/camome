@@ -4,8 +4,7 @@ id: "guide:theming"
 ---
 
 <Message status="info">
-  For individual design tokens, please refer to the design system documentation
-  as well.
+  For individual design tokens, see the design system documentations as well.
 </Message>
 
 <DocLinkCardGrid
@@ -18,27 +17,24 @@ id: "guide:theming"
 
 ## Overview
 
-Since all of Camome's design tokens (colors, fonts, radii, etc.) are managed with [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), it is easy to customize the appearance for each brand.
+All of Camome's design tokens (colors, fonts, radii, etc.) are exported as [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) so that you can easily customize the appearance for your brand.
 
-Camome also supports dark theme from the beginning.
+Dark theme is supported by default.
 
 ## Default Theme
 
-The default theme file can be imported from `@camome/system/theme.css` or `@camome/system.theme.min.css`. If you don't need to customize it, use it directly.
+The default theme file can be imported from `@camome/system/theme.css`, `@camome/system.theme.min.css`, or [unpkg.com](https://unpkg.com/@camome/system@latest/dist/theme.css). If you don't need to customize it, use it directly.
 
-## Configuration File
+## Configuration File (Optional)
 
-If you want to change the theme, create a `camome.config.js` file in the project root and set it up like this:
+Create a `camome.config.js` file in the project root.
 
 ```tsx:camome.config.js
-import { defineTheme } from "@camome/system";
-
 /** @type { import("@camome/system").Config;} */
 export default {
   themes: {
-    light: defineTheme("light", (theme) => ({
+    light: {
       color: {
-        // Change primary color to purple
         primary: {
           0: "#faf5ff",
           1: "#f3e8ff",
@@ -52,29 +48,60 @@ export default {
           9: "#581c87",
         },
       },
-      // Component-level theme
       Switch: {
-        bgOn: theme.color.success.emphasis,
-        bgOff: theme.color.danger.emphasis,
-        fontOff: theme.color.font.onEmphasis,
+        bgOn: (get) => get("color.success.emphasis"),
+        bgOff: (get) => get("color.danger.emphasis"),
+        fontOff: (get) => get("color.font.onEmphasis"),
       },
-    })),
-    // For dark theme
-    dark: defineTheme("dark"),
+    },
   },
 };
 ```
 
 In this example, the primary color is changed to purple, so custom accent colors are applied to all components such as buttons and checkboxes at once.
 
-`Switch` properties are an example of component-level themes. Many components use generic tokens such as `color.<color-scheme>.<variant>...`, so there is no need to set them individually, but complex components have their own tokens.
+`Switch` properties are an example of component-level tokens. Many components use generic tokens such as `color.<color-scheme>.<variant>...`, so there is no need to set them individually, but complex components have their own tokens.
 
 <Message status="info">
-  For example, `<Button colorScheme="danger" variant="solid" />` uses
-  `color.danger.solid.bg` and so on, and these are also shared with things like
-  `<Tag colorScheme="danger" variant="solid" />
-  `. Currently, it is not possible to change these individually for each component
-  (mainly to keep the size of global CSS small).
+  {/* prettier-ignore-start */}
+  For example, `<Button colorScheme="danger" variant="solid" />` uses `color.danger.solid.bg`
+  and so on, and these are also shared with `<Tag
+    colorScheme="danger"
+    variant="solid"
+  />
+  `. Currently, it is not possible to change these individually for each
+  component (mainly to keep the size of global CSS small).
+  {/* prettier-ignore-end */}
+</Message>
+
+### Get another token in theme config
+
+Like the above `Switch` example, if you want to refer to another token in theme config, pass a callback function that accepts `get(path: string)` as the first parameter.
+
+```js:camome.config.js
+import { alpha } from "./color-utils";
+
+/** @type { import("@camome/system").Config;} */
+export default {
+  themes: {
+    light: {
+      color: {
+        primary: {
+          subtle: (get) => alpha(get("color.primary.5"), 0.5),
+        },
+      },
+    },
+  },
+};
+```
+
+In this example, semi-transparent version of `color.primary.5` is passed to `color.primary.subtle`. Even if `color.primary.subtle` is referencing to another token, `get` function is invoked recursively until it resolves to an actual value.
+
+<Message status="warn">Be careful with circular reference.</Message>
+
+<Message status="info">
+  Because some of the tokens in the default theme are referencing, changes to
+  color shades (like `primary.color.5`) _cascade_ down other tokens.
 </Message>
 
 ## Camome CLI
@@ -87,8 +114,8 @@ npx camome theme
 
 The following options are available:
 
-- `--output`: Path of CSS generation destination (default is `theme.css`)
-- `--config`: Path of configuration file (default is `camome.config.js`)
+- `--output`: Path of CSS generation destination (defaults to `theme.css`)
+- `--config`: Path of configuration file (defaults to `camome.config.js`)
 
 <Message status="info">
   `--watch` Mode and integration with bundlers are under consideration.
@@ -97,13 +124,13 @@ The following options are available:
 
 ## Overriding Components
 
-At the top of Camome's `theme.css`, the priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) is declared as follows:
+At the top of Camome's `theme.css`, priority of [CSS Cascade Layers](https://developer.mozilla.org/ja/docs/Web/CSS/@layer) is declared as follows:
 
 ```css
 @layer cmm.reset, cmm.theme, cmm.base, cmm.components;
 ```
 
-Thanks to this line, CSS styles declared after `theme.css` will be prioritized regardless of specificity (as long as they are not inside the above mentioned layer). Creating a layer like `cmm.custom` is optional.
+Thanks to this line, CSS styles declared after `theme.css` will always win regardless of specificity or order (as long as they are not inside the layers mentioned above). You can create a layer like `cmm.custom` but it is completely optional.
 
 ```css:globals.css
 /* Override styles of Button
@@ -118,7 +145,7 @@ Thanks to this line, CSS styles declared after `theme.css` will be prioritized r
 
 ## Dark theme
 
-Camome supports both `light` and `dark` themes, which can be specified by the `data-theme` attribute of the `<html>` tag.
+Camome supports both `light` and `dark` themes, which can be specified by the `data-theme` attribute.
 
 ```html:index.html
 <!DOCTYPE html>
@@ -127,7 +154,7 @@ Camome supports both `light` and `dark` themes, which can be specified by the `d
 </html>
 ```
 
-It is defined as follows in `theme.css`:
+Tokens for each theme is defined as follows in `theme.css`:
 
 ```css:theme.css
 @layer cmm.theme {
@@ -136,10 +163,11 @@ It is defined as follows in `theme.css`:
     --cmm-color-primary-emphasis: var(--cmm-color-primary-6);
     {...}
   }
+  /* And dark theme as well... */
 }
 ```
 
-If you need to style for each theme in your application's CSS, write it as follows:
+To style according to each theme in your own CSS:
 
 ```css
 :root[data-theme="dark"] .your-class {
@@ -149,5 +177,5 @@ If you need to style for each theme in your application's CSS, write it as follo
 
 <Message status="info">
   **`light` and `dark` can be customized independently.** Please refer to the
-  [configuration file](#configuration-file) section.
+  [configuration file](#configuration-file-optional) section.
 </Message>

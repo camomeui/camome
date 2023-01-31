@@ -30,14 +30,11 @@ Camome はダークテーマもはじめからサポートしています。
 テーマを変更したい場合はプロジェクトルートに `camome.config.js` ファイルを作成して、以下のように設定します:
 
 ```tsx:camome.config.js
-import { defineTheme } from "@camome/system";
-
 /** @type { import("@camome/system").Config;} */
 export default {
   themes: {
-    light: defineTheme("light", (theme) => ({
+    light: {
       color: {
-        // Change primary color to purple
         primary: {
           0: "#faf5ff",
           1: "#f3e8ff",
@@ -51,15 +48,12 @@ export default {
           9: "#581c87",
         },
       },
-      // Component-level theme
       Switch: {
-        bgOn: theme.color.success.emphasis,
-        bgOff: theme.color.danger.emphasis,
-        fontOff: theme.color.font.onEmphasis,
+        bgOn: (get) => get("color.success.emphasis"),
+        bgOff: (get) => get("color.danger.emphasis"),
+        fontOff: (get) => get("color.font.onEmphasis"),
       },
-    })),
-    // For dark theme
-    dark: defineTheme("dark"),
+    },
   },
 };
 ```
@@ -72,6 +66,38 @@ export default {
   例えば `<Button colorScheme="danger" variant="solid" />` であれば
   `color.danger.solid.bg` などが使用され、これは `
   <Tag colorScheme="danger" variant="solid" />` などとも共有されています。現在はこれらをコンポーネントごとに個別に変更することはできません（主にグローバルCSSのサイズを小さくするため）。
+</Message>
+
+### テーマ内のトークンを参照する
+
+上記の `Switch` の例のように、テーマ内の他のトークンを参照したい場合は `get(path: string)` を第 1 引数に取るコールバック関数を渡します。
+
+```js:camome.config.js
+import { alpha } from "./color-utils";
+
+/** @type { import("@camome/system").Config;} */
+export default {
+  themes: {
+    light: {
+      color: {
+        primary: {
+          subtle: (get) => alpha(get("color.primary.5"), 0.5),
+        },
+      },
+    },
+  },
+};
+```
+
+この例では、 `color.primary.5` の色を半透明にした値が `color.primary.subtle` に適用されます。仮に `color.primary.subtle` が別のトークンを参照していたとしても、 `get` 関数は実際の値に解決するまで再帰的に実行されます。
+
+<Message status="warn">
+  2つのトークンが循環参照しないように注意してください。
+</Message>
+
+<Message status="info">
+  デフォルトテーマの一部のトークンはこのような参照を行っているため、カラーシェード（`color.primary.5`
+  など）を変更するだけで他の値へ「カスケード」します。
 </Message>
 
 ## Camome CLI
