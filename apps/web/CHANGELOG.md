@@ -1,5 +1,12 @@
 # @camome/web
 
+## 0.1.26
+
+### Patch Changes
+
+- Updated dependencies [12d968c]
+  - @camome/core@0.0.18
+
 ## 0.1.25
 
 ### Patch Changes
