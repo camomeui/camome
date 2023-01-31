@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.18
+
+### Patch Changes
+
+- 12d968c: Change element type and APIs of Message
+
 ## 0.0.17
 
 ### Patch Changes
