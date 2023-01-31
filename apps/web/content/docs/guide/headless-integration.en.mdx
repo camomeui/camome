@@ -6,21 +6,15 @@ id: "guide:headless-integration"
 
 ## Overview
 
-`@camome/core` is primarily written in HTML and CSS, so complex UI's that require JavaScript, like popups, are not supported by default. Components such as [Tab](https://chat.openai.com/docs/components/data-display/tab) and [Menu](https://chat.openai.com/docs/components/overlay/menu) provide HTML and CSS styles, but are essentially just templates, so it is up to the user to make them functional.
+Because components in `@camome/core` are expected to be built without event handlers or `useEffect`, complex UIs that require run-time JavaScript, like popups, are out of scope. Components such as [Tab](https://chat.openai.com/docs/components/data-display/tab) and [Menu](https://chat.openai.com/docs/components/overlay/menu) provide only HTML structure and CSS styles. It is your responsibility to make them functional.
 
-However, since this can be cumbersome, it is recommended to use a headless UI library that takes care of the non-visual aspects of the components, so the user doesn't have to.
+However, since this can be cumbersome, it is recommended to use a headless UI library that takes care of the non-visual aspects of the components to save your time.
 
-For React, some popular libraries include:
+For React, some popular libraries are:
 
 - [Headless UI](https://headlessui.com/)
 - [React Aria](https://react-spectrum.adobe.com/react-aria/)
 - [Radix Primitives](https://www.radix-ui.com/)
 - [Reach UI](https://reach.tech/)
 
-For components that require integration with an external library, sample codes using [Headless UI](https://headlessui.com/) are provided in the documentation. Of course, other libraries or writing your own code is also possible.
-
-<Message status="info">
-  As the author is a React user, I am not familiar with other framework or
-  vanilla JavaScript headless UI libraries. If you know of any, please submit a
-  PR.
-</Message>
+For components that require integration with an external library, sample codes using [Headless UI](https://headlessui.com/) are provided in the docs. Of course, other libraries or writing your own are just fine.

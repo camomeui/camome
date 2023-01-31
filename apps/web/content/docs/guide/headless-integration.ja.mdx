@@ -6,7 +6,7 @@ id: "guide:headless-integration"
 
 ## 概要
 
-`@camome/core` は基本的に HTML と CSS のみで書かれているため、ポップアップのように JavaScript が必須の複雑な UI はデフォルトではサポートされていません。[Tab](/docs/components/data-display/tab) や [Menu](/docs/components/overlay/menu) などは HTML と CSS のスタイルを提供していますが、ハリボテのようなものなので、これらを実際に動かすのはユーザーの責任です。
+`@camome/core` はイベントハンドラや `useEffect` なしで動くことを前提としているため、ポップアップのように ランタイムの JavaScript が必須の複雑な UI はスコープ外です。[Tab](/docs/components/data-display/tab) や [Menu](/docs/components/overlay/menu) などは HTML 構造と CSS のスタイルを提供していますが、ハリボテのようなものなので、これらを実際に動かすのはユーザーの責任です。
 
 とはいえそれは面倒なので、ヘッドレス UI ライブラリ、つまり見た目以外の面倒を見てくれるものと組み合わせることをオススメします。
 
@@ -18,8 +18,3 @@ React に限って言えば以下のようなものが有名です:
 - [Reach UI](https://reach.tech/)
 
 このような外部ライブラリとの統合が必要なコンポーネントについては、ドキュメント内に[Headless UI](https://headlessui.com/)を使用したサンプルコードを掲載しています。もちろん他のライブラリを使ったり、自分でコードを書いても問題ありません。
-
-<Message status="info">
-  作者が React ユーザーなのでその他のフレームワークやバニラJavaScript
-  向けのヘッドレスUIライブラリについては詳しくありません。ご存知の方はPRをください。
-</Message>
