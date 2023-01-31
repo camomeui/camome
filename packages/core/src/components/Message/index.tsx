@@ -8,6 +8,7 @@ import clsx from "clsx";
 import React from "react";
 
 import { type SvgComponent } from "@camome/utils";
+import { createPolymorphicComponent } from "src/utils/createPolymorphicComponent";
 
 import styles from "./styles.module.scss";
 
@@ -20,8 +21,6 @@ export type MessageProps = {
   isAlert?: boolean;
   children?: React.ReactNode;
   className?: string;
-  hideTitle?: boolean;
-  "aria-label"?: string;
 };
 
 const statusIconMap: { [S in Status]: SvgComponent } = {
@@ -38,36 +37,42 @@ const statusTitleMap: { [S in Status]: string } = {
   danger: "Danger",
 };
 
-export function Message({
-  status = "info",
-  title,
-  icon,
-  isAlert = false,
-  children,
-  className,
-  hideTitle = false,
-  ...props
-}: MessageProps) {
-  const titleId = React.useId();
-  const DefaultIcon = statusIconMap[status];
-  const Element = isAlert ? "div" : "aside";
-  return (
-    <Element
-      role={isAlert ? "alert" : undefined}
-      className={clsx(styles.Block, styles[`--${status}`], className)}
-      // One of the aria-* must be supplied when !isAlert.
-      // hideTitle ? aria-label : titleId
-      // https://dequeuniversity.com/rules/axe/4.6/landmark-unique?application=axeAPI
-      aria-label={props["aria-label"]}
-      aria-labelledby={hideTitle ? undefined : titleId}
-    >
-      <span className={styles.icon}>{icon ? icon : <DefaultIcon />}</span>
-      {!hideTitle && (
-        <div className={clsx(styles.title)} id={titleId}>
-          {title ?? statusTitleMap[status]}
-        </div>
-      )}
-      {children && <div className={styles.message}>{children}</div>}
-    </Element>
-  );
-}
+const _Message = React.forwardRef<HTMLDivElement, MessageProps>(
+  (
+    {
+      status = "info",
+      title,
+      icon,
+      isAlert = false,
+      children,
+      className,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const titleId = React.useId();
+    const DefaultIcon = statusIconMap[status];
+    return (
+      <div
+        role={isAlert ? "alert" : undefined}
+        className={clsx(styles.Block, styles[`--${status}`], className)}
+        ref={forwardedRef}
+        {...props}
+      >
+        <span className={styles.icon}>{icon ? icon : <DefaultIcon />}</span>
+        {title && (
+          <div className={clsx(styles.title)} id={titleId}>
+            {statusTitleMap[status]}
+          </div>
+        )}
+        {children && <div className={styles.message}>{children}</div>}
+      </div>
+    );
+  }
+);
+
+_Message.displayName = "Message";
+
+export const Message = createPolymorphicComponent<"div", MessageProps>(
+  _Message
+);
