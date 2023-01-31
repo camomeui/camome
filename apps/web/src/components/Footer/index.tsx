@@ -57,8 +57,12 @@ const navSections: NavSection[] = [
     section: "Social",
     links: [
       {
+        href: "https://github.com/camomeui/camome",
+        label: "GitHub",
+      },
+      {
         href: "https://twitter.com/MatsuraYuma",
-        label: "Twitter",
+        label: "Author",
       },
     ],
   },

@@ -79,7 +79,7 @@ export default function Header({ menuContent, classNames }: Props) {
           <Tooltip title="GitHub" placement="bottom">
             <IconButton
               component={Link}
-              href="https://github.com/sabigara/camome"
+              href="https://github.com/camomeui/camome"
               variant="outline"
               colorScheme="neutral"
               size="sm"
