@@ -8,12 +8,22 @@
 }
 
 .preview {
+  --dot: 0 0 0;
   padding: 2rem;
   border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-lg);
-  background: var(--cmm-color-surface-0);
   overflow-y: auto;
+  background-color: var(--cmm-color-surface-1);
+  background-image: radial-gradient(
+    rgb(var(--dot) / 0.2) 0.75px,
+    rgb(0 0 0 / 0) 0.75px
+  );
+  background-size: 8px 8px;
   container-type: inline-size;
+
+  [data-theme^="dark"] & {
+    --dot: 255 255 255;
+  }
 
   &--padded {
     // placeholder
