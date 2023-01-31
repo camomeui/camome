@@ -21,16 +21,16 @@ Of these three, Shade is the most primitive and has higher level meanings as you
   included to keep the size as compact as possible.
 </Message>
 
-## Overview
+## How to use
 
 **In general, do not use Shade in your code**. If you use Shade directly, you will have to write a lot of selectors like `:root[data-theme="dark"]` when corresponding to a dark theme, for example.
 
-Instead, **use Semantic and Template**. This way, you can respond flexibly to changes in the theme.
+Instead, **use Semantic and Template**. This way, your styles will be _responsive_ to the theme no matter it's light or dark.
 
 ### Differences between Semantic and Template
 
-- Semantic - tokens that can be used generically anywhere.
-- Template - tokens for specific UI patterns. For example, <DocLink id="button" hash="variant" /> has multiple templates and can be switched by the `variant` property. <DocLink id="radio"/> has only one template (`soft`) as an example.
+- Semantic - tokens that can be used generally anywhere.
+- Template - tokens for specific UI patterns. For example, <DocLink id="button" hash="variant" /> has multiple templates and can be switched by the `variant` property. <DocLink id="radio"/> is another example which implements only one template, `soft`.
 
 <CodeSandbox {...Variant} showCode={false} />
 
