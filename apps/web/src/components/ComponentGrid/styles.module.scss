@@ -29,6 +29,7 @@ $gap: 2rem;
 .tab {
   :global {
     .Tab__list {
+      background: var(--cmm-color-surface-0);
       border-radius: var(--cmm-radius-lg);
       border: 1px solid var(--cmm-color-border-base);
       padding: 0.5rem;
