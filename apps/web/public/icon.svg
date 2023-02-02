@@ -1,18 +1,14 @@
 <svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     :root {
-      --logo-hue: 220;
-      --logo-sat: 50%;
-      --logo-primary: hsl(var(--logo-hue) var(--logo-sat) 40%);
-      --logo-secondary: hsl(var(--logo-hue) var(--logo-sat) 40% / 0.6);
-      --logo-text: var(--logo-primary);
+      --primary: hsl(227 27% 40%);
+      --secondary: hsl(227 27% 40% / 0.5);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --logo-sat: 50%;
-        --logo-primary: hsl(var(--logo-hue) var(--logo-sat) 60%);
-        --logo-secondary: hsl(var(--logo-hue) 60% 60% / 0.8);
+        --primary: hsl(227 50% 80%);
+        --secondary: hsl(227 50% 80% / 0.7);
       }
     }
   </style>
