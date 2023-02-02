@@ -4,66 +4,22 @@ import Logo from "@/components/Logo";
 
 import styles from "./styles.module.scss";
 
-type NavSection = {
-  section: string;
-  links: {
-    href: string;
-    label: string;
-  }[];
-};
-
-const navSections: NavSection[] = [
+const links: { href: string; label: string }[] = [
   {
-    section: "Product",
-    links: [
-      {
-        href: "/",
-        label: "Home",
-      },
-      {
-        href: "/preview",
-        label: "Saazy",
-      },
-    ],
+    href: "/docs/guide/overview",
+    label: "Docs",
   },
   {
-    section: "Support",
-    links: [
-      {
-        href: "/preview/docs/introduction",
-        label: "Docs",
-      },
-      {
-        href: "/preview/docs/support/faq",
-        label: "FAQ",
-      },
-      {
-        href: "/preview/docs/support/contact",
-        label: "Contact",
-      },
-    ],
+    href: "https://github.com/camomeui/camome",
+    label: "GitHub",
   },
   {
-    section: "Legal",
-    links: [
-      {
-        href: "/privacy-policy",
-        label: "Privacy Policy",
-      },
-    ],
+    href: "https://rubiq.vercel.app",
+    label: "Author",
   },
   {
-    section: "Social",
-    links: [
-      {
-        href: "https://github.com/camomeui/camome",
-        label: "GitHub",
-      },
-      {
-        href: "https://twitter.com/MatsuraYuma",
-        label: "Author",
-      },
-    ],
+    href: "/privacy-policy",
+    label: "Privacy Policy",
   },
 ];
 
@@ -71,22 +27,24 @@ export default function Footer() {
   return (
     <footer className={styles.container}>
       <div className={styles.inner}>
-        <div className={styles.description}>
-          <Logo />
+        <div className={styles.left}>
+          <Link href="/">
+            <Logo />
+          </Link>
+          <small className={styles.copyright}>
+            © {new Date().getFullYear()} Matsura Yuma
+          </small>
         </div>
-        <nav className={styles.navGrid}>
-          {navSections.map((navItem) => (
-            <div key={navItem.section} className={styles.navGrid__section}>
-              <h2>{navItem.section}</h2>
-              <ul>
-                {navItem.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <nav className={styles.nav}>
+          <ul className={styles.linkList}>
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <Link href={href} className={styles.link}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </footer>

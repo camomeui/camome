@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 
 import Form from "@/components/ComponentGrid/Form";
 import UserReactions from "@/components/ComponentGrid/UserReactions";

@@ -1,8 +1,4 @@
-import {
-  ChevronDoubleRightIcon,
-  SparklesIcon,
-  SwatchIcon,
-} from "@heroicons/react/24/outline";
+import { SparklesIcon, SwatchIcon } from "@heroicons/react/24/outline";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -59,18 +55,13 @@ export default function RootPage() {
             <Balancer>{t("hero.subheading")}</Balancer>
           </p>
           <div className={styles.buttons}>
-            <Button
-              component={Link}
-              href="/docs/guide/overview"
-              endDecorator={<ChevronDoubleRightIcon strokeWidth="2" />}
-              size="lg"
-            >
+            <Button component={Link} href="/docs/guide/overview" size="lg">
               {t("button.get-started")}
             </Button>
             <Button
               component="a"
               href="https://github.com/camomeui/camome"
-              variant="soft"
+              variant="outline"
               colorScheme="neutral"
               size="lg"
               className={styles.githubLink}
@@ -119,39 +110,26 @@ export default function RootPage() {
           ]}
           classNames={{
             container: styles.styling__sandbox,
-            preview: styles.styling__preview,
           }}
         />
       </section>
 
       <section id="theming" className={styles.theming}>
-        <div>
-          <div className={styles.theming__group}>
-            <div className={styles.theming__left}>
-              <h2 className={styles.theming__heading}>
-                {t("theming.heading")}
-              </h2>
-              <p className={styles.theming__description}>
-                <Balancer>{t("theming.subheading")}</Balancer>
-              </p>
-            </div>
-            <div className={styles.theming__right}>
-              <Button
-                component={Link}
-                href="/docs/guide/theming"
-                size="lg"
-                variant="soft"
-                endDecorator={<ChevronDoubleRightIcon />}
-              >
-                {t("theming.button")}
-              </Button>
-            </div>
-          </div>
+        <div className={styles.theming__left}>
+          <h2 className={styles.theming__heading}>{t("theming.heading")}</h2>
+          <p className={styles.theming__description}>
+            <Balancer>{t("theming.subheading")}</Balancer>
+          </p>
         </div>
-        <CustomThemeSandbox className={styles.theming__sandbox} />
+        <div className={styles.theming__right}>
+          <CustomThemeSandbox />
+        </div>
       </section>
 
       <section id="override" className={styles.override}>
+        <div className={styles.override__demo}>
+          <OverrideDemo />
+        </div>
         <div>
           <hgroup className={styles.override__heading}>
             <p>{t("override.heading.0")}</p>
@@ -170,11 +148,12 @@ export default function RootPage() {
             </Balancer>
           </p>
         </div>
-        <OverrideDemo />
       </section>
 
       <div className={styles.cta}>
-        <Cta />
+        <div className={styles.cta__inner}>
+          <Cta className={styles.cta__content} />
+        </div>
       </div>
     </div>
   );

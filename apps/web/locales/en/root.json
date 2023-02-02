@@ -40,8 +40,8 @@
       "1": "Don't worry about order or specificity when overriding."
     },
     "button": {
-      "is-default": "Click to make me fancy!",
-      "is-overridden": "Back to default style..."
+      "is-default": "Make me fancy!",
+      "is-overridden": "I'm overridden"
     }
   },
   "cta": {

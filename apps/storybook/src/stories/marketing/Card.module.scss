@@ -6,7 +6,6 @@
   max-width: 24rem;
   display: grid;
   gap: 1rem;
-  box-shadow: var(--cmm-shadow-xl);
 
   :root[data-theme^="dark"] & {
     background: var(--cmm-color-surface-1);

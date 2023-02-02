@@ -5,17 +5,25 @@ $gap: 2rem;
 }
 
 .inner {
+  --dot: 0 0 0;
+
   position: absolute;
   left: 0;
   top: 0;
   padding: $gap;
   display: flex;
   gap: $gap;
+  border: 1px solid var(--cmm-color-border-base);
   border-radius: var(--cmm-radius-2xl);
-  background: var(--cmm-color-surface-2);
+  background-color: var(--cmm-color-surface-1);
+  background-image: radial-gradient(
+    rgb(var(--dot) / 0.2) 0.75px,
+    rgb(0 0 0 / 0) 0.75px
+  );
+  background-size: 8px 8px;
 
   [data-theme^="dark"] & {
-    background: var(--cmm-color-surface-1);
+    --dot: 255 255 255;
   }
 }
 

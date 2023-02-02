@@ -8,7 +8,7 @@ import { Button } from "@camome/core/Button";
 import styles from "./styles.module.scss";
 
 export default function OverrideDemo() {
-  const [overridden, setOverridden] = React.useState(false);
+  const [overridden, setOverridden] = React.useState(true);
   const { t } = useTranslation("root");
   return (
     <section className={styles.container}>
@@ -16,7 +16,7 @@ export default function OverrideDemo() {
         <Button
           className={overridden ? styles.overridden : undefined}
           colorScheme="danger"
-          size="lg"
+          size="md"
           onClick={() => setOverridden((curr) => !curr)}
         >
           {overridden
