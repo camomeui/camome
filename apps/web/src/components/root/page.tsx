@@ -151,7 +151,9 @@ export default function RootPage() {
       </section>
 
       <div className={styles.cta}>
-        <Cta />
+        <div className={styles.cta__inner}>
+          <Cta className={styles.cta__content} />
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 
 .container {
   padding-top: 5rem;
-  padding-bottom: 8rem;
   overflow-x: hidden;
 }
 
@@ -68,6 +67,12 @@
 
 .featureSection {
   margin-top: 6rem;
+  padding: 4rem 0;
+  background: linear-gradient(
+    170deg,
+    hsl(220 100% 80% / 0.14),
+    hsl(220 100% 80% /0.04) 30%
+  );
 }
 
 .featList {
@@ -88,7 +93,7 @@
   grid-template-columns: auto 1fr;
   place-items: center start;
   gap: 1rem;
-  border: 1px solid var(--cmm-color-border-base);
+  border: 1px solid var(--cmm-color-border-subtle);
   border-radius: var(--cmm-radius-lg);
   background: var(--cmm-color-surface-0);
   padding: 1rem;
@@ -100,7 +105,7 @@
   &__icon {
     width: 2.5rem;
     height: 2.5rem;
-    background: var(--cmm-color-primary-solid-bg);
+    background: var(--cmm-color-primary-emphasis);
     color: var(--cmm-color-primary-solid-font);
     border-radius: var(--cmm-radius-md);
     display: grid;
@@ -133,7 +138,7 @@
 
 .styling {
   @include variables.container(variables.$xl);
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 
   &__heading {
     @extend %sectionHeading;
@@ -257,6 +262,29 @@
 }
 
 .cta {
-  @include variables.container(40rem);
-  margin-top: 6rem;
+  --dot: 0 0 0;
+  --dot-size: 1px;
+  --dot-distance: 12px;
+
+  margin-top: 5rem;
+  padding: 4rem 0;
+  background-color: var(--cmm-color-surface-1);
+  background-image: radial-gradient(
+    rgb(var(--dot) / 0.15) var(--dot-size),
+    rgb(0 0 0 / 0) var(--dot-size)
+  );
+  background-size: var(--dot-distance) var(--dot-distance);
+  border-top: 1px solid var(--cmm-color-border-subtle);
+
+  [data-theme^="dark"] & {
+    --dot: 255 255 255;
+  }
+
+  &__inner {
+    @include variables.container(40rem);
+  }
+
+  &__content {
+    background: var(--cmm-color-surface-0);
+  }
 }
