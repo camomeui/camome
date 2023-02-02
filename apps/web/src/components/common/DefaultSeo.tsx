@@ -1,5 +1,4 @@
 import { DefaultSeo as DefaultNextSeo, type DefaultSeoProps } from "next-seo";
-import React from "react";
 
 const DefaultSeoConfig: DefaultSeoProps = {
   defaultTitle: `Camome UI`,
