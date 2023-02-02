@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.17",
   "type": "module",
+  "description": "Light weight, accessibleUI framework for React and CSS",
+  "homepage": "https://camome.net",
+  "author": {
+    "name": "Matsura Yuma",
+    "email": "lemonburst1958@gmail.com",
+    "url": "https://rubiq.vercel.app"
+  },
   "scripts": {
     "dev": "storybook dev -p 3920",
     "build": "storybook build --quiet",
