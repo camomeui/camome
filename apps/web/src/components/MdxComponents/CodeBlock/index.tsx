@@ -15,6 +15,7 @@ export type CodeBlockProps = {
   code: string;
   language?: string;
   classNames?: {
+    container?: string;
     pre?: string;
     code?: string;
   };
@@ -79,7 +80,7 @@ export default function CodeBlock({
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onExit}
-      className={clsx(styles.container, "code-block")}
+      className={clsx(styles.container, "code-block", classNames?.container)}
     >
       <Tooltip
         title={copied ? "Copied!" : "Copy"}

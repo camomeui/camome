@@ -59,7 +59,7 @@
 
 .githubLink {
   border: 1px solid var(--cmm-color-border-base);
-  width: 9rem;
+  width: 8rem;
 
   @include variables.mq(sm) {
     width: 100%;
@@ -127,7 +127,7 @@
 
 %sectionHeading {
   font-weight: var(--cmm-font-weight-bold);
-  font-size: var(--cmm-font-size-5xl);
+  font-size: clamp(2.25rem, 2rem + 1.5vw, var(--cmm-font-size-5xl));
   line-height: 1.2;
 }
 
@@ -166,39 +166,31 @@
       }
     }
   }
-
-  &__preview {
-    border: none !important;
-  }
 }
 
 .theming {
+  @include variables.container(variables.$xl);
+
   margin-top: 5rem;
-
-  &__group {
-    @include variables.container(variables.$md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-
-    @include variables.mq("md") {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 2rem;
 
   &__left {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    flex: 1;
+    flex: 1 1 24rem;
+    max-width: 32rem;
   }
 
   &__right {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 1 1 48rem;
   }
 
   &__heading {
@@ -209,27 +201,21 @@
   &__description {
     color: var(--cmm-color-font-muted);
     font-size: var(--cmm-font-size-xl);
-    max-width: 30rem;
-  }
-
-  &__sandbox {
-    @include variables.container(48rem);
-
-    margin-top: 3rem;
   }
 }
 
 .override {
   @include variables.container(variables.$lg);
-  margin-top: 6rem;
+
+  margin-top: 5rem;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 26rem 1fr;
   place-items: center;
-  gap: 3rem;
+  gap: 2rem;
 
   @include variables.mq(lg) {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   &__heading {
@@ -253,7 +239,7 @@
   &__description {
     color: var(--cmm-color-font-muted);
     font-size: var(--cmm-font-size-xl);
-    max-width: 30rem;
+    max-width: 34rem;
     margin-top: 1rem;
 
     @include variables.mq(lg) {
@@ -267,6 +253,10 @@
       padding: 0.1em 0.25em;
       border-radius: var(--cmm-radius-md);
     }
+  }
+
+  &__demo {
+    width: min(100%, 34rem);
   }
 }
 
