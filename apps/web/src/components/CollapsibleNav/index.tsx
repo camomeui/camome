@@ -43,7 +43,8 @@ export default function CollapsibleNavigation({
 }: Props) {
   const router = useRouter();
   const isActive = React.useCallback(
-    (href: string) => href === router.asPath,
+    // Ignore queries
+    (href: string) => href === router.asPath.replace(/\?.*/, ""),
     [router.asPath]
   );
   return (
