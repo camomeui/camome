@@ -5,9 +5,8 @@ import {
 } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import Link from "next/link";
-import React from "react";
 
-import LogoSvg from "@/assets/logo.svg";
+import Logo from "@/components/Logo";
 import BuyButton from "@/components/common/BuyButton";
 import { IconButton } from "@camome/core/IconButton";
 import { type SvgComponent } from "@camome/utils";
@@ -28,8 +27,8 @@ export default function PreviewHeader({
   return (
     <header className={clsx(styles.header, isHidden && styles.hidden)}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo}>
-          <LogoSvg />
+        <Link href="/">
+          <Logo />
         </Link>
         <div className={styles.devices}>
           <DeviceButton
