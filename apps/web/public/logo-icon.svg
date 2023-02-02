@@ -18,16 +18,17 @@
   </style>
   <path
     d="M165.5 265C267.5 301.5 315.772 284.659 332.862 279.316C349.952 273.973 364.81 263.107 375.13 248.403C385.449 233.7 390.654 215.982 389.934 198"
-    stroke="var(--primary)" stroke-width="20" stroke-linecap="round" />
+    stroke="var(--logo-primary)" stroke-width="20" stroke-linecap="round" />
   <path d="M443 147C429.947 149.1 417.862 155.119 408.381 164.241C398.901 173.364 392.484 185.149 390 198"
-    stroke="var(--primary)" stroke-width="20" stroke-linecap="round" />
+    stroke="var(--logo-primary)" stroke-width="20" stroke-linecap="round" />
   <path
     d="M417 133.128C413.733 122.093 406.571 112.61 396.837 106.436C387.104 100.261 375.459 97.8117 364.056 99.5406C352.652 101.269 342.262 107.06 334.808 115.84C327.353 124.621 323.337 135.797 323.504 147.303M323.66 147.48C208.433 169.26 106.088 234.652 38 330"
-    stroke="var(--primary)" stroke-width="20" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="bevel" />
-  <path d="M278 317.115L285.227 378.542L312.021 378.09" stroke="var(--primary)" stroke-width="20"
+    stroke="var(--logo-primary)" stroke-width="20" stroke-miterlimit="16" stroke-linecap="round"
+    stroke-linejoin="bevel" />
+  <path d="M278 317.115L285.227 378.542L312.021 378.09" stroke="var(--logo-primary)" stroke-width="20"
     stroke-linecap="round" />
   <path
     d="M299.306 172.706C306.249 180.496 298.218 193.771 275.212 212.53C252.205 231.29 226.287 248.244 197.457 263.394C168.627 278.544 142.032 288.502 117.672 293.269C93.3123 298.036 83.8375 293.132 89.2474 278.556C94.6574 263.98 98.4477 249.73 100.618 235.804C102.789 221.879 119.224 207.956 149.925 194.036C180.626 180.116 206.035 170.003 226.15 163.695C246.266 157.388 261.751 155.365 272.607 157.627C283.463 159.889 292.363 164.915 299.306 172.706Z"
-    fill="var(--secondary)" />
-  <circle cx="386" cy="134" r="7" fill="var(--primary)" />
+    fill="var(--logo-secondary)" />
+  <circle cx="386" cy="134" r="7" fill="var(--logo-primary)" />
 </svg>
