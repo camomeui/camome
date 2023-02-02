@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  &__icon {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  &__text {
+    height: 1.1rem;
+    width: auto;
+    translate: 0 -0.1rem;
+  }
+}

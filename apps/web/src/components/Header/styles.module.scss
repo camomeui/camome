@@ -10,12 +10,11 @@
 }
 
 .inner {
-  @include variables.container;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  padding: 0 1rem;
 }
 
 .left {
@@ -54,12 +53,8 @@
   color: var(--cmm-color-primary-emphasis);
 }
 
-.logo {
+.logoText {
   @include desktopOnly();
-
-  width: 9rem;
-  height: auto;
-  color: var(--cmm-color-primary-emphasis);
 }
 
 .nav {

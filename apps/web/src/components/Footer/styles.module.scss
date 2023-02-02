@@ -27,23 +27,6 @@
   place-content: start;
   row-gap: 0.5rem;
   transform: translateY(-0.3rem);
-
-  &__logo {
-    display: flex;
-    align-items: center;
-
-    & svg {
-      width: 10rem;
-      height: auto;
-      color: var(--cmm-color-primary-emphasis);
-    }
-  }
-
-  &__text {
-    font-size: var(--cmm-font-size-xs);
-    color: var(--cmm-color-font-muted);
-    padding-left: 0.4rem;
-  }
 }
 
 .navGrid {

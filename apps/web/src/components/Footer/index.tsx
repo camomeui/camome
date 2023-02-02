@@ -1,7 +1,6 @@
 import Link from "next/link";
-import React from "react";
 
-import LogoSvg from "@/assets/logo.svg";
+import Logo from "@/components/Logo";
 
 import styles from "./styles.module.scss";
 
@@ -73,9 +72,7 @@ export default function Footer() {
     <footer className={styles.container}>
       <div className={styles.inner}>
         <div className={styles.description}>
-          <div className={styles.description__logo}>
-            <LogoSvg />
-          </div>
+          <Logo />
         </div>
         <nav className={styles.navGrid}>
           {navSections.map((navItem) => (

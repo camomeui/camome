@@ -4,10 +4,9 @@ import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 
-import LogoIconSvg from "@/assets/logo-icon.svg";
-import LogoSvg from "@/assets/logo.svg";
 import CollapsibleNav from "@/components/CollapsibleNav";
 import LocaleSwitch from "@/components/LocaleSwitch";
+import Logo from "@/components/Logo";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
@@ -66,8 +65,7 @@ export default function Header({ menuContent, classNames }: Props) {
             <Bars3Icon strokeWidth="1.5" />
           </IconButton>
           <Link href="/" aria-label="Home">
-            <LogoIconSvg className={styles.logoIcon} />
-            <LogoSvg className={styles.logo} />
+            <Logo classNames={{ text: styles.logoText }} />
           </Link>
         </div>
         <div className={clsx(styles.right)}>
@@ -102,7 +100,6 @@ export default function Header({ menuContent, classNames }: Props) {
           >
             <XMarkIcon />
           </IconButton>
-          <LogoSvg className={styles.logo} />
         </div>
         <div className={styles.menu__content}>
           {menuContent ? (

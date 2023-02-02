@@ -1,3 +1,17 @@
+:root {
+  --logo-hue: 220;
+  --logo-sat: 50%;
+  --logo-primary: hsl(var(--logo-hue) var(--logo-sat) 40%);
+  --logo-secondary: hsl(var(--logo-hue) var(--logo-sat) 40% / 0.6);
+  --logo-text: var(--logo-primary);
+}
+
+:root[data-theme^="dark"] {
+  --logo-sat: 50%;
+  --logo-primary: hsl(var(--logo-hue) var(--logo-sat) 60%);
+  --logo-secondary: hsl(var(--logo-hue) 60% 60% / 0.8);
+}
+
 .scrollbar {
   --scrollbar-width: 16px;
   --scrollbar-thumb-color: var(--cmm-color-gray-3);
