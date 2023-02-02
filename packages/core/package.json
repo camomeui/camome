@@ -1,16 +1,27 @@
 {
   "name": "@camome/core",
+  "type": "module",
   "version": "0.0.18",
-  "description": "Head-only React components.",
-  "author": "Matsura Yuma <lemonburst1958@gmail.com>",
+  "description": "Light weight, accessibleUI framework for React and CSS",
+  "homepage": "https://camome.net",
+  "author": {
+    "name": "Matsura Yuma",
+    "email": "lemonburst1958@gmail.com",
+    "url": "https://rubiq.vercel.app"
+  },
   "license": "MIT",
   "private": false,
   "repository": {
     "url": "https://github.com/camomeui/camome.git",
     "type": "git",
-    "directory": "packages/components"
+    "directory": "packages/core"
   },
-  "type": "module",
+  "keywords": [
+    "react",
+    "css",
+    "ui",
+    "components"
+  ],
   "scripts": {
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",

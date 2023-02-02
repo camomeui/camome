@@ -3,6 +3,13 @@
   "version": "0.1.26",
   "private": true,
   "type": "module",
+  "description": "Light weight, accessibleUI framework for React and CSS",
+  "homepage": "https://camome.net",
+  "author": {
+    "name": "Matsura Yuma",
+    "email": "lemonburst1958@gmail.com",
+    "url": "https://rubiq.vercel.app"
+  },
   "scripts": {
     "run-ts": "node -r esbuild-register",
     "watch-stories": "pnpm run-ts ./scripts/watch-stories.ts",
