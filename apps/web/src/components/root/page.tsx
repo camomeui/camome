@@ -61,7 +61,7 @@ export default function RootPage() {
             <Button
               component="a"
               href="https://github.com/camomeui/camome"
-              variant="soft"
+              variant="outline"
               colorScheme="neutral"
               size="lg"
               className={styles.githubLink}
