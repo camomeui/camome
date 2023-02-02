@@ -6,5 +6,9 @@
   },
   "[mdx]": {
     "editor.wordWrap": "wordWrapColumn"
+  },
+  "markdownlint.config": {
+    "first-line-heading": false,
+    "no-inline-html": false
   }
 }
