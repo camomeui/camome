@@ -13,7 +13,8 @@
 
 Camome UI enables you to build various styles of components without run-time JavaScript by fully utilizing the power of CSS.
 
-Camome (かもめ, カモメ, 鴎) means seagull in Japanese by the way.
+> **Note**
+> Camome (かもめ, カモメ, 鴎) means seagull in Japanese by the way.
 
 ## Features
 
