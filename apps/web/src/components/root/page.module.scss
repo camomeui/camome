@@ -154,16 +154,12 @@
   }
 
   &__sandbox {
-    flex-direction: row !important;
-    align-items: center;
-    > * {
-      width: 50%;
-    }
+    display: grid !important;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: center;
+
     @include variables.mq("lg") {
-      flex-direction: column !important;
-      > * {
-        width: 100%;
-      }
+      display: flex !important;
     }
   }
 }
