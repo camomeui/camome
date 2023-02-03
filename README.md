@@ -26,11 +26,11 @@ Camome UI enables you to build various styles of components without run-time Jav
 - Accessible
 - Framework agnostic
 
-Learn more details on [docs](https://camome.net/docs/guide/overview).
+Learn more details on [docs](https://camome-web-beta.vercel.app/docs/guide/overview).
 
 ## Getting started
 
-[Read the docs](https://camome.net/docs/guide/overview).
+[Read the docs](https://camome-web-beta.vercel.app/docs/guide/overview).
 
 ## Examples
 
