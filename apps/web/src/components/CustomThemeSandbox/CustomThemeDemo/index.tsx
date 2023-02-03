@@ -1,5 +1,4 @@
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import EllipsisHorizontalIcon from "@heroicons/react/24/outline/EllipsisHorizontalIcon";
 import { RiUserAddLine } from "react-icons/ri";
 
 import { Avatar } from "@camome/core/Avatar";

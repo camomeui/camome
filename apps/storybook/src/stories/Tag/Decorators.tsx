@@ -1,4 +1,6 @@
-import { LinkIcon, WifiIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import LinkIcon from "@heroicons/react/24/outline/LinkIcon";
+import WifiIcon from "@heroicons/react/24/outline/WifiIcon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 
 import { Avatar } from "@camome/core/Avatar";
 import { IconButton } from "@camome/core/IconButton";

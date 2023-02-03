@@ -1,9 +1,7 @@
-import { FireIcon } from "@heroicons/react/20/solid";
-import {
-  CheckCircleIcon,
-  InformationCircleIcon,
-  ExclamationTriangleIcon,
-} from "@heroicons/react/24/outline";
+import CheckCircleIcon from "@heroicons/react/24/outline/CheckCircleIcon";
+import ExclamationTriangleIcon from "@heroicons/react/24/outline/ExclamationTriangleIcon";
+import InformationCircleIcon from "@heroicons/react/24/outline/InformationCircleIcon";
+import FireIcon from "@heroicons/react/24/solid/FireIcon";
 import clsx from "clsx";
 import React from "react";
 

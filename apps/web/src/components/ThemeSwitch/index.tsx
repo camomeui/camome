@@ -1,4 +1,5 @@
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import MoonIcon from "@heroicons/react/24/outline/MoonIcon";
+import SunIcon from "@heroicons/react/24/outline/SunIcon";
 import { useTheme } from "next-themes";
 import React from "react";
 

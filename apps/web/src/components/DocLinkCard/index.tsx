@@ -1,4 +1,4 @@
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import DocumentTextIcon from "@heroicons/react/24/outline/DocumentTextIcon";
 import React from "react";
 
 import DocLink from "@/components/DocLink";

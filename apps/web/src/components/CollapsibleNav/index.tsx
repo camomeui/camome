@@ -1,10 +1,8 @@
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import {
-  Squares2X2Icon,
-  DocumentTextIcon,
-  PuzzlePieceIcon,
-  SwatchIcon,
-} from "@heroicons/react/24/outline";
+import ChevronRightIcon from "@heroicons/react/20/solid/ChevronRightIcon";
+import DocumentTextIcon from "@heroicons/react/24/outline/DocumentTextIcon";
+import PuzzlePieceIcon from "@heroicons/react/24/outline/PuzzlePieceIcon";
+import Squares2X2Icon from "@heroicons/react/24/outline/Squares2X2Icon";
+import SwatchIcon from "@heroicons/react/24/outline/SwatchIcon";
 import sortBy from "lodash.sortby";
 import Link from "next/link";
 import { useRouter } from "next/router";

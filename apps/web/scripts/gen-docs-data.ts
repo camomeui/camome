@@ -10,22 +10,10 @@ import PostcssModulesPlugin from "postcss-modules";
 import { format } from "prettier";
 import React from "react";
 import { renderToString } from "react-dom/server";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
 
 import { generateScopedName, hash } from "@camome/utils";
 
 import { CssModulesPlugin } from "../src/lib/CssModulesPlugin/index.mjs";
-
-const argv = yargs(hideBin(process.argv))
-  .options({
-    watch: {
-      type: "boolean",
-      alias: "w",
-      default: false,
-    },
-  })
-  .parseSync();
 
 const STORIES_DIR = path.join(
   "node_modules",
@@ -95,11 +83,6 @@ export default {
     outExtension: { ".js": ".jsx" },
     tsconfig: "node_modules/@camome/core/tsconfig.json",
     jsx: "automatic",
-    watch: argv.watch
-      ? {
-          onRebuild: onBuild,
-        }
-      : undefined,
     plugins: [
       // TODO: add autoprefixer
       CssModulesPlugin({

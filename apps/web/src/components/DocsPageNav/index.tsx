@@ -1,7 +1,5 @@
-import {
-  ArrowSmallLeftIcon,
-  ArrowSmallRightIcon,
-} from "@heroicons/react/24/outline";
+import ArrowSmallLeftIcon from "@heroicons/react/24/outline/ArrowSmallLeftIcon";
+import ArrowSmallRightIcon from "@heroicons/react/24/outline/ArrowSmallRightIcon";
 import clsx from "clsx";
 import Link from "next/link";
 

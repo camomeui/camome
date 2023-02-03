@@ -28,7 +28,7 @@
     "yargs": "^17.6.2"
   },
   "devDependencies": {
-    "@types/yargs": "^17.0.17",
+    "@types/yargs": "^17.0.22",
     "tsup": "^6.3.0"
   },
   "bin": "./dist/index.mjs"

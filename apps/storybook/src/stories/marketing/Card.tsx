@@ -1,4 +1,4 @@
-import { CalendarDaysIcon } from "@heroicons/react/24/outline";
+import CalendarDaysIcon from "@heroicons/react/24/outline/CalendarDaysIcon";
 
 import { Button } from "@camome/core/Button";
 import { Tag } from "@camome/core/Tag";

@@ -1,4 +1,4 @@
-import { UserCircleIcon } from "@heroicons/react/24/outline";
+import UserCircleIcon from "@heroicons/react/24/outline/UserCircleIcon";
 import clsx from "clsx";
 import React from "react";
 

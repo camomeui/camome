@@ -1,4 +1,5 @@
-import { SparklesIcon, SwatchIcon } from "@heroicons/react/24/outline";
+import SparklesIcon from "@heroicons/react/24/outline/SparklesIcon";
+import SwatchIcon from "@heroicons/react/24/outline/SwatchIcon";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";

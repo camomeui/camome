@@ -1,11 +1,9 @@
-import {
-  ArrowPathIcon,
-  PaperAirplaneIcon,
-  CloudArrowDownIcon,
-  ChatBubbleLeftEllipsisIcon,
-  HeartIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import ArrowPathIcon from "@heroicons/react/24/outline/ArrowPathIcon";
+import ChatBubbleLeftEllipsisIcon from "@heroicons/react/24/outline/ChatBubbleLeftEllipsisIcon";
+import CloudArrowDownIcon from "@heroicons/react/24/outline/CloudArrowDownIcon";
+import HeartIcon from "@heroicons/react/24/outline/HeartIcon";
+import PaperAirplaneIcon from "@heroicons/react/24/outline/PaperAirplaneIcon";
+import TrashIcon from "@heroicons/react/24/outline/TrashIcon";
 
 import { Button } from "@camome/core/Button";
 

@@ -1,9 +1,7 @@
-import {
-  SunIcon,
-  MoonIcon,
-  SparklesIcon,
-  BoltIcon,
-} from "@heroicons/react/24/solid";
+import BoltIcon from "@heroicons/react/24/solid/BoltIcon";
+import MoonIcon from "@heroicons/react/24/solid/MoonIcon";
+import SparklesIcon from "@heroicons/react/24/solid/SparklesIcon";
+import SunIcon from "@heroicons/react/24/solid/SunIcon";
 
 import type { Option } from "./types";
 

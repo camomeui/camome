@@ -1,10 +1,8 @@
 import { useFloating, offset, flip } from "@floating-ui/react";
 import { Menu as HeadlessMenu } from "@headlessui/react";
-import {
-  PencilSquareIcon,
-  Square2StackIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import PencilSquareIcon from "@heroicons/react/24/outline/PencilSquareIcon";
+import Square2StackIcon from "@heroicons/react/24/outline/Square2StackIcon";
+import TrashIcon from "@heroicons/react/24/outline/TrashIcon";
 import clsx from "clsx";
 
 import { Button } from "@camome/core/Button";

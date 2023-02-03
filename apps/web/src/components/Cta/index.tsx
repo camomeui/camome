@@ -1,11 +1,8 @@
-import {
-  ChevronDoubleRightIcon,
-  RocketLaunchIcon,
-} from "@heroicons/react/24/outline";
+import ChevronDoubleRightIcon from "@heroicons/react/24/outline/ChevronDoubleRightIcon";
+import RocketLaunchIcon from "@heroicons/react/24/outline/RocketLaunchIcon";
 import clsx from "clsx";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import React from "react";
 import { FaGithub } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
 

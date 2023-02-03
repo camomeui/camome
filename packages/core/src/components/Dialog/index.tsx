@@ -1,4 +1,4 @@
-import { XMarkIcon } from "@heroicons/react/20/solid";
+import XMarkIcon from "@heroicons/react/20/solid/XMarkIcon";
 import clsx from "clsx";
 import React from "react";
 

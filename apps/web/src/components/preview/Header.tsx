@@ -1,8 +1,6 @@
-import {
-  DevicePhoneMobileIcon,
-  ComputerDesktopIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
+import ComputerDesktopIcon from "@heroicons/react/20/solid/ComputerDesktopIcon";
+import DevicePhoneMobileIcon from "@heroicons/react/20/solid/DevicePhoneMobileIcon";
+import XMarkIcon from "@heroicons/react/20/solid/XMarkIcon";
 import clsx from "clsx";
 import Link from "next/link";
 

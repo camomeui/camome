@@ -1,6 +1,5 @@
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import ChevronDownIcon from "@heroicons/react/20/solid/ChevronDownIcon";
 import Link from "next/link";
-import React from "react";
 
 import Popover from "@/components/Popover";
 import { type SvgComponent } from "@camome/utils";

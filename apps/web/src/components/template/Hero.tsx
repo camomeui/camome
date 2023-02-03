@@ -1,7 +1,6 @@
-import { CheckCircleIcon } from "@heroicons/react/20/solid";
+import CheckCircleIcon from "@heroicons/react/20/solid/CheckCircleIcon";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 import NextJsIcon from "@/assets/nextjs.svg";
 import TypeScriptIcon from "@/assets/typescript.svg";
