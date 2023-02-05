@@ -30,7 +30,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className={clsx(styles.Block, size !== "md" && styles[`--${size}`])}
         >
           <UnstyledInput type="checkbox" {...inputProps} ref={ref} />
-          <div className={styles.mark} />
+          <div className={styles.marker} />
           <FormField.Label />
           <FormField.Error />
         </div>

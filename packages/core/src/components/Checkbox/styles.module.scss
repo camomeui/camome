@@ -42,7 +42,7 @@
       cursor: pointer;
 
       &:checked {
-        & + .mark {
+        & + .marker {
           background: var(--cmm-color-primary-soft-bg);
 
           &::before {
@@ -52,7 +52,7 @@
       }
 
       &:hover:not(:disabled) {
-        & + .mark {
+        & + .marker {
           background: var(--cmm-color-primary-soft-bg-hover);
         }
       }
@@ -60,7 +60,7 @@
       &:disabled {
         cursor: not-allowed;
 
-        ~ .mark {
+        ~ .marker {
           opacity: 0.6;
           cursor: not-allowed;
         }
@@ -78,7 +78,7 @@
     }
   }
 
-  .mark {
+  .marker {
     width: locals.$size;
     height: locals.$size;
     border-radius: var(--cmm-radius-sm);
