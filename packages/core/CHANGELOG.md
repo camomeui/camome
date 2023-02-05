@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.19
+
+### Patch Changes
+
+- c35436c: Change class name of Checkbox
+
 ## 0.0.18
 
 ### Patch Changes
