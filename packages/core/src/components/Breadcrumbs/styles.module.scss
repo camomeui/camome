@@ -23,9 +23,8 @@
     a {
       color: var(--cmm-color-font-base);
       text-decoration: underline;
-
-      &:hover {
-      }
+      text-underline-position: from-font;
+      text-decoration-thickness: from-font;
     }
   }
 }

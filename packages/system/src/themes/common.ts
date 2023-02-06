@@ -6,8 +6,6 @@ export const BASE_STYLES = `body {
   -moz-osx-font-smoothing: grayscale;
   color: ${cssVar("color.font.base")};
   background: ${cssVar("color.surface.0")};
-  text-underline-position: from-font;
-  text-decoration-thickness: from-font;
 }
 
 *:focus-visible {
