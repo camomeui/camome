@@ -5,7 +5,7 @@
 @include utils.layer {
   %sizeDefaults {
     font-size: var(--cmm-font-size-md);
-    height: 2.25rem;
+    height: 2.5rem;
     padding-left: locals.$startDecorWidth;
     padding-right: locals.$endDecorWidth;
     margin: locals.$margin;
@@ -17,7 +17,7 @@
 
     &--sm {
       font-size: var(--cmm-font-size-sm);
-      height: 1.75rem;
+      height: 2rem;
       padding-left: var(locals.$startDecorWidth_name, 0.5rem);
       padding-right: var(locals.$endDecorWidth_name, 0.5rem);
     }
@@ -28,7 +28,7 @@
 
     &--lg {
       font-size: var(--cmm-font-size-md);
-      height: 2.75rem;
+      height: 3rem;
       padding-left: var(locals.$startDecorWidth_name, 1rem);
       padding-right: var(locals.$endDecorWidth_name, 1rem);
     }

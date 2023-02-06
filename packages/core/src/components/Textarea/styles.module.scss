@@ -6,7 +6,7 @@
     @include inputs.base();
 
     width: var(--cmm-Textarea-width);
-    padding: 0.5rem;
+    padding: 0.75rem;
     resize: none;
 
     &--fill {

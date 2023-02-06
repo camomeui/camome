@@ -42,6 +42,7 @@ export default function WithReactHookForm() {
         <div style={styles.col2}>
           <TextInput
             label="First name"
+            placeholder="John"
             error={errors.firstName?.message}
             {...register("firstName", {
               required: errMsg.required,
@@ -50,6 +51,7 @@ export default function WithReactHookForm() {
           />
           <TextInput
             label="Last name"
+            placeholder="Doe"
             error={errors.lastName?.message}
             {...register("lastName", {
               required: errMsg.required,
@@ -80,6 +82,7 @@ export default function WithReactHookForm() {
         </Select>
         <Textarea
           label="Message"
+          placeholder="Your thoughts..."
           error={errors.message?.message}
           {...register("message", {
             required: errMsg.required,

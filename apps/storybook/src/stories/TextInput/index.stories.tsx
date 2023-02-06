@@ -9,6 +9,7 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 
 export { default as Default } from "./Default";
+export { default as Size } from "./Size";
 export { default as Fill } from "./Fill";
 export { default as Error } from "./Error";
 export { default as Required } from "./Required";
