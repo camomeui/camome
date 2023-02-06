@@ -18,6 +18,10 @@ import {
   resolveThemeCallback,
 } from "./utils";
 
+export function defineConfig(config: Config) {
+  return config;
+}
+
 export function makeThemeFromConfig(
   scheme: "light" | "dark",
   config: ThemeConfig = {}
