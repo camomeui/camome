@@ -60,7 +60,7 @@ const _Message = React.forwardRef<
             {title}
           </div>
         )}
-        {children && <div className={styles.message}>{children}</div>}
+        {children && <div className={styles.content}>{children}</div>}
       </div>
     );
   }

@@ -31,12 +31,12 @@
     font-size: var(--cmm-font-size-md);
 
     // Maybe better to switch to :has() when Firefox supports it.
-    & + .message {
+    & + .content {
       grid-column: 1 / -1;
     }
   }
 
-  .message {
+  .content {
     line-height: 1.7;
     font-weight: var(--cmm-font-weight-normal);
 
