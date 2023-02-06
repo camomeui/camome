@@ -1,5 +1,11 @@
 # @camome/system
 
+## 0.1.22
+
+### Patch Changes
+
+- a9dd462: Export defineConfig
+
 ## 0.1.21
 
 ### Patch Changes

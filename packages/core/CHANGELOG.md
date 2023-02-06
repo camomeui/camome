@@ -1,5 +1,13 @@
 # @camome/components
 
+## 0.0.22
+
+### Patch Changes
+
+- 00e97b8: Modify style of inputs
+- Updated dependencies [a9dd462]
+  - @camome/system@0.1.22
+
 ## 0.0.21
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @camome/storybook
 
+## 0.0.21
+
+### Patch Changes
+
+- 00e97b8: Modify style of inputs
+- Updated dependencies [00e97b8]
+- Updated dependencies [a9dd462]
+  - @camome/core@0.0.22
+  - @camome/system@0.1.22
+
 ## 0.0.20
 
 ### Patch Changes
