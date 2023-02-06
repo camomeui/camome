@@ -18,13 +18,13 @@
     align-items: center;
     gap: 0.3rem;
     font-size: var(--cmm-font-size-sm);
-    color: var(--cmm-color-font-muted);
+    color: var(--cmm-color-font-base);
 
     a {
-      color: var(--cmm-color-link);
+      color: var(--cmm-color-font-base);
+      text-decoration: underline;
 
       &:hover {
-        text-decoration: underline;
       }
     }
   }
