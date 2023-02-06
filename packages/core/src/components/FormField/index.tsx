@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 
 import { FormFieldContext, FormFieldContextValue } from "./FormFieldContext";
@@ -12,6 +13,7 @@ export type FormFieldProps = {
   error?: boolean | string;
   id?: string;
   custom?: boolean;
+  fill?: boolean;
   children:
     | React.ReactNode
     | ((props: FormFieldContextValue) => React.ReactNode);
@@ -30,6 +32,7 @@ export const FormField = (({
   error = false,
   id: _id,
   custom = false,
+  fill = false,
   children,
 }: FormFieldProps) => {
   const useIdValue = React.useId();
@@ -57,11 +60,25 @@ export const FormField = (({
     </FormFieldContext.Provider>
   );
 
-  return custom ? content : <FormFieldContainer>{content}</FormFieldContainer>;
+  return custom ? (
+    content
+  ) : (
+    <FormFieldContainer fill={fill}>{content}</FormFieldContainer>
+  );
 }) as FormFieldApi;
 
-function FormFieldContainer({ children }: { children: React.ReactNode }) {
-  return <div className={styles.Block}>{children}</div>;
+function FormFieldContainer({
+  fill,
+  children,
+}: {
+  fill: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={clsx(styles.Block, fill && styles["Block--fill"])}>
+      {children}
+    </div>
+  );
 }
 
 FormField.Container = FormFieldContainer;

@@ -34,7 +34,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     if (!label) return select;
     return (
-      <FormField description={description} error={error} label={label} id={id}>
+      <FormField
+        description={description}
+        error={error}
+        label={label}
+        id={id}
+        fill={fill}
+      >
         {select}
       </FormField>
     );

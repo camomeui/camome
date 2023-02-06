@@ -50,7 +50,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     if (!label) return input;
 
     return (
-      <FormField description={description} error={error} label={label} id={id}>
+      <FormField
+        description={description}
+        error={error}
+        label={label}
+        id={id}
+        fill={fill}
+      >
         {input}
       </FormField>
     );

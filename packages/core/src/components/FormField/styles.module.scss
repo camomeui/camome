@@ -26,5 +26,9 @@
         color: var(--cmm-color-font-subtle);
       }
     }
+
+    &--fill {
+      width: 100%;
+    }
   }
 }

@@ -27,7 +27,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     if (!label) return textarea;
 
     return (
-      <FormField description={description} error={error} label={label} id={id}>
+      <FormField
+        description={description}
+        error={error}
+        label={label}
+        id={id}
+        fill={fill}
+      >
         {textarea}
       </FormField>
     );
