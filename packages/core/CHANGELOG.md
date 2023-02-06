@@ -1,5 +1,12 @@
 # @camome/components
 
+## 0.0.20
+
+### Patch Changes
+
+- 58cf091: Fix fill modifier of input components
+- 942f5ae: Rename sub-class of Message
+
 ## 0.0.19
 
 ### Patch Changes

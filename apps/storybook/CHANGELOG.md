@@ -1,5 +1,14 @@
 # @camome/storybook
 
+## 0.0.19
+
+### Patch Changes
+
+- 58cf091: Fix fill modifier of input components
+- Updated dependencies [58cf091]
+- Updated dependencies [942f5ae]
+  - @camome/core@0.0.20
+
 ## 0.0.18
 
 ### Patch Changes
