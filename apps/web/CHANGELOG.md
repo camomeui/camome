@@ -1,5 +1,17 @@
 # @camome/web
 
+## 0.1.30
+
+### Patch Changes
+
+- 00e97b8: Modify style of inputs
+- a9dd462: Export defineConfig
+- Updated dependencies [00e97b8]
+- Updated dependencies [a9dd462]
+  - @camome/core@0.0.22
+  - @camome/system@0.1.22
+  - camome@0.1.19
+
 ## 0.1.29
 
 ### Patch Changes
