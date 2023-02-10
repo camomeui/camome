@@ -1,5 +1,13 @@
 # @camome/web
 
+## 0.1.31
+
+### Patch Changes
+
+- 20d7fdb: Fix table and blockquote of Markup
+- Updated dependencies [20d7fdb]
+  - @camome/core@0.0.23
+
 ## 0.1.30
 
 ### Patch Changes

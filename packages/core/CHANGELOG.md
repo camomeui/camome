@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.23
+
+### Patch Changes
+
+- 20d7fdb: Fix table and blockquote of Markup
+
 ## 0.0.22
 
 ### Patch Changes
