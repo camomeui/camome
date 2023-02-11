@@ -37,6 +37,7 @@
     "@next/bundle-analyzer": "^13.1.6",
     "@next/mdx": "^13.1.6",
     "@svgr/webpack": "^6.5.1",
+    "body-scroll-lock": "4.0.0-beta.0",
     "camome": "workspace:*",
     "contentlayer": "^0.3.0",
     "esbuild-sass-plugin": "^2.4.5",
@@ -76,6 +77,7 @@
   },
   "devDependencies": {
     "@camome/storybook": "workspace:*",
+    "@types/body-scroll-lock": "^3.1.0",
     "@types/lodash.sortby": "^4.7.7",
     "@types/mdx": "^2.0.3",
     "@types/node": "18.11.18",

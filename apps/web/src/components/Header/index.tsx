@@ -10,6 +10,7 @@ import LocaleSwitch from "@/components/LocaleSwitch";
 import Logo from "@/components/Logo";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
+import useScrollLock from "@/hooks/useScrollLock";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
 import { IconButton } from "@camome/core/IconButton";
 import { Tooltip } from "@camome/core/Tooltip";
@@ -44,14 +45,25 @@ type Props = {
 
 export default function Header({ menuContent, classNames }: Props) {
   const dialogRef = React.useRef<HTMLDialogElement>(null!);
+  const { enableBodyScroll, disableBodyScroll, clearAllBodyScrollLocks } =
+    useScrollLock(dialogRef);
 
   const openMenu = () => {
+    disableBodyScroll();
     dialogRef.current?.showModal();
   };
   const closeMenu = () => {
     dialogRef.current?.close();
   };
 
+  React.useEffect(() => {
+    dialogRef.current.addEventListener("close", () => {
+      enableBodyScroll();
+    });
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [clearAllBodyScrollLocks, enableBodyScroll]);
   return (
     <header className={clsx(styles.Block, classNames?.block)}>
       <div className={clsx(styles.inner, classNames?.inner)}>

@@ -145,11 +145,13 @@ importers:
       '@next/bundle-analyzer': ^13.1.6
       '@next/mdx': ^13.1.6
       '@svgr/webpack': ^6.5.1
+      '@types/body-scroll-lock': ^3.1.0
       '@types/lodash.sortby': ^4.7.7
       '@types/mdx': ^2.0.3
       '@types/node': 18.11.18
       '@types/yargs': ^17.0.22
       autoprefixer: ^10.4.13
+      body-scroll-lock: 4.0.0-beta.0
       camome: workspace:*
       chokidar: ^3.5.3
       contentlayer: ^0.3.0
@@ -210,6 +212,7 @@ importers:
       '@next/bundle-analyzer': 13.1.6
       '@next/mdx': 13.1.6_vvg67iglxhejglpl7nsv3pjzui
       '@svgr/webpack': 6.5.1
+      body-scroll-lock: 4.0.0-beta.0
       camome: link:../../packages/cli
       contentlayer: 0.3.0_markdown-wasm@1.2.0
       esbuild-sass-plugin: 2.4.5
@@ -248,6 +251,7 @@ importers:
       unist-util-visit: 4.1.2
     devDependencies:
       '@camome/storybook': link:../storybook
+      '@types/body-scroll-lock': 3.1.0
       '@types/lodash.sortby': 4.7.7
       '@types/mdx': 2.0.3
       '@types/node': 18.11.18
@@ -5994,6 +5998,10 @@ packages:
       '@types/node': 16.18.11
     dev: true
 
+  /@types/body-scroll-lock/3.1.0:
+    resolution: {integrity: sha512-3owAC4iJub5WPqRhxd8INarF2bWeQq1yQHBgYhN0XLBJMpd5ED10RrJ3aKiAwlTyL5wK7RkBD4SZUQz2AAAMdA==}
+    dev: true
+
   /@types/chroma-js/2.1.4:
     resolution: {integrity: sha512-l9hWzP7cp7yleJUI7P2acmpllTJNYf5uU6wh50JzSIZt3fFHe+w2FM6w9oZGBTYzjjm2qHdnQvI+fF/JF/E5jQ==}
     dev: true
@@ -7436,6 +7444,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /body-scroll-lock/4.0.0-beta.0:
+    resolution: {integrity: sha512-a7tP5+0Mw3YlUJcGAKUqIBkYYGlYxk2fnCasq/FUph1hadxlTRjF+gAcZksxANnaMnALjxEddmSi/H3OR8ugcQ==}
+    dev: false
 
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
