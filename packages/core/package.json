@@ -1,7 +1,7 @@
 {
   "name": "@camome/core",
   "type": "module",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "Light weight, accessibleUI framework for React and CSS",
   "homepage": "https://camome.net",
   "author": {

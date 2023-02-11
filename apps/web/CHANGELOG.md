@@ -1,5 +1,15 @@
 # @camome/web
 
+## 0.1.32
+
+### Patch Changes
+
+- a4a7be2: Modify transition.bg
+- Updated dependencies [a4a7be2]
+  - @camome/system@0.1.23
+  - camome@0.1.20
+  - @camome/core@0.0.24
+
 ## 0.1.31
 
 ### Patch Changes
