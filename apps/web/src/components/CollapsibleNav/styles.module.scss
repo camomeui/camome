@@ -23,12 +23,10 @@ details.collapsible {
     place-content: center;
     gap: 0.75rem;
     user-select: none;
-    transition: color 0.3s, background-color 0.3s;
     border-radius: var(--cmm-radius-sm);
     background-color: var(--cmm-color-surface-0);
     position: relative;
     padding: 0 0.5rem;
-    transition: var(--cmm-transition-bg);
     font-size: var(--cmm-font-size-sm);
     font-weight: var(--cmm-font-weight-medium);
     cursor: pointer;
@@ -47,7 +45,6 @@ details.collapsible {
       height: 1.25rem;
       color: var(--cmm-color-font-muted);
       translate: 0.25rem;
-      transition: color 0.3s, background-color 0.3s;
     }
 
     &:hover:not([aria-current="page"]) {
@@ -104,7 +101,6 @@ details.collapsible {
   color: var(--cmm-color-font-muted);
   font-size: var(--cmm-font-size-sm);
   font-weight: var(--cmm-font-weight-medium);
-  transition: color 0.3s, background-color 0.3s;
   background-color: var(--cmm-color-surface-0);
   outline-offset: 0;
 

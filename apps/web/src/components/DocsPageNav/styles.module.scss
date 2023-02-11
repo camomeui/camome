@@ -26,7 +26,6 @@
   &__upper {
     font-size: var(--cmm-font-size-sm);
     color: var(--cmm-color-font-subtle);
-    transition: color 0.3s;
 
     &.next {
       text-align: end;
@@ -39,7 +38,6 @@
     color: var(--cmm-color-font-muted);
     font-weight: var(--cmm-font-weight-medium);
     gap: 0.25em;
-    transition: color 0.3s;
 
     svg {
       width: 1em;
