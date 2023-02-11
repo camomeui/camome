@@ -1,44 +1,42 @@
 .container {
-  :global(.Tab__list) {
-    border: 1px solid var(--cmm-color-border-base);
-    background: var(--cmm-color-surface-2);
-    border-radius: var(--cmm-radius-xl) var(--cmm-radius-xl) 0 0;
-    padding: 0 0.5rem;
-    gap: 1rem;
-  }
-
-  :global(.Tab) {
-    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
-    height: 2rem;
-    font-size: var(--cmm-font-size-sm);
-    font-weight: var(--cmm-font-weight-medium);
-    color: var(--cmm-color-font-muted);
-    border-width: 0;
-    border-bottom-width: 2px;
-    margin-bottom: -1px;
-    border-color: transparent;
-    // background: none;
-    // border-radius: var(--cmm-radius-lg) var(--cmm-radius-lg) 0 0;
-
-    &:hover:not(:global(.Tab--active)) {
-      // color: var(--cmm-color-font-base);
-      // background: var(--cmm-color-surface-3);
-      border-color: var(--cmm-color-neutral-muted);
+  :global {
+    .Tab__list {
+      border: 1px solid var(--cmm-color-border-base);
+      background: var(--cmm-color-surface-2);
+      border-radius: var(--cmm-radius-xl) var(--cmm-radius-xl) 0 0;
+      padding: 0 1rem;
+      gap: 1rem;
     }
 
-    &:focus-visible {
-      outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
-      outline-offset: 3px;
+    .Tab {
+      height: 2.75rem;
+      font-size: var(--cmm-font-size-sm);
+      font-weight: var(--cmm-font-weight-medium);
+      color: var(--cmm-color-font-subtle);
+      border-width: 0;
+      border-bottom-width: 2px;
+      margin-bottom: -1px;
+      border-color: transparent;
+      padding: 0;
+
+      &:hover:not(.Tab--active) {
+        color: var(--cmm-color-font-base);
+      }
+
+      &:focus-visible {
+        outline: var(--cmm-outline-width) solid var(--cmm-outline-color-primary);
+        outline-offset: 3px;
+      }
     }
-  }
 
-  :global(.Tab--active) {
-    color: var(--cmm-color-primary-font);
-    border-color: var(--cmm-color-primary-muted);
-  }
+    .Tab--active {
+      color: var(--cmm-color-primary-emphasis);
+      border-color: var(--cmm-color-primary-emphasis);
+    }
 
-  :global(.Tab__panel) {
-    margin: 0;
+    .Tab__panel {
+      margin: 0;
+    }
   }
 }
 
