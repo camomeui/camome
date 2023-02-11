@@ -1,5 +1,11 @@
 # @camome/system
 
+## 0.1.23
+
+### Patch Changes
+
+- a4a7be2: Modify transition.bg
+
 ## 0.1.22
 
 ### Patch Changes
