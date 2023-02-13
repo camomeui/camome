@@ -31,6 +31,11 @@ const navItems: NavItem[] = [
     href: "/docs/components",
     label: "Components",
   },
+  {
+    id: "templates",
+    href: "/templates/saazy",
+    label: "🚀 Templates",
+  },
 ];
 
 const linkToIconMap: { [id: string]: SvgComponent } = {};

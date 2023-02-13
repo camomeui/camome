@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
-import LogoIconSvg from "@/assets/logo-icon.svg";
-import LogoTextSvg from "@/assets/logo-text.svg";
+import LogoIconSvg from "@/public/vector/logo-icon.svg";
+import LogoTextSvg from "@/public/vector/logo-text.svg";
 
 import styles from "./styles.module.scss";
 

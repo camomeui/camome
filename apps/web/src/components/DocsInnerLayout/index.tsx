@@ -1,4 +1,5 @@
 import PencilSquareIcon from "@heroicons/react/24/outline/PencilSquareIcon";
+import Link from "next/link";
 import React from "react";
 
 import TableOfContents from "@/components/TableOfContents";
@@ -40,10 +41,10 @@ export default function DocsInnerLayout({
                   <PencilSquareIcon />
                   Edit this page on GitHub
                 </a>
-                <span className={styles.tocExtraLink}>
-                  <span className={styles.emoji}>🎉</span> Start you next
-                  project with Camome template (coming soon)
-                </span>
+                <Link href="/templates/saazy" className={styles.tocExtraLink}>
+                  <span className={styles.emoji}>🚀</span>Speed up your project
+                  with Camome templates!
+                </Link>
               </div>
             }
           />

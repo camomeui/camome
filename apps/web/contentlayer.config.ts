@@ -68,10 +68,54 @@ export const Docs = defineDocumentType(() => ({
   },
 }));
 
+export const Template = defineDocumentType(() => ({
+  name: "Template",
+  filePathPattern: `templates/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    slug: {
+      type: "string",
+      required: true,
+    },
+    name: {
+      type: "string",
+      required: true,
+    },
+    author: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    },
+    screenshots: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+    },
+    techStack: {
+      type: "list",
+      of: {
+        type: "json",
+      },
+    },
+    demoUrl: {
+      type: "string",
+      required: true,
+    },
+    getUrl: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "content",
   contentDirExclude: ["docs/_sidebar.js"],
-  documentTypes: [Docs],
+  documentTypes: [Docs, Template],
   mdx: {
     ...mdxOptions,
   },

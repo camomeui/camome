@@ -1,0 +1,104 @@
+@use "@/styles/variables";
+
+.container {
+  @include variables.container();
+
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+
+  @include variables.mq(md) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.screenshots {
+  > * + * {
+    margin-top: 2rem;
+  }
+
+  @include variables.mq(md) {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    > * + * {
+      margin-top: 0;
+    }
+  }
+}
+
+.imgWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  @include variables.mq(md) {
+    height: 16rem;
+  }
+
+  img {
+    border-radius: var(--cmm-radius-lg);
+    box-shadow: var(--cmm-shadow-md);
+    border: 1px solid var(--cmm-color-border-subtle);
+  }
+}
+
+.header {
+  > :where(* + *) {
+    margin-top: 1rem;
+  }
+}
+
+.name {
+  font-size: var(--cmm-font-size-4xl);
+  font-weight: var(--cmm-font-weight-bold);
+  line-height: 1;
+}
+
+.author {
+  font-size: var(--cmm-font-size-sm);
+
+  &__prefix {
+    color: var(--cmm-color-font-muted);
+  }
+
+  &__name {
+    margin-left: 0.3rem;
+    font-weight: var(--cmm-font-weight-semibold);
+  }
+}
+
+.description {
+  color: var(--cmm-color-font-muted);
+}
+
+.techStacks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  img {
+    height: 1.75rem;
+  }
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  --cmm-Button-icon-size: 1rem;
+  --cmm-Button-icon-margin: 0.2rem;
+}
+
+.markup {
+  margin-top: 3rem;
+}

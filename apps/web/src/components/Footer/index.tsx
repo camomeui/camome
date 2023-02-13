@@ -10,6 +10,10 @@ const links: { href: string; label: string }[] = [
     label: "Docs",
   },
   {
+    href: "/templates/saazy",
+    label: "Templates",
+  },
+  {
     href: "https://github.com/camomeui/camome",
     label: "GitHub",
   },
