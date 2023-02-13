@@ -12,7 +12,7 @@ const nextConfig = {
       .oneOf.filter(({ use }) => JSON.stringify(use)?.includes("css-loader"))
       .reduce((acc, { use }) => acc.concat(use), [])
       .forEach(({ options }) => {
-        if (options.modules) {
+        if (options?.modules) {
           options.modules.getLocalIdent = (
             context,
             localIdentName,
