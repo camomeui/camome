@@ -1,5 +1,10 @@
 .button {
   position: relative;
+
+  svg {
+    stroke-width: 0.6;
+    width: 0.95em;
+  }
 }
 
 .menu {
