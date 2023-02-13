@@ -19,7 +19,7 @@ export default function TemplatePage({ template }: Props) {
       <section className={clsx(styles.screenshots, "scrollbar")}>
         {template.screenshots?.map((src) => (
           <div key={src} className={styles.imgWrap}>
-            <Image src={src} alt="" fill />
+            <Image src={src} alt={`Screenshot of ${template.name}`} fill />
           </div>
         ))}
       </section>
@@ -42,7 +42,7 @@ export default function TemplatePage({ template }: Props) {
               component="a"
               href={template.getUrl}
               endDecorator={<FiArrowUpRight strokeWidth="2.2" />}
-              {...external}
+              rel="noreferrer noopener"
             >
               Get now
             </Button>
@@ -51,7 +51,8 @@ export default function TemplatePage({ template }: Props) {
               href={template.demoUrl}
               variant="soft"
               endDecorator={<FiArrowUpRight strokeWidth="2.2" />}
-              {...external}
+              rel="noreferrer noopener"
+              target="_blank"
             >
               Live demo
             </Button>
@@ -64,8 +65,3 @@ export default function TemplatePage({ template }: Props) {
     </div>
   );
 }
-
-const external = {
-  rel: "noreferrer noopener",
-  target: "_blank",
-};
