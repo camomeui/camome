@@ -17,9 +17,14 @@ export default function TemplatePage({ template }: Props) {
   return (
     <div className={styles.container}>
       <section className={clsx(styles.screenshots, "scrollbar")}>
-        {template.screenshots?.map((src) => (
+        {template.screenshots?.map((src, i) => (
           <div key={src} className={styles.imgWrap}>
-            <Image src={src} alt={`Screenshot of ${template.name}`} fill />
+            <Image
+              src={src}
+              alt={`Screenshot of ${template.name}`}
+              fill
+              priority={i < 2}
+            />
           </div>
         ))}
       </section>
