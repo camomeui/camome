@@ -114,3 +114,17 @@ import { Button, TextInput } from "@camome/core";
 - When using bulk import, performance of the development server and build may slightly decrease (at least with Next.js and Vite). However, it should not affect the production environment (as they should be tree-shaken).
 - Individual import may result in poorer auto-completion by IDEs.
 - Individual import may result in more verbose code.
+
+## VSCode extension
+
+[CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) enables auto-completion of CSS variables.
+
+```json:.vscode/settings.json
+{
+  "cssVariables.lookupFiles": ["node_modules/@camome/system/dist/theme.css"]
+}
+```
+
+<Message status="warn">
+  Make sure to change the file path if you use a custom theme.
+</Message>

@@ -118,3 +118,17 @@ import { Button, TextInput } from "@camome/core";
 - 一括インポートの場合、（少なくとも）Next.js と Vite では開発サーバーやビルド時のパフォーマンスが若干落ちるかもしれません。しかしプロダクション環境には（ツリーシェイキングされているので）影響はないと思います。
 - 個別インポートの方が IDE の自動補完が効きづらいかもしれません。
 - 個別インポートの方が記述が冗長になります。
+
+## VSCode 拡張
+
+[CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) をインストールすることで CSS 変数のオートコンプリートを有効化できます。
+
+```json:.vscode/settings.json
+{
+  "cssVariables.lookupFiles": ["node_modules/@camome/system/dist/theme.css"]
+}
+```
+
+<Message status="warn">
+  カスタムテーマを使用する場合はファイルパスを変更してください。
+</Message>

@@ -30,8 +30,9 @@ Camome はダークテーマもはじめからサポートしています。
 テーマを変更したい場合はプロジェクトルートに `camome.config.js` ファイルを作成して、以下のように設定します:
 
 ```tsx:camome.config.js
-/** @type { import("@camome/system").Config;} */
-export default {
+import { defineConfig } from "@camome/system";
+
+export default defineConfig({
   themes: {
     light: {
       color: {
@@ -55,7 +56,7 @@ export default {
       },
     },
   },
-};
+});
 ```
 
 この例ではプライマリーカラーを紫に変更しているため、ボタンやチェックボックスなど、全てのコンポーネントにカスタムのアクセントカラーが一括で適用されます。

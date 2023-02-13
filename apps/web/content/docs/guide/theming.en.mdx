@@ -30,8 +30,9 @@ The default theme file can be imported from `@camome/system/theme.css`, `@camome
 Create a `camome.config.js` file in the project root.
 
 ```tsx:camome.config.js
-/** @type { import("@camome/system").Config;} */
-export default {
+import { defineConfig } from "@camome/system";
+
+export default defineConfig({
   themes: {
     light: {
       color: {
@@ -55,7 +56,7 @@ export default {
       },
     },
   },
-};
+});
 ```
 
 In this example, the primary color is changed to purple, so custom accent colors are applied to all components such as buttons and checkboxes at once.
