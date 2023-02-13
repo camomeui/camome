@@ -7,24 +7,25 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "camome-init": "npx camome theme --output src/styles/theme.css"
+    "camome-init": "camome theme --output src/styles/theme.css"
   },
   "dependencies": {
-    "@camome/core": "^0.0.17",
-    "@camome/system": "^0.1.20",
+    "@camome/core": "^0.0.24",
+    "@camome/system": "^0.1.23",
     "@next/font": "13.1.6",
-    "@types/node": "18.11.18",
-    "@types/react": "^18.0.26",
+    "@types/node": "18.13.0",
+    "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.9",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.0.0",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
     "next": "13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.57.1",
-    "typescript": "4.9.4"
+    "sass": "^1.58.0",
+    "typescript": "4.9.5"
   },
   "devDependencies": {
-    "@camome/utils": "^0.1.10"
+    "@camome/utils": "^0.1.10",
+    "camome": "^0.1.20"
   }
 }
