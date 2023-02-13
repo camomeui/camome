@@ -10,11 +10,12 @@
 }
 
 .inner {
+  @include variables.container;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
 }
 
 .left {
@@ -27,6 +28,13 @@
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
+
+  hr {
+    height: 1rem;
+    border: none;
+    border-left: 1px solid var(--cmm-color-border-base);
+    margin-right: 0.5rem;
+  }
 }
 
 @mixin mobileOnly($display: inline) {

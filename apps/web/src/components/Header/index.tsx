@@ -88,6 +88,7 @@ export default function Header({ menuContent, classNames }: Props) {
         </div>
         <div className={clsx(styles.right)}>
           <Navigation items={navItems} className={styles.desktopOnly} />
+          <hr className={styles.desktopOnly} />
           <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">
             <ThemeSwitch />
