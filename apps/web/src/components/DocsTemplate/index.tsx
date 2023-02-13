@@ -124,41 +124,43 @@ export default function DocsTemplate({
   return (
     <div>
       <header className={clsx(styles.header, withTabs)}>
-        <Breadcrumbs paths={breadcrumbs} />
-        <h1 className={styles.title}>{doc.title}</h1>
-        {doc.description && (
-          <p className={styles.description}>{doc.description}</p>
-        )}
-        {(bundleSize || doc.headOnly) && (
-          <div className={styles.tags}>
-            {bundleSize && (
-              <Tooltip
-                placement="bottom"
-                title={<BundleSizeTooltipContent {...bundleSize} />}
-              >
-                <Tag
-                  size="sm"
-                  startDecorator={<span>📦</span>}
-                  colorScheme="info"
+        <div className={styles.header__inner}>
+          <Breadcrumbs paths={breadcrumbs} />
+          <h1 className={styles.header__title}>{doc.title}</h1>
+          {doc.description && (
+            <p className={styles.header__description}>{doc.description}</p>
+          )}
+          {(bundleSize || doc.headOnly) && (
+            <div className={styles.header__tags}>
+              {bundleSize && (
+                <Tooltip
+                  placement="bottom"
+                  title={<BundleSizeTooltipContent {...bundleSize} />}
                 >
-                  {formatBytes(bundleSize.js + bundleSize.css)}
+                  <Tag
+                    size="sm"
+                    startDecorator={<span>📦</span>}
+                    colorScheme="info"
+                  >
+                    {formatBytes(bundleSize.js + bundleSize.css)}
+                  </Tag>
+                </Tooltip>
+              )}
+              {doc.headOnly && (
+                <Tag
+                  component={Link}
+                  href="/docs/guide/headless-integration"
+                  size="sm"
+                  colorScheme="info"
+                  endDecorator={<FiInfo stroke-width="2.5" />}
+                  className={styles.tag}
+                >
+                  Head-only
                 </Tag>
-              </Tooltip>
-            )}
-            {doc.headOnly && (
-              <Tag
-                component={Link}
-                href="/docs/guide/headless-integration"
-                size="sm"
-                colorScheme="info"
-                endDecorator={<FiInfo stroke-width="2.5" />}
-                className={styles.tag}
-              >
-                Head-only
-              </Tag>
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          )}
+        </div>
       </header>
       {withTabs ? (
         <DocsTabs

@@ -10,20 +10,24 @@ $pad-sm: 1rem;
 }
 
 .header {
-  display: grid;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: $pad-lg;
   padding-right: $pad-lg;
   background: var(--cmm-color-surface-1);
-  row-gap: 1rem;
 
   @include variables.mq("xl") {
     padding-left: $pad-sm;
     padding-right: $pad-sm;
   }
 
-  .title {
+  &__inner {
+    @include variables.container(72rem, 0);
+    display: grid;
+    row-gap: 1rem;
+  }
+
+  &__title {
     font-weight: var(--cmm-font-weight-bold);
     font-size: var(--cmm-font-size-4xl);
     line-height: 1.5;
@@ -33,12 +37,12 @@ $pad-sm: 1rem;
     }
   }
 
-  .description {
+  &__description {
     color: var(--cmm-color-font-muted);
     font-weight: var(--cmm-font-weight-normal);
   }
 
-  .tags {
+  &__tags {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
