@@ -131,6 +131,7 @@
   border: none;
   scrollbar-width: none;
   left: 0;
+  background: var(--cmm-color-surface-0);
 
   &::-webkit-scrollbar {
     display: none;
