@@ -28,6 +28,7 @@ export type WithCallback<T> = T extends object
 export type ThemeConfig = WithCallback<DeepPartial<Theme>>;
 export type Config = {
   themes?: {
+    common?: ThemeConfig;
     light?: ThemeConfig;
     dark?: ThemeConfig;
   };

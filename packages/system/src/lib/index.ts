@@ -48,8 +48,14 @@ export async function generateCss(
   );
 
   const { common, dark, light } = splitThemes({
-    dark: makeThemeFromConfig("dark", config.themes?.dark),
-    light: makeThemeFromConfig("light", config.themes?.light),
+    dark: makeThemeFromConfig("dark", {
+      ...config.themes?.common,
+      ...config.themes?.dark,
+    }),
+    light: makeThemeFromConfig("light", {
+      ...config.themes?.common,
+      ...config.themes?.light,
+    }),
   });
 
   const commonTheme = modifyCss(
