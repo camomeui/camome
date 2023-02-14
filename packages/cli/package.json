@@ -31,5 +31,8 @@
     "@types/yargs": "^17.0.22",
     "tsup": "^6.3.0"
   },
-  "bin": "./dist/index.mjs"
+  "bin": "./dist/index.mjs",
+  "engines": {
+    "node": ">=18"
+  }
 }
