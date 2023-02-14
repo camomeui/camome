@@ -1,5 +1,12 @@
 # @camome/components
 
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [8f3bc34]
+  - @camome/system@0.1.24
+
 ## 0.0.24
 
 ### Patch Changes
