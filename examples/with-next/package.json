@@ -10,8 +10,8 @@
     "camome-init": "camome theme --output src/styles/theme.css"
   },
   "dependencies": {
-    "@camome/core": "^0.0.24",
-    "@camome/system": "^0.1.23",
+    "@camome/core": "^0.0.25",
+    "@camome/system": "^0.1.24",
     "@next/font": "13.1.6",
     "@types/node": "18.13.0",
     "@types/react": "^18.0.28",
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "@camome/utils": "^0.1.10",
-    "camome": "^0.1.20"
+    "camome": "^0.1.21"
   }
 }

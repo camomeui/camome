@@ -1,7 +1,8 @@
-/** @type { import("@camome/system").Config;} */
-const config = {
+const { defineConfig } = require("@camome/system");
+
+const config = defineConfig({
   themes: {
-    light: {
+    common: {
       color: {
         primary: {
           0: "#faf5ff",
@@ -23,6 +24,6 @@ const config = {
       },
     },
   },
-};
+});
 
 module.exports = config;

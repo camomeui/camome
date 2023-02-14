@@ -1,7 +1,8 @@
-/** @type { import("@camome/system").Config;} */
-export default {
+import { defineConfig } from "@camome/system";
+
+const config = defineConfig({
   themes: {
-    light: {
+    common: {
       color: {
         primary: {
           0: "#faf5ff",
@@ -23,4 +24,6 @@ export default {
       },
     },
   },
-};
+});
+
+export default config;

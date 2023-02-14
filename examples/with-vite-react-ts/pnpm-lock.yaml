@@ -1,13 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@camome/core': ^0.0.24
-  '@camome/system': ^0.1.23
+  '@camome/core': ^0.0.25
+  '@camome/system': ^0.1.24
   '@camome/utils': ^0.1.10
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.9
   '@vitejs/plugin-react-swc': ^3.1.0
-  camome: ^0.1.20
+  camome: ^0.1.21
   react: ^18.2.0
   react-dom: ^18.2.0
   sass: ^1.58.0
@@ -15,8 +15,8 @@ specifiers:
   vite: ^4.1.1
 
 dependencies:
-  '@camome/core': 0.0.24_react@18.2.0
-  '@camome/system': 0.1.23
+  '@camome/core': 0.0.25_react@18.2.0
+  '@camome/system': 0.1.24
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -25,27 +25,27 @@ devDependencies:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.10
   '@vitejs/plugin-react-swc': 3.1.0_vite@4.1.1
-  camome: 0.1.20
+  camome: 0.1.21
   sass: 1.58.0
   typescript: 4.9.5
   vite: 4.1.1_sass@1.58.0
 
 packages:
 
-  /@camome/core/0.0.24_react@18.2.0:
-    resolution: {integrity: sha512-32cHY1DWYER/IkoysEL+R5yaT1aowmptX4uvXn1QcWvayMnK31FxpRdnHPhd58TwRuJo7JLXTT7e5w29ANlVwg==}
+  /@camome/core/0.0.25_react@18.2.0:
+    resolution: {integrity: sha512-Vj5xSf/X81OJR6UGKuMUElISl8PLRvo3o93PLsOSV2O5L2kBbkMASH5q3yCHj97kG38K6TlJHDUY2IoXEb/DLQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@camome/system': 0.1.23
+      '@camome/system': 0.1.24
       '@camome/utils': 0.1.10
       '@heroicons/react': 2.0.14_react@18.2.0
       clsx: 1.2.1
       react: 18.2.0
     dev: false
 
-  /@camome/system/0.1.23:
-    resolution: {integrity: sha512-cRH8P1pzIetmgirrJUDMUn/TIE6s3L3WYDsqwjCmFygHG8ARWwi8YPpG/JntZifpD0nGqD/XKpQaoprCtTeKdQ==}
+  /@camome/system/0.1.24:
+    resolution: {integrity: sha512-qqtZWHo8K3NEDFrl1a/Qzwgbq4kxXUqx1rkM0mHXzwxIIUH6fnkcFTNBrgYKT91IfxYcd18h+em6pANDYMtXog==}
     dependencies:
       '@camome/utils': 0.1.10
       deepmerge-ts: 4.3.0
@@ -432,11 +432,11 @@ packages:
       fill-range: 7.0.1
     dev: true
 
-  /camome/0.1.20:
-    resolution: {integrity: sha512-b4rwirDXGXJ3fYT3+PRWlGIx0IC9fIVjx9Y8vs+pfft2Gsamyc3iOqGLZBZH7A58ThVLIP0LlzP6sWLPrFvPDQ==}
+  /camome/0.1.21:
+    resolution: {integrity: sha512-4gH1ROfkDJ1wnXJuLGSqMoSCFET8oI94RkA0myuAU/h4DunidRmso2y2aDx+m+dNGJElaPCXMaZh3Vx/cxeXRg==}
     hasBin: true
     dependencies:
-      '@camome/system': 0.1.23
+      '@camome/system': 0.1.24
       '@camome/utils': 0.1.10
       yargs: 17.6.2
     dev: true
