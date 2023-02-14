@@ -1,5 +1,11 @@
 # @camome/system
 
+## 0.1.24
+
+### Patch Changes
+
+- 8f3bc34: Support config.themes.common
+
 ## 0.1.23
 
 ### Patch Changes
