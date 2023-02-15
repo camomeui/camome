@@ -2,6 +2,7 @@
 
 import fs from "fs/promises";
 import path from "path";
+import { pathToFileURL } from "url";
 
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
@@ -28,8 +29,13 @@ yargs(hideBin(process.argv))
       // TODO: validate config with zod or something.
       let config: Config;
       try {
-        config = (await import(path.join(process.cwd(), options.config)))
-          .default;
+        // `pathToFileURL` is required only on Windows.
+        // https://github.com/nodejs/node/issues/31710#issuecomment-584539214
+        config = (
+          await import(
+            pathToFileURL(path.join(process.cwd(), options.config)).href
+          )
+        ).default;
       } catch (e: any) {
         if ("code" in e && e.code === "ERR_MODULE_NOT_FOUND") {
           console.error(`Config file not found at:\n${options.config}`);
