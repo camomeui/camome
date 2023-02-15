@@ -1,5 +1,11 @@
 # camome
 
+## 0.1.22
+
+### Patch Changes
+
+- 71cb8a3: Fix ESM loading on Windows
+
 ## 0.1.21
 
 ### Patch Changes
