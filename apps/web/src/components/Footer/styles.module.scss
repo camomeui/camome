@@ -25,10 +25,22 @@
   gap: 1rem;
 }
 
-.copyright {
-  font-size: var(--cmm-font-size-xs);
-  margin-top: 0.2rem; // Align with logo
-  color: var(--cmm-color-font-muted);
+.copyrights {
+  > * {
+    font-size: var(--cmm-font-size-xs);
+    margin-top: 0.2rem; // Align with logo
+    color: var(--cmm-color-font-muted);
+  }
+
+  > * + * {
+    margin-inline-start: 0.75em;
+
+    &::before {
+      content: "·";
+      margin-inline-end: 0.75em;
+      font-weight: var(--cmm-font-weight-extrabold);
+    }
+  }
 }
 
 .nav {
@@ -42,7 +54,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 0.25rem;
 }
 
 .link {

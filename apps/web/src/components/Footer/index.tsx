@@ -35,9 +35,19 @@ export default function Footer() {
           <Link href="/">
             <Logo />
           </Link>
-          <small className={styles.copyright}>
-            © {new Date().getFullYear()} Matsura Yuma
-          </small>
+          <div className={styles.copyrights}>
+            <small>© {new Date().getFullYear()} Matsura Yuma</small>
+            <small>
+              Images from{" "}
+              <a
+                href="https://unsplash.com/"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                Unsplash
+              </a>
+            </small>
+          </div>
         </div>
         <nav className={styles.nav}>
           <ul className={styles.linkList}>
