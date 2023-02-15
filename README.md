@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/camomeui/camome/main/media/logo.svg?raw=true" alt="Camome UI" height="120" width="auto" />
   </p>
 
-<h1 align="center">Light weight, accessibleUI framework for React and CSS️</h1>
+<h1 align="center">Light weight, accessible UI framework for React and CSS️</h1>
 
 ![License](https://img.shields.io/npm/l/@camome/core)
 ![NPM](https://img.shields.io/npm/v/@camome/core)
