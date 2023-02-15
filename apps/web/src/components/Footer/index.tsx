@@ -21,10 +21,6 @@ const links: { href: string; label: string }[] = [
     href: "https://rubiq.vercel.app",
     label: "Author",
   },
-  {
-    href: "/privacy-policy",
-    label: "Privacy Policy",
-  },
 ];
 
 export default function Footer() {

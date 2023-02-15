@@ -15,6 +15,9 @@ const config = defineConfig({
           7: "#7e22ce",
           8: "#6b21a8",
           9: "#581c87",
+          soft: {
+            bg: (get) => lighter(get("color.primary.0")),
+          },
         },
       },
       Switch: {
