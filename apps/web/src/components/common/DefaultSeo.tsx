@@ -3,8 +3,7 @@ import { DefaultSeo as DefaultNextSeo, type DefaultSeoProps } from "next-seo";
 const DefaultSeoConfig: DefaultSeoProps = {
   defaultTitle: `Camome UI`,
   titleTemplate: `%s | Camome UI`,
-  description:
-    "Clean components and templates hand-crafted for modern websites.",
+  description: "Light weight, accessible UI framework for React and CSS.",
   twitter: {
     cardType: "summary_large_image",
   },
