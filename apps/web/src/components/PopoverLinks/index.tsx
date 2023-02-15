@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 export type PopoverLinksProps = {
   title: string;
-  links: { href: string; label: string; Icon: SvgComponent }[];
+  links: { href: string; label: React.ReactNode; Icon: SvgComponent }[];
 };
 
 export default function PopoverLinks({ title, links }: PopoverLinksProps) {

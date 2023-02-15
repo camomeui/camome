@@ -1,6 +1,7 @@
 import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
 import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
@@ -11,6 +12,7 @@ import Logo from "@/components/Logo";
 import PopoverLinks from "@/components/PopoverLinks";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import useScrollLock from "@/hooks/useScrollLock";
+import RocketImg from "@/public/images/rocket.png";
 import { LabeledLink, NavItem, NavItemLink } from "@/types";
 import { IconButton } from "@camome/core/IconButton";
 import { Tooltip } from "@camome/core/Tooltip";
@@ -34,7 +36,12 @@ const navItems: NavItem[] = [
   {
     id: "templates",
     href: "/templates/saazy",
-    label: "🚀 Templates",
+    label: (
+      <span className={styles.templateLink}>
+        <Image src={RocketImg} alt="Rocket" height={14} width={14} />
+        <span>Templates</span>
+      </span>
+    ),
   },
 ];
 

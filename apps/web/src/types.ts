@@ -13,7 +13,7 @@ export type Pagination = {
 
 export type LabeledLink = {
   href: string;
-  label: string;
+  label: React.ReactNode;
 };
 
 export type SiteData = {
@@ -46,7 +46,7 @@ export type NavItemCategory = {
 
 export type NavItemLink = {
   id: string;
-  label: string;
+  label: React.ReactNode;
   href: string;
 };
 

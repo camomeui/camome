@@ -1,8 +1,10 @@
 import PencilSquareIcon from "@heroicons/react/24/outline/PencilSquareIcon";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 import TableOfContents from "@/components/TableOfContents";
+import RocketImg from "@/public/images/rocket.png";
 import { Toc } from "@/types";
 
 import styles from "./styles.module.scss";
@@ -42,8 +44,15 @@ export default function DocsInnerLayout({
                   Edit this page on GitHub
                 </a>
                 <Link href="/templates/saazy" className={styles.tocExtraLink}>
-                  <span className={styles.emoji}>🚀</span>Speed up your project
-                  with Camome templates!
+                  <span className={styles.emoji}>
+                    <Image
+                      src={RocketImg}
+                      alt="Rocket"
+                      width={18}
+                      height={18}
+                    />
+                  </span>
+                  Speed up your project with Camome templates!
                 </Link>
               </div>
             }
