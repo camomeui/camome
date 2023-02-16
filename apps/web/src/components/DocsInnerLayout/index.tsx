@@ -25,7 +25,7 @@ export default function DocsInnerLayout({
   children,
 }: Props) {
   return (
-    <div className={styles.article}>
+    <article className={styles.article}>
       <div className={styles.main}>{children}</div>
       {toc && (
         <aside className={styles.tocWrap}>
@@ -59,6 +59,6 @@ export default function DocsInnerLayout({
           />
         </aside>
       )}
-    </div>
+    </article>
   );
 }
