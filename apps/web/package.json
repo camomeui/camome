@@ -28,6 +28,8 @@
     "@camome/core": "workspace:*",
     "@camome/system": "workspace:*",
     "@camome/utils": "workspace:*",
+    "@docsearch/css": "^3.3.3",
+    "@docsearch/react": "3",
     "@floating-ui/react": "^0.19.1",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@headlessui/react": "1.7.7",

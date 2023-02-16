@@ -1,3 +1,4 @@
+import { DocSearch } from "@docsearch/react";
 import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
 import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import clsx from "clsx";
@@ -27,11 +28,6 @@ const navItems: NavItem[] = [
     id: "docs",
     href: "/docs/guide/overview",
     label: "Docs",
-  },
-  {
-    id: "components",
-    href: "/docs/components",
-    label: "Components",
   },
   {
     id: "templates",
@@ -92,6 +88,11 @@ export default function Header({ menuContent, classNames }: Props) {
           <Link href="/" aria-label="Home">
             <Logo classNames={{ text: styles.logoText }} />
           </Link>
+          <DocSearch
+            appId="QFBRC94NVN"
+            indexName="camome"
+            apiKey="fd37af5d4fd07d0729690dfd331dfb14"
+          />
         </div>
         <div className={clsx(styles.right)}>
           <Navigation items={navItems} className={styles.desktopOnly} />
