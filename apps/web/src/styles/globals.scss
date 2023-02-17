@@ -123,6 +123,10 @@ code {
       background: var(--cmm-color-surface-2) !important;
     }
 
+    @include variables.mq(lg) {
+      min-width: 10rem !important;
+    }
+
     @include variables.mq(md) {
       display: none;
     }

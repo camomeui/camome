@@ -86,16 +86,16 @@ export default function Header({ menuContent, classNames }: Props) {
             <Bars3Icon strokeWidth="1.5" />
           </IconButton>
           <Link href="/" aria-label="Home">
-            <Logo classNames={{ text: styles.logoText }} />
+            <Logo classNames={{ text: styles.logo }} />
           </Link>
+          <Navigation items={navItems} className={styles.desktopOnly} />
+        </div>
+        <div className={clsx(styles.right)}>
           <DocSearch
             appId="QFBRC94NVN"
             indexName="camome"
             apiKey="fd37af5d4fd07d0729690dfd331dfb14"
           />
-        </div>
-        <div className={clsx(styles.right)}>
-          <Navigation items={navItems} className={styles.desktopOnly} />
           <hr className={styles.desktopOnly} />
           <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">

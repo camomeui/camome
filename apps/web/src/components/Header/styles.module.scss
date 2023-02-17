@@ -21,7 +21,7 @@
 .left {
   display: flex;
   align-items: center;
-  column-gap: 1.5rem;
+  column-gap: 1rem;
 }
 
 .right {
@@ -53,15 +53,7 @@
   }
 }
 
-.logoIcon {
-  @include mobileOnly();
-
-  height: 1.75rem;
-  width: auto;
-  color: var(--cmm-color-primary-emphasis);
-}
-
-.logoText {
+.logo {
   @include desktopOnly();
 }
 
