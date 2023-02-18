@@ -1,11 +1,13 @@
-import { defineTheme } from "@camome/system";
+import { defineConfig } from "@camome/system";
 
-/** @type { import("@camome/system").Config;} */
-const config = {
+export default defineConfig({
   themes: {
-    light: defineTheme("light"),
-    dark: defineTheme("dark"),
+    common: {
+      font: {
+        family: {
+          base: `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"`,
+        },
+      },
+    },
   },
-};
-
-export default config;
+});

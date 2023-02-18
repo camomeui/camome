@@ -22,7 +22,8 @@
     "lint:fix": "pnpm lint --fix",
     "typecheck": "pnpm gen-scss-type && tsc",
     "gen-scss-type": "typed-scss-modules \"src/**/*.module.scss\" --aliasPrefixes.@ src --outputFolder .scss-types --nameFormat none --exportType default --logLevel error",
-    "gen-docs-data": "tsx ./scripts/gen-docs-data.ts"
+    "gen-docs-data": "tsx ./scripts/gen-docs-data.ts",
+    "gen-theme": "camome theme --output src/styles/theme.css"
   },
   "dependencies": {
     "@camome/core": "workspace:*",
