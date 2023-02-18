@@ -164,6 +164,7 @@
     :global(.Message):not(:where([class~="no-markup"] *)) {
       margin-top: 2rem;
       margin-bottom: 2rem;
+      font-size: 0.94em;
 
       p {
         &:first-child {
