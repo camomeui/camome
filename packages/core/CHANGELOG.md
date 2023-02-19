@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.27
+
+### Patch Changes
+
+- fc46a6b: Revert 95f1b3b
+
 ## 0.0.26
 
 ### Patch Changes
