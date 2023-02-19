@@ -3,13 +3,6 @@
 }
 
 .code {
-  border: none;
-  display: block;
-  background-color: var(--cmm-color-code-block);
-  padding: 1rem;
-  border-radius: var(--cmm-radius-xl);
-  font-weight: var(--cmm-font-weight-normal);
-  font-size: 0.85em;
   max-height: 28em;
   overflow: auto;
 }

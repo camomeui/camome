@@ -87,6 +87,16 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
       }
+
+      code {
+        display: block;
+        padding: 1rem;
+        border: none;
+        border-radius: var(--cmm-radius-xl);
+        font-weight: var(--cmm-font-weight-normal);
+        font-size: 0.85em;
+        background-color: var(--cmm-color-code-block);
+      }
     }
 
     :where(blockquote):not(:where([class~="no-markup"] *)) {
