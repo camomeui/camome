@@ -11,7 +11,7 @@ import styles from "./styles.module.scss";
 export type IconButtonBaseProps = {
   children?: React.ReactNode;
   ["aria-label"]: string;
-} & Omit<ButtonBaseProps, "startDecorator" | "endDecorator">;
+} & Omit<ButtonBaseProps, "startDecorator" | "endDecorator" | "aria-label">;
 
 export type IconButtonProps = {
   children?: React.ReactNode;

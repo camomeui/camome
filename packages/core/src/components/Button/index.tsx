@@ -9,17 +9,15 @@ import { Box } from "../Box";
 
 import styles from "./styles.module.scss";
 
-export type ButtonVariant = Variant;
-export type ButtonColorScheme = ColorScheme;
-
+type NativeProps = JSX.IntrinsicElements["button"];
 export type ButtonBaseProps = {
-  variant?: ButtonVariant;
-  colorScheme?: ButtonColorScheme;
+  variant?: Variant;
+  colorScheme?: ColorScheme;
   size?: Size;
   startDecorator?: React.ReactNode;
   endDecorator?: React.ReactNode;
   children?: React.ReactNode;
-};
+} & NativeProps;
 
 export type ButtonProps = ButtonBaseProps & BaseProps;
 
