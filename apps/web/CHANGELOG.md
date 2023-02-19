@@ -1,5 +1,14 @@
 # @camome/web
 
+## 0.1.35
+
+### Patch Changes
+
+- 95f1b3b: Support code block in Markup
+- Updated dependencies [95f1b3b]
+- Updated dependencies [4973029]
+  - @camome/core@0.0.26
+
 ## 0.1.34
 
 ### Patch Changes
