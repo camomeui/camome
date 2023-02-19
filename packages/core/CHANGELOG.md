@@ -1,5 +1,12 @@
 # @camome/components
 
+## 0.0.26
+
+### Patch Changes
+
+- 95f1b3b: Support code block in Markup
+- 4973029: Fix ButtonProps type
+
 ## 0.0.25
 
 ### Patch Changes
