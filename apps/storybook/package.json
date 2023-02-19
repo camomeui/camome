@@ -1,7 +1,7 @@
 {
   "name": "@camome/storybook",
   "private": true,
-  "version": "0.0.25",
+  "version": "0.0.26",
   "type": "module",
   "description": "Light weight, accessibleUI framework for React and CSS",
   "homepage": "https://camome.net",

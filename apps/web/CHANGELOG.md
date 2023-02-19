@@ -1,5 +1,13 @@
 # @camome/web
 
+## 0.1.36
+
+### Patch Changes
+
+- fc46a6b: Revert 95f1b3b
+- Updated dependencies [fc46a6b]
+  - @camome/core@0.0.27
+
 ## 0.1.35
 
 ### Patch Changes
