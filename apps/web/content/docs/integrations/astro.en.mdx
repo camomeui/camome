@@ -1,0 +1,71 @@
+---
+title: "Astro"
+id: "integrations:astro"
+---
+
+## Example project
+
+[Example project with Astro](https://github.com/camomeui/camome/tree/main/examples/with-astro) is found here.
+
+## `astro.config.mjs`
+
+```js:astro.config.mjs
+import react from "@astrojs/react";
+import { generateScopedName, hash } from "@camome/utils";
+import { defineConfig } from "astro/config";
+
+// https://astro.build/config
+export default defineConfig({
+  integrations: [react()],
+  vite: {
+    ssr: {
+      noExternal: ["@camome/core"],
+    },
+    css: {
+      modules: {
+        generateScopedName(name, filename) {
+          // @camome/core depends on static class names
+          // but your own module classes won't.
+          if (!filename.match(/@camome\/core/)) {
+            // Whatever.
+            return name + "-" + hash(filename);
+          }
+          return generateScopedName(name, filename);
+        },
+      },
+    },
+  },
+});
+```
+
+## Generate theme
+
+To guarantee the theme CSS is imported before component CSS files, you need to generate one to be loaded with a `link` tag. See <DocLink id="guide:theming" hash="camome-cli" /> for instructions.
+
+<DocLinkCardGrid
+  links={[
+    {
+      id: "guide:theming",
+      hash: "camome-cli",
+    },
+  ]}
+/>
+
+## import CSS
+
+```tsx:Layout.astro
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/theme.css" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+```

@@ -46,6 +46,9 @@ const sidebar = {
           id: "integrations:next",
         },
         {
+          id: "integrations:astro",
+        },
+        {
           id: "integrations:vite",
         },
         {
