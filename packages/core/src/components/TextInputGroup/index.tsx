@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 
 import { BaseProps } from "../../types";
@@ -18,16 +19,14 @@ export function TextInputGroup({
   className,
 }: TextInputGroupProps) {
   return (
-    <div style={style} className={className}>
-      <div className={styles.Block}>
-        {startDecorator && (
-          <span className={styles[`decorator--start`]}>{startDecorator}</span>
-        )}
-        {input}
-        {endDecorator && (
-          <span className={styles[`decorator--end`]}>{endDecorator}</span>
-        )}
-      </div>
+    <div style={style} className={clsx(styles.Block, className)}>
+      {startDecorator && (
+        <span className={styles[`decorator--start`]}>{startDecorator}</span>
+      )}
+      {input}
+      {endDecorator && (
+        <span className={styles[`decorator--end`]}>{endDecorator}</span>
+      )}
     </div>
   );
 }
