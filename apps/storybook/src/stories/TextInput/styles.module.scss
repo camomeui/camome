@@ -15,7 +15,9 @@
   }
 }
 
-.group :global(.TextInputGroup) {
-  --cmm-TextInput-start-decor-width: 2.5rem;
-  --cmm-TextInput-end-decor-width: 3.5rem;
+.group {
+  :global {
+    --cmm-TextInput-start-decor-width: 2.5rem;
+    --cmm-TextInput-end-decor-width: 3.5rem;
+  }
 }

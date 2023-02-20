@@ -1,4 +1,4 @@
-import MagnifyingGlassIcon from "@heroicons/react/20/solid/MagnifyingGlassIcon";
+import MagnifyingGlassIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 
 import { Kbd } from "@camome/core/Kbd";
 import { TextInput } from "@camome/core/TextInput";
