@@ -1,5 +1,13 @@
 # @camome/storybook
 
+## 0.0.27
+
+### Patch Changes
+
+- 4b55e89: Fix dom structure of TextInputGroup
+- Updated dependencies [4b55e89]
+  - @camome/core@0.0.28
+
 ## 0.0.26
 
 ### Patch Changes

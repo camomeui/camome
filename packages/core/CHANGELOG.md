@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.0.28
+
+### Patch Changes
+
+- 4b55e89: Fix dom structure of TextInputGroup
+
 ## 0.0.27
 
 ### Patch Changes
