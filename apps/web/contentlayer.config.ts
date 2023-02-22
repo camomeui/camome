@@ -109,6 +109,9 @@ export const Template = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    price: {
+      type: "string",
+    },
   },
 }));
 

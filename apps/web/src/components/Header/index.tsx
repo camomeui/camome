@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
   },
   {
     id: "templates",
-    href: "/templates/saazy",
+    href: "/templates",
     label: (
       <span className={styles.templateLink}>
         <Image src={RocketImg} alt="Rocket" height={14} width={14} />

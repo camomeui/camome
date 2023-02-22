@@ -43,7 +43,7 @@ export default function DocsInnerLayout({
                   <PencilSquareIcon />
                   Edit this page on GitHub
                 </a>
-                <Link href="/templates/saazy" className={styles.tocExtraLink}>
+                <Link href="/templates" className={styles.tocExtraLink}>
                   <span className={styles.emoji}>
                     <Image
                       src={RocketImg}

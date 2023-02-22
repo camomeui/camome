@@ -49,7 +49,7 @@ export default function TemplatePage({ template }: Props) {
               endDecorator={<FiArrowUpRight strokeWidth="2.2" />}
               rel="noreferrer noopener"
             >
-              Get now
+              {template.price ? `Buy for ${template.price}` : `Get for free`}
             </Button>
             <Button
               component="a"
