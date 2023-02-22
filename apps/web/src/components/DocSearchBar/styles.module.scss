@@ -1,0 +1,45 @@
+@use "@/styles/variables";
+
+.searchBar {
+  display: inline-grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center start;
+  gap: 0.5rem;
+  border: 1px solid var(--cmm-color-border-base);
+  border-radius: var(--cmm-radius-lg);
+  height: 2rem;
+  padding: 0 0.35rem 0 0.5rem;
+  font-size: var(--cmm-font-size-sm);
+  min-width: 12rem;
+  color: var(--cmm-color-font-subtle);
+  background: var(--cmm-color-surface-0);
+
+  @include variables.mq(lg) {
+    min-width: 10rem !important;
+  }
+
+  @include variables.mq(md) {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--cmm-color-surface-2);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2;
+  }
+
+  kbd {
+    font-family: var(--cmm-font-family-base);
+    font-size: var(--cmm-font-size-xs);
+    font-weight: var(--cmm-font-weight-medium);
+    border: 1px solid var(--cmm-color-border-base);
+    border-radius: var(--cmm-radius-md);
+    padding: 0 0.4em;
+    color: var(--cmm-color-font-base);
+    background: var(--cmm-color-surface-0);
+  }
+}
