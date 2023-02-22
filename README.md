@@ -16,6 +16,12 @@ Camome UI enables you to build various styles of components without run-time Jav
 > **Note**
 > Camome (かもめ, カモメ, 鴎) means seagull in Japanese by the way.
 
+## 🚨 Camome UI is not stable yet
+
+Breaking changes may be introduced without increment of major version number.
+
+When you update `@camome/*`, see changelogs to make sure your code is not affected by breaking changes.
+
 ## Features
 
 - Lightweight bundle size
