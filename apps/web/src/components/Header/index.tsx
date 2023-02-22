@@ -1,4 +1,3 @@
-import { DocSearch } from "@docsearch/react";
 import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
 import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import clsx from "clsx";
@@ -8,6 +7,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 
 import CollapsibleNav from "@/components/CollapsibleNav";
+import { DocSearchBar } from "@/components/DocSearchBar";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import Logo from "@/components/Logo";
 import PopoverLinks from "@/components/PopoverLinks";
@@ -91,11 +91,7 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
-          <DocSearch
-            appId="QFBRC94NVN"
-            indexName="camome"
-            apiKey="fd37af5d4fd07d0729690dfd331dfb14"
-          />
+          <DocSearchBar className={styles.searchBar} />
           <hr className={styles.desktopOnly} />
           <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">
