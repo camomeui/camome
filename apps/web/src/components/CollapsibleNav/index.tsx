@@ -1,4 +1,4 @@
-import ChevronRightIcon from "@heroicons/react/20/solid/ChevronRightIcon";
+import ChevronRightIcon from "@heroicons/react/24/outline/ChevronRightIcon";
 import DocumentTextIcon from "@heroicons/react/24/outline/DocumentTextIcon";
 import PuzzlePieceIcon from "@heroicons/react/24/outline/PuzzlePieceIcon";
 import Squares2X2Icon from "@heroicons/react/24/outline/Squares2X2Icon";
@@ -176,8 +176,10 @@ function CategoryCollapsible({
           aria-current={href && isActive(href) ? "page" : undefined}
           ref={summaryRef}
         >
-          <span>{Icon && <Icon className={styles.categoryIcon} />}</span>
-          <span>{label}</span>
+          <span className={styles.content}>
+            {Icon && <Icon />}
+            {label}
+          </span>
           <ChevronRightIcon className={styles.chevronIcon} />
         </summary>
         <CategoryChildren items={items} />
