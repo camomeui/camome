@@ -16,6 +16,9 @@ export default function TemplateListPage({ templates }: Props) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Templates</h1>
+      <p className={styles.subtitle}>
+        Accelerate your project development with beautifully styled starters.
+      </p>
       <div className={styles.grid}>
         {templates.map((temp) => (
           <div key={temp._id} className={styles.card}>

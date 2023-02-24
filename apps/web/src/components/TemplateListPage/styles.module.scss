@@ -3,21 +3,25 @@
 .container {
   @include variables.container;
 
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   padding-bottom: 6rem;
   min-height: calc(100dvh - 8rem);
 }
 
 .title {
-  font-size: var(--cmm-font-size-4xl);
+  font-size: var(--cmm-font-size-5xl);
   font-weight: var(--cmm-font-weight-extrabold);
+}
+
+.subtitle {
+  margin-block-start: 0.75rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 3rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .card {
