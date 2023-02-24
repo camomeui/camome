@@ -176,6 +176,8 @@ function CategoryCollapsible({
           aria-current={href && isActive(href) ? "page" : undefined}
           ref={summaryRef}
         >
+          {/* Only for enabling prefetch */}
+          {href && <Link href={href} className="visually-hidden" />}
           <span className={styles.content}>
             {Icon && <Icon />}
             {label}
