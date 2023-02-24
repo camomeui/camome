@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import MdxRenderer from "@/components/MdxRenderer";
@@ -14,6 +16,13 @@ type Props = {
 };
 
 export default function TemplatePage({ template }: Props) {
+  const [mounted, setMounted] = React.useState(false);
+  const { resolvedTheme } = useTheme();
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className={styles.container}>
       <section className={clsx(styles.screenshots, "scrollbar")}>
@@ -37,10 +46,15 @@ export default function TemplatePage({ template }: Props) {
           </p>
           <p className={styles.description}>{template.description}</p>
           <div className={styles.techStacks}>
-            {template.techStack?.map(({ src, alt }) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={src} src={src} alt={alt} />
-            ))}
+            {mounted &&
+              template.techStack?.map(({ src, srcDark, alt }) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={src}
+                  src={resolvedTheme === "dark" && srcDark ? srcDark : src}
+                  alt={alt}
+                />
+              ))}
           </div>
           <div className={styles.buttons}>
             <Button
