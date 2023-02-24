@@ -177,7 +177,9 @@ function CategoryCollapsible({
           ref={summaryRef}
         >
           {/* Only for enabling prefetch */}
-          {href && <Link href={href} className="visually-hidden" />}
+          {href && (
+            <Link href={href} className="visually-hidden" tabIndex={-1} />
+          )}
           <span className={styles.content}>
             {Icon && <Icon />}
             {label}
