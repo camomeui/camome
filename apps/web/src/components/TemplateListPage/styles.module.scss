@@ -1,0 +1,94 @@
+@use "@/styles/variables";
+
+.container {
+  @include variables.container;
+
+  padding-top: 1.5rem;
+  padding-bottom: 6rem;
+  min-height: calc(100dvh - 8rem);
+}
+
+.title {
+  font-size: var(--cmm-font-size-5xl);
+  font-weight: var(--cmm-font-weight-extrabold);
+}
+
+.subtitle {
+  margin-block-start: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.card {
+  position: relative;
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: var(--cmm-radius-lg);
+
+  &:has(.card__name a:hover) {
+    background: var(--cmm-color-surface-1);
+  }
+
+  &__imgWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    transition: scale 0.15s;
+
+    img {
+      object-fit: cover;
+      border-radius: var(--cmm-radius-md);
+      border: 1px solid var(--cmm-color-border-base);
+      transition: box-shadow 0.2s;
+    }
+  }
+
+  &__name {
+    font-weight: var(--cmm-font-weight-bold);
+    font-size: var(--cmm-font-size-lg);
+    margin-top: 0.75rem;
+
+    a {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        cursor: inherit;
+      }
+    }
+  }
+
+  &__description {
+    font-size: var(--cmm-font-size-sm);
+    margin-top: 0.5rem;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  &__author {
+    font-size: var(--cmm-font-size-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+
+    &__prefix {
+    }
+
+    &__name {
+      font-weight: var(--cmm-font-weight-medium);
+    }
+  }
+}

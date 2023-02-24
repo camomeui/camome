@@ -6,7 +6,7 @@ import {
 import { NextSeo } from "next-seo";
 
 import LpLayout from "@/components/LpLayout";
-import TemplatePage from "@/components/Template";
+import TemplatePage from "@/components/TemplatePage";
 import { getSidebarItems } from "@/lib/docs/getSidebarItems";
 import { Locale, NavItem } from "@/types";
 import { allTemplates, Template } from "contentlayer/generated";
