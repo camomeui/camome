@@ -65,7 +65,7 @@ const sidebar = {
         {
           id: "inputs",
           label: "Inputs",
-          type: "section",
+          type: "collapsible",
           open: true,
           sort: "asc",
           items: [
@@ -101,7 +101,7 @@ const sidebar = {
         {
           id: "data-display",
           label: "Data display",
-          type: "section",
+          type: "collapsible",
           open: true,
           sort: "asc",
           items: [
@@ -131,7 +131,7 @@ const sidebar = {
         {
           id: "overlay",
           label: "Overlay",
-          type: "section",
+          type: "collapsible",
           open: true,
           sort: "asc",
           items: [
@@ -149,7 +149,7 @@ const sidebar = {
         {
           id: "navigation",
           label: "Navigation",
-          type: "section",
+          type: "collapsible",
           open: true,
           sort: "asc",
           items: [

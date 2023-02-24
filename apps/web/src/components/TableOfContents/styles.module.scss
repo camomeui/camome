@@ -36,7 +36,7 @@
   display: flex;
   padding: 0.25rem;
   padding-left: 1rem;
-  font-size: var(--cmm-font-size-sm);
+  font-size: calc(var(--cmm-font-size-sm) * 0.95);
   border-left: 2px solid;
   border-left-color: var(--cmm-color-border-base);
 
