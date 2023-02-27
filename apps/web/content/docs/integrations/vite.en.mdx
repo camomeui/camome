@@ -12,7 +12,7 @@ id: "integrations:vite"
 ```ts:vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import { generateScopedName } from "@camome/utils";
+import { generateScopedName, hash } from "@camome/utils";
 
 export default defineConfig({
   plugins: [react()],
