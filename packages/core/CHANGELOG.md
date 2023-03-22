@@ -1,5 +1,13 @@
 # @camome/components
 
+## 0.0.29
+
+### Patch Changes
+
+- 33ec1e5: **Breaking change**
+
+  `TextInput` is now renamed `Input` and accepts `type="<any-html-input-types>"`.
+
 ## 0.0.28
 
 ### Patch Changes
