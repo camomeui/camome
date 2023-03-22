@@ -76,7 +76,7 @@ const sidebar = {
               id: "icon-button",
             },
             {
-              id: "text-input",
+              id: "input",
             },
             {
               id: "textarea",

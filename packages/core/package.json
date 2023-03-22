@@ -25,6 +25,7 @@
   "scripts": {
     "tsc": "tsc",
     "gen-scss-type": "typed-scss-modules \"**/*.module.scss\" --aliasPrefixes.@ ./ --outputFolder .scss-types --nameFormat none --exportType default --ignore \"node_modules\" --logLevel error",
+    "gen-scss-vars": "pnpm run-ts scripts/gen-scss-variables.ts",
     "build": "pnpm gen-scss-type && tsup",
     "dev:tsup": "pnpm build --watch",
     "dev": "concurrently \"pnpm gen-scss-type -w \" \"pnpm dev:tsup\"",
