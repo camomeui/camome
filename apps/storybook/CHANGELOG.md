@@ -1,5 +1,16 @@
 # @camome/storybook
 
+## 0.0.28
+
+### Patch Changes
+
+- 33ec1e5: **Breaking change**
+
+  `TextInput` is now renamed `Input` and accepts `type="<any-html-input-types>"`.
+
+- Updated dependencies [33ec1e5]
+  - @camome/core@0.0.29
+
 ## 0.0.27
 
 ### Patch Changes
