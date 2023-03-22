@@ -5,19 +5,19 @@ import { BaseProps } from "../../types";
 
 import styles from "./styles.module.scss";
 
-export type TextInputGroupProps = {
+export type InputGroupProps = {
   input: React.ReactNode;
   startDecorator?: React.ReactNode;
   endDecorator?: React.ReactNode;
 } & BaseProps;
 
-export function TextInputGroup({
+export function InputGroup({
   input,
   startDecorator,
   endDecorator,
   style,
   className,
-}: TextInputGroupProps) {
+}: InputGroupProps) {
   return (
     <div style={style} className={clsx(styles.Block, className)}>
       {startDecorator && (

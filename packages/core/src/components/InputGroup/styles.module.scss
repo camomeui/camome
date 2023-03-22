@@ -1,5 +1,5 @@
 @use "../../styles/utils";
-@use "../TextInput/variables" as textInputVars;
+@use "../Input/variables" as inputVars;
 
 @include utils.layer {
   .Block {
@@ -24,13 +24,13 @@
     @extend %decorator;
 
     left: 0;
-    width: textInputVars.$startDecorWidth;
+    width: inputVars.$startDecorWidth;
   }
 
   .decorator--end {
     @extend %decorator;
 
     right: 0;
-    width: textInputVars.$endDecorWidth;
+    width: inputVars.$endDecorWidth;
   }
 }

@@ -1,15 +1,15 @@
 import MagnifyingGlassIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 
+import { Input } from "@camome/core/Input";
+import { InputGroup } from "@camome/core/InputGroup";
 import { Kbd } from "@camome/core/Kbd";
-import { TextInput } from "@camome/core/TextInput";
-import { TextInputGroup } from "@camome/core/TextInputGroup";
 
 import styles from "./styles.module.scss";
 
 export default function Group() {
   return (
-    <TextInputGroup
-      input={<TextInput type="search" size="md" placeholder="Search" />}
+    <InputGroup
+      input={<Input type="search" size="md" placeholder="Search" />}
       startDecorator={
         <MagnifyingGlassIcon
           strokeWidth="2.5"

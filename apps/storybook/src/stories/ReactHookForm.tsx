@@ -3,10 +3,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Button } from "@camome/core/Button";
 import { Checkbox } from "@camome/core/Checkbox";
+import { Input } from "@camome/core/Input";
 import { Radio } from "@camome/core/Radio";
 import { RadioGroup } from "@camome/core/RadioGroup";
 import { Select } from "@camome/core/Select";
-import { TextInput } from "@camome/core/TextInput";
 import { Textarea } from "@camome/core/Textarea";
 
 type FormSchema = {
@@ -40,7 +40,7 @@ export default function WithReactHookForm() {
     <div style={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
         <div style={styles.col2}>
-          <TextInput
+          <Input
             label="First name"
             placeholder="John"
             error={errors.firstName?.message}
@@ -49,7 +49,7 @@ export default function WithReactHookForm() {
             })}
             fill
           />
-          <TextInput
+          <Input
             label="Last name"
             placeholder="Doe"
             error={errors.lastName?.message}

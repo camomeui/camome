@@ -9,18 +9,17 @@ import { UnstyledInput } from "../UnstyledInput";
 
 import styles from "./styles.module.scss";
 
-type OmittedNativeProps = "type" | "size";
+type OmittedNativeProps = "size";
 type NativeProps = Omit<JSX.IntrinsicElements["input"], OmittedNativeProps>;
 
-export type TextInputProps = {
-  type?: "text" | "email" | "url" | "password" | "search";
+export type InputProps = {
   size?: Size;
   fill?: boolean;
 } & BaseProps &
   NativeProps &
   Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       type = "text",
@@ -63,4 +62,4 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = "TextInput";
+Input.displayName = "Input";
