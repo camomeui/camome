@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.0
+
+### Minor Changes
+
+- 53614db: Fix style of Tooltip arrow
+
 ## 0.0.29
 
 ### Patch Changes
