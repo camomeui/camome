@@ -62,8 +62,7 @@
       bottom: 100%;
 
       &:before {
-        // `locals.$arrowSize * 2 * -1` works on Chrome but not Safari
-        bottom: calc(locals.$arrowSize * 1.9 * -1);
+        bottom: calc(locals.$arrowSize * 2 * -1 + 1px);
         left: 50%;
         translate: calc(locals.$arrowSize * -1);
         border-top: locals.$arrowSize solid var(--cmm-Tooltip-bg);
@@ -76,8 +75,9 @@
       left: 100%;
 
       &:before {
-        // `locals.$arrowSize * 2 * -1` works on Chrome but not Safari
-        left: calc(locals.$arrowSize * 1.9 * -1);
+        top: 50%;
+        left: calc(locals.$arrowSize * 2 * -1 + 1px);
+        translate: 0 -50%;
         border-right: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }
@@ -88,7 +88,7 @@
       top: 100%;
 
       &:before {
-        top: calc(locals.$arrowSize * 1.9 * -1);
+        top: calc(locals.$arrowSize * 2 * -1 + 1px);
         left: 50%;
         translate: calc(locals.$arrowSize * -1);
         border-bottom: locals.$arrowSize solid var(--cmm-Tooltip-bg);
@@ -101,7 +101,9 @@
       right: 100%;
 
       &:before {
-        right: calc(locals.$arrowSize * 1.9 * -1);
+        top: 50%;
+        right: calc(locals.$arrowSize * 2 * -1 + 1px);
+        translate: 0 -50%;
         border-left: locals.$arrowSize solid var(--cmm-Tooltip-bg);
       }
     }

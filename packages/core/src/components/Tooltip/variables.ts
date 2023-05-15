@@ -1,7 +1,7 @@
 import { ComponentCssVariables } from "../../types";
 
 const variables = {
-  arrowSize: "0.3rem",
+  arrowSize: "6px",
   offset: "0.2rem",
 } as const satisfies ComponentCssVariables;
 
