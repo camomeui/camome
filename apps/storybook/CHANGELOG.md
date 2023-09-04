@@ -1,5 +1,12 @@
 # @camome/storybook
 
+## 0.0.30
+
+### Patch Changes
+
+- Updated dependencies [de514a4]
+  - @camome/core@0.1.1
+
 ## 0.0.29
 
 ### Patch Changes
