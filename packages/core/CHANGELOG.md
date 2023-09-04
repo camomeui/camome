@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.1
+
+### Patch Changes
+
+- de514a4: Add "use client" directive to FormField.
+
 ## 0.1.0
 
 ### Minor Changes
