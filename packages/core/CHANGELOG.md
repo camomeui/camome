@@ -1,5 +1,12 @@
 # @camome/components
 
+## 0.1.2
+
+### Patch Changes
+
+- 485c32e: Make FormFieldLabel fit to content's width
+- 485c32e: Make FormField accept className and style
+
 ## 0.1.1
 
 ### Patch Changes
