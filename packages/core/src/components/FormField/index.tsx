@@ -1,7 +1,7 @@
-"use client";
-
 import clsx from "clsx";
 import React from "react";
+
+import { BaseProps } from "src/types";
 
 import { FormFieldContext, FormFieldContextValue } from "./FormFieldContext";
 import { FormFieldDescription } from "./FormFieldDescription";
@@ -19,6 +19,9 @@ export type FormFieldProps = {
   children:
     | React.ReactNode
     | ((props: FormFieldContextValue) => React.ReactNode);
+  // using `& BaseProps` breaks react-docgen somehow
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 type FormFieldApi = React.FC<FormFieldProps> & {
@@ -36,6 +39,8 @@ export const FormField = (({
   custom = false,
   fill = false,
   children,
+  className,
+  style,
 }: FormFieldProps) => {
   const useIdValue = React.useId();
   const id = _id || useIdValue;
@@ -65,19 +70,26 @@ export const FormField = (({
   return custom ? (
     content
   ) : (
-    <FormFieldContainer fill={fill}>{content}</FormFieldContainer>
+    <FormFieldContainer fill={fill} className={className} style={style}>
+      {content}
+    </FormFieldContainer>
   );
 }) as FormFieldApi;
 
 function FormFieldContainer({
   fill,
   children,
+  className,
+  style,
 }: {
   fill: boolean;
   children: React.ReactNode;
-}) {
+} & BaseProps) {
   return (
-    <div className={clsx(styles.Block, fill && styles["Block--fill"])}>
+    <div
+      className={clsx(styles.Block, fill && styles["Block--fill"], className)}
+      style={style}
+    >
       {children}
     </div>
   );
