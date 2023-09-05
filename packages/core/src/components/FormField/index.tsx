@@ -19,7 +19,10 @@ export type FormFieldProps = {
   children:
     | React.ReactNode
     | ((props: FormFieldContextValue) => React.ReactNode);
-} & BaseProps;
+  // using `& BaseProps` breaks react-docgen somehow
+  className?: string;
+  style?: React.CSSProperties;
+};
 
 type FormFieldApi = React.FC<FormFieldProps> & {
   Container: typeof FormFieldContainer;
