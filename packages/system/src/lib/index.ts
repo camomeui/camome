@@ -72,7 +72,7 @@ export async function generateCss(
   const lightTheme = modifyCss(
     generateThemeCss(light, {
       prefix,
-      selector: selector + '[data-theme="light"]',
+      selector: '[data-theme="light"]',
     }),
     {
       comment: "Theme - light",
@@ -83,7 +83,7 @@ export async function generateCss(
   const darkTheme = modifyCss(
     generateThemeCss(dark, {
       prefix,
-      selector: selector + '[data-theme="dark"]',
+      selector: '[data-theme="dark"]',
     }),
     {
       comment: "Theme - dark",
