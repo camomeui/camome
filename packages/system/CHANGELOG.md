@@ -1,5 +1,11 @@
 # @camome/system
 
+## 0.1.25
+
+### Patch Changes
+
+- 52687c9: remove :root before [data-theme="light|dark"]
+
 ## 0.1.24
 
 ### Patch Changes

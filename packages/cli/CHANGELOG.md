@@ -1,5 +1,12 @@
 # camome
 
+## 0.1.23
+
+### Patch Changes
+
+- Updated dependencies [52687c9]
+  - @camome/system@0.1.25
+
 ## 0.1.22
 
 ### Patch Changes
