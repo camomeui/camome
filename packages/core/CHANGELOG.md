@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.4
+
+### Patch Changes
+
+- 9a76ba6: IconButton's icon to use `em` instead of `rem`
+
 ## 0.1.3
 
 ### Patch Changes
