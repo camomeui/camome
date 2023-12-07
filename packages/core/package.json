@@ -50,6 +50,8 @@
     "tsup": "^6.5.0"
   },
   "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
     "react": ">=18"
   },
   "files": [

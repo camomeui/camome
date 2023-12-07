@@ -5,8 +5,6 @@ import FireIcon from "@heroicons/react/24/solid/FireIcon";
 import clsx from "clsx";
 import React from "react";
 
-import { type SvgComponent } from "@camome/utils";
-
 import { BaseProps, PolymorphicProps } from "../../types";
 import { createPolymorphicComponent } from "../../utils/createPolymorphicComponent";
 
@@ -22,7 +20,7 @@ export type MessageProps = {
   children?: React.ReactNode;
 } & BaseProps;
 
-const statusIconMap: { [S in Status]: SvgComponent } = {
+const statusIconMap: { [S in Status]: React.ComponentType } = {
   success: CheckCircleIcon,
   info: InformationCircleIcon,
   warn: ExclamationTriangleIcon,
