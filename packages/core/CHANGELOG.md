@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.5
+
+### Patch Changes
+
+- 1499834: add @types/react to peerDependencies
+
 ## 0.1.4
 
 ### Patch Changes
