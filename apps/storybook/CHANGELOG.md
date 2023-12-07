@@ -1,5 +1,13 @@
 # @camome/storybook
 
+## 0.0.34
+
+### Patch Changes
+
+- 1499834: add @types/react to peerDependencies
+- Updated dependencies [1499834]
+  - @camome/core@0.1.5
+
 ## 0.0.33
 
 ### Patch Changes
