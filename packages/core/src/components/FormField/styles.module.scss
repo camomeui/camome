@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
 
-    &:has([required]) label {
+    &:has(:is([required], [aria-required="true"])) label {
       &::after {
         content: var(--cmm-FormField-required-mark, "*");
         color: var(--cmm-color-danger-5);
