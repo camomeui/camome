@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.6
+
+### Patch Changes
+
+- 52ff22d: Support aria-required in FormField
+
 ## 0.1.5
 
 ### Patch Changes
