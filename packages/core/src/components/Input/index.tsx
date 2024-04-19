@@ -29,6 +29,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       error,
       label,
       id,
+      className,
       ...inputProps
     },
     forwardedRef
@@ -41,7 +42,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={clsx(
           styles.Block,
           styles[`Block--${size}`],
-          fill && styles[`Block--fill`]
+          fill && styles[`Block--fill`],
+          className
         )}
       />
     );
