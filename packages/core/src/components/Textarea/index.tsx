@@ -14,13 +14,16 @@ export type TextareaProps = {
   Pick<Partial<FormFieldProps>, "description" | "error" | "label">;
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ description, error, label, id, fill, ...props }, forwardedRef) => {
+  (
+    { description, error, label, id, fill, className, ...props },
+    forwardedRef
+  ) => {
     const textarea = (
       <UnstyledInput
         component="textarea"
         {...props}
         ref={forwardedRef}
-        className={clsx(styles.Block, fill && styles[`Block--fill`])}
+        className={clsx(styles.Block, fill && styles[`Block--fill`], className)}
       />
     );
 
