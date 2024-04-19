@@ -1,5 +1,11 @@
 # @camome/components
 
+## 0.1.7
+
+### Patch Changes
+
+- 0fc0a00: Passthrough className to Input and Textarea
+
 ## 0.1.6
 
 ### Patch Changes
