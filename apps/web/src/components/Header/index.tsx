@@ -7,7 +7,6 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 
 import CollapsibleNav from "@/components/CollapsibleNav";
-import { DocSearchBar } from "@/components/DocSearchBar";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import Logo from "@/components/Logo";
 import PopoverLinks from "@/components/PopoverLinks";
@@ -91,8 +90,6 @@ export default function Header({ menuContent, classNames }: Props) {
           <Navigation items={navItems} className={styles.desktopOnly} />
         </div>
         <div className={clsx(styles.right)}>
-          <DocSearchBar className={styles.searchBar} />
-          <hr className={styles.desktopOnly} />
           <LocaleSwitch />
           <Tooltip title="Toggle theme" placement="bottom">
             <ThemeSwitch />
